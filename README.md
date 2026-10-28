@@ -17,7 +17,7 @@ Bug reports sent from inside the game with **LateJoinPlus** for R.E.P.O (LJ+ men
 Nothing is sent until the player presses **Send**, after seeing exactly what will be sent.
 
 ## Removing a report
-If a report of yours should be removed, open an issue titled `Remove report <report id>` (the id is in the report), and it will be deleted.
+If a report of yours should be removed, ask on the LateJoinPlus Discord (linked on its Thunderstore page) with the report id (it's in the report), and it will be deleted.
 
 ## Not for
-Feature requests and general chat. This page is only for reports sent from the game.
+Feature requests and general chat. This page is only for reports sent from the game: issues and comments are closed to everyone else, and reports are locked once they're sorted.

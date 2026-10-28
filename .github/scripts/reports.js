@@ -56,7 +56,7 @@ function parseReport(body) {
   if (!Object.hasOwn(fields, 'Report')) return null;
   const errors = (sections['Errors in this session'] || [])
     .map(line => line.trim())
-    .filter(line => line && !/^(?:(?:there (?:were|are) )?none[.!]?|(?:there (?:were|are) )?no errors\b.*)$/i.test(line));
+    .filter(line => line && !/^(?:(?:there (?:were|are) )?none[.!]?|(?:there (?:were|are) )?no errors\b.*|No matching error lines\.)$/i.test(line));
   return {
     version: (fields.Mod || '').replace(/^LateJoinPlus\s+/i, '').trim(),
     game: fields.Game || '',
@@ -66,7 +66,7 @@ function parseReport(body) {
     language: fields.Language || '',
     category: fields.Category || '',
     reportId: fields.Report || '',
-    description: (sections.Description || []).join('\n').trim(),
+    description: (sections["Player's description"] || sections.Description || []).join('\n').trim(),
     errors,
   };
 }
@@ -250,6 +250,12 @@ async function run({ github, context, core, fetch }) {
     }
   }
 
+  async function lock(issue) {
+    if (has(issue, 'dashboard') || issue.locked) return;
+    await api.lock({ ...repo, issue_number: issue.number });
+    issue.locked = true;
+  }
+
   async function comments(issue) {
     if (!commentCache.has(issue.number)) {
       commentCache.set(issue.number, await github.paginate(api.listComments, {
@@ -412,6 +418,11 @@ async function run({ github, context, core, fetch }) {
     const recent = [];
     const now = new Date();
     const cutoff = now.getTime() - 14 * 86400000;
+    const unusual = all.filter(issue =>
+      issue.state === 'closed' && !has(issue, 'dashboard') && !has(issue, 'manual') &&
+      (has(issue, 'test') || has(issue, 'duplicate')) && parseReport(issue.body) &&
+      Date.parse(issue.closed_at) >= now.getTime() - 86400000 &&
+      Date.parse(issue.closed_at) <= now.getTime()).length;
     for (const issue of problems) {
       const report = parseReport(issue.body);
       const fixed = fixOf(issue);
@@ -465,11 +476,12 @@ async function run({ github, context, core, fetch }) {
     needs.sort(oldest);
     recent.sort((a, b) => String(b[0].closed_at).localeCompare(String(a[0].closed_at)));
     const body = [
+      ...(unusual > 20 ? ['Unusual volume in the last 24 h: ' + unusual + ' reports.'] : []),
       'Updated ' + now.toISOString() + '. Latest LateJoinPlus on Thunderstore: ' +
         (current || 'unavailable') + '.',
       ...(capped ? ['Issue scans are limited to 1,000 entries; older reports may be omitted.'] : []),
       '**Open problems**',
-      table(['Issue', 'Seen', 'Versions', 'Last seen', 'Category', 'First line of title'],
+      table(['Issue', 'Seen', 'Versions', 'Last seen', 'Category', 'Title'],
         rows.slice(0, 50).map(row => row.values)),
       '**Fix waiting for release**',
       table(['Issue', 'Version'], waiting.map(([issue, fixed]) =>
@@ -507,15 +519,30 @@ async function run({ github, context, core, fetch }) {
         const issue = (await api.get({
           ...repo, issue_number: payload.issue.number,
         })).data;
-        if (payload.action === 'opened') await opened(issue);
-        if (payload.action === 'labeled') {
-          const match = String(payload.label?.name || '').match(FIX);
-          if (match && has(issue, match[0]) && !has(issue, 'dashboard')) {
-            await ensureLabel(match[0]);
-            await once(issue, 'fix-ready', match[1],
-              'A fix is ready and will be in LateJoinPlus ' + match[1] + '.');
-            await releaseCheck([issue]);
+        const outsider = payload.issue.user?.login !== repo.owner;
+        try {
+          if (!has(issue, 'dashboard') && outsider) {
+            // The relay posts as the owner. A copied report body is not proof of origin.
+            await add(issue, 'manual');
+            await once(issue, 'game-only', issue.number,
+              'Please send reports from the game (LateJoinPlus menu → Send a bug report). ' +
+              'For anything else, use the LateJoinPlus Discord.');
+            await close(issue, 'not_planned');
+          } else {
+            if (payload.action === 'opened') await opened(issue);
+            if (payload.action === 'labeled') {
+              const match = String(payload.label?.name || '').match(FIX);
+              if (match && has(issue, match[0]) && !has(issue, 'dashboard')) {
+                await ensureLabel(match[0]);
+                await once(issue, 'fix-ready', match[1],
+                  'A fix is ready and will be in LateJoinPlus ' + match[1] + '.');
+                await releaseCheck([issue]);
+              }
+            }
           }
+        } finally {
+          // Protect every triage exit, including partial failures and retries.
+          if (outsider || parseReport(issue.body)) await lock(issue);
         }
       }
     } else if (['schedule', 'workflow_dispatch'].includes(context.eventName)) {

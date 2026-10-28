@@ -37,7 +37,7 @@ function issue(number, options = {}) {
     number, node_id: 'I_' + number, title: '[1.2.0] other: It broke',
     body: report(), labels: [], state: 'open', state_reason: null,
     created_at: new Date(Date.UTC(2026, 0, 1, 0, 0, number)).toISOString(),
-    closed_at: null, user: { login: 'HardStyleMoose', type: 'User' },
+    closed_at: null, locked: false, user: { login: 'HardStyleMoose', type: 'User' },
     ...options,
   };
 }
@@ -59,7 +59,7 @@ function fake(initial = [], latest = '1.2.0') {
   const infos = [];
   const state = {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
-    fetchCount: 0, failAdd: null,
+    fetchCount: 0, failAdd: null, failLock: 0,
   };
   function failure(status) { return Object.assign(new Error('Fake failure'), { status }); }
   function record(name, params) { calls.push({ name, ...clone(params) }); }
@@ -82,11 +82,18 @@ function fake(initial = [], latest = '1.2.0') {
     };
   }
   for (const name of ['get', 'getLabel', 'createLabel', 'addLabels', 'removeLabel',
-    'createComment', 'create', 'update']) {
+    'createComment', 'create', 'update', 'lock']) {
     api[name] = async params => {
       record(name, params);
       const item = issues.get(params.issue_number);
       let data;
+      if (name === 'lock') {
+        assert(!Object.hasOwn(params, 'lock_reason'));
+        assert(!has(item, 'dashboard'));
+        if (state.failLock > 0) { state.failLock--; throw failure(503); }
+        item.locked = true;
+        data = {};
+      }
       if (name === 'get') data = item;
       if (name === 'getLabel') {
         if (!labels.has(params.name)) throw failure(404);
@@ -639,6 +646,138 @@ test('pagination stops at 1000 and finds an older existing dashboard separately'
   assert.equal(Math.max(...scans.map(call => call.page)), 10);
   assert(env.dashboard().body.includes('limited to 1,000'));
   assert(!section(env, 'Open problems').includes('| #2 |'));
+});
+
+test('both description headings parse safely, including the relay no-error placeholder', () => {
+  for (const heading of ['Description', "Player's description"]) {
+    const body = report({ description: 'test', errors: 'No matching error lines.' })
+      .replace('### Description', '### ' + heading);
+    const parsed = parseReport(body);
+    assert.equal(parsed.description, 'test');
+    assert.equal(signature(parsed), null);
+    assert(isTestReport(parsed));
+  }
+});
+
+test('every relay triage path locks once with no reason, after triage', async () => {
+  const cases = [
+    [issue(1)],
+    [issue(1, { body: report({ description: 'test' }) })],
+    [issue(1, { body: report({ version: '1.0' }) })],
+    [issue(1, { body: report({ errors: null }) })],
+    [issue(1, { labels: [sig] }), issue(2)],
+    [issue(1, { labels: [sig, 'fixed-in:9.0'], state: 'closed' }), issue(2)],
+    [issue(1, { labels: [sig], state: 'closed' }), issue(2)],
+  ];
+  for (const items of cases) {
+    const env = fake(items);
+    const number = items.at(-1).number;
+    await env.fire('opened', number);
+    await env.fire('opened', number);
+    assert.equal(env.issues.get(number).locked, true);
+    const locks = env.calls.filter(call => call.name === 'lock');
+    assert.equal(locks.length, 1);
+    assert.equal(locks[0].issue_number, number);
+    const lockIndex = env.calls.indexOf(locks[0]);
+    assert(env.calls.slice(lockIndex + 1).every(call =>
+      call.name !== 'createComment' || call.issue_number !== number));
+    assert.equal(env.dashboard().locked, false);
+  }
+  const locked = fake([issue(1, { locked: true })]);
+  await locked.fire();
+  assert(!locked.calls.some(call => call.name === 'lock'));
+});
+
+test('non-owner issues close and lock, even copied relay bodies and removal requests', async () => {
+  for (const body of ['Hand-made message', report()]) {
+    const env = fake([issue(1, { body, title: 'Remove report SECRET',
+      user: { login: 'attacker', type: 'User' } })]);
+    await env.fire();
+    await env.fire();
+    await env.fire('reopened');
+    const item = env.issues.get(1);
+    assert.equal(item.state_reason, 'not_planned');
+    assert.equal(item.locked, true);
+    assert(has(item, 'manual'));
+    assert(!has(item, 'removal-request'));
+    assert.equal(env.count(1, 'game-only'), 1);
+    assert.equal(commentText(env, 1),
+      'Please send reports from the game (LateJoinPlus menu → Send a bug report). ' +
+      'For anything else, use the LateJoinPlus Discord.\n\n' + tag('game-only', 1));
+    assert(!env.dashboard().body.includes('SECRET'));
+    assert.equal(env.calls.filter(call => call.name === 'lock').length, 1);
+  }
+  const owner = fake([issue(1, { body: 'Hand-made' })]);
+  await owner.fire();
+  assert(has(owner.issues.get(1), 'manual'));
+  assert.equal(owner.issues.get(1).state, 'open');
+  assert.equal(owner.issues.get(1).locked, false);
+});
+
+test('locking and outsider closing recover from partial failures without repeated comments', async () => {
+  const env = fake([issue(1, { body: 'Hand-made', user: { login: 'outsider' } })]);
+  env.state.failClose = 1;
+  await assert.rejects(env.fire());
+  assert(env.issues.get(1).locked);
+  await env.fire();
+  assert.equal(env.count(1, 'game-only'), 1);
+  assert.equal(env.issues.get(1).state_reason, 'not_planned');
+
+  const relay = fake([issue(1, { body: report({ description: 'test' }) })]);
+  relay.state.failLock = 1;
+  await assert.rejects(relay.fire());
+  assert(relay.dashboard());
+  await relay.fire();
+  assert(relay.issues.get(1).locked);
+  assert.equal(relay.count(1, 'test'), 1);
+
+  const failedTriage = fake([issue(1), issue(2)]);
+  await failedTriage.fire('opened', 1);
+  failedTriage.state.failClose = 1;
+  await assert.rejects(failedTriage.fire('opened', 2));
+  assert(failedTriage.issues.get(2).locked);
+});
+
+test('dashboard is never locked, even if it has a different author', async () => {
+  const env = fake([issue(1, { title: 'Report dashboard', labels: ['dashboard'],
+    user: bot })]);
+  await env.fire();
+  assert.equal(env.issues.get(1).state, 'open');
+  assert(!env.calls.some(call => call.name === 'lock' || call.name === 'createComment'));
+});
+
+test('volume warning counts recently closed test or duplicate reports once, only above 20', async () => {
+  const now = Date.now();
+  const at = ms => new Date(now + ms).toISOString();
+  const entries = Array.from({ length: 20 }, (_, index) => issue(index + 1, {
+    labels: [index % 2 ? 'test' : 'duplicate'], state: 'closed',
+    closed_at: at(-3600000),
+  }));
+  entries.push(
+    issue(21, { labels: ['test'], state: 'closed', closed_at: at(-86400001) }),
+    issue(22, { labels: ['test'], state: 'open', closed_at: at(-1000) }),
+    issue(23, { labels: ['test'], state: 'closed', closed_at: at(3600000) }),
+    issue(24, { labels: ['test'], state: 'closed', closed_at: 'invalid' }),
+    issue(25, { labels: ['test'], state: 'closed', closed_at: at(-1000), body: 'manual' }),
+    issue(26, { labels: ['dashboard', 'test'], state: 'closed', closed_at: at(-1000) }),
+    issue(27, { labels: ['manual', 'test'], state: 'closed', closed_at: at(-1000) }),
+  );
+  const env = fake(entries);
+  await env.fire('closed', 1);
+  assert(!env.dashboard().body.includes('Unusual volume'));
+  env.issues.set(40, issue(40, { labels: ['test', 'duplicate'], state: 'closed',
+    closed_at: at(-1000) }));
+  await env.fire('closed', 1);
+  assert(env.dashboard().body.startsWith('Unusual volume in the last 24 h: 21 reports.'));
+});
+
+test('dashboard displays the error title without rewriting it', async () => {
+  const title = '[1.2.0] other: NullReferenceException: value 42';
+  const env = fake([issue(1, { title })]);
+  await env.fire();
+  assert(section(env, 'Open problems').includes(
+    '\\[1.2.0\\] other: NullReferenceException: value 42'));
+  assert(section(env, 'Open problems').includes('| Title |'));
 });
 
 (async () => {
