@@ -4,6 +4,8 @@ const assert = require('node:assert/strict');
 const { createHash } = require('node:crypto');
 const { run, parseReport, signature, compareVersions, isTestReport } = require('./reports');
 
+const NOW = new Date('2026-10-28T06:17:00Z');
+const RELAY = 'https://ljp-reports.ricketywrecked.workers.dev';
 const tests = [];
 const test = (name, fn) => tests.push({ name, fn });
 const clone = value => structuredClone(value);
@@ -60,6 +62,7 @@ function fake(initial = [], latest = '1.2.0') {
   const state = {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
     fetchCount: 0, failAdd: null, failLock: 0,
+    now: new Date(NOW), relayCalls: [], relayGet: 'ok', relayPost: 'ok',
   };
   function failure(status) { return Object.assign(new Error('Fake failure'), { status }); }
   function record(name, params) { calls.push({ name, ...clone(params) }); }
@@ -143,7 +146,7 @@ function fake(initial = [], latest = '1.2.0') {
         for (const key of ['title', 'body', 'state', 'state_reason']) {
           if (Object.hasOwn(params, key)) item[key] = params[key];
         }
-        if (params.state === 'closed') item.closed_at = new Date().toISOString();
+        if (params.state === 'closed') item.closed_at = state.now.toISOString();
         if (params.state === 'open') {
           item.closed_at = null;
           item.state_reason = null;
@@ -186,7 +189,7 @@ function fake(initial = [], latest = '1.2.0') {
     },
     async fire(action = 'opened', number = 1, label, eventName = 'issues') {
       return run({
-        github,
+        github, now: state.now,
         context: {
           repo: { owner: 'HardStyleMoose', repo: 'RicketyWrecked-reports' },
           eventName,
@@ -194,6 +197,35 @@ function fake(initial = [], latest = '1.2.0') {
         },
         core: { warning: message => warnings.push(message), info: message => infos.push(message) },
         fetch: async (url, options) => {
+          if (url.startsWith(RELAY)) {
+            assert([RELAY + '/', RELAY + '/report'].includes(url));
+            state.relayCalls.push({ url, options });
+            assert(options.signal instanceof AbortSignal);
+            assert.equal(options.redirect, 'error');
+            assert.equal(options.headers.Accept, 'application/json');
+            const post = url.endsWith('/report');
+            assert.equal(options.method, post ? 'POST' : 'GET');
+            const mode = post ? state.relayPost : state.relayGet;
+            if (mode === 'timeout') {
+              throw Object.assign(new Error('SECRET'), { name: 'TimeoutError' });
+            }
+            if (mode === 'network') throw new Error('SECRET @person');
+            const status = typeof mode === 'number' ? mode : 200;
+            return {
+              ok: status >= 200 && status < 300, status,
+              json: async () => {
+                if (mode === 'json' || status === 429) throw new Error('SECRET');
+                if (mode === 'body-timeout') {
+                  throw Object.assign(new Error('SECRET'), { name: 'AbortError' });
+                }
+                if (mode === 'invalid') return { ok: 'true', reason: 'SECRET @person' };
+                if (mode === 'service') return { ok: true, service: 'wrong', open: true };
+                if (mode === 'dry-run') return { ok: true, dryRun: false };
+                return post ? { ok: true, dryRun: true } :
+                  { ok: true, service: 'ljp-reports', open: mode !== 'closed' };
+              },
+            };
+          }
           state.fetchCount++;
           assert.equal(url, 'https://thunderstore.io/api/experimental/package/RicketyWrecked/LateJoinPlus/');
           assert(options.signal);
@@ -288,6 +320,7 @@ test('manual and removal requests remain open and comments are idempotent', asyn
   assert(has(env.issues.get(2), 'removal-request'));
   assert.equal(env.count(2, 'removal'), 1);
   assert(commentText(env, 2).includes('Thanks — the owner will remove it.'));
+  assert.equal(env.issues.get(1).state, 'open');
   assert.equal(env.issues.get(2).state, 'open');
   assert(!section(env, 'Open problems').includes('#1'));
   assert(!section(env, 'Open problems').includes('#2'));
@@ -576,7 +609,7 @@ test('needs-info requires an open relay, empty description and no errors', async
 });
 
 test('dashboard shows waiting fixes and only fixes closed within 14 days', async () => {
-  const daysAgo = n => new Date(Date.now() - n * 86400000).toISOString();
+  const daysAgo = n => new Date(NOW.getTime() - n * 86400000).toISOString();
   const env = fake([
     issue(1, { labels: ['fixed-in:9.0'] }),
     issue(2, { labels: ['fixed-in:1.0'], state: 'closed', closed_at: daysAgo(13) }),
@@ -747,7 +780,7 @@ test('dashboard is never locked, even if it has a different author', async () =>
 });
 
 test('volume warning counts recently closed test or duplicate reports once, only above 20', async () => {
-  const now = Date.now();
+  const now = NOW.getTime();
   const at = ms => new Date(now + ms).toISOString();
   const entries = Array.from({ length: 20 }, (_, index) => issue(index + 1, {
     labels: [index % 2 ? 'test' : 'duplicate'], state: 'closed',
@@ -778,6 +811,163 @@ test('dashboard displays the error title without rewriting it', async () => {
   assert(section(env, 'Open problems').includes(
     '\\[1.2.0\\] other: NullReferenceException: value 42'));
   assert(section(env, 'Open problems').includes('| Title |'));
+});
+
+test('scheduled and dispatch health checks validate both endpoints and the dry-run body', async () => {
+  for (const event of ['schedule', 'workflow_dispatch']) {
+    const env = fake([]);
+    const timeout = AbortSignal.timeout;
+    const delays = [];
+    AbortSignal.timeout = ms => { delays.push(ms); return timeout(ms); };
+    try {
+      await env.fire(null, null, null, event);
+    } finally {
+      AbortSignal.timeout = timeout;
+    }
+    assert.deepEqual(delays, [15000, 10000, 10000]);
+    assert.equal(env.state.relayCalls.length, 2);
+    const [get, post] = env.state.relayCalls;
+    assert.equal(get.url, RELAY + '/');
+    assert.equal(get.options.body, undefined);
+    assert.equal(post.url, RELAY + '/report');
+    assert.equal(post.options.headers['Content-Type'], 'application/json');
+    const body = JSON.parse(post.options.body);
+    assert.match(body.installId, /^[0-9a-f]{32}$/);
+    assert.deepEqual(body, {
+      v: 1, mod: 'LateJoinPlus', modVersion: '0.0', gameVersion: '0.0',
+      installId: body.installId, category: 'other', description: 'health check',
+      role: 'menu', level: '', players: 0, language: 'en-US', mods: [], log: '', test: true,
+    });
+    assert(env.dashboard().body.startsWith('Relay: OK (checked 2026-10-28T06:17:00Z)'));
+    assert(env.dashboard().body.includes('<!-- relay:ok:2026-10-28T06:17:00Z -->'));
+    await env.fire(null, null, null, event);
+    assert.notEqual(JSON.parse(env.state.relayCalls[3].options.body).installId, body.installId);
+    assert.equal(env.calls.filter(call => call.name === 'create').length, 1);
+    assert.equal(env.calls.filter(call => call.name === 'createComment').length, 0);
+  }
+});
+
+test('429 on dry run is healthy, but 429 on GET is a problem', async () => {
+  const env = fake([]);
+  env.state.relayPost = 429;
+  await env.fire(null, null, null, 'schedule');
+  assert(env.dashboard().body.startsWith('Relay: OK'));
+  env.state.relayGet = 429;
+  env.state.relayCalls = [];
+  await env.fire(null, null, null, 'schedule');
+  assert(env.dashboard().body.startsWith('**Relay problem:** HTTP 429'));
+  assert.equal(env.state.relayCalls.length, 1);
+});
+
+test('health failures use fixed reasons and never expose response or exception text', async () => {
+  for (const endpoint of ['relayGet', 'relayPost']) {
+    const cases = [
+      ['timeout', 'timeout'], ['body-timeout', 'timeout'], ['json', 'not JSON'],
+      [503, 'HTTP 503'], ['network', 'network error'], ['invalid', 'invalid response'],
+      ...(endpoint === 'relayGet' ? [['closed', 'closed'], ['service', 'invalid response']] :
+        [['dry-run', 'invalid response']]),
+    ];
+    for (const [mode, reason] of cases) {
+      const env = fake([]);
+      env.state[endpoint] = mode;
+      await env.fire(null, null, null, 'workflow_dispatch');
+      const body = env.dashboard().body;
+      assert(body.startsWith('**Relay problem:** ' + reason +
+        ' (checked 2026-10-28T06:17:00Z). Reports from the game may be failing.'));
+      assert(body.includes('<!-- relay:fail:2026-10-28T06:17:00Z:' + reason + ' -->'));
+      assert(!body.includes('SECRET'));
+      assert(!body.includes('@person'));
+      assert.equal(env.state.relayCalls.length, endpoint === 'relayGet' ? 1 : 2);
+    }
+  }
+});
+
+test('issue events preserve both stored health results without probing the relay', async () => {
+  for (const mode of ['ok', 'closed']) {
+    const env = fake([]);
+    env.state.relayGet = mode;
+    await env.fire(null, null, null, 'schedule');
+    const first = env.dashboard().body.split('\n\n').slice(0, 2);
+    env.state.now = new Date('2026-10-29T12:00:00Z');
+    env.state.relayCalls = [];
+    for (const action of ['opened', 'closed', 'reopened', 'labeled']) {
+      await env.fire(action, env.dashboard().number);
+      assert.deepEqual(env.dashboard().body.split('\n\n').slice(0, 2), first);
+    }
+    assert.equal(env.state.relayCalls.length, 0);
+  }
+});
+
+test('missing or hostile stored results are not echoed and do not cause an issue-event probe', async () => {
+  for (const body of [
+    '', '<!-- relay:fail:2026-10-28T06:17:00Z:SECRET @person -->',
+    '<!-- relay:fail:2026-10-28T06:17:00Z:closed\nSECRET -->',
+    '<!-- relay:ok:2026-02-30T06:17:00Z -->',
+    '<!-- relay:ok:2026-10-28T06:17:00Z:closed -->',
+    '<!-- relay:fail:2026-10-28T06:17:00Z -->',
+  ]) {
+    const env = fake([issue(1, { title: 'Report dashboard', labels: ['dashboard'], body })]);
+    await env.fire('closed', 1);
+    assert.equal(env.state.relayCalls.length, 0);
+    assert(!env.dashboard().body.includes('relay:'));
+    assert(!env.dashboard().body.includes('SECRET'));
+  }
+});
+
+test('next scheduled check replaces a stored failure with a fresh healthy result', async () => {
+  const env = fake([]);
+  env.state.relayGet = 500;
+  await env.fire(null, null, null, 'schedule');
+  env.state.relayGet = 'ok';
+  env.state.now = new Date('2026-10-29T06:17:00Z');
+  await env.fire(null, null, null, 'schedule');
+  assert(env.dashboard().body.startsWith('Relay: OK (checked 2026-10-29T06:17:00Z)'));
+  assert(!env.dashboard().body.includes('relay:fail'));
+  assert(!env.dashboard().body.includes('HTTP 500'));
+});
+
+test('reminders are hidden more than 30 UTC calendar days before their dates', async () => {
+  const env = fake([]);
+  for (const date of ['2026-10-28', '2027-03-28']) {
+    env.state.now = new Date(date + 'T23:59:59Z');
+    await env.fire('closed', null);
+    assert(!env.dashboard().body.includes('**Reminders**'));
+  }
+  env.state.now = new Date('2027-09-27T23:59:59Z');
+  await env.fire('closed', null);
+  assert(!env.dashboard().body.includes("relay's GitHub token"));
+});
+
+test('reminders appear at exactly 30 days and on the due date, on every run type', async () => {
+  for (const event of ['issues', 'schedule', 'workflow_dispatch']) {
+    const env = fake([]);
+    for (const date of ['2027-03-29', '2027-04-28']) {
+      env.state.now = new Date(date + 'T00:00:00Z');
+      await env.fire('closed', null, null, event);
+      assert(env.dashboard().body.includes('**Reminders**'));
+      assert(env.dashboard().body.includes(
+        'Only-you limit on issues/comments ends 2027-04-28: renew it (see the check-reports notes).'));
+      assert(!env.dashboard().body.includes("relay's GitHub token"));
+    }
+    for (const date of ['2027-09-28', '2027-10-28']) {
+      env.state.now = new Date(date + 'T23:59:59Z');
+      await env.fire('closed', null, null, event);
+      assert(env.dashboard().body.includes(
+        "The relay's GitHub token expires 2027-10-28: make a new one and run " +
+        '`npx wrangler secret put GITHUB_TOKEN` in tools/bug-relay.'));
+    }
+  }
+});
+
+test('past renewal dates use bold ended and expired wording', async () => {
+  const env = fake([]);
+  env.state.now = new Date('2027-04-29T00:00:00Z');
+  await env.fire('closed', null);
+  assert(env.dashboard().body.includes('**Only-you limit on issues/comments ended 2027-04-28**'));
+  env.state.now = new Date('2027-10-29T00:00:00Z');
+  await env.fire('closed', null);
+  assert(env.dashboard().body.includes('**Only-you limit on issues/comments ended 2027-04-28**'));
+  assert(env.dashboard().body.includes("**The relay's GitHub token expired 2027-10-28**"));
 });
 
 (async () => {

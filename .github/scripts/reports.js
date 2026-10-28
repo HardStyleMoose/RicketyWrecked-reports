@@ -1,6 +1,11 @@
 'use strict';
 
-const { createHash } = require('node:crypto');
+const { createHash, randomBytes } = require('node:crypto');
+
+const OUTSIDER_LIMIT_ENDS = '2027-04-28';
+const GITHUB_TOKEN_ENDS = '2027-10-28';
+const RELAY = 'https://ljp-reports.ricketywrecked.workers.dev';
+const RELAY_TIMEOUT_MS = 10000;
 
 const ENDPOINT =
   'https://thunderstore.io/api/experimental/package/RicketyWrecked/LateJoinPlus/';
@@ -154,7 +159,102 @@ function table(headers, rows) {
   ].join('\n');
 }
 
-async function run({ github, context, core, fetch }) {
+function storedRelay(body) {
+  // Accept only our timestamp format and fixed reasons; never echo arbitrary text.
+  const match = String(body || '').match(
+    /^<!-- relay:(ok|fail):(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)(?::(HTTP [1-5]\d\d|timeout|not JSON|closed|invalid response|network error))? -->$/m);
+  if (!match || (match[1] === 'fail') !== Boolean(match[3])) return null;
+  const date = new Date(match[2]);
+  if (!Number.isFinite(date.getTime()) ||
+      date.toISOString().replace('.000Z', 'Z') !== match[2]) return null;
+  return { ok: match[1] === 'ok', checked: match[2], reason: match[3] };
+}
+
+function relayLines(result) {
+  if (!result) return [];
+  const { ok, checked, reason } = result;
+  return [
+    ok ? 'Relay: OK (checked ' + checked + ')' :
+      '**Relay problem:** ' + reason + ' (checked ' + checked +
+        '). Reports from the game may be failing.',
+    '<!-- relay:' + (ok ? 'ok:' : 'fail:') + checked +
+      (ok ? '' : ':' + reason) + ' -->',
+  ];
+}
+
+async function checkRelay(fetch, now) {
+  const checked = now.toISOString().replace(/\.\d{3}Z$/, 'Z');
+  async function request(path, body) {
+    const signal = AbortSignal.timeout(RELAY_TIMEOUT_MS);
+    try {
+      const response = await fetch(RELAY + path, {
+        method: body ? 'POST' : 'GET',
+        headers: { Accept: 'application/json',
+          ...(body ? { 'Content-Type': 'application/json' } : {}) },
+        redirect: 'error',
+        signal,
+        ...(body ? { body: JSON.stringify(body) } : {}),
+      });
+      // Only the dry run may be rate limited and still count as healthy.
+      if (body && response.status === 429) return null;
+      if (!response.ok) {
+        return Number.isInteger(response.status) &&
+          response.status >= 100 && response.status <= 599 ?
+          'HTTP ' + response.status : 'invalid response';
+      }
+      let data;
+      try {
+        data = await response.json();
+      } catch (error) {
+        if (signal.aborted || ['TimeoutError', 'AbortError'].includes(error?.name)) {
+          return 'timeout';
+        }
+        return 'not JSON';
+      }
+      if (!body && data?.open === false) return 'closed';
+      if (data?.ok !== true || (body ? data?.dryRun !== true :
+          data?.service !== 'ljp-reports' || data?.open !== true)) {
+        return 'invalid response';
+      }
+      return null;
+    } catch (error) {
+      return signal.aborted || ['TimeoutError', 'AbortError'].includes(error?.name) ?
+        'timeout' : 'network error';
+    }
+  }
+  let reason = await request('/');
+  if (!reason) {
+    reason = await request('/report', {
+      v: 1, mod: 'LateJoinPlus', modVersion: '0.0', gameVersion: '0.0',
+      installId: randomBytes(16).toString('hex'), category: 'other',
+      description: 'health check', role: 'menu', level: '', players: 0,
+      language: 'en-US', mods: [], log: '', test: true,
+    });
+  }
+  return { ok: !reason, checked, reason };
+}
+
+function reminders(now) {
+  const today = now.toISOString().slice(0, 10);
+  const days = date => (Date.parse(date + 'T00:00:00Z') -
+    Date.parse(today + 'T00:00:00Z')) / 86400000;
+  const lines = [];
+  if (days(OUTSIDER_LIMIT_ENDS) <= 30) {
+    lines.push('- ' + (OUTSIDER_LIMIT_ENDS < today ?
+      '**Only-you limit on issues/comments ended ' + OUTSIDER_LIMIT_ENDS + '**' :
+      'Only-you limit on issues/comments ends ' + OUTSIDER_LIMIT_ENDS) +
+      ': renew it (see the check-reports notes).');
+  }
+  if (days(GITHUB_TOKEN_ENDS) <= 30) {
+    lines.push('- ' + (GITHUB_TOKEN_ENDS < today ?
+      "**The relay's GitHub token expired " + GITHUB_TOKEN_ENDS + '**' :
+      "The relay's GitHub token expires " + GITHUB_TOKEN_ENDS) +
+      ': make a new one and run `npx wrangler secret put GITHUB_TOKEN` in tools/bug-relay.');
+  }
+  return lines.length ? ['**Reminders**', lines.join('\n')] : [];
+}
+
+async function run({ github, context, core, fetch, now = new Date() }) {
   const api = github.rest.issues;
   const repo = context.repo;
   const commentCache = new Map();
@@ -416,7 +516,6 @@ async function run({ github, context, core, fetch }) {
     const needs = [];
     const waiting = [];
     const recent = [];
-    const now = new Date();
     const cutoff = now.getTime() - 14 * 86400000;
     const unusual = all.filter(issue =>
       issue.state === 'closed' && !has(issue, 'dashboard') && !has(issue, 'manual') &&
@@ -475,7 +574,11 @@ async function run({ github, context, core, fetch }) {
     waiting.sort((a, b) => oldest(a[0], b[0]));
     needs.sort(oldest);
     recent.sort((a, b) => String(b[0].closed_at).localeCompare(String(a[0].closed_at)));
+    const relay = ['schedule', 'workflow_dispatch'].includes(context.eventName) ?
+      await checkRelay(fetch, now) : storedRelay(dash?.body);
     const body = [
+      ...relayLines(relay),
+      ...reminders(now),
       ...(unusual > 20 ? ['Unusual volume in the last 24 h: ' + unusual + ' reports.'] : []),
       'Updated ' + now.toISOString() + '. Latest LateJoinPlus on Thunderstore: ' +
         (current || 'unavailable') + '.',
