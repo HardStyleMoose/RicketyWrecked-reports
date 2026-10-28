@@ -1,0 +1,29 @@
+name: Reports
+
+on:
+  issues:
+    types: [opened, labeled, reopened, closed]
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency: { group: reports, cancel-in-progress: false }
+
+jobs:
+  reports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/github-script@v9
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const { run } = require('./.github/scripts/reports.js');
+            await run({ github, context, core, fetch });
