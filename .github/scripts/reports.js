@@ -12,6 +12,12 @@ const ENDPOINT =
 const FIX = /^fixed-in:(\d+(?:\.\d+){1,3})$/;
 const SIG = /^sig-[0-9a-f]{7}$/;
 const LIMIT = 1000;
+const DAY = 86400000;
+// Error sources that are the owner's own mods. Log text is untrusted: a match only
+// says which name the log line used, not who really wrote it.
+const OUR_MODS = ['LateJoinPlus', 'Lobby Guard', 'R.E.P.O Fixes+'];
+const SOURCE = /^[A-Za-z0-9][A-Za-z0-9 .+_-]{0,39}$/;
+const ERROR_TAG = /^(?:\[\d{2}:\d{2}:\d{2}(?:\.\d+)?\]\s*)?\[\s*(?:Error|Fatal)\s*:([^\]\n]{0,80})\]/i;
 const BOT = 'github-actions[bot]';
 const COLORS = {
   regression: 'd73a4a',
@@ -100,6 +106,36 @@ function signature(report) {
   return 'sig-' + createHash('sha1').update(key).digest('hex').slice(0, 7);
 }
 
+// The mod named in an error line's [Error  :Source] tag, or null when it is
+// missing or does not look like a plain mod name.
+function errorSource(line) {
+  const match = String(line || '').trim().match(ERROR_TAG);
+  if (!match) return null;
+  const name = match[1].trim().replace(/\s+/g, ' ');
+  return SOURCE.test(name) ? name : null;
+}
+
+// Which mod the first error (the one the title and signature use) came from, and
+// which of our mods also logged errors in the same session.
+function sourceInfo(report) {
+  const errors = report?.errors || [];
+  const name = errorSource(errors[0]);
+  const kind = !errors.length ? 'none' : !name ? 'unknown' :
+    OUR_MODS.includes(name) ? 'ours' : name === 'Unity Log' ? 'unity' : 'other';
+  const also = [...new Set(errors.map(errorSource))]
+    .filter(other => other !== name && OUR_MODS.includes(other));
+  return { name, kind, also };
+}
+
+// How a source reads on the dashboard and in Discord; `escape` makes the
+// already-validated name safe for that markdown.
+function sourceText({ name, kind }, escape) {
+  if (kind === 'none') return 'no errors logged';
+  if (!name) return 'unknown source';
+  return kind === 'ours' ? '**' + escape(name) + '** (ours)' :
+    escape(name) + ' (' + (kind === 'unity' ? 'game or any mod' : 'other mod') + ')';
+}
+
 function validVersion(value) {
   return typeof value === 'string' && /^\d+(?:\.\d+)*$/.test(value) &&
     value.length <= 50;
@@ -145,17 +181,66 @@ const dateText = value => /^\d{4}-\d\d-\d\dT/.test(value || '') ?
 function cell(value, limit = 120) {
   return String(value || '—').split(/\r?\n/)[0].slice(0, limit)
     .replace(/[\u0000-\u001f\u007f]/g, ' ')
+    // Markdown escapes first: the entities below contain '#'.
+    .replace(/([\\\x60*_[\]~#])/g, '\\$1')
+    .replace(/^(\s*)([-+=])/, '$1\\$2').replace(/^(\s*\d+)([.)])/, '$1\\$2')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/@/g, '&#64;').replace(/\|/g, '&#124;')
-    .replace(/([\\\x60*_[\]~])/g, '\\$1');
+    .replace(/@/g, '&#64;').replace(/\|/g, '&#124;');
 }
 
-function table(headers, rows) {
+function bullets(items, empty) {
+  return items.length ? items.map(item => '- ' + item).join('\n') : empty;
+}
+
+function ago(value, now) {
+  const date = dateText(value);
+  const days = Math.round((Date.parse(now.toISOString().slice(0, 10)) -
+    Date.parse(date)) / DAY);
+  return date + (days === 0 ? ' (today)' : days === 1 ? ' (yesterday)' :
+    days > 1 ? ' (' + days + ' days ago)' : '');
+}
+
+const plural = (count, word) => count + ' ' + word + (count === 1 ? '' : 's');
+
+// Discord text from untrusted sources: one line, no backticks or control,
+// zero-width or direction characters, length-limited. Shown inside inline code
+// so Discord renders none of its markdown; mentions are also off in the request.
+function discordCode(value, limit = 150) {
+  const text = String(value || '')
+    .replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u200b-\u200f\u2028-\u202e\u2060-\u206f\ufeff\x60]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+  const short = text.length > limit ? text.slice(0, limit - 1).trimEnd() + '…' : text;
+  return '\x60' + (short || 'no title') + '\x60';
+}
+
+// The whole Discord message for one sorted report. Only fixed wording, validated
+// fields and the cleaned title: never the player's description or log text.
+function alertMessage(alert) {
+  const n = '#' + alert.number;
+  const was = alert.original ? '#' + alert.original : '';
+  const head = {
+    new: '🆕 **New problem** · ' + n,
+    seen: '🔁 **Seen again** · ' + n + (was ? ', same as ' + was : ''),
+    regression: '⚠️ **Regression** · ' + n + (was ? ' reopened ' + was : '') +
+      (validVersion(alert.fixed) ? ' (fixed in ' + alert.fixed + ')' : ''),
+    'fixed-already': '✅ **Already fixed** · ' + n + (was ? ', same as ' + was : '') +
+      (validVersion(alert.fixed) ? ' (fixed in ' + alert.fixed + ')' : ''),
+    related: '🆕 **New report** · ' + n + (was ? ', looks like closed ' + was : ''),
+  }[alert.status] || '❗ **New report, not sorted** · ' + n + ' (triage failed, check it)';
+  const version = validVersion(alert.version) ? alert.version : 'unknown';
+  const category = /^[a-z0-9][a-z0-9 -]{0,29}$/i.test(alert.category || '') ?
+    alert.category : 'unknown';
+  const escape = value => value.replace(/_/g, '\\_');
+  const { also } = alert.source;
   return [
-    '| ' + headers.join(' | ') + ' |',
-    '| ' + headers.map(() => '---').join(' | ') + ' |',
-    ...(rows.length ? rows.map(row => '| ' + row.join(' | ') + ' |') :
-      ['| None | ' + headers.slice(1).map(() => '—').join(' | ') + ' |']),
+    head,
+    'LateJoinPlus ' + version +
+      (validVersion(alert.latest) ? ' (old: ' + alert.latest + ' is out)' : '') +
+      ' · ' + category + ' · ' + (alert.source.kind === 'none' ? '' : 'from ') +
+      sourceText(alert.source, escape) +
+      (also.length ? ' · our mods also logged errors: ' + also.map(escape).join(', ') : ''),
+    discordCode(alert.title),
+    alert.url,
   ].join('\n');
 }
 
@@ -400,6 +485,7 @@ async function run({ github, context, core, fetch, now = new Date() }) {
     await duplicate(issue, original);
   }
 
+  // Every exit returns what happened, for the Discord alert.
   async function opened(issue) {
     if (has(issue, 'dashboard')) return;
     const report = parseReport(issue.body);
@@ -416,7 +502,7 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       await add(issue, 'test');
       await once(issue, 'test', issue.number, 'Test report received — closing it.');
       await close(issue, 'completed');
-      return;
+      return { status: 'test' };
     }
 
     // Resume a partially completed close without repeating routing or reopening
@@ -428,21 +514,24 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       if (duplicateTag || fixedTag) {
         await add(issue, duplicateTag ? 'duplicate' : 'fixed-already');
         await close(issue, duplicateTag ? 'not_planned' : 'completed');
-        return;
+        return duplicateTag ? { status: 'seen', original: Number(duplicateTag[1]) } :
+          { status: 'fixed-already', fixed: fixedTag[1] };
       }
     }
 
     const sig = signature(report);
     if (sig) await add(issue, sig);
     const current = await latest();
+    const result = { status: 'new' };
     if (current && validVersion(report.version) &&
         compareVersions(report.version, current) < 0) {
+      result.latest = current;
       await add(issue, 'old-version');
       await once(issue, 'old-version', current,
         'This was sent from LateJoinPlus ' + report.version + ', and ' + current +
         ' is out. Please update in r2modman; if it still happens, send a new report from the game.');
     }
-    if (!sig) return;
+    if (!sig) return result;
 
     const candidates = (await list({ labels: sig, direction: 'asc' }))
       .filter(other => other.number !== issue.number &&
@@ -450,12 +539,14 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       .sort(oldest);
     const original = candidates[0];
     // An opened event can arrive late: never make an older issue point forward.
-    if (!original || oldest(original, issue) >= 0) return;
+    if (!original || oldest(original, issue) >= 0) return result;
+    result.original = original.number;
 
     if (validVersion(report.version) &&
         await marked(original, 'regression', issue.number)) {
+      const fixed = fixOf(original);
       await regression(original, issue, report);
-      return;
+      return { ...result, status: 'regression', fixed };
     }
     if (original.state === 'open') {
       await once(original, 'seen', issue.number,
@@ -464,7 +555,7 @@ async function run({ github, context, core, fetch, now = new Date() }) {
         (/^\d{1,6}$/.test(report.players) ? report.players : 'unknown') +
         ' players, ' + shortField(report.language) + ').');
       await duplicate(issue, original);
-      return;
+      return { ...result, status: 'seen' };
     }
     const fixed = fixOf(original);
     if (fixed && validVersion(report.version)) {
@@ -474,15 +565,16 @@ async function run({ github, context, core, fetch, now = new Date() }) {
           'It happened again in v' + report.version + ' (#' + issue.number +
           '), after the fix in ' + fixed + '.');
         await regression(original, issue, report);
-      } else {
-        await add(issue, 'fixed-already');
-        await once(issue, 'fixed-already', fixed,
-          'This is fixed in LateJoinPlus ' + fixed + '. Please update in r2modman.');
-        await close(issue, 'completed');
+        return { ...result, status: 'regression', fixed };
       }
-      return;
+      await add(issue, 'fixed-already');
+      await once(issue, 'fixed-already', fixed,
+        'This is fixed in LateJoinPlus ' + fixed + '. Please update in r2modman.');
+      await close(issue, 'completed');
+      return { ...result, status: 'fixed-already', fixed };
     }
     await once(issue, 'related', original.number, 'Looks like #' + original.number + '.');
+    return { ...result, status: 'related' };
   }
 
   async function releaseCheck(issues) {
@@ -559,14 +651,31 @@ async function run({ github, context, core, fetch, now = new Date() }) {
           if (pointsHere) seen.push(issue);
         }
       }
-      const versions = [...new Set(seen.map(issue => parseReport(issue.body)?.version)
+      const reports = seen.map(issue => parseReport(issue.body)).filter(Boolean);
+      const versions = [...new Set(reports.map(report => report.version)
         .filter(validVersion))].sort(compareVersions);
       const last = seen.map(issue => issue.created_at).sort().at(-1);
+      const rootReport = parseReport(root.body);
+      const source = sourceInfo(rootReport);
+      const also = [...new Set(reports.flatMap(report => sourceInfo(report).also))]
+        .filter(other => other !== source.name);
+      const regressed = has(root, 'regression');
+      const oldOnly = Boolean(current && versions.length &&
+        compareVersions(versions.at(-1), current) < 0);
       rows.push({
-        count: seen.length, last, number: root.number,
-        values: ['#' + root.number, String(seen.length),
-          versions.join(', ') || 'unknown', dateText(last),
-          cell(parseReport(root.body)?.category || 'unknown', 40), cell(root.title)],
+        count: seen.length, last, number: root.number, ours: source.kind === 'ours', regressed,
+        text: [
+          '**#' + root.number + '** · **' + seen.length + '×** · ' +
+            sourceText(source, name => cell(name, 40)) +
+            (regressed ? ' · **regression**' : '') +
+            (oldOnly ? ' · old versions only' : ''),
+          '  last seen ' + ago(last, now) + ' · ' +
+            (versions.length ? 'v' + versions.join(', ') : 'version unknown') + ' · ' +
+            cell(rootReport?.category || 'unknown', 40) +
+            (also.length ? ' · our mods also logged errors: ' + also.map(other =>
+              cell(other, 40)).join(', ') : ''),
+          '  ' + cell(root.title),
+        ].join('\n'),
       });
     }
     rows.sort((a, b) => b.count - a.count ||
@@ -576,25 +685,36 @@ async function run({ github, context, core, fetch, now = new Date() }) {
     recent.sort((a, b) => String(b[0].closed_at).localeCompare(String(a[0].closed_at)));
     const relay = ['schedule', 'workflow_dispatch'].includes(context.eventName) ?
       await checkRelay(fetch, now) : storedRelay(dash?.body);
+    const ours = rows.filter(row => row.ours).length;
+    const regressions = rows.filter(row => row.regressed).length;
+    const total = rows.reduce((sum, row) => sum + row.count, 0);
+    const today = problems.filter(issue => parseReport(issue.body) &&
+      Date.parse(issue.created_at) >= now.getTime() - DAY &&
+      Date.parse(issue.created_at) <= now.getTime()).length;
+    const shown = rows.slice(0, 50);
     const body = [
+      '## ' + (rows.length ? plural(rows.length, 'open problem') + ' (' +
+        plural(total, 'report') + ')' : 'No open problems') + '\n' +
+        [...(regressions ? ['**' + plural(regressions, 'regression') + '**'] : []),
+          ours + ' from our mods', (rows.length - ours) + ' from other mods or the game',
+          plural(today, 'new report') + ' in the last 24 h'].join(' · '),
       ...relayLines(relay),
       ...reminders(now),
       ...(unusual > 20 ? ['Unusual volume in the last 24 h: ' + unusual + ' reports.'] : []),
+      '### Open problems',
+      bullets(shown.map(row => row.text), 'None.') +
+        (rows.length > shown.length ? '\n\n…and ' + (rows.length - shown.length) +
+          ' more with fewer reports.' : ''),
+      ...(waiting.length ? ['### Fix waiting for release', bullets(waiting.map(
+        ([issue, fixed]) => '#' + issue.number + ' · fix in ' + fixed))] : []),
+      ...(recent.length ? ['### Fixed in the last 14 days', bullets(recent.map(
+        ([issue, fixed]) => '#' + issue.number + ' · fixed in ' + fixed + ' · closed ' +
+          dateText(issue.closed_at)))] : []),
+      ...(needs.length ? ['### Needs info', bullets(needs.map(issue =>
+        '#' + issue.number + ' · sent ' + dateText(issue.created_at)))] : []),
       'Updated ' + now.toISOString() + '. Latest LateJoinPlus on Thunderstore: ' +
-        (current || 'unavailable') + '.',
-      ...(capped ? ['Issue scans are limited to 1,000 entries; older reports may be omitted.'] : []),
-      '**Open problems**',
-      table(['Issue', 'Seen', 'Versions', 'Last seen', 'Category', 'Title'],
-        rows.slice(0, 50).map(row => row.values)),
-      '**Fix waiting for release**',
-      table(['Issue', 'Version'], waiting.map(([issue, fixed]) =>
-        ['#' + issue.number, fixed])),
-      '**Fixed in the last 14 days**',
-      table(['Issue', 'Version', 'Closed'], recent.map(([issue, fixed]) =>
-        ['#' + issue.number, fixed, dateText(issue.closed_at)])),
-      '**Needs info**',
-      table(['Issue', 'Date'], needs.map(issue =>
-        ['#' + issue.number, dateText(issue.created_at)])),
+        (current || 'unavailable') + '.' +
+        (capped ? ' Issue scans are limited to 1,000 entries; older reports may be omitted.' : ''),
     ].join('\n\n');
 
     await ensureLabel('dashboard');
@@ -614,6 +734,7 @@ async function run({ github, context, core, fetch, now = new Date() }) {
     }
   }
 
+  let alert = null;
   try {
     if (context.eventName === 'issues') {
       const payload = context.payload;
@@ -632,7 +753,21 @@ async function run({ github, context, core, fetch, now = new Date() }) {
               'For anything else, use the LateJoinPlus Discord.');
             await close(issue, 'not_planned');
           } else {
-            if (payload.action === 'opened') await opened(issue);
+            if (payload.action === 'opened') {
+              const report = !has(issue, 'dashboard') && parseReport(issue.body);
+              if (report && !isTestReport(report)) {
+                // Starts as "not sorted", so a triage failure still alerts.
+                alert = {
+                  status: 'unsorted', number: issue.number, title: issue.title,
+                  url: 'https://github.com/' + repo.owner + '/' + repo.repo +
+                    '/issues/' + issue.number,
+                  version: report.version, category: report.category,
+                  source: sourceInfo(report),
+                };
+              }
+              const result = await opened(issue);
+              if (alert) Object.assign(alert, result);
+            }
             if (payload.action === 'labeled') {
               const match = String(payload.label?.name || '').match(FIX);
               if (match && has(issue, match[0]) && !has(issue, 'dashboard')) {
@@ -652,9 +787,14 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       await releaseCheck(await list());
     }
   } finally {
+    // Set before the dashboard update, so a dashboard failure cannot drop the alert.
+    if (alert) core.setOutput('discord', alertMessage(alert));
     // Re-read after mutations; bot-generated events do not run another workflow.
     await dashboard();
   }
 }
 
-module.exports = { run, parseReport, signature, compareVersions, isTestReport };
+module.exports = {
+  run, parseReport, signature, compareVersions, isTestReport, errorSource, sourceInfo,
+  alertMessage,
+};
