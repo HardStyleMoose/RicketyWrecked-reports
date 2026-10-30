@@ -2,9 +2,13 @@
 
 const assert = require('node:assert/strict');
 const { createHash } = require('node:crypto');
-const { run, parseReport, signature, compareVersions, isTestReport } = require('./reports');
+const {
+  run, parseReport, signature, compareVersions, isTestReport, errorSource, sourceInfo,
+  alertMessage,
+} = require('./reports');
 
 const NOW = new Date('2026-10-28T06:17:00Z');
+const DAY = 86400000;
 const RELAY = 'https://ljp-reports.ricketywrecked.workers.dev';
 const tests = [];
 const test = (name, fn) => tests.push({ name, fn });
@@ -59,6 +63,7 @@ function fake(initial = [], latest = '1.2.0') {
   const calls = [];
   const warnings = [];
   const infos = [];
+  const outputs = [];
   const state = {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
     fetchCount: 0, failAdd: null, failLock: 0,
@@ -177,7 +182,7 @@ function fake(initial = [], latest = '1.2.0') {
     },
   };
   const env = {
-    issues, labels, comments, calls, warnings, infos, state, github,
+    issues, labels, comments, calls, warnings, infos, outputs, state, github,
     count(number, kind) {
       return (comments.get(number) || []).filter(comment =>
         comment.user.login === bot.login &&
@@ -195,7 +200,10 @@ function fake(initial = [], latest = '1.2.0') {
           eventName,
           payload: { action, issue: clone(issues.get(number)), label: { name: label } },
         },
-        core: { warning: message => warnings.push(message), info: message => infos.push(message) },
+        core: {
+          warning: message => warnings.push(message), info: message => infos.push(message),
+          setOutput: (name, value) => outputs.push({ name, value }),
+        },
         fetch: async (url, options) => {
           if (url.startsWith(RELAY)) {
             assert([RELAY + '/', RELAY + '/report'].includes(url));
@@ -249,7 +257,18 @@ function commentText(env, number) {
 }
 
 function section(env, title) {
-  return env.dashboard().body.split('**' + title + '**\n\n')[1].split('\n\n**')[0];
+  const rest = env.dashboard().body.split('### ' + title + '\n\n')[1];
+  return rest === undefined ? '' : rest.split('\n\n### ')[0].split('\n\nUpdated ')[0];
+}
+
+// The dashboard after its summary block: the relay result comes first there.
+const afterSummary = env => env.dashboard().body.split('\n\n').slice(1).join('\n\n');
+
+// One open-problem entry: its three lines, starting at the issue number.
+function entry(env, number) {
+  const open = section(env, 'Open problems');
+  const start = open.indexOf('- **#' + number + '** ');
+  return start < 0 ? '' : open.slice(start).split('\n- ')[0];
 }
 
 test('parse complete relay report and CRLF', () => {
@@ -357,7 +376,8 @@ test('signature label creation, old-version advice and open duplicate routing', 
   assert(commentText(env, 1).includes('Seen again in #2 (v1.1.0, menu, 0 players, en-US).'));
   assert(commentText(env, 2).includes('Same problem as #1 — following it there. Thanks!'));
   assert(commentText(env, 2).includes('This was sent from LateJoinPlus 1.1.0, and 1.2.0 is out.'));
-  assert(section(env, 'Open problems').includes('| #1 | 2 | 1.1.0, 1.2.0 |'));
+  assert(entry(env, 1).startsWith('- **#1** · **2×** · Unity Log (game or any mod)\n' +
+    '  last seen 2026-01-01 (300 days ago) · v1.1.0, 1.2.0 · other\n'));
 });
 
 test('duplicates select oldest eligible original across multiple pages', async () => {
@@ -380,8 +400,8 @@ test('no signature means no duplicate, even with identical descriptions', async 
   assert.equal(env.issues.get(1).state, 'open');
   assert.equal(env.issues.get(2).state, 'open');
   assert(!has(env.issues.get(2), 'duplicate'));
-  assert(section(env, 'Open problems').includes('| #1 | 1 |'));
-  assert(section(env, 'Open problems').includes('| #2 | 1 |'));
+  assert(entry(env, 1).startsWith('- **#1** · **1×** · no errors logged\n'));
+  assert(entry(env, 2).startsWith('- **#2** · **1×** · no errors logged\n'));
 });
 
 test('older than a released fix closes fixed-already, completed', async () => {
@@ -459,7 +479,7 @@ test('fixed-in label announces once, waits, then dispatch closes and removes reg
   assert.equal(env.issues.get(1).state, 'open');
   assert.equal(env.count(1, 'fix-ready'), 1);
   assert(commentText(env, 1).includes('A fix is ready and will be in LateJoinPlus 1.10.0.'));
-  assert(section(env, 'Fix waiting for release').includes('| #1 | 1.10.0 |'));
+  assert.equal(section(env, 'Fix waiting for release'), '- #1 · fix in 1.10.0');
   env.state.latest = '1.10.0';
   await env.fire(null, null, null, 'workflow_dispatch');
   await env.fire(null, null, null, 'workflow_dispatch');
@@ -468,7 +488,9 @@ test('fixed-in label announces once, waits, then dispatch closes and removes reg
   assert(!has(env.issues.get(1), 'regression'));
   assert(commentText(env, 1).includes(
     'Fixed in LateJoinPlus 1.10.0 — update in r2modman. If it still happens, send a new report from the game.'));
-  assert(section(env, 'Fixed in the last 14 days').includes('| #1 | 1.10.0 |'));
+  assert.equal(section(env, 'Fixed in the last 14 days'),
+    '- #1 · fixed in 1.10.0 · closed 2026-10-28');
+  assert.equal(section(env, 'Fix waiting for release'), '');
 });
 
 test('already released fixed-in closes immediately; retry repairs failed close', async () => {
@@ -586,12 +608,15 @@ test('dashboard groups only linked duplicates; versions and last-seen use report
   env.comments.set(5, [{ body: tag('duplicate', 99), user: bot }]);
   await env.fire('closed', 1);
   const open = section(env, 'Open problems');
-  assert(open.includes('| #1 | 3 | 1.9.0, 1.10.0 | 2026-01-01 | other |'));
+  assert(entry(env, 1).startsWith('- **#1** · **3×** · Unity Log (game or any mod)\n' +
+    '  last seen 2026-01-01 (300 days ago) · v1.9.0, 1.10.0 · other\n'));
   assert(!open.includes('8.0'));
-  assert(!open.includes('9.0 |'));
-  assert(open.indexOf('| #1 |') < open.indexOf('| #10 |'));
-  assert(open.indexOf('| #10 |') < open.indexOf('| #9 |'));
-  for (const number of [6, 7, 8]) assert(!open.includes('| #' + number + ' |'));
+  assert(!open.includes('v9.0'));
+  assert(open.indexOf('**#1**') < open.indexOf('**#10**'));
+  assert(open.indexOf('**#10**') < open.indexOf('**#9**'));
+  for (const number of [6, 7, 8]) assert(!open.includes('**#' + number + '**'));
+  assert(env.dashboard().body.startsWith('## 3 open problems (5 reports)\n' +
+    '0 from our mods · 3 from other mods or the game · 0 new reports in the last 24 h'));
 });
 
 test('needs-info requires an open relay, empty description and no errors', async () => {
@@ -604,7 +629,7 @@ test('needs-info requires an open relay, empty description and no errors', async
   await env.fire('closed', 1);
   assert(has(env.issues.get(1), 'needs-info'));
   for (const number of [2, 3, 4]) assert(!has(env.issues.get(number), 'needs-info'));
-  assert(section(env, 'Needs info').includes('| #1 |'));
+  assert.equal(section(env, 'Needs info'), '- #1 · sent 2026-01-01');
   assert.equal(env.labels.get('needs-info').color, 'd4c5f9');
 });
 
@@ -618,10 +643,9 @@ test('dashboard shows waiting fixes and only fixes closed within 14 days', async
     issue(5, { labels: ['test', 'fixed-in:1.0'], state: 'closed', closed_at: daysAgo(1) }),
   ]);
   await env.fire('closed', 1);
-  assert(section(env, 'Fix waiting for release').includes('| #1 | 9.0 |'));
-  const recent = section(env, 'Fixed in the last 14 days');
-  assert(recent.includes('| #2 | 1.0 |'));
-  for (const number of [3, 4, 5]) assert(!recent.includes('| #' + number + ' |'));
+  assert.equal(section(env, 'Fix waiting for release'), '- #1 · fix in 9.0');
+  assert.equal(section(env, 'Fixed in the last 14 days'),
+    '- #2 · fixed in 1.0 · closed 2026-10-15');
 });
 
 test('dashboard is created once, rewrites its body, ignores pin failures and skips opened triage', async () => {
@@ -634,8 +658,13 @@ test('dashboard is created once, rewrites its body, ignores pin failures and ski
   assert.equal(env.calls.filter(call => call.name === 'create').length, 1);
   assert.equal(env.calls.filter(call => call.name === 'createComment').length, 0);
   assert(!has(dash, 'manual'));
-  assert(dash.body.startsWith('Updated '));
-  assert(dash.body.includes('Latest LateJoinPlus on Thunderstore: 1.2.0.'));
+  assert(dash.body.startsWith('## No open problems\n'));
+  assert(dash.body.endsWith('Updated 2026-10-28T06:17:00.000Z. ' +
+    'Latest LateJoinPlus on Thunderstore: 1.2.0.'));
+  assert.equal(section(env, 'Open problems'), 'None.');
+  for (const title of ['Fix waiting for release', 'Fixed in the last 14 days', 'Needs info']) {
+    assert(!dash.body.includes(title));
+  }
   assert.equal(env.labels.get('dashboard').color, '5319e7');
   assert.equal(env.infos.length, 2);
 });
@@ -662,9 +691,11 @@ test('dashboard caps open rows at 50 and excludes pull requests', async () => {
   const env = fake(items);
   await env.fire('closed', 1);
   const open = section(env, 'Open problems');
-  assert.equal((open.match(/^\| #/gm) || []).length, 50);
-  assert(!open.includes('| #61 |'));
-  assert(open.includes('| #60 |'));
+  assert.equal((open.match(/^- \*\*#/gm) || []).length, 50);
+  assert(!open.includes('**#61**'));
+  assert(open.includes('**#60**'));
+  assert(open.endsWith('\n\n…and 10 more with fewer reports.'));
+  assert(env.dashboard().body.startsWith('## 60 open problems (60 reports)\n'));
 });
 
 test('pagination stops at 1000 and finds an older existing dashboard separately', async () => {
@@ -678,7 +709,7 @@ test('pagination stops at 1000 and finds an older existing dashboard separately'
   const scans = env.calls.filter(call => call.name === 'listForRepo' && !call.labels);
   assert.equal(Math.max(...scans.map(call => call.page)), 10);
   assert(env.dashboard().body.includes('limited to 1,000'));
-  assert(!section(env, 'Open problems').includes('| #2 |'));
+  assert(!section(env, 'Open problems').includes('**#2**'));
 });
 
 test('both description headings parse safely, including the relay no-error placeholder', () => {
@@ -801,16 +832,14 @@ test('volume warning counts recently closed test or duplicate reports once, only
   env.issues.set(40, issue(40, { labels: ['test', 'duplicate'], state: 'closed',
     closed_at: at(-1000) }));
   await env.fire('closed', 1);
-  assert(env.dashboard().body.startsWith('Unusual volume in the last 24 h: 21 reports.'));
+  assert(env.dashboard().body.split('\n\n')[1] === 'Unusual volume in the last 24 h: 21 reports.');
 });
 
 test('dashboard displays the error title without rewriting it', async () => {
   const title = '[1.2.0] other: NullReferenceException: value 42';
   const env = fake([issue(1, { title })]);
   await env.fire();
-  assert(section(env, 'Open problems').includes(
-    '\\[1.2.0\\] other: NullReferenceException: value 42'));
-  assert(section(env, 'Open problems').includes('| Title |'));
+  assert(entry(env, 1).endsWith('\n  \\[1.2.0\\] other: NullReferenceException: value 42'));
 });
 
 test('scheduled and dispatch health checks validate both endpoints and the dry-run body', async () => {
@@ -838,7 +867,7 @@ test('scheduled and dispatch health checks validate both endpoints and the dry-r
       installId: body.installId, category: 'other', description: 'health check',
       role: 'menu', level: '', players: 0, language: 'en-US', mods: [], log: '', test: true,
     });
-    assert(env.dashboard().body.startsWith('Relay: OK (checked 2026-10-28T06:17:00Z)'));
+    assert(afterSummary(env).startsWith('Relay: OK (checked 2026-10-28T06:17:00Z)'));
     assert(env.dashboard().body.includes('<!-- relay:ok:2026-10-28T06:17:00Z -->'));
     await env.fire(null, null, null, event);
     assert.notEqual(JSON.parse(env.state.relayCalls[3].options.body).installId, body.installId);
@@ -851,11 +880,11 @@ test('429 on dry run is healthy, but 429 on GET is a problem', async () => {
   const env = fake([]);
   env.state.relayPost = 429;
   await env.fire(null, null, null, 'schedule');
-  assert(env.dashboard().body.startsWith('Relay: OK'));
+  assert(afterSummary(env).startsWith('Relay: OK'));
   env.state.relayGet = 429;
   env.state.relayCalls = [];
   await env.fire(null, null, null, 'schedule');
-  assert(env.dashboard().body.startsWith('**Relay problem:** HTTP 429'));
+  assert(afterSummary(env).startsWith('**Relay problem:** HTTP 429'));
   assert.equal(env.state.relayCalls.length, 1);
 });
 
@@ -872,7 +901,7 @@ test('health failures use fixed reasons and never expose response or exception t
       env.state[endpoint] = mode;
       await env.fire(null, null, null, 'workflow_dispatch');
       const body = env.dashboard().body;
-      assert(body.startsWith('**Relay problem:** ' + reason +
+      assert(afterSummary(env).startsWith('**Relay problem:** ' + reason +
         ' (checked 2026-10-28T06:17:00Z). Reports from the game may be failing.'));
       assert(body.includes('<!-- relay:fail:2026-10-28T06:17:00Z:' + reason + ' -->'));
       assert(!body.includes('SECRET'));
@@ -887,12 +916,12 @@ test('issue events preserve both stored health results without probing the relay
     const env = fake([]);
     env.state.relayGet = mode;
     await env.fire(null, null, null, 'schedule');
-    const first = env.dashboard().body.split('\n\n').slice(0, 2);
+    const first = env.dashboard().body.split('\n\n').slice(1, 3);
     env.state.now = new Date('2026-10-29T12:00:00Z');
     env.state.relayCalls = [];
     for (const action of ['opened', 'closed', 'reopened', 'labeled']) {
       await env.fire(action, env.dashboard().number);
-      assert.deepEqual(env.dashboard().body.split('\n\n').slice(0, 2), first);
+      assert.deepEqual(env.dashboard().body.split('\n\n').slice(1, 3), first);
     }
     assert.equal(env.state.relayCalls.length, 0);
   }
@@ -921,7 +950,7 @@ test('next scheduled check replaces a stored failure with a fresh healthy result
   env.state.relayGet = 'ok';
   env.state.now = new Date('2026-10-29T06:17:00Z');
   await env.fire(null, null, null, 'schedule');
-  assert(env.dashboard().body.startsWith('Relay: OK (checked 2026-10-29T06:17:00Z)'));
+  assert(afterSummary(env).startsWith('Relay: OK (checked 2026-10-29T06:17:00Z)'));
   assert(!env.dashboard().body.includes('relay:fail'));
   assert(!env.dashboard().body.includes('HTTP 500'));
 });
@@ -968,6 +997,271 @@ test('past renewal dates use bold ended and expired wording', async () => {
   await env.fire('closed', null);
   assert(env.dashboard().body.includes('**Only-you limit on issues/comments ended 2027-04-28**'));
   assert(env.dashboard().body.includes("**The relay's GitHub token expired 2027-10-28**"));
+});
+
+const repolib = '[16:18:35.8448118] [Error  :   REPOLib] HarmonyLib.HarmonyException: ' +
+  'Patching exception in method null\n  at HarmonyLib.PatchClassProcessor.Patch () [0x0006a]';
+const ourError = '[16:19:02.1] [Error  :LateJoinPlus] NullReferenceException: value 7\n  at Late.Join ()';
+const alerts = env => env.outputs.filter(output => output.name === 'discord')
+  .map(output => output.value);
+
+test('error source comes from the [Error  :Source] tag, padded or not', () => {
+  for (const [line, name] of [
+    ['[16:18:35.8448118] [Error  :   REPOLib] HarmonyLib.HarmonyException: x', 'REPOLib'],
+    ['[Error  :LateJoinPlus] Boom', 'LateJoinPlus'],
+    ['[01:02:03] [Error  : Unity Log] NullReferenceException', 'Unity Log'],
+    ['[Error:R.E.P.O Fixes+] x', 'R.E.P.O Fixes+'],
+    ['  [Fatal  :Lobby  Guard] x', 'Lobby Guard'],
+    ['[error : Some_Mod-2] x', 'Some_Mod-2'],
+  ]) {
+    assert.equal(errorSource(line), name, line);
+  }
+  for (const line of [
+    'NullReferenceException without a tag', '[Info   :LateJoinPlus] not an error',
+    'at Foo.Bar ()', '[Error  :] empty', '[Error  :<@123>] mention',
+    '[Error  :\x60code\x60] tick', '[Error  :**bold**] md', '[Error  :x(https://e.com)] link',
+    '[Error  :' + 'a'.repeat(41) + '] long', '[Error  :@everyone] ping',
+    '[Error  :-dash] leading', '[Error  :ok‮] bidi', 'prefix [Error  :LateJoinPlus] later',
+  ]) {
+    assert.equal(errorSource(line), null, line);
+  }
+});
+
+test('source info marks our mods, Unity Log and other mods, and our later errors', () => {
+  const info = errors => sourceInfo(parseReport(report({ errors })));
+  assert.deepEqual(info(repolib + '\n' + ourError + '\n[Error  :Lobby Guard] x\n' + ourError),
+    { name: 'REPOLib', kind: 'other', also: ['LateJoinPlus', 'Lobby Guard'] });
+  assert.deepEqual(info(ourError + '\n' + ourError), { name: 'LateJoinPlus', kind: 'ours', also: [] });
+  assert.deepEqual(info('[Error  :R.E.P.O Fixes+] x'),
+    { name: 'R.E.P.O Fixes+', kind: 'ours', also: [] });
+  assert.deepEqual(info(defaultError), { name: 'Unity Log', kind: 'unity', also: [] });
+  assert.deepEqual(info('Plain error\n' + ourError), { name: null, kind: 'unknown', also: ['LateJoinPlus'] });
+  assert.deepEqual(info(null), { name: null, kind: 'none', also: [] });
+  // Exact names only: a look-alike is somebody else's mod.
+  assert.equal(info('[Error  :latejoinplus] x').kind, 'other');
+});
+
+test('signatures are unchanged by source detection and still split sources', () => {
+  // Same hash as before this change: existing sig- labels keep grouping.
+  const key = 'REPOLib HarmonyLib.HarmonyException: Patching exception in method null\n' +
+    'at HarmonyLib.PatchClassProcessor.Patch ()';
+  assert.equal(signature(parseReport(report({ errors: repolib }))),
+    'sig-' + createHash('sha1').update(key).digest('hex').slice(0, 7));
+  assert.notEqual(signature(parseReport(report({ errors: repolib.replace('REPOLib', 'Other') }))),
+    signature(parseReport(report({ errors: repolib }))));
+});
+
+test('dashboard leads with counts and shows each problem source, regressions and age', async () => {
+  const at = ms => new Date(NOW.getTime() - ms).toISOString();
+  const ours = signature(parseReport(report({ errors: ourError })));
+  const theirs = signature(parseReport(report({ errors: repolib })));
+  const env = fake([
+    issue(1, { labels: [theirs], body: report({ errors: repolib, category: 'crash', version: '1.1.0' }),
+      title: '[1.1.0] crash: HarmonyLib.HarmonyException: Patching exception', created_at: at(3 * DAY) }),
+    issue(2, { labels: [theirs, 'duplicate'], state: 'closed', created_at: at(DAY + 1000),
+      body: report({ errors: repolib + '\n' + ourError, version: '1.1.5' }) }),
+    issue(3, { labels: [ours, 'regression'], body: report({ errors: ourError }),
+      title: '[1.2.0] other: NullReferenceException: value 7', created_at: at(60000) }),
+    issue(4, { labels: ['test'], created_at: at(1000) }),
+  ], '1.2.0');
+  env.comments.set(2, [{ body: tag('duplicate', 1), user: bot }]);
+  await env.fire('closed', 4);
+  const body = env.dashboard().body;
+  assert(body.startsWith('## 2 open problems (3 reports)\n**1 regression** · 1 from our mods · ' +
+    '1 from other mods or the game · 1 new report in the last 24 h\n\n### Open problems\n\n'));
+  assert.equal(entry(env, 1), '- **#1** · **2×** · REPOLib (other mod) · old versions only\n' +
+    '  last seen 2026-10-27 (yesterday) · v1.1.0, 1.1.5 · crash · ' +
+    'our mods also logged errors: LateJoinPlus\n' +
+    '  \\[1.1.0\\] crash: HarmonyLib.HarmonyException: Patching exception');
+  assert.equal(entry(env, 3), '- **#3** · **1×** · **LateJoinPlus** (ours) · **regression**\n' +
+    '  last seen 2026-10-28 (today) · v1.2.0 · other\n' +
+    '  \\[1.2.0\\] other: NullReferenceException: value 7');
+  assert(section(env, 'Open problems').indexOf('**#1**') < section(env, 'Open problems').indexOf('**#3**'));
+});
+
+test('dashboard shows hostile or missing sources as unknown, escaped', async () => {
+  const env = fake([
+    issue(1, { body: report({ errors: '[Error  :<img src=x> @everyone] x' }) }),
+    issue(2, { body: report({ errors: '[Error  :**bold**](https://e.com)] x' }) }),
+    issue(3, { body: report({ errors: '[Error  :Some_Mod] x', category: '- list' }),
+      title: '# heading 1. @person' }),
+  ]);
+  await env.fire('closed', 1);
+  const body = env.dashboard().body;
+  assert(entry(env, 1).startsWith('- **#1** · **1×** · unknown source\n'));
+  assert(entry(env, 2).startsWith('- **#2** · **1×** · unknown source\n'));
+  assert(entry(env, 3).startsWith('- **#3** · **1×** · Some\\_Mod (other mod)\n'));
+  assert(entry(env, 3).endsWith('\n  \\# heading 1. &#64;person'));
+  assert(entry(env, 3).includes(' · \\- list'));
+  for (const text of ['<img', '@everyone', '**bold**', '](https']) assert(!body.includes(text));
+});
+
+test('cell escaping keeps entities intact and neutralizes line-start markdown', async () => {
+  for (const [title, shown] of [
+    ['a | b @c #1', 'a &#124; b &#64;c \\#1'], ['- item', '\\- item'], ['+ item', '\\+ item'],
+    ['12. item', '12\\. item'], ['3) item', '3\\) item'], ['> quote', '&gt; quote'],
+    ['=== x', '\\=== x'],
+  ]) {
+    const env = fake([issue(1, { title, body: report({ errors: null }) })]);
+    await env.fire('closed', 1);
+    assert(entry(env, 1).endsWith('\n  ' + shown), title);
+  }
+});
+
+test('discord alert: new problem with version, category, source and link', async () => {
+  const env = fake([issue(7, { body: report({ errors: repolib + '\n' + ourError, category: 'crash' }),
+    title: '[1.2.0] crash: HarmonyLib.HarmonyException: Patching exception' })]);
+  await env.fire('opened', 7);
+  assert.deepEqual(alerts(env), [
+    '🆕 **New problem** · #7\n' +
+    'LateJoinPlus 1.2.0 · crash · from REPOLib (other mod) · our mods also logged errors: LateJoinPlus\n' +
+    '\x60[1.2.0] crash: HarmonyLib.HarmonyException: Patching exception\x60\n' +
+    'https://github.com/HardStyleMoose/RicketyWrecked-reports/issues/7',
+  ]);
+  const ours = fake([issue(1, { body: report({ errors: ourError }) })]);
+  await ours.fire('opened', 1);
+  assert(alerts(ours)[0].includes(' · other · from **LateJoinPlus** (ours)\n'));
+});
+
+test('discord alert says seen again, old version, regression, fixed already or related', async () => {
+  const seen = fake([issue(1, { labels: [sig] }), issue(2, { body: report({ version: '1.1.0' }) })]);
+  await seen.fire('opened', 2);
+  assert.equal(alerts(seen)[0].split('\n').slice(0, 2).join('\n'),
+    '🔁 **Seen again** · #2, same as #1\n' +
+    'LateJoinPlus 1.1.0 (old: 1.2.0 is out) · other · from Unity Log (game or any mod)');
+
+  const regression = fake([issue(1, { labels: [sig, 'fixed-in:1.2.0'], state: 'closed' }), issue(2)]);
+  await regression.fire('opened', 2);
+  assert(alerts(regression)[0].startsWith('⚠️ **Regression** · #2 reopened #1 (fixed in 1.2.0)\n'));
+
+  const fixed = fake([issue(1, { labels: [sig, 'fixed-in:1.3.0'], state: 'closed' }), issue(2)]);
+  await fixed.fire('opened', 2);
+  assert(alerts(fixed)[0].startsWith('✅ **Already fixed** · #2, same as #1 (fixed in 1.3.0)\n'));
+
+  const related = fake([issue(1, { labels: [sig], state: 'closed' }), issue(2)]);
+  await related.fire('opened', 2);
+  assert(alerts(related)[0].startsWith('🆕 **New report** · #2, looks like closed #1\n'));
+
+  // A late opened event for the older issue is new, never "seen again" pointing forward.
+  const late = fake([issue(1), issue(2, { labels: [sig] })]);
+  await late.fire('opened', 1);
+  assert(alerts(late)[0].startsWith('🆕 **New problem** · #1\n'));
+});
+
+test('discord alert on retries: resumed paths and failed triage still alert', async () => {
+  const env = fake([issue(1, { labels: [sig] }), issue(2)]);
+  env.state.failClose = 1;
+  await assert.rejects(env.fire('opened', 2));
+  assert(alerts(env)[0].startsWith('❗ **New report, not sorted** · #2 (triage failed, check it)\n'));
+  await env.fire('opened', 2);
+  assert(alerts(env)[1].startsWith('🔁 **Seen again** · #2, same as #1\n'));
+
+  const regression = fake([issue(1, { labels: [sig, 'fixed-in:1.2.0'], state: 'closed' }), issue(2)]);
+  regression.state.failAdd = 'regression';
+  await assert.rejects(regression.fire('opened', 2));
+  await regression.fire('opened', 2);
+  assert(alerts(regression)[0].startsWith('❗ **New report, not sorted** · #2'));
+  assert(alerts(regression)[1].startsWith('⚠️ **Regression** · #2 reopened #1 (fixed in 1.2.0)\n'));
+});
+
+test('no discord alert for tests, outsiders, hand-made issues, the dashboard or other events', async () => {
+  const cases = [
+    [issue(1, { body: report({ description: 'test' }) })],
+    [issue(1, { body: report({ description: 'setup test 2' }) })],
+    [issue(1, { user: { login: 'attacker', type: 'User' } })],
+    [issue(1, { body: 'Hand-made', title: '[1.2.0] looks like a report' })],
+    [issue(1, { body: 'remove', title: 'Remove report 1' })],
+    [issue(1, { title: 'Report dashboard', labels: ['dashboard'] })],
+  ];
+  for (const items of cases) {
+    const env = fake(items);
+    await env.fire('opened', 1);
+    assert.deepEqual(alerts(env), []);
+  }
+  const env = fake([issue(1, { labels: ['fixed-in:1.0'] })]);
+  for (const action of ['labeled', 'reopened', 'closed']) await env.fire(action, 1, 'fixed-in:1.0');
+  await env.fire(null, null, null, 'schedule');
+  await env.fire(null, null, null, 'workflow_dispatch');
+  assert.deepEqual(alerts(env), []);
+});
+
+test('discord alert never carries the description or log, and cleans hostile titles', async () => {
+  const title = '\x60\x60\x60@everyone <@123> [click](https://evil.example) **x** ||y||\n' +
+    'second​‮ line ' + 'z'.repeat(500);
+  const env = fake([issue(1, {
+    title,
+    body: report({
+      description: 'DESCSECRET @everyone https://evil.example',
+      errors: '[Error  :LateJoinPlus] LOGSECRET first\n  at Frame.SECRET ()\n[Error  :Other] LOGTWO',
+      version: '1.2.0\n@everyone', category: '**bold** @here', role: 'ROLESECRET',
+      language: 'LANGSECRET', players: '99',
+    }),
+  })]);
+  await env.fire('opened', 1);
+  const [message] = alerts(env);
+  for (const text of ['DESCSECRET', 'LOGSECRET', 'LOGTWO', 'Frame', 'ROLESECRET', 'LANGSECRET',
+    '**bold**', '@here', '​', '‮', '\x60\x60']) {
+    assert(!message.includes(text), text);
+  }
+  const lines = message.split('\n');
+  assert.equal(lines.length, 4);
+  assert.equal(lines[1], 'LateJoinPlus unknown · unknown · from **LateJoinPlus** (ours)');
+  // The title sits alone in one inline code span, the only backticks in the message.
+  assert.match(lines[2], /^\x60[^\x60]+\x60$/);
+  assert.equal(lines[2].length, 152);
+  assert(lines[2].endsWith('…\x60'));
+  assert(lines[2].startsWith('\x60@everyone <@123> [click](https://evil.example)'));
+  assert.equal(lines[3], 'https://github.com/HardStyleMoose/RicketyWrecked-reports/issues/1');
+  assert(message.length < 400);
+});
+
+test('alertMessage validates every field it is given', () => {
+  const message = alertMessage({
+    status: 'nonsense', number: 5, title: '', url: 'https://github.com/o/r/issues/5',
+    version: 'v1', category: 'a'.repeat(31), latest: '<1>', fixed: 'x', original: 0,
+    source: { name: 'My_Mod', kind: 'other', also: [] },
+  });
+  assert.equal(message, '❗ **New report, not sorted** · #5 (triage failed, check it)\n' +
+    'LateJoinPlus unknown · unknown · from My\\_Mod (other mod)\n\x60no title\x60\n' +
+    'https://github.com/o/r/issues/5');
+  assert(alertMessage({ status: 'new', number: 1, title: 't', url: 'u', version: '1.0',
+    category: 'crash', source: { name: 'Unity Log', kind: 'unity', also: [] } })
+    .includes(' · crash · from Unity Log (game or any mod)\n'));
+  assert(alertMessage({ status: 'new', number: 1, title: 't', url: 'u', version: '1.0',
+    category: 'crash', source: { name: null, kind: 'unknown', also: [] } })
+    .includes(' · from unknown source\n'));
+  assert(alertMessage({ status: 'new', number: 1, title: 't', url: 'u', version: '1.0',
+    category: 'crash', source: { name: null, kind: 'none', also: [] } })
+    .includes(' · crash · no errors logged\n'));
+});
+
+test('workflows keep minimal permissions and never put expressions in shell', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const dir = path.join(__dirname, '..', 'workflows');
+  for (const file of ['reports.yml', 'discord.yml']) {
+    const text = fs.readFileSync(path.join(dir, file), 'utf8');
+    const lines = text.split('\n');
+    lines.forEach((line, index) => {
+      const run = line.match(/^(\s*)(?:- )?run: *\|?\s*(.*)$/);
+      if (!run) return;
+      assert(!run[2].includes('${{'), file + ':' + (index + 1));
+      for (const next of lines.slice(index + 1)) {
+        if (next.trim() && next.search(/\S/) <= run[1].length) break;
+        assert(!next.includes('${{'), file + ':' + (index + 1));
+      }
+    });
+    assert.match(text, /^permissions: \{\}$/m, file);
+    assert(!/contents: write|pull-requests|actions: write|id-token/.test(text), file);
+  }
+  const discord = fs.readFileSync(path.join(dir, 'discord.yml'), 'utf8');
+  assert(discord.includes("allowed_mentions: {parse: []}, flags: 4"));
+  assert(!discord.includes('github.event'));
+  const reports = fs.readFileSync(path.join(dir, 'reports.yml'), 'utf8');
+  const job = reports.slice(reports.indexOf('\n  discord:'));
+  assert.match(job, /\n    permissions: \{\}\n/);
+  assert((reports.match(/secrets\./g) || []).length === 1);
+  assert(!reports.slice(0, reports.indexOf('\n  discord:')).includes('secrets.'));
 });
 
 (async () => {
