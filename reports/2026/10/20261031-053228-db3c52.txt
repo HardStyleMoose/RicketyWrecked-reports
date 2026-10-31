@@ -1,0 +1,838 @@
+LateJoinPlus bug report 20261031-053228-db3c52
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.1"
+gameVersion: "0.5.0"
+installId: "032961155db8427494867e7a127a38b7"
+category: "other"
+description: ""
+role: "host"
+level: "Level - Shop Harbor"
+players: 1
+language: "en-US"
+test: false
+Sender: cb61c8513cca
+Install: 032961155db8427494867e7a127a38b7
+
+Mods (19):
+- "TextUpgradesUIScale" | "DarkSpider90.TextUpgradesUIScale" | "1.2.1"
+- "REPOLib" | "REPOLib" | "4.3.0"
+- "Shop Items spawn in Level" | "REPO_Shop_Items_in_Level" | "1.7.21"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "KeybindLib" | "bulletbot.keybindlib" | "1.0.6"
+- "MoreUpgrades" | "bulletbot.moreupgrades" | "1.7.3"
+- "ScaleInCart" | "bulletbot.scaleincart" | "1.2.3"
+- "Admin Menu Button" | "h3nw.adminmenubutton" | "1.0.0"
+- "Instant Revive" | "instantrevive.mod" | "1.3.0"
+- "Potato Pc Mod" | "mga-potatopcmod" | "1.0"
+- "MoreUpgrades Fix" | "moreupgrades.fix.runtime" | "1.0.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.0"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "Repo Admin Menu" | "proferabg.REPO.RepoAdminMenu" | "1.0.16"
+- "RepoLateJoin" | "repolatejoin.unified" | "2.8.0"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.2"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixesplus" | "1.3.9"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.1"
+
+Log:
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 105
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/OutsideCallVolume = 15
+Calls/RingSound = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = false
+Late Join/Enabled = true
+Late Join/JoinSpawn = Host
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/SlotsForJoinersWithoutMod = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 1
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+(end of settings)
+[Error  :  HarmonyX] Failed to patch Item UpgradeStand::GetWeightedUpgradeExcluding(Item excludeItem, System.Collections.Generic.Dictionary<string, int> displayedCounts, System.Collections.Generic.Dictionary<string, int> selectedDuringReroll, bool secondAttempt): System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) [0x00093] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) [0x00066] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () [0x00084] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x0002b] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MoreUpgrades.Plugin+<>c__DisplayClass11_0.<PatchAll>b__1 (System.Type x) (at <949184619b50456ca6746bc688355c95>:0)
+System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+MoreUpgrades.Plugin.PatchAll (System.String name) (at <949184619b50456ca6746bc688355c95>:0)
+MoreUpgrades.Plugin.Awake () (at <949184619b50456ca6746bc688355c95>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.InputSystem.InputSystem:.cctor()
+[Error  :RepoLateJoin] Could not enumerate patch classes: System.TypeLoadException: Could not load type MenuPageServerListCreateNew, Assembly-CSharp, Version=[ip], Culture=neutral, PublicKeyToken=null while decoding custom attribute: (null)
+  at (wrapper managed-to-native) System.MonoCustomAttrs.GetCustomAttributesInternal(System.Reflection.ICustomAttributeProvider,System.Type,bool)
+  at System.MonoCustomAttrs.GetCustomAttributesBase (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inheritedOnly) [0x00013] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+  at System.MonoCustomAttrs.GetCustomAttributes (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inherit) [0x00037] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+  at System.RuntimeType.GetCustomAttributes (System.Type attributeType, System.Boolean inherit) [0x00038] in <41d29b352f6a475ab1bf7c6628b82790>:0 
+  at RepoLateJoin.Plugin+<>c__DisplayClass6_0.<ApplyPatches>b__0 (System.Type t) [0x00013] in <dc128bb3fa0345faa3df960baa360b2b>:0 
+  at System.Linq.Enumerable+WhereArrayIterator`1[TSource].ToArray () [0x00022] in <80564d689e48448fa2a7101993ee7201>:0 
+  at System.Linq.Enumerable.ToArray[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x0001f] in <80564d689e48448fa2a7101993ee7201>:0 
+  at RepoLateJoin.Plugin.ApplyPatches (System.String ns) [0x00032] in <dc128bb3fa0345faa3df960baa360b2b>:0 
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] |  _           _         ___       _      ______ _            |
+[Info   :LateJoinPlus] | | |         | |       |_  |     (_)     | ___ \ |           |
+[Info   :LateJoinPlus] | | |     __ _| |_ ___    | | ___  _ _ __ | |_/ / |_   _ ___  |
+[Info   :LateJoinPlus] | | |    / _` | __/ _ \   | |/ _ \| | '_ \|  __/| | | | / __| |
+[Info   :LateJoinPlus] | | |___| (_| | ||  __/\__/ / (_) | | | | | |   | | |_| \__ \ |
+[Info   :LateJoinPlus] | \_____/\__,_|\__\___\____/ \___/|_|_| |_\_|   |_|\__,_|___/ |
+[Info   :LateJoinPlus] |                                                             |
+[Info   :LateJoinPlus] |        v1.2.1  -  join any time, no invisible rooms         |
+[Info   :LateJoinPlus] |        Lobby Guard anti-cheat  -  by RicketyWrecked         |
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] LateJoinPlus 1.2.1 loaded. Late join on, debug logging off.
+[Info   :R.E.P.O Fixes+] [LateJoinNow equipped-item fix] LateJoinNow not installed; nothing to do.
+[Info   :R.E.P.O Fixes+] [Mod guards] Repo Admin Menu found; its per-player checks skip players whose Steam ID isn't known yet (they threw when someone joined).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 53 patches applied, 0 failed.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 33 Steam IDs, on).
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Error  : Unity Log] ArgumentException: An item with the same key has already been added. Key: [1133127397]
+Stack trace:
+System.Collections.Generic.Dictionary`2[TKey,TValue].TryInsert (TKey key, TValue value, System.Collections.Generic.InsertionBehavior behavior) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+System.Collections.Generic.Dictionary`2[TKey,TValue].Add (TKey key, TValue value) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+KeybindLib.Patches.InputManagerPatch.Start (System.Collections.Generic.Dictionary`2[System.String,InputKey]& tagDictionary) (at <60cb781ccc98403f990dbed9a796f812>:0)
+(wrapper dynamic-method) InputManager.DMD<InputManager::Start>(InputManager)
+[Info   :LateJoinPlus] [Admin] RepoAdminMenu is installed too. LateJoinPlus has its own Admin page now (LJ+ menu > Admin), so RepoAdminMenu isn't needed.
+[Warning:LateJoinPlus] LateJoin is installed next to LateJoinPlus. LateJoinPlus does late join itself, so LateJoin was switched off (0 patch(es) removed). You can uninstall it.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Admin] Host power You: not done - Not now: wait until the level has loaded.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings (as host).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings (as host).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Warning:LateJoinPlus] Making a new Steam lobby so everyone can invite friends: 'Player 5' couldn't get into it (their game already holds this lobby's ID).
+[Info   :LateJoinPlus] New Steam lobby ready (109775242940376163); sent it to 2 player(s).
+[Info   :Lobby Guard] [Lobby Guard] Added Player 5 ([steamid]) to your block list.
+[Warning:Lobby Guard] [Lobby Guard] You banned 'Player 5' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]) and added them to your block list.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run starts in 1 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 1, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 6 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 7' peaked at 37 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 1.
+[Info   :LateJoinPlus] Late joiner Player 6 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :R.E.P.O Fixes+] Registered player (viewID=5002) with 3 enemy trackers currently in the scene.
+[Warning:R.E.P.O Fixes+] Suppressed exception in PlayerNameChecker.Update (name tag not set up yet) (1 so far): NullReferenceException: Object reference not set to an instance of an object
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 6 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 6 finished loading in 13.6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 6's map (48 messages).
+[Info   :LateJoinPlus] Late joiner Player 3 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=6002) with 3 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 3 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 3 finished loading in 8.8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 3's map (48 messages).
+[Info   :LateJoinPlus] Late joiner Player 6 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=7002) with 3 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 6 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 6 finished loading in 7.8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 6's map (48 messages).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 10.1 s, slowest 13.6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (21 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 3 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 119 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] Late joiner Player 2 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 7.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Dead Forest': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 7.9 s, slowest 7.9 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 1 (slowest 24 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 40 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 7' peaked at 38 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Late joiner Player 4 connected (level Level - Desert). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=9002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 4 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 4 finished loading in 12.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 5 explored room(s) on Player 4's map (34 messages).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 2 (2 s after the others).
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1930142804(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <bc291731cb9f4aec80e3fb4b5e8bbc76>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+[Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 12.5 s, slowest 12.5 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (5 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 1 (slowest 24 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 7' peaked at 76 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
