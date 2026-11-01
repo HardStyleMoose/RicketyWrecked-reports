@@ -1,36 +1,39 @@
 name: Discord alert
 
-# One message per new report in a private Discord channel. Only the title and link go out:
-# never the player's description or the log. Titles come from error text, so mentions are off.
-# Does nothing until the repo has a DISCORD_WEBHOOK secret. Run it by hand to send a test message.
+# One message per new report in a private Discord channel, sent by the Reports workflow
+# after triage. The message is built by reports.js from fixed wording, the version,
+# category, error source and cleaned title: never the player's description or the log.
+# Mentions are off and link previews suppressed. Does nothing until the repo has a
+# DISCORD_WEBHOOK secret. Run it by hand to send a test message.
 on:
-  issues:
-    types: [opened]
+  workflow_call:
+    inputs:
+      message:
+        type: string
+        required: true
+    secrets:
+      DISCORD_WEBHOOK:
+        required: false
   workflow_dispatch:
 
 permissions: {}
 
 jobs:
   alert:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.issue.user.login == 'HardStyleMoose' && startsWith(github.event.issue.title, '['))
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
       - name: Post to Discord
         env:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          TITLE: ${{ github.event.issue.title }}
-          LINK: ${{ github.event.issue.html_url }}
-          NUMBER: ${{ github.event.issue.number }}
+          MESSAGE: ${{ inputs.message }}
         run: |
           if [ -z "$WEBHOOK" ]; then
             echo "No DISCORD_WEBHOOK secret: nothing sent."
             exit 0
           fi
-          title=$(printf '%s' "${TITLE:-Test alert: this is what a new report looks like}" | tr -d '`' | cut -c1-150)
-          link=${LINK:-https://github.com/HardStyleMoose/RicketyWrecked-reports/issues/2}
-          message=$(printf 'New report #%s: `%s`\n%s' "${NUMBER:-test}" "$title" "$link")
-          jq -n --arg content "$message" '{content: $content, allowed_mentions: {parse: []}, flags: 4}' |
-            curl -fsS --max-time 30 -H 'Content-Type: application/json' -d @- "$WEBHOOK"
+          link=https://github.com/HardStyleMoose/RicketyWrecked-reports/issues/2
+          message=${MESSAGE:-$(printf 'Test alert: new reports appear here like this.\n%s' "$link")}
+          jq -n --arg content "$message" \
+            '{content: $content[0:1900], allowed_mentions: {parse: []}, flags: 4}' |
+            curl -fsS --max-time 30 -H 'Content-Type: application/json' -d @- "$WEBHOOK" > /dev/null
