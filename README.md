@@ -12,9 +12,9 @@ Bug reports sent from inside the game with **LateJoinPlus** for R.E.P.O (LJ+ men
 - Chat.
 - Other players' names or Steam IDs: they're replaced with "Player 2", "Player 3" and so on before anything leaves the player's PC, and the server strips Steam IDs, Windows user folders, IP addresses and email addresses again.
 - The sender's own name, unless they ticked "Include my name".
-- Block lists, history, notes, voice, or any file other than the game log.
+- Block lists, saved history, notes, voice, or any file other than the game log. Lobby Guard's kick and ban lines are log lines, so they're included with the names replaced.
 
-Nothing is sent until the player presses **Send**, after seeing exactly what will be sent.
+Nothing is sent until the player presses **Send**, and they can preview all of it first.
 
 ## Removing a report
 If a report of yours should be removed, ask on the LateJoinPlus Discord (linked on its Thunderstore page) with the report id (it's in the report), and it will be deleted.

@@ -628,8 +628,7 @@ async function run({ github, context, core, fetch, now = new Date() }) {
             // The relay posts as the owner. A copied report body is not proof of origin.
             await add(issue, 'manual');
             await once(issue, 'game-only', issue.number,
-              'Please send reports from the game (LateJoinPlus menu → Send a bug report). ' +
-              'For anything else, use the LateJoinPlus Discord.');
+              'Please send reports from the game (LateJoinPlus menu → Send a bug report).');
             await close(issue, 'not_planned');
           } else {
             if (payload.action === 'opened') await opened(issue);
@@ -649,7 +648,16 @@ async function run({ github, context, core, fetch, now = new Date() }) {
         }
       }
     } else if (['schedule', 'workflow_dispatch'].includes(context.eventName)) {
-      await releaseCheck(await list());
+      const all = await list();
+      // In a burst a waiting run can be replaced, so a report's own run may never happen.
+      // Every triaged report is locked, so an unlocked one still needs it.
+      for (const issue of all) {
+        if (issue.state === 'open' && !issue.locked && !has(issue, 'dashboard') && parseReport(issue.body)) {
+          await opened(issue);
+          await lock(issue);
+        }
+      }
+      await releaseCheck(all);
     }
   } finally {
     // Re-read after mutations; bot-generated events do not run another workflow.

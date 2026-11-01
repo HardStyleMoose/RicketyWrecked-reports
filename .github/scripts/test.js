@@ -735,8 +735,7 @@ test('non-owner issues close and lock, even copied relay bodies and removal requ
     assert(!has(item, 'removal-request'));
     assert.equal(env.count(1, 'game-only'), 1);
     assert.equal(commentText(env, 1),
-      'Please send reports from the game (LateJoinPlus menu → Send a bug report). ' +
-      'For anything else, use the LateJoinPlus Discord.\n\n' + tag('game-only', 1));
+      'Please send reports from the game (LateJoinPlus menu → Send a bug report).\n\n' + tag('game-only', 1));
     assert(!env.dashboard().body.includes('SECRET'));
     assert.equal(env.calls.filter(call => call.name === 'lock').length, 1);
   }

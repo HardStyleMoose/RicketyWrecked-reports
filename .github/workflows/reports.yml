@@ -11,10 +11,12 @@ permissions:
   issues: write
   contents: read
 
-concurrency: { group: reports, cancel-in-progress: false }
-
 jobs:
   reports:
+    # The relay adds labels as it files a report. Those events do nothing, and in a queue they'd
+    # replace the waiting run for a new report, so they don't queue at all. fixed-in: labels do.
+    if: github.event.action != 'labeled' || startsWith(github.event.label.name, 'fixed-in:')
+    concurrency: { group: reports, cancel-in-progress: false }
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
