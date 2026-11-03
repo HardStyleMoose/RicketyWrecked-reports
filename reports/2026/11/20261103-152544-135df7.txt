@@ -1,0 +1,625 @@
+LateJoinPlus bug report 20261103-152544-135df7
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.1"
+gameVersion: "0.5.0"
+installId: "d633277e63f148dc950b4f28d1cd4580"
+category: "join"
+description: "When i load or someone tries to join it make s them all leave"
+role: "host"
+level: "Level - Lobby Menu"
+players: 2
+language: "en-US"
+test: false
+Sender: 500404097eaa
+Install: d633277e63f148dc950b4f28d1cd4580
+
+Mods (17):
+- "REPO_HD" | "BlueAmulet.REPO_HD" | "1.0.3"
+- "FNAFLevel" | "OrtonLongGaming.FNAFLevel" | "1.1.1"
+- "FreddyEnemy" | "OrtonLongGaming.FreddyEnemy" | "1.1.1"
+- "OrtonUtils" | "OrtonUtils" | "1.0.0"
+- "REPO.Cosmetics" | "REPO.Cosmetics.Awesome.Cool" | "0.0.1"
+- "REPOLib" | "REPOLib" | "4.3.0"
+- "WesleysEnemies" | "WesleysEnemies" | "2.0.0"
+- "Doppelganger" | "com.codex.repo.doppelganger" | "0.4.12"
+- "Repo Steam Networking" | "com.rune580.reposteamnetworking" | "0.1.2"
+- "Overstaffed" | "darkharasho.Overstaffed" | "0.2.0"
+- "FreddyEnemy Patch" | "erv.FreddyEnemy_Patch" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.0"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixesplus" | "1.3.9"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.1"
+- "DeadPossession" | "yo.DeadPossession" | "0.7.79"
+- "GameTools" | "zichen.gametools" | "1.1.2"
+
+Log:
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/OutsideCallVolume = 15
+Calls/RingSound = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = false
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/SlotsForJoinersWithoutMod = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+(end of settings)
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static void RepoSteamNetworking.Patches.SteamManagerPatches+OnAwakePatch::Postfix(SteamManager __instance)
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.CreateAndPatchAll (System.Reflection.Assembly assembly, System.String harmonyInstanceId) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+RepoSteamNetworking.RepoSteamNetworkingPlugin.Awake () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworkingPlugin.cs:32)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.InputSystem.InputSystem:.cctor()
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] |  _           _         ___       _      ______ _            |
+[Info   :LateJoinPlus] | | |         | |       |_  |     (_)     | ___ \ |           |
+[Info   :LateJoinPlus] | | |     __ _| |_ ___    | | ___  _ _ __ | |_/ / |_   _ ___  |
+[Info   :LateJoinPlus] | | |    / _` | __/ _ \   | |/ _ \| | '_ \|  __/| | | | / __| |
+[Info   :LateJoinPlus] | | |___| (_| | ||  __/\__/ / (_) | | | | | |   | | |_| \__ \ |
+[Info   :LateJoinPlus] | \_____/\__,_|\__\___\____/ \___/|_|_| |_\_|   |_|\__,_|___/ |
+[Info   :LateJoinPlus] |                                                             |
+[Info   :LateJoinPlus] |        v1.2.1  -  join any time, no invisible rooms         |
+[Info   :LateJoinPlus] |        Lobby Guard anti-cheat  -  by RicketyWrecked         |
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] LateJoinPlus 1.2.1 loaded. Late join on, debug logging off.
+[Info   :R.E.P.O Fixes+] [LateJoinNow equipped-item fix] LateJoinNow not installed; nothing to do.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point auto revive waits while an extraction is running, so the game revives those players when it finishes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 57 patches applied, 0 failed.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Error  : Unity Log] Can't remove AudioLowPassFilter because AudioLowPassLogic (Script) depends on it
+[Error  : Unity Log] Can't remove AudioSource because AudioLowPassFilter depends on it
+[Info   :R.E.P.O Fixes+] Registered player (viewID=0) with 1 enemy trackers currently in the scene.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=0) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=1002) with 1 enemy trackers currently in the scene.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now open to everyone.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :R.E.P.O Fixes+] Registered player (viewID=2002) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[Info   :R.E.P.O Fixes+] Registered player (viewID=3002) with 1 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 0
+[Info   :R.E.P.O Fixes+] Registered player (viewID=1010) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=3010) with 1 enemy trackers currently in the scene.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=2010) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 36 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.2 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] "Stop" can only be called on an active agent that has been placed on a NavMesh.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=4002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 left before finishing loading.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :R.E.P.O Fixes+] Registered player (viewID=5002) with 6 enemy trackers currently in the scene.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 left before finishing loading.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=6002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 2 left before finishing loading.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History (as host).
+[Info   :LateJoinPlus] Late joiner Player 4 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=7002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 4 left before finishing loading.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List (as host).
+[Info   :LateJoinPlus] Late joiner Player 6 connected (level Level - Wizard). Catching them up.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings (as host).
+[Info   :R.E.P.O Fixes+] Registered player (viewID=8002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 6 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 6 left before finishing loading.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] Late joiner Player 3 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=9002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 3 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 3 left before finishing loading.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now open to everyone.
+[Info   :LateJoinPlus] [Run] Everyone back to the lobby (You); Start picks up at a level.
+[Info   :LateJoinPlus] [Run] You asked to lobby: Everyone is going back to the lobby.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 6 (0 with LateJoinPlus), loaded 0 (-), left while loading 6, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 2 (slowest 31 ms)
+[Info   :R.E.P.O Fixes+] Registered player (viewID=1038) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player '?' peaked at 31 messages/s (flood limit 500); 0 messages dropped.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :R.E.P.O Fixes+] Registered player (viewID=10002) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=11002) with 1 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :R.E.P.O Fixes+] Registered player (viewID=1045) with 1 enemy trackers currently in the scene.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=11010) with 1 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 34 messages/s (flood limit 500); 0 messages dropped.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=10010) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] "Stop" can only be called on an active agent that has been placed on a NavMesh.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+RepoSteamNetworking.API.RepoSteamNetwork.get_IsSinglePlayer () (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:44)
+RepoSteamNetworking.API.RepoSteamNetwork.SendPacket[TPacket] (TPacket packet, RepoSteamNetworking.Networking.NetworkDestination destination) (at /home/runner/work/RepoSteamNetworking/RepoSteamNetworking/RepoSteamNetworking/API/RepoSteamNetwork.cs:199)
+RepoDoppelganger.Voice.VoiceMimicService.FinalizeCapture () (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:172)
+RepoDoppelganger.Voice.VoiceMimicService.ProcessFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:129)
+RepoDoppelganger.Voice.VoiceMimicService.AcceptVoiceFrame (System.Int16[] samples) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Voice/VoiceMimicService.cs:73)
+RepoDoppelganger.Patches.LocalVoicePrefix (System.Int16[] buf) (at C:\Users\[user]/Documents/Codex/2026-07-25/referenced-chatgpt-conversation-this-is-untrusted/work/DoppelgangerMod/Patches.cs:234)
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Wizard). Catching them up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=12002) with 6 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 1 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 1, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Report] Session (4 level(s) with activity): OK | joins 7 (0 with LateJoinPlus), loaded 0 (-), left while loading 6, still loading at level end 1, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 4 | slow catch-up steps 2 (slowest 31 ms)
+[Info   :R.E.P.O Fixes+] Registered player (viewID=0) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] Registered player (viewID=1002) with 1 enemy trackers currently in the scene.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :R.E.P.O Fixes+] Registered player (viewID=2002) with 1 enemy trackers currently in the scene.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
