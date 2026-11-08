@@ -1,0 +1,159 @@
+LateJoinPlus bug report 20261108-175011-3ba1ec
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.1"
+gameVersion: "0.5.1"
+installId: "fa7b3a05ea2046b1b59ecdb0e23a3648"
+category: "join"
+description: ""
+role: "host"
+level: "Level - Shop Wasteland"
+players: 1
+language: "en-US"
+test: false
+Sender: 890b7fd45b14
+Install: fa7b3a05ea2046b1b59ecdb0e23a3648
+
+Mods (22):
+- "Add Extraction Button" | "DJDarkLucky.AddExtractionButton" | "0.2.0"
+- "MoreStandsForShops" | "DarkSpider90.MoreStandsForShops" | "1.3.2"
+- "Empress SharedUpgrades" | "Empress.Empress_SharedUpgrades" | "2.0.0"
+- "NoItemSpawnLimit" | "HeroHanex.NoItemSpawnLimit" | "1.0.9"
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "MapValueTracker" | "MapValueTracker" | "1.3.1"
+- "REPOLib" | "REPOLib" | "4.3.0"
+- "ShowEnemyHealth" | "REPO_ShowEnemyHealth" | "1.0.3"
+- "Host Inventory Viewer" | "com.empress.hostinventory" | "1.0.0"
+- "SellItems" | "com.mods.sellitems" | "1.0.0"
+- "Revive Zones 复活区域" | "com.yanyan.repo.revivezones" | "0.1.0"
+- "GlowNames" | "com.zhuanban.glownames" | "1.1.0"
+- "Guster Extra Inventory Slot Upgrade" | "gusterstudios.extrainventoryslotupgrade" | "1.0.1"
+- "Cart Pilot" | "neo.cartpilot" | "0.2.9"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "GuaranteedCosmeticCrate" | "nzoow.repo.guaranteedcosmeticcrate" | "3.0.0"
+- "Repo Admin Menu" | "proferabg.REPO.RepoAdminMenu" | "1.0.16"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.2"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixesplus" | "1.3.9"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.1"
+- "SaveKeeper" | "zichen.savekeeper" | "1.4.0"
+
+Log:
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/OutsideCallVolume = 15
+Calls/RingSound = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/SlotsForJoinersWithoutMod = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 15
+Players/MaxPlayersEnabled = true
+(end of settings)
+[Error  : Unity Log] AmbiguousMatchException: Ambiguous match found.
+Stack trace:
+System.RuntimeType.GetMethodImplCommon (System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+System.RuntimeType.GetMethodImpl (System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+System.Type.GetMethod (System.String name, System.Reflection.BindingFlags bindingAttr) (at <41d29b352f6a475ab1bf7c6628b82790>:0)
+HarmonyLib.AccessTools.DeclaredMethod (System.Type type, System.String name, System.Type[] parameters, System.Type[] generics) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchTools.GetOriginalMethod (HarmonyLib.HarmonyMethod attr) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Ambiguous match for HarmonyMethod[(class=ShopManager, methodname=ShopInitialize, type=Normal, args=undefined)]
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+RepoSellMod.Plugin.Awake () (at <875a2bf9e0054b14b7f4dd403173d344>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.InputSystem.InputSystem:.cctor()
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (15) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] |  _           _         ___       _      ______ _            |
+[Info   :LateJoinPlus] | | |         | |       |_  |     (_)     | ___ \ |           |
+[Info   :LateJoinPlus] | | |     __ _| |_ ___    | | ___  _ _ __ | |_/ / |_   _ ___  |
+[Info   :LateJoinPlus] | | |    / _` | __/ _ \   | |/ _ \| | '_ \|  __/| | | | / __| |
+[Info   :LateJoinPlus] | | |___| (_| | ||  __/\__/ / (_) | | | | | |   | | |_| \__ \ |
+[Info   :LateJoinPlus] | \_____/\__,_|\__\___\____/ \___/|_|_| |_\_|   |_|\__,_|___/ |
+[Info   :LateJoinPlus] |                                                             |
+[Info   :LateJoinPlus] |        v1.2.1  -  join any time, no invisible rooms         |
+[Info   :LateJoinPlus] |        Lobby Guard anti-cheat  -  by RicketyWrecked         |
+[Info   :LateJoinPlus] +=============================================================+
+[Info   :LateJoinPlus] LateJoinPlus 1.2.1 loaded. Late join on, debug logging off.
+[Info   :R.E.P.O Fixes+] [LateJoinNow equipped-item fix] LateJoinNow not installed; nothing to do.
+[Info   :R.E.P.O Fixes+] [Mod guards] Repo Admin Menu found; its per-player checks skip players whose Steam ID isn't known yet (they threw when someone joined).
+[Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[Info   :LateJoinPlus] Something asked for a player limit of 10; using LJ+ menu > Max Players (15) instead.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[Info   :LateJoinPlus] [Admin] RepoAdminMenu is installed too. LateJoinPlus has its own Admin page now (LJ+ menu > Admin), so RepoAdminMenu isn't needed.
+[Error  : Unity Log] Material 'M_VFX_Intersection' with Shader 'W/Intersection' doesn't have a texture property '_MainTex'
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] Late joiner Player 2 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 2 left before finishing loading.
+[Info   :LateJoinPlus] Late joiner Player 3 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 3 left before finishing loading.
+[Info   :LateJoinPlus] Late joiner Player 3 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 3 left before finishing loading.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now open to everyone.
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now open to everyone.
