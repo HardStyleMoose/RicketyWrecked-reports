@@ -657,6 +657,18 @@ async function run({ github, context, core, fetch, now = new Date() }) {
           await lock(issue);
         }
       }
+      // Several fixed-in labels at once (2026-11-11: 13 in a minute) replaced each other's waiting
+      // runs, so most reports never got their "fix is ready" note. Post any that are missing.
+      for (const issue of all) {
+        if (issue.state !== 'open' || has(issue, 'dashboard')) continue;
+        for (const name of labels(issue)) {
+          const match = String(name).match(FIX);
+          if (match) {
+            await once(issue, 'fix-ready', match[1],
+              'A fix is ready and will be in LateJoinPlus ' + match[1] + '.');
+          }
+        }
+      }
       await releaseCheck(all);
     }
   } finally {

@@ -471,6 +471,16 @@ test('fixed-in label announces once, waits, then dispatch closes and removes reg
   assert(section(env, 'Fixed in the last 14 days').includes('| #1 | 1.10.0 |'));
 });
 
+test('dispatch posts a fix-ready note a replaced labeled run missed, once', async () => {
+  const env = fake([issue(1, { labels: ['fixed-in:1.10.0'] }), issue(2, { labels: ['fixed-in:1.10.0'] })], '1.9.3');
+  await env.fire('labeled', 1, 'fixed-in:1.10.0');
+  await env.fire(null, null, null, 'workflow_dispatch');
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(env.count(1, 'fix-ready'), 1);
+  assert.equal(env.count(2, 'fix-ready'), 1);
+  assert.equal(env.issues.get(2).state, 'open');
+});
+
 test('already released fixed-in closes immediately; retry repairs failed close', async () => {
   const env = fake([issue(1, { labels: ['fixed-in:1.2.0'] })], '1.3.0');
   env.state.failClose = 1;
