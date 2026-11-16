@@ -1,0 +1,84 @@
+{
+  "_about": "Mods known to break R.E.P.O or to clash with LateJoinPlus. The reports workflow checks every report against this list: a mod in the player's list at a version <= brokenUpTo (or any version when omitted) with one of the evidence patterns in the log is answered, labelled mod:<guid> and closed, and the Discord channel list is updated. kind: broken | replaced | duplicate. evidence: regular expressions (case-insensitive) tested on the stored report text; leave empty to match on the installed version alone.",
+  "game": "0.5.1",
+  "mods": [
+    {
+      "guid": "Rise.ShrinkerCartPlus", "name": "ShrinkerCartPlus", "brokenUpTo": "1.0",
+      "evidence": ["ShrinkerCartPlus\\.ShrinkerCartPlus\\+\\w+\\.Postfix"],
+      "problem": "throws an error every frame on every cart, so the host lags.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [82]
+    },
+    {
+      "guid": "Empress.SpawnBrowser", "name": "Empress Spawn Browser", "brokenUpTo": "4.0.0",
+      "evidence": ["\\[Error\\s*:\\s*Empress Spawn Browser\\]", "PlayerController\\.OverrideSpeed"],
+      "problem": "calls a player speed method the game no longer has and stalls loading.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [76, 79]
+    },
+    {
+      "guid": "bestmodmenu.repo", "name": "Best Mod Menu", "brokenUpTo": "1.1.0",
+      "evidence": ["Script error \\(FlyController\\)"],
+      "problem": "its FlyController script cannot start.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [62, 76, 79]
+    },
+    {
+      "guid": "repolatejoin.unified", "name": "RepoLateJoin", "kind": "replaced",
+      "evidence": ["MenuPageServerListCreateNew", "\\[Error\\s*:\\s*RepoLateJoin\\]"],
+      "problem": "cannot load on this game version, and LateJoinPlus already does late join.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [49, 66]
+    },
+    {
+      "guid": "ozoka.moreplayers", "name": "MorePlayers", "kind": "replaced",
+      "evidence": ["MorePlayers\\.SteamManagerPatch"],
+      "problem": "has a dead patch on this game version; LateJoinPlus already raises the player limit.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [74, 78]
+    },
+    {
+      "guid": "com.kimo.unlimitedrange", "name": "Unlimited Range + Scroll", "brokenUpTo": "1.3.0",
+      "evidence": ["DMD<PhysGrabber::RayCheck>", "com\\.kimo\\.unlimitedrange \\(transpiler\\)"],
+      "problem": "its patch breaks the game's grab raycast.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [80]
+    },
+    {
+      "guid": "com.yanyan.repo.petcompanion", "name": "Pet Companion", "brokenUpTo": "1.3.4",
+      "evidence": ["PetCompanion\\.PetFollower"],
+      "problem": "its follower script throws an error every frame.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [64]
+    },
+    {
+      "guid": "REPOJP.AlwaysWingsView", "name": "AlwaysWingsView", "brokenUpTo": "2.1.1",
+      "evidence": ["ItemUpgradePlayerTumbleWingsLogic\\.tumbleWing", "SemiFunc::UIWorldToCanvasPosition"],
+      "problem": "is built for an older game and errors thousands of times on Tumble Wings.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [63]
+    },
+    {
+      "guid": "bulletbot.keybindlib", "name": "KeybindLib", "brokenUpTo": "1.0.6",
+      "evidence": ["Failed to patch void InputManager::InitializeInputs"],
+      "problem": "breaks the game's input setup (players can turn invisible or controls fail).", "fix": "Update it, or remove it and the mods that need it.",
+      "since": "2026-11-16", "reports": [74]
+    },
+    {
+      "guid": "bulletbot.moreupgrades", "name": "MoreUpgrades", "brokenUpTo": "1.7.3",
+      "evidence": ["UpgradeStand::GetWeightedUpgradeExcluding"],
+      "problem": "its upgrade stand patch fails on this game version.", "fix": "Update or remove it.",
+      "since": "2026-11-16", "reports": [74]
+    },
+    {
+      "guid": "com.github.zehsteam.ExtractionPointConfirmButton", "name": "ExtractionPointConfirmButton", "brokenUpTo": "1.2.0",
+      "evidence": ["ExtractionPointPatch: Failed to spawn confirm button"],
+      "problem": "cannot spawn its confirm button on this game version.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [75]
+    },
+    {
+      "guid": "m1r0.DUSHIKAPSA", "name": "DUSHIKAPSA", "brokenUpTo": "1.0.0",
+      "evidence": ["Parameter \"name\" not found in method void PunManager::SetItemNameLOGIC"],
+      "problem": "patches the game's item-naming method with an old parameter name, which breaks every other mod's patch on it.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [69]
+    },
+    {
+      "guid": "KitchenSink.StartWithGunFixed", "name": "StartWithGun + StartWithGunFixed", "kind": "duplicate",
+      "evidence": ["\"UsagiDev\\.StartWithGun\""],
+      "problem": "the same mod is installed twice.", "fix": "Keep one of them.",
+      "since": "2026-11-16", "reports": [82]
+    }
+  ]
+}

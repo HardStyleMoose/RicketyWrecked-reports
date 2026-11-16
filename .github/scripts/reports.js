@@ -1,6 +1,7 @@
 'use strict';
 
 const { createHash, randomBytes } = require('node:crypto');
+const conflicts = require('./conflicts.js');
 
 const OUTSIDER_LIMIT_ENDS = '2027-04-28';
 const GITHUB_TOKEN_ENDS = '2027-10-28';
@@ -23,7 +24,10 @@ const COLORS = {
   'removal-request': 'b60205',
   dashboard: '5319e7',
   duplicate: 'ededed',
+  'other-mod': 'e4e669',
+  'suspect-mod': 'fef2c0',
 };
+const MOD = /^mod:/;
 
 function parseReport(body) {
   const fields = {};
@@ -254,10 +258,20 @@ function reminders(now) {
   return lines.length ? ['**Reminders**', lines.join('\n')] : [];
 }
 
-async function run({ github, context, core, fetch, now = new Date() }) {
+async function run({ github, context, core, fetch, now = new Date(), env = process.env, rules = null }) {
   const api = github.rest.issues;
   const repo = context.repo;
   const commentCache = new Map();
+  const logCache = new Map();
+  const webhook = String(env.DISCORD_CONFLICTS_WEBHOOK || '').trim();
+  if (!rules) {
+    try {
+      rules = conflicts.loadRules();
+    } catch (error) {
+      core.warning('conflicts/known-mods.json could not be read: ' + error.message);
+      rules = { mods: [] };
+    }
+  }
   const ensured = new Set();
   let latestPromise;
   let capped = false;
@@ -308,9 +322,10 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       try {
         await api.createLabel({
           ...repo, name,
-          color: COLORS[name] || (FIX.test(name) ? '0e8a16' : 'ededed'),
+          color: COLORS[name] || (FIX.test(name) ? '0e8a16' : (MOD.test(name) ? 'e4e669' : 'ededed')),
           description: SIG.test(name) ? 'Same error' :
-            (FIX.test(name) ? 'Fix release version' : name.replace(/-/g, ' ')),
+            (FIX.test(name) ? 'Fix release version' :
+              (MOD.test(name) ? 'Another mod caused it' : name.replace(/-/g, ' '))),
         });
       } catch (createError) {
         if (createError.status !== 422) throw createError;
@@ -380,6 +395,79 @@ async function run({ github, context, core, fetch, now = new Date() }) {
     (await comments(issue)).push(response.data);
   }
 
+  // The stored report has the full log (stack frames, "Who patches ..."); the issue body only a snippet.
+  async function storedLog(issue) {
+    if (!logCache.has(issue.number)) {
+      let text = '';
+      const link = String(issue.body || '').match(/\]\((?:https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/main\/)?(reports\/\d{4}\/\d{2}\/[0-9a-z-]+\.txt)\)/);
+      if (link) {
+        try {
+          const response = await github.rest.repos.getContent({ ...repo, path: link[1] });
+          if (response.data?.content) text = Buffer.from(response.data.content, 'base64').toString('utf8');
+        } catch (error) {
+          core.info('Stored report for #' + issue.number + ' is unavailable: ' + error.message);
+        }
+      }
+      logCache.set(issue.number, text);
+    }
+    return logCache.get(issue.number);
+  }
+
+  async function discord(content) {
+    if (!webhook) return null;
+    try {
+      return await conflicts.discordSend(fetch, webhook, content);
+    } catch (error) {
+      core.warning('Discord: ' + error.message);
+      return null;
+    }
+  }
+
+  // Another mod in the player's list explains the errors. Known mods close the report; suspects
+  // are labelled for the owner. Returns true when the report was closed here.
+  async function otherMod(issue) {
+    // Queued opened events may arrive after closing; never re-triage a closed report.
+    if (issue.state !== 'open') return has(issue, 'other-mod');
+    const log = await storedLog(issue);
+    const mods = conflicts.parseMods(log || issue.body);
+    if (!mods.length) return false;
+    const { known, suspects } = conflicts.detect(log || issue.body, mods, rules);
+    if (known.length) {
+      const fresh = [];
+      for (const { mod } of known) {
+        const name = conflicts.labelFor(mod.guid);
+        if (!has(issue, 'other-mod')) {
+          // list() includes closed reports; a previous suspect is not a known conflict yet.
+          const others = (await list({ labels: name })).filter(other =>
+            other.number !== issue.number && has(other, 'other-mod'));
+          if (!others.length) fresh.push(mod.guid.toLowerCase());
+        }
+        await add(issue, name);
+      }
+      await add(issue, 'other-mod');
+      await remove(issue, 'suspect-mod');
+      // Our own mods logging an error too (not the relay's "First error this session" line) means
+      // the other mod may not be the whole story: the owner looks, the report stays open.
+      const ours = conflicts.ownErrors(log || issue.body);
+      await once(issue, 'other-mod', known.map(k => k.mod.guid.toLowerCase()).sort().join(','),
+        conflicts.knownComment(known) + (ours ? '\n\nLateJoinPlus or Fixes+ logged errors in this session as well, so the owner will still look at it.' : ''));
+      if (!ours) await close(issue, 'not_planned');
+      for (const { rule, mod } of known) {
+        if (fresh.includes(mod.guid.toLowerCase())) {
+          await discord(conflicts.newMessage(rule, mod, issue.number));
+        }
+      }
+      return true;
+    }
+    if (suspects.length && issue.state === 'open') {
+      for (const { mod } of suspects) await add(issue, conflicts.labelFor(mod.guid));
+      await add(issue, 'suspect-mod');
+      await once(issue, 'suspect-mod', suspects.map(s => s.mod.guid.toLowerCase()).sort().join(','),
+        conflicts.suspectComment(suspects));
+    }
+    return false;
+  }
+
   async function duplicate(issue, original) {
     await add(issue, 'duplicate');
     await once(issue, 'duplicate', original.number,
@@ -431,6 +519,8 @@ async function run({ github, context, core, fetch, now = new Date() }) {
         return;
       }
     }
+
+    if (await otherMod(issue)) return;
 
     const sig = signature(report);
     if (sig) await add(issue, sig);
@@ -501,6 +591,27 @@ async function run({ github, context, core, fetch, now = new Date() }) {
     }
   }
 
+  // One message in the known-mod-conflicts channel holds the list; it's edited when the list
+  // changes. The message id and the last content's hash live in a hidden dashboard line.
+  async function discordList(previousBody, modCounts) {
+    const previous = String(previousBody || '').match(/^<!-- ljp-bot:discord-list:(\d+):([0-9a-f]+) -->$/m);
+    // Keep the id while the webhook is off, so re-enabling it reuses the same message.
+    if (!webhook) return previous ? '\n\n' + previous[0] : '';
+    const content = conflicts.listMessage(rules, modCounts, now);
+    const hash = createHash('sha1').update(content).digest('hex').slice(0, 12);
+    let id = previous ? previous[1] : null;
+    // Even unchanged content needs an edit to notice a message deleted in Discord.
+    try {
+      if (!id || !(await conflicts.discordEdit(fetch, webhook, id, content))) {
+        id = await conflicts.discordSend(fetch, webhook, content);
+      }
+    } catch (error) {
+      core.warning('Discord list: ' + error.message);
+      return previous ? '\n\n' + previous[0] : '';
+    }
+    return id ? '\n\n<!-- ljp-bot:discord-list:' + id + ':' + hash + ' -->' : '';
+  }
+
   async function dashboard() {
     const current = await latest();
     const all = await list();
@@ -540,6 +651,28 @@ async function run({ github, context, core, fetch, now = new Date() }) {
         recent.push([issue, fixed]);
       }
     }
+
+    // Counts per other mod, from the mod: labels (no extra API calls).
+    const modCounts = new Map();
+    const suspectRows = new Map();
+    for (const issue of all) {
+      if (has(issue, 'dashboard')) continue;
+      for (const name of labels(issue)) {
+        if (!MOD.test(name)) continue;
+        const guid = name.slice(4);
+        if (has(issue, 'other-mod')) modCounts.set(guid, (modCounts.get(guid) || 0) + 1);
+        else if (has(issue, 'suspect-mod') && issue.state === 'open') {
+          if (!suspectRows.has(guid)) suspectRows.set(guid, []);
+          suspectRows.get(guid).push(issue);
+        }
+      }
+    }
+    const knownRows = rules.mods.map(rule => [rule.name, rule.brokenUpTo ? '<= ' + rule.brokenUpTo : 'all',
+      cell(rule.problem, 90), cell(rule.fix, 40), String(modCounts.get(conflicts.labelFor(rule.guid).slice(4)) || 0)])
+      .sort((a, b) => Number(b[4]) - Number(a[4]) || a[0].localeCompare(b[0]));
+    const suspectTable = [...suspectRows].map(([guid, issues]) => [guid, String(issues.length),
+      issues.sort(oldest).slice(0, 6).map(issue => '#' + issue.number).join(' ')])
+      .sort((a, b) => Number(b[1]) - Number(a[1]) || a[0].localeCompare(b[0]));
 
     const rows = [];
     for (const [key, open] of groups) {
@@ -595,7 +728,11 @@ async function run({ github, context, core, fetch, now = new Date() }) {
       '**Needs info**',
       table(['Issue', 'Date'], needs.map(issue =>
         ['#' + issue.number, dateText(issue.created_at)])),
-    ].join('\n\n');
+      '**Mods that break the game** (conflicts/known-mods.json; reports with them are closed on arrival)',
+      table(['Mod', 'Versions', 'Problem', 'Fix', 'Reports'], knownRows),
+      '**Suspected mods** (open reports whose errors point at a mod with no rule yet)',
+      table(['Mod', 'Reports', 'Issues'], suspectTable),
+    ].join('\n\n') + await discordList(dash?.body, modCounts);
 
     await ensureLabel('dashboard');
     if (!dash) {
@@ -655,6 +792,12 @@ async function run({ github, context, core, fetch, now = new Date() }) {
         if (issue.state === 'open' && !issue.locked && !has(issue, 'dashboard') && parseReport(issue.body)) {
           await opened(issue);
           await lock(issue);
+        }
+      }
+      // New rules in conflicts/known-mods.json apply to reports that are already open.
+      for (const issue of all) {
+        if (issue.state === 'open' && !excluded(issue) && !has(issue, 'other-mod') && parseReport(issue.body)) {
+          await otherMod(issue);
         }
       }
       // Several fixed-in labels at once (2026-11-11: 13 in a minute) replaced each other's waiting

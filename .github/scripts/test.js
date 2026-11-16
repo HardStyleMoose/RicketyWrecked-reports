@@ -3,9 +3,11 @@
 const assert = require('node:assert/strict');
 const { createHash } = require('node:crypto');
 const { run, parseReport, signature, compareVersions, isTestReport } = require('./reports');
+const conflicts = require('./conflicts');
 
 const NOW = new Date('2026-10-28T06:17:00Z');
 const RELAY = 'https://ljp-reports.ricketywrecked.workers.dev';
+const WEBHOOK = 'https://discord.com/api/webhooks/123/fake';
 const tests = [];
 const test = (name, fn) => tests.push({ name, fn });
 const clone = value => structuredClone(value);
@@ -63,6 +65,7 @@ function fake(initial = [], latest = '1.2.0') {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
     fetchCount: 0, failAdd: null, failLock: 0,
     now: new Date(NOW), relayCalls: [], relayGet: 'ok', relayPost: 'ok',
+    rules: { mods: [] }, env: {}, logs: new Map(), discordCalls: [], discordMode: 200,
   };
   function failure(status) { return Object.assign(new Error('Fake failure'), { status }); }
   function record(name, params) { calls.push({ name, ...clone(params) }); }
@@ -157,7 +160,13 @@ function fake(initial = [], latest = '1.2.0') {
     };
   }
   const github = {
-    rest: { issues: api },
+    rest: { issues: api, repos: {
+      async getContent(params) {
+        record('getContent', params);
+        if (!state.logs.has(params.path)) throw failure(404);
+        return { data: { content: Buffer.from(state.logs.get(params.path)).toString('base64') } };
+      },
+    } },
     async paginate(method, params, mapper) {
       record('paginate', params);
       const result = [];
@@ -189,7 +198,7 @@ function fake(initial = [], latest = '1.2.0') {
     },
     async fire(action = 'opened', number = 1, label, eventName = 'issues') {
       return run({
-        github, now: state.now,
+        github, now: state.now, rules: state.rules, env: state.env,
         context: {
           repo: { owner: 'HardStyleMoose', repo: 'RicketyWrecked-reports' },
           eventName,
@@ -197,6 +206,19 @@ function fake(initial = [], latest = '1.2.0') {
         },
         core: { warning: message => warnings.push(message), info: message => infos.push(message) },
         fetch: async (url, options) => {
+          if (url.startsWith(WEBHOOK)) {
+            state.discordCalls.push({ url, ...options });
+            assert(options.signal instanceof AbortSignal);
+            assert.deepEqual(JSON.parse(options.body).allowed_mentions, { parse: [] });
+            if (state.discordMode === 'network') throw new Error('Network failure');
+            const status = state.discordMode === 404 && options.method === 'POST' ? 200 :
+              (typeof state.discordMode === 'number' ? state.discordMode : 200);
+            return { ok: status >= 200 && status < 300, status,
+              json: async () => {
+                if (state.discordMode === 'json') throw new Error('Bad JSON');
+                return { id: String(100 + state.discordCalls.length) };
+              } };
+          }
           if (url.startsWith(RELAY)) {
             assert([RELAY + '/', RELAY + '/report'].includes(url));
             state.relayCalls.push({ url, options });
@@ -251,6 +273,246 @@ function commentText(env, number) {
 function section(env, title) {
   return env.dashboard().body.split('**' + title + '**\n\n')[1].split('\n\n**')[0];
 }
+
+const conflictRule = (guid = 'example.broken') => ({
+  guid, name: 'Broken Mod', brokenUpTo: '1.0', evidence: ['BrokenMod\\.Crash'],
+  problem: 'Crashes.', fix: 'Remove it.', kind: 'broken',
+});
+const modLine = (name, guid, version = '1.0') => '- "' + name + '" | "' + guid + '" | "' + version + '"';
+const reportPath = 'reports/2026/11/20261116-165238-3d36b3.txt';
+function storedReport(env, log, number = 1) {
+  env.issues.get(number).body = report().replace('https://example.com/report.txt',
+    'https://github.com/HardStyleMoose/RicketyWrecked-reports/blob/main/' + reportPath);
+  env.state.logs.set(reportPath, log);
+}
+const discordPosts = env => env.state.discordCalls.filter(call => call.method === 'POST');
+
+test('parseMods reads sample list, CRLF, trims fields and deduplicates GUIDs', () => {
+  assert.deepEqual(conflicts.parseMods('Mods (3):\r\n' +
+    modLine(' Broken Mod ', 'example.broken', '1.0') + '\r\n' +
+    modLine('duplicate', 'EXAMPLE.BROKEN') + '\r\n' + modLine('LateJoinPlus', 'ricketywrecked.repo.latejoinplus')), [
+    { name: 'Broken Mod', guid: 'example.broken', version: '1.0' },
+    { name: 'LateJoinPlus', guid: 'ricketywrecked.repo.latejoinplus', version: '1.0' },
+  ]);
+});
+
+test('detect requires matching GUID, version and evidence, or version alone for empty evidence', () => {
+  const rule = conflictRule();
+  const mods = conflicts.parseMods(modLine('Broken Mod', rule.guid));
+  assert.equal(conflicts.detect('BrokenMod.Crash', mods, { mods: [rule] }).known.length, 1);
+  assert.equal(conflicts.detect('BrokenModXCrash', mods, { mods: [rule] }).known.length, 0);
+  assert.equal(conflicts.detect('BrokenMod.Crash', [{ ...mods[0], guid: 'other.mod' }], { mods: [rule] }).known.length, 0);
+  assert.equal(conflicts.detect('BrokenMod.Crash', [{ ...mods[0], version: '1.0.1' }], { mods: [rule] }).known.length, 0);
+  assert.equal(conflicts.detect('', mods, { mods: [{ ...rule, evidence: [] }] }).known.length, 1);
+  assert.equal(conflicts.detect('BrokenMod.Crash', [{ ...mods[0], version: 'unknown' }], { mods: [rule] }).known.length, 0);
+});
+
+test('evidence recognizes Who-patches postfix and a mod error source', () => {
+  const mods = conflicts.parseMods(modLine('Wall Climb', 'example.wallclimb') + '\n' +
+    modLine('Empress Spawn Browser', 'Empress.SpawnBrowser'));
+  const found = conflicts.evidence("Who patches the methods in this log's errors:\n" +
+    '  PlayerController.Update: example.wallclimb (postfix)\n\n' +
+    '[Error :Empress Spawn Browser] Failed', mods);
+  assert.deepEqual(found.map(s => s.mod.guid), ['example.wallclimb', 'Empress.SpawnBrowser']);
+  assert.match(found[0].why[0], /postfix/);
+});
+
+test('evidence skips system frames with and without at, then finds PetCompanion', () => {
+  const mods = conflicts.parseMods(modLine('Pet Companion', 'com.yanyan.repo.petcompanion'));
+  for (const prefix of ['', 'at ']) {
+    const found = conflicts.evidence('Stack trace:\n  ' + prefix + 'UnityEngine.Debug.Log ()\n  ' +
+      prefix + 'PetCompanion.PetFollower.LateUpdate ()', mods);
+    assert.equal(found.length, 1);
+    assert.equal(found[0].mod.guid, mods[0].guid);
+  }
+  const unityMod = conflicts.parseMods(modLine('UnityTools', 'example.unitytools'));
+  assert.equal(conflicts.evidence('Stack trace:\nUnityTools.Plugin.Update ()', unityMod).length, 1);
+});
+
+test('libraries and our own mods never become suspects through any evidence source', () => {
+  const mods = conflicts.parseMods([
+    modLine('REPOLib', 'REPOLib'), modLine('MenuLib', 'nickklmao.menulib'),
+    modLine('MenuLib', 'MenuLib'), modLine('LateJoinPlus', 'ricketywrecked.repo.latejoinplus'),
+    modLine('Lobby Guard', 'ricketywrecked.repo.lobbyguard'),
+  ].join('\n'));
+  for (const mod of mods) {
+    const log = "Who patches the methods in this log's errors:\n  Game.Update: " + mod.guid +
+      ' (postfix)\n\n[Error :' + mod.name + '] Failed\nStack trace:\n  ' + mod.name.replace(/ /g, '') + '.Plugin.Update ()';
+    assert.deepEqual(conflicts.evidence(log, mods), []);
+  }
+});
+
+test('long GUID labels stay within 50 characters and do not merge shared prefixes', () => {
+  const prefix = 'example.' + 'a'.repeat(60);
+  assert.equal(conflicts.labelFor(prefix).length, 50);
+  assert.notEqual(conflicts.labelFor(prefix + 'one'), conflicts.labelFor(prefix + 'two'));
+  assert.equal(conflicts.labelFor('Example.Short'), 'mod:example.short');
+});
+
+test('opened known conflict labels, comments and closes once, with optional Discord', async () => {
+  for (const enabled of [false, true]) {
+    const env = fake([issue(1)]);
+    env.state.rules = { mods: [conflictRule()] };
+    if (enabled) env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+    storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash');
+    await env.fire();
+    await env.fire();
+    const item = env.issues.get(1);
+    assert(has(item, 'mod:example.broken'));
+    assert(has(item, 'other-mod'));
+    assert(!has(item, sig));
+    assert.equal(item.state, 'closed');
+    assert.equal(item.state_reason, 'not_planned');
+    assert.equal(env.count(1, 'other-mod'), 1);
+    assert.equal(env.calls.filter(call => call.name === 'update' && call.issue_number === 1 && call.state === 'closed').length, 1);
+    assert.equal(discordPosts(env).length, enabled ? 2 : 0); // New conflict and the list.
+    assert(discordPosts(env).every(call => call.url === WEBHOOK + '?wait=true'));
+    if (enabled) assert.equal(discordPosts(env).filter(call => JSON.parse(call.body).content.startsWith('**New:**')).length, 1);
+    assert(env.calls.some(call => call.name === 'getContent' && call.path === reportPath));
+  }
+});
+
+test('a known mod next to our own error is labelled and commented but stays open', async () => {
+  assert(!conflicts.ownErrors('[Error  :LateJoinPlus] First error this session: x\n[Error  :R.E.P.O Fixes+] [Extra slots keep items] could not apply Y'));
+  assert(conflicts.ownErrors('[Error  :LateJoinPlus] NullReferenceException in Foo'));
+  const env = fake([issue(1)]);
+  env.state.rules = { mods: [conflictRule()] };
+  storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash\n[Error  :LateJoinPlus] NullReferenceException in Foo');
+  await env.fire();
+  const item = env.issues.get(1);
+  assert(has(item, 'mod:example.broken'));
+  assert(has(item, 'other-mod'));
+  assert.equal(item.state, 'open');
+  assert.equal(env.count(1, 'other-mod'), 1);
+});
+
+test('multiple known mods keep comma-separated markers idempotent after failed close', async () => {
+  const env = fake([issue(1)]);
+  env.state.rules = { mods: [conflictRule(), conflictRule('example.second')] };
+  storedReport(env, modLine('Broken Mod', 'example.broken') + '\n' + modLine('Second', 'example.second') + '\nBrokenMod.Crash');
+  env.state.failClose = 1;
+  await assert.rejects(env.fire(), /Fake failure/);
+  await env.fire();
+  await env.fire();
+  assert.equal(env.count(1, 'other-mod'), 1);
+  assert(commentText(env, 1).includes(tag('other-mod', 'example.broken,example.second')));
+  assert.equal(env.issues.get(1).state_reason, 'not_planned');
+});
+
+test('suspects work without known rules, stay open and continue signature logic', async () => {
+  const env = fake([issue(1)]);
+  storedReport(env, modLine('Empress Spawn Browser', 'Empress.SpawnBrowser') + '\n[Error :Empress Spawn Browser] Failed');
+  await env.fire();
+  await env.fire();
+  await env.fire(null, null, null, 'schedule');
+  assert(has(env.issues.get(1), 'suspect-mod'));
+  assert(has(env.issues.get(1), 'mod:empress.spawnbrowser'));
+  assert(has(env.issues.get(1), sig));
+  assert.equal(env.count(1, 'suspect-mod'), 1);
+  assert.equal(env.issues.get(1).state, 'open');
+});
+
+test('closed issues never get suspect labels or comments from a delayed opened event', async () => {
+  const env = fake([issue(1, { state: 'closed', state_reason: 'completed' })]);
+  storedReport(env, modLine('Empress Spawn Browser', 'Empress.SpawnBrowser') + '\n[Error :Empress Spawn Browser] Failed');
+  await env.fire();
+  assert(!has(env.issues.get(1), 'suspect-mod'));
+  assert.equal(env.count(1, 'suspect-mod'), 0);
+  assert.equal(env.issues.get(1).state_reason, 'completed');
+});
+
+test('schedule applies grown rules to locked reports and avoids double close', async () => {
+  const env = fake([issue(1, { locked: true, labels: ['fixed-in:1.2.0'] }), issue(2)]);
+  env.state.rules = { mods: [conflictRule()] };
+  for (const number of [1, 2]) storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash', number);
+  await env.fire(null, null, null, 'schedule');
+  await env.fire(null, null, null, 'schedule');
+  for (const number of [1, 2]) {
+    assert.equal(env.count(number, 'other-mod'), 1);
+    assert.equal(env.count(number, 'released'), 0);
+    assert.equal(env.issues.get(number).state_reason, 'not_planned');
+    assert.equal(env.calls.filter(call => call.name === 'update' && call.issue_number === number && call.state === 'closed').length, 1);
+  }
+});
+
+test('first known announcement counts closed conflicts but ignores earlier suspects', async () => {
+  for (const previous of ['other-mod', 'suspect-mod']) {
+    const env = fake([issue(1, { labels: ['mod:example.broken', previous], state: 'closed' }), issue(2)]);
+    env.state.rules = { mods: [conflictRule()] };
+    env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+    storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash', 2);
+    await env.fire('opened', 2);
+    const announcements = discordPosts(env).filter(call => JSON.parse(call.body).content.startsWith('**New:**'));
+    assert.equal(announcements.length, previous === 'other-mod' ? 0 : 1);
+    assert(env.calls.some(call => call.name === 'listForRepo' && call.labels === 'mod:example.broken' && call.state === 'all'));
+  }
+});
+
+test('promoting an existing suspect to known still sends the first announcement', async () => {
+  const env = fake([issue(1, { labels: ['mod:example.broken', 'suspect-mod'], locked: true })]);
+  env.state.rules = { mods: [conflictRule()] };
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash');
+  await env.fire(null, null, null, 'schedule');
+  assert(!has(env.issues.get(1), 'suspect-mod'));
+  assert.equal(discordPosts(env).filter(call => JSON.parse(call.body).content.startsWith('**New:**')).length, 1);
+});
+
+test('dashboard has both mod tables and preserves Discord id through unchanged edits and 404', async () => {
+  const env = fake([issue(1, { labels: ['other-mod', 'mod:example.broken'], state: 'closed' }),
+    issue(2, { labels: ['suspect-mod', 'mod:example.suspect'], locked: true })]);
+  env.state.rules = { mods: [conflictRule()] };
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire('closed', 1);
+  assert.match(env.dashboard().body, /\*\*Mods that break the game\*\*/);
+  assert.match(env.dashboard().body, /\| Mod \| Versions \| Problem \| Fix \| Reports \|/);
+  assert.match(env.dashboard().body, /\*\*Suspected mods\*\*/);
+  assert.match(env.dashboard().body, /\| example.suspect \| 1 \| #2 \|/);
+  const hidden = env.dashboard().body.match(/<!-- ljp-bot:discord-list:(\d+):([a-f0-9]+) -->/);
+  assert(hidden);
+  await env.fire('closed', 1);
+  assert.equal(discordPosts(env).length, 1);
+  assert.equal(env.state.discordCalls.at(-1).method, 'PATCH');
+  assert.equal(env.state.discordCalls.at(-1).url, WEBHOOK + '/messages/' + hidden[1]);
+  assert(env.dashboard().body.endsWith(hidden[0]));
+  env.state.discordMode = 404;
+  await env.fire('closed', 1);
+  assert.equal(discordPosts(env).length, 2);
+  assert(!env.dashboard().body.endsWith(hidden[0]));
+  const replacement = env.dashboard().body.match(/<!-- ljp-bot:discord-list:.* -->/)[0];
+  env.state.env = {};
+  await env.fire('closed', 1);
+  assert(env.dashboard().body.endsWith(replacement));
+});
+
+test('dashboard counts known mods whose GUIDs need shortened labels', async () => {
+  const guid = 'example.' + 'a'.repeat(60);
+  const env = fake([issue(1, { labels: ['other-mod', conflicts.labelFor(guid)], state: 'closed' })]);
+  env.state.rules = { mods: [conflictRule(guid)] };
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire('closed', 1);
+  assert.match(env.dashboard().body, /\| Broken Mod \| <= 1.0 \| Crashes\. \| Remove it\. \| 1 \|/);
+  assert(JSON.parse(discordPosts(env)[0].body).content.includes('(1 report)'));
+});
+
+test('Discord failures never fail triage and preserve the last list marker for retry', async () => {
+  for (const mode of [503, 'network', 'json']) {
+    const env = fake([issue(1)]);
+    env.state.rules = { mods: [conflictRule()] };
+    env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+    await env.fire('closed', 1);
+    const hidden = env.dashboard().body.match(/<!-- ljp-bot:discord-list:.* -->/)[0];
+    env.state.discordMode = mode;
+    storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash');
+    await env.fire();
+    assert.equal(env.issues.get(1).state_reason, 'not_planned');
+    assert(env.warnings.some(warning => warning.startsWith('Discord:')));
+    if (mode !== 'json') {
+      assert(env.warnings.some(warning => warning.startsWith('Discord list:')));
+      assert(env.dashboard().body.endsWith(hidden));
+    }
+  }
+});
 
 test('parse complete relay report and CRLF', () => {
   assert.deepEqual(parseReport(report().replace(/\n/g, '\r\n')), {
