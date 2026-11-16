@@ -75,6 +75,24 @@
       "since": "2026-11-16", "reports": [69]
     },
     {
+      "guid": "com.empress.repo.banenforcer", "name": "Empress Ban Enforcer", "brokenUpTo": "2.1.0",
+      "evidence": ["Empress\\.REPO\\.BanEnforcer\\.", "Field not found: SteamManager \\.SteamManager\\.instance"],
+      "problem": "reads a SteamManager field the game no longer has and errors on every refresh.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [88]
+    },
+    {
+      "guid": "com.nikola.publicgamesaves", "name": "PublicGameSaves", "brokenUpTo": "1.1.0",
+      "evidence": ["Could not load type MenuPageServerListCreateNew"],
+      "problem": "patches a lobby-creation page that no longer exists, so its patches fail to load.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [49, 94]
+    },
+    {
+      "guid": "com.empress.blackboxfixer", "name": "Empress Blackbox Fixer", "brokenUpTo": "1.4.0",
+      "evidence": ["\\[Error\\s*:\\s*Empress Blackbox Fixer\\]", "Ambiguous match for HarmonyMethod\\[\\(class=ShopManager, methodname=ShopInitialize"],
+      "problem": "patches ShopInitialize by name, which has two overloads now, so its patch fails.", "fix": "Remove it.",
+      "since": "2026-11-16", "reports": [94]
+    },
+    {
       "guid": "KitchenSink.StartWithGunFixed", "name": "StartWithGun + StartWithGunFixed", "kind": "duplicate",
       "evidence": ["\"UsagiDev\\.StartWithGun\""],
       "problem": "the same mod is installed twice.", "fix": "Keep one of them.",
