@@ -28,6 +28,16 @@ const MAX_LABEL = 50;
 function loadRules(file = path.join(__dirname, '..', '..', 'conflicts', 'known-mods.json')) {
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   if (!Array.isArray(data.mods)) throw new Error('known-mods.json needs a "mods" list');
+  if (data.harmless !== undefined && !Array.isArray(data.harmless)) {
+    throw new Error('known-mods.json "harmless" must be a list');
+  }
+  for (const rule of data.harmless || []) {
+    if (!rule || typeof rule.pattern !== 'string' || !rule.pattern.trim() ||
+        typeof rule.why !== 'string' || !rule.why.trim()) {
+      throw new Error('Every harmless rule needs pattern and why: ' + JSON.stringify(rule));
+    }
+    rule.harmlessRegex = new RegExp(rule.pattern, 'i');
+  }
   for (const rule of data.mods) {
     if (!rule.guid || !rule.name || !rule.problem || !rule.fix) {
       throw new Error('Every rule needs guid, name, problem and fix: ' + JSON.stringify(rule));
@@ -178,6 +188,19 @@ function ownErrors(log) {
     !/First error this session|could not apply/i.test(line));
 }
 
+// Only the parsed error section counts; stack frames are supporting context, not errors.
+function harmlessOnly(errors, rules) {
+  const reasons = new Set();
+  for (const line of errors || []) {
+    const text = line.trim();
+    if (!text || /^(?:at\s|UnityEngine\.|System\.|HarmonyLib\.|Rethrow|\(wrapper|\(seen \d+ times)/.test(text)) continue;
+    const rule = (rules.harmless || []).find(rule => rule.harmlessRegex.test(text));
+    if (!rule) return null;
+    reasons.add(rule.why);
+  }
+  return reasons.size ? [...reasons] : null;
+}
+
 function knownComment(known) {
   const lines = known.map(({ rule, mod }) =>
     '- **' + rule.name + ' ' + mod.version + '** (' + mod.guid + '): ' + rule.problem + ' ' + rule.fix);
@@ -275,5 +298,5 @@ if (require.main === module) {
   console.log('\nKnown mods matched: ' + [...totals].map(([n, c]) => n + ' ×' + c).join(', '));
 }
 
-module.exports = { loadRules, parseMods, detect, evidence, labelFor, knownComment, suspectComment, ownErrors,
+module.exports = { loadRules, parseMods, detect, evidence, labelFor, knownComment, suspectComment, ownErrors, harmlessOnly,
   listMessage, newMessage, discordSend, discordEdit, versionBroken, findMod };

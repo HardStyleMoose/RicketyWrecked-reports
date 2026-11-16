@@ -286,6 +286,130 @@ function storedReport(env, log, number = 1) {
   env.state.logs.set(reportPath, log);
 }
 const discordPosts = env => env.state.discordCalls.filter(call => call.method === 'POST');
+const cosmetics = '[Error : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.';
+
+test('loadRules validates harmless lists, fields and regular expressions', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const file = path.join(require('node:os').tmpdir(), 'rw-harmless-' + require('node:crypto').randomUUID() + '.json');
+  try {
+    for (const harmless of [{}, [null], [{}], [{ pattern: 3, why: 'reason' }],
+      [{ pattern: 'x', why: ' ' }], [{ pattern: '[', why: 'reason' }]]) {
+      fs.writeFileSync(file, JSON.stringify({ mods: [], harmless }));
+      assert.throws(() => conflicts.loadRules(file));
+    }
+    fs.writeFileSync(file, JSON.stringify({ mods: [], harmless: [{ pattern: 'message', why: 'reason' }] }));
+    assert(conflicts.loadRules(file).harmless[0].harmlessRegex.test('MESSAGE'));
+  } finally {
+    fs.unlinkSync(file);
+  }
+});
+
+test('harmlessOnly matches every configured message with variable IDs and deduplicates reasons', () => {
+  const rules = conflicts.loadRules();
+  const lines = [cosmetics,
+    'Failed to find a PhotonView with ID=98765 for incoming OwnershipUpdate event',
+    'Received RPC "SomeMethod" for viewID 456 but this PhotonView does not exist',
+    "RPC method 'OtherMethod' not found on object with PhotonView 789",
+    '[Recorder] Voice: MicWrapper: Microphone is no longer recording',
+    'Connection lost. OnStatusChanged to TimeoutDisconnect', 'network disconnect report:',
+    'Screen position out of view frustum', 'ValuablePropSwitch: No ValuableVolume found',
+    "Can't remove PhotonView (Script) because EnemyParent (Script) depends on it",
+    '[NoSaveDelete] Save folder not found'];
+  for (let i = 0; i < lines.length; i++) {
+    assert.deepEqual(conflicts.harmlessOnly([lines[i].toUpperCase()], rules), [rules.harmless[i].why]);
+  }
+  assert.deepEqual(conflicts.harmlessOnly([...lines, cosmetics], rules), rules.harmless.map(rule => rule.why));
+});
+
+test('harmlessOnly rejects one real error and empty or frame-only error sections', () => {
+  const rules = conflicts.loadRules();
+  assert.equal(conflicts.harmlessOnly([cosmetics, 'NullReferenceException: real failure'], rules), null);
+  for (const errors of [[], undefined, [' ', 'at Foo.Bar ()']]) {
+    assert.equal(conflicts.harmlessOnly(errors, rules), null);
+  }
+});
+
+test('harmlessOnly ignores blank lines, stack frames and repetition counts', () => {
+  const rules = conflicts.loadRules();
+  assert.deepEqual(conflicts.harmlessOnly([cosmetics, '', '  ', '  at Game.Method ()',
+    'UnityEngine.Debug.Log ()', 'System.Reflection.Invoke ()', 'HarmonyLib.Patch ()',
+    'Rethrow as Exception', '(wrapper managed-to-native) Foo ()', '(seen 345 times)'], rules),
+  [rules.harmless[0].why]);
+});
+
+test('opened cosmetics report closes harmless once before matching an old closed signature', async () => {
+  const body = report({ errors: cosmetics });
+  const env = fake([issue(43, { body, state: 'closed', labels: [signature(parseReport(body))] }),
+    issue(84, { body })]);
+  env.state.rules = conflicts.loadRules();
+  await env.fire('opened', 84);
+  await env.fire('opened', 84);
+  const item = env.issues.get(84);
+  assert(has(item, 'harmless'));
+  assert.equal(env.labels.get('harmless').color, 'c2e0c6');
+  assert.equal(item.state, 'closed');
+  assert.equal(item.state_reason, 'not_planned');
+  assert.equal(env.count(84, 'harmless'), 1);
+  assert.equal(env.comments.get(84).length, 1);
+  assert(!commentText(env, 84).includes('Looks like'));
+  assert(!item.labels.some(label => /^sig-/.test(label.name || label)));
+  assert(commentText(env, 84).includes('- ' + env.state.rules.harmless[0].why));
+  assert(env.dashboard().body.includes('Harmless game-message reports closed in the last 14 days: 1'));
+});
+
+test('harmless closure retries after failure and schedule handles locked reports without mod lists', async () => {
+  const env = fake([issue(1, { locked: true, body: report({ errors: cosmetics }).split('### Mods')[0] })]);
+  env.state.rules = conflicts.loadRules();
+  env.state.failClose = 1;
+  await assert.rejects(env.fire(null, null, null, 'schedule'));
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(env.issues.get(1).state_reason, 'not_planned');
+  assert.equal(env.count(1, 'harmless'), 1);
+});
+
+test('harmless lines with our own errors in the section or stored log stay open', async () => {
+  for (const inLog of [false, true]) {
+    const own = '[Error :LateJoinPlus] NullReferenceException in Foo';
+    const env = fake([issue(1, { body: report({ errors: cosmetics + (inLog ? '' : '\n' + own) }) })]);
+    env.state.rules = conflicts.loadRules();
+    if (inLog) {
+      storedReport(env, own);
+      env.issues.get(1).body = env.issues.get(1).body.replace(defaultError, cosmetics);
+    }
+    await env.fire();
+    assert.equal(env.issues.get(1).state, 'open');
+    assert(!has(env.issues.get(1), 'harmless'));
+  }
+});
+
+test('suspects take precedence over harmless error lines', async () => {
+  const env = fake([issue(1)]);
+  env.state.rules = conflicts.loadRules();
+  storedReport(env, modLine('Unknown Mod', 'example.unknown') + '\n[Error :Unknown Mod] Failed');
+  env.issues.get(1).body = env.issues.get(1).body.replace(defaultError, cosmetics);
+  await env.fire();
+  await env.fire(null, null, null, 'schedule');
+  assert(has(env.issues.get(1), 'suspect-mod'));
+  assert.equal(env.issues.get(1).state, 'open');
+  assert(!has(env.issues.get(1), 'harmless'));
+});
+
+test('dashboard harmless count includes only closures within the last 14 days', async () => {
+  const at = offset => new Date(NOW.getTime() + offset).toISOString();
+  const env = fake([
+    issue(1, { labels: ['harmless'], state: 'closed', closed_at: at(-14 * 86400000) }),
+    issue(2, { labels: ['harmless'], state: 'closed', closed_at: at(0) }),
+    issue(3, { labels: ['harmless'], state: 'closed', closed_at: at(-14 * 86400000 - 1) }),
+    issue(4, { labels: ['harmless'], state: 'closed', closed_at: at(1) }),
+    issue(5, { labels: ['harmless'], state: 'open', closed_at: at(-1000) }),
+    issue(6, { labels: ['harmless'], state: 'closed', closed_at: 'invalid' }),
+    issue(7, { state: 'closed', closed_at: at(-1000) }),
+  ]);
+  await env.fire('closed', 1);
+  assert(env.dashboard().body.includes('Harmless game-message reports closed in the last 14 days: 2'));
+  assert(section(env, 'Open problems').includes('#5'));
+});
 
 test('parseMods reads sample list, CRLF, trims fields and deduplicates GUIDs', () => {
   assert.deepEqual(conflicts.parseMods('Mods (3):\r\n' +
@@ -449,12 +573,14 @@ test('first known announcement counts closed conflicts but ignores earlier suspe
 });
 
 test('promoting an existing suspect to known still sends the first announcement', async () => {
-  const env = fake([issue(1, { labels: ['mod:example.broken', 'suspect-mod'], locked: true })]);
+  const env = fake([issue(1, { labels: ['mod:example.broken', 'mod:example.other', 'suspect-mod'], locked: true })]);
   env.state.rules = { mods: [conflictRule()] };
   env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
   storedReport(env, modLine('Broken Mod', 'example.broken') + '\nBrokenMod.Crash');
   await env.fire(null, null, null, 'schedule');
   assert(!has(env.issues.get(1), 'suspect-mod'));
+  assert(!has(env.issues.get(1), 'mod:example.other')); // a stale suspect label goes
+  assert(has(env.issues.get(1), 'mod:example.broken'));
   assert.equal(discordPosts(env).filter(call => JSON.parse(call.body).content.startsWith('**New:**')).length, 1);
 });
 

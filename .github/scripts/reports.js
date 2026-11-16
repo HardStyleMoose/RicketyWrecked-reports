@@ -26,6 +26,7 @@ const COLORS = {
   duplicate: 'ededed',
   'other-mod': 'e4e669',
   'suspect-mod': 'fef2c0',
+  harmless: 'c2e0c6',
 };
 const MOD = /^mod:/;
 
@@ -427,10 +428,9 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
   // are labelled for the owner. Returns true when the report was closed here.
   async function otherMod(issue) {
     // Queued opened events may arrive after closing; never re-triage a closed report.
-    if (issue.state !== 'open') return has(issue, 'other-mod');
+    if (issue.state !== 'open') return has(issue, 'other-mod') || has(issue, 'harmless');
     const log = await storedLog(issue);
     const mods = conflicts.parseMods(log || issue.body);
-    if (!mods.length) return false;
     const { known, suspects } = conflicts.detect(log || issue.body, mods, rules);
     if (known.length) {
       const fresh = [];
@@ -446,6 +446,11 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       }
       await add(issue, 'other-mod');
       await remove(issue, 'suspect-mod');
+      // Earlier suspect labels would count as known conflicts in the dashboard and Discord totals.
+      const keep = new Set(known.map(k => conflicts.labelFor(k.mod.guid)));
+      for (const name of labels(issue)) {
+        if (MOD.test(name) && !keep.has(name)) await remove(issue, name);
+      }
       // Our own mods logging an error too (not the relay's "First error this session" line) means
       // the other mod may not be the whole story: the owner looks, the report stays open.
       const ours = conflicts.ownErrors(log || issue.body);
@@ -464,6 +469,17 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       await add(issue, 'suspect-mod');
       await once(issue, 'suspect-mod', suspects.map(s => s.mod.guid.toLowerCase()).sort().join(','),
         conflicts.suspectComment(suspects));
+    }
+    const harmless = conflicts.harmlessOnly(parseReport(issue.body)?.errors, rules);
+    if (!suspects.length && !has(issue, 'suspect-mod') && harmless &&
+        !conflicts.ownErrors(log) && !conflicts.ownErrors(issue.body)) {
+      await add(issue, 'harmless');
+      await once(issue, 'harmless', issue.number,
+        "No mod error in this report. These lines are the game's own messages:\n" +
+        harmless.map(why => '- ' + why).join('\n') +
+        '\n\nNothing to fix; if the game misbehaved, send a new report with a description of what happened.');
+      await close(issue, 'not_planned');
+      return true;
     }
     return false;
   }
@@ -628,6 +644,8 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     const waiting = [];
     const recent = [];
     const cutoff = now.getTime() - 14 * 86400000;
+    const harmlessClosed = all.filter(issue => has(issue, 'harmless') && issue.state === 'closed' &&
+      Date.parse(issue.closed_at) >= cutoff && Date.parse(issue.closed_at) <= now.getTime()).length;
     const unusual = all.filter(issue =>
       issue.state === 'closed' && !has(issue, 'dashboard') && !has(issue, 'manual') &&
       (has(issue, 'test') || has(issue, 'duplicate')) && parseReport(issue.body) &&
@@ -715,6 +733,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       ...(unusual > 20 ? ['Unusual volume in the last 24 h: ' + unusual + ' reports.'] : []),
       'Updated ' + now.toISOString() + '. Latest LateJoinPlus on Thunderstore: ' +
         (current || 'unavailable') + '.',
+      'Harmless game-message reports closed in the last 14 days: ' + harmlessClosed,
       ...(capped ? ['Issue scans are limited to 1,000 entries; older reports may be omitted.'] : []),
       '**Open problems**',
       table(['Issue', 'Seen', 'Versions', 'Last seen', 'Category', 'Title'],

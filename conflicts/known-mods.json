@@ -1,6 +1,19 @@
 {
   "_about": "Mods known to break R.E.P.O or to clash with LateJoinPlus. The reports workflow checks every report against this list: a mod in the player's list at a version <= brokenUpTo (or any version when omitted) with one of the evidence patterns in the log is answered, labelled mod:<guid> and closed, and the Discord channel list is updated. kind: broken | replaced | duplicate. evidence: regular expressions (case-insensitive) tested on the stored report text; leave empty to match on the installed version alone.",
   "game": "0.5.1",
+  "harmless": [
+    { "pattern": "PlayerCosmetics: No colors equipped after \\d+ seconds, equipping default colors\\.", "why": "The game equipped default cosmetic colors." },
+    { "pattern": "Failed to find a PhotonView with ID=\\d+ for incoming OwnershipUpdate event", "why": "A network ownership update arrived after its object was removed." },
+    { "pattern": "Received RPC \"[^\"]+\" for viewID \\d+ but this PhotonView does not exist", "why": "A network message arrived after its object was removed." },
+    { "pattern": "RPC method '[^']+' not found on object with PhotonView \\d+", "why": "Another player's mod sent a network message this game does not handle." },
+    { "pattern": "\\[Recorder\\].*MicWrapper: Microphone is no longer recording", "why": "The game's voice recorder stopped recording." },
+    { "pattern": "Connection lost\\. OnStatusChanged to TimeoutDisconnect", "why": "The network connection timed out." },
+    { "pattern": "network disconnect report:", "why": "The game logged a network disconnect report." },
+    { "pattern": "Screen position out of view frustum", "why": "The game tried to display a position outside the camera view." },
+    { "pattern": "ValuablePropSwitch: No ValuableVolume found", "why": "A game prop has no valuable volume." },
+    { "pattern": "Can't remove PhotonView \\(Script\\) because EnemyParent \\(Script\\) depends on it", "why": "The game kept a network component needed by an enemy." },
+    { "pattern": "\\[NoSaveDelete\\] Save folder not found", "why": "There was no save folder to delete." }
+  ],
   "mods": [
     {
       "guid": "Rise.ShrinkerCartPlus", "name": "ShrinkerCartPlus", "brokenUpTo": "1.0",
