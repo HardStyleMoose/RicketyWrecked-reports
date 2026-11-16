@@ -522,7 +522,8 @@ test('harmlessOnly matches every configured message with variable IDs and dedupl
     'Connection lost. OnStatusChanged to TimeoutDisconnect', 'network disconnect report:',
     'Screen position out of view frustum', 'ValuablePropSwitch: No ValuableVolume found',
     "Can't remove PhotonView (Script) because EnemyParent (Script) depends on it",
-    '[NoSaveDelete] Save folder not found'];
+    '[NoSaveDelete] Save folder not found',
+    '[Fatal  :com.github.zehsteam.ExtractionPointConfirmButton] ExtractionPointPatch: Failed to spawn confirm button. GameObject is null.'];
   for (let i = 0; i < lines.length; i++) {
     assert.deepEqual(conflicts.harmlessOnly([lines[i].toUpperCase()], rules), [rules.harmless[i].why]);
   }

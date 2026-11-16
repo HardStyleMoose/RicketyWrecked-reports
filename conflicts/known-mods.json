@@ -3,114 +3,299 @@
   "game": "0.5.1",
   "fixed": [],
   "harmless": [
-    { "pattern": "PlayerCosmetics: No colors equipped after \\d+ seconds, equipping default colors\\.", "why": "The game equipped default cosmetic colors." },
-    { "pattern": "Failed to find a PhotonView with ID=\\d+ for incoming OwnershipUpdate event", "why": "A network ownership update arrived after its object was removed." },
-    { "pattern": "Received RPC \"[^\"]+\" for viewID \\d+ but this PhotonView does not exist", "why": "A network message arrived after its object was removed." },
-    { "pattern": "RPC method '[^']+' not found on object with PhotonView \\d+", "why": "Another player's mod sent a network message this game does not handle." },
-    { "pattern": "\\[Recorder\\].*MicWrapper: Microphone is no longer recording", "why": "The game's voice recorder stopped recording." },
-    { "pattern": "Connection lost\\. OnStatusChanged to TimeoutDisconnect", "why": "The network connection timed out." },
-    { "pattern": "network disconnect report:", "why": "The game logged a network disconnect report." },
-    { "pattern": "Screen position out of view frustum", "why": "The game tried to display a position outside the camera view." },
-    { "pattern": "ValuablePropSwitch: No ValuableVolume found", "why": "A game prop has no valuable volume." },
-    { "pattern": "Can't remove PhotonView \\(Script\\) because EnemyParent \\(Script\\) depends on it", "why": "The game kept a network component needed by an enemy." },
-    { "pattern": "\\[NoSaveDelete\\] Save folder not found", "why": "There was no save folder to delete." }
+    {
+      "pattern": "PlayerCosmetics: No colors equipped after \\d+ seconds, equipping default colors\\.",
+      "why": "The game equipped default cosmetic colors."
+    },
+    {
+      "pattern": "Failed to find a PhotonView with ID=\\d+ for incoming OwnershipUpdate event",
+      "why": "A network ownership update arrived after its object was removed."
+    },
+    {
+      "pattern": "Received RPC \"[^\"]+\" for viewID \\d+ but this PhotonView does not exist",
+      "why": "A network message arrived after its object was removed."
+    },
+    {
+      "pattern": "RPC method '[^']+' not found on object with PhotonView \\d+",
+      "why": "Another player's mod sent a network message this game does not handle."
+    },
+    {
+      "pattern": "\\[Recorder\\].*MicWrapper: Microphone is no longer recording",
+      "why": "The game's voice recorder stopped recording."
+    },
+    {
+      "pattern": "Connection lost\\. OnStatusChanged to TimeoutDisconnect",
+      "why": "The network connection timed out."
+    },
+    {
+      "pattern": "network disconnect report:",
+      "why": "The game logged a network disconnect report."
+    },
+    {
+      "pattern": "Screen position out of view frustum",
+      "why": "The game tried to display a position outside the camera view."
+    },
+    {
+      "pattern": "ValuablePropSwitch: No ValuableVolume found",
+      "why": "A game prop has no valuable volume."
+    },
+    {
+      "pattern": "Can't remove PhotonView \\(Script\\) because EnemyParent \\(Script\\) depends on it",
+      "why": "The game kept a network component needed by an enemy."
+    },
+    {
+      "pattern": "\\[NoSaveDelete\\] Save folder not found",
+      "why": "There was no save folder to delete."
+    },
+    {
+      "pattern": "ExtractionPointPatch: Failed to spawn confirm button",
+      "why": "ExtractionPointConfirmButton's button was held back by LateJoinPlus because a player in the lobby doesn't have that mod (without this they'd be sent back to the menu). Not a broken mod."
+    }
   ],
   "mods": [
     {
-      "guid": "Rise.ShrinkerCartPlus", "package": "Rise/ShrinkerCartPlus", "packageVersion": "1.0.2", "name": "ShrinkerCartPlus", "brokenUpTo": "1.0",
-      "evidence": ["ShrinkerCartPlus\\.ShrinkerCartPlus\\+\\w+\\.Postfix"],
-      "problem": "throws an error every frame on every cart, so the host lags.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [82]
+      "guid": "Rise.ShrinkerCartPlus",
+      "package": "Rise/ShrinkerCartPlus",
+      "packageVersion": "1.0.2",
+      "name": "ShrinkerCartPlus",
+      "brokenUpTo": "1.0",
+      "evidence": [
+        "ShrinkerCartPlus\\.ShrinkerCartPlus\\+\\w+\\.Postfix"
+      ],
+      "problem": "throws an error every frame on every cart, so the host lags.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        82
+      ]
     },
     {
-      "guid": "Empress.SpawnBrowser", "package": "Omniscye/Empress_Spawn_Browser", "packageVersion": "4.5.4", "name": "Empress Spawn Browser", "brokenUpTo": "4.0.0",
-      "evidence": ["\\[Error\\s*:\\s*Empress Spawn Browser\\]", "PlayerController\\.OverrideSpeed"],
-      "problem": "calls a player speed method the game no longer has and stalls loading.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [76, 79]
+      "guid": "Empress.SpawnBrowser",
+      "package": "Omniscye/Empress_Spawn_Browser",
+      "packageVersion": "4.5.4",
+      "name": "Empress Spawn Browser",
+      "brokenUpTo": "4.0.0",
+      "evidence": [
+        "\\[Error\\s*:\\s*Empress Spawn Browser\\]",
+        "PlayerController\\.OverrideSpeed"
+      ],
+      "problem": "calls a player speed method the game no longer has and stalls loading.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        76,
+        79
+      ]
     },
     {
-      "guid": "bestmodmenu.repo", "package": "digrididis_stack/BestModMenu", "packageVersion": "1.1.0", "name": "Best Mod Menu", "brokenUpTo": "1.1.0",
-      "evidence": ["Script error \\(FlyController\\)"],
-      "problem": "its FlyController script cannot start.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [62, 76, 79]
+      "guid": "bestmodmenu.repo",
+      "package": "digrididis_stack/BestModMenu",
+      "packageVersion": "1.1.0",
+      "name": "Best Mod Menu",
+      "brokenUpTo": "1.1.0",
+      "evidence": [
+        "Script error \\(FlyController\\)"
+      ],
+      "problem": "its FlyController script cannot start.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        62,
+        76,
+        79
+      ]
     },
     {
-      "guid": "repolatejoin.unified", "name": "RepoLateJoin", "kind": "replaced",
-      "evidence": ["MenuPageServerListCreateNew", "\\[Error\\s*:\\s*RepoLateJoin\\]"],
-      "problem": "cannot load on this game version, and LateJoinPlus already does late join.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [49, 66]
+      "guid": "repolatejoin.unified",
+      "name": "RepoLateJoin",
+      "kind": "replaced",
+      "evidence": [
+        "MenuPageServerListCreateNew",
+        "\\[Error\\s*:\\s*RepoLateJoin\\]"
+      ],
+      "problem": "cannot load on this game version, and LateJoinPlus already does late join.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        49,
+        66
+      ]
     },
     {
-      "guid": "ozoka.moreplayers", "package": "Ozoka_Gaming/MorePlayers", "packageVersion": "1.1.0", "name": "MorePlayers", "kind": "replaced",
-      "evidence": ["MorePlayers\\.SteamManagerPatch"],
-      "problem": "has a dead patch on this game version; LateJoinPlus already raises the player limit.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [74, 78]
+      "guid": "ozoka.moreplayers",
+      "package": "Ozoka_Gaming/MorePlayers",
+      "packageVersion": "1.1.0",
+      "name": "MorePlayers",
+      "kind": "replaced",
+      "evidence": [
+        "MorePlayers\\.SteamManagerPatch"
+      ],
+      "problem": "has a dead patch on this game version; LateJoinPlus already raises the player limit.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        74,
+        78
+      ]
     },
     {
-      "guid": "com.kimo.unlimitedrange", "name": "Unlimited Range + Scroll", "brokenUpTo": "1.3.0",
-      "evidence": ["DMD<PhysGrabber::RayCheck>", "com\\.kimo\\.unlimitedrange \\(transpiler\\)"],
-      "problem": "its patch breaks the game's grab raycast.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [80]
+      "guid": "com.kimo.unlimitedrange",
+      "name": "Unlimited Range + Scroll",
+      "brokenUpTo": "1.3.0",
+      "evidence": [
+        "DMD<PhysGrabber::RayCheck>",
+        "com\\.kimo\\.unlimitedrange \\(transpiler\\)"
+      ],
+      "problem": "its patch breaks the game's grab raycast.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        80
+      ]
     },
     {
-      "guid": "com.yanyan.repo.petcompanion", "package": "Mao_die_H/PetCompanion", "packageVersion": "1.3.5", "name": "Pet Companion", "brokenUpTo": "1.3.4",
-      "evidence": ["PetCompanion\\.PetFollower"],
-      "problem": "its follower script throws an error every frame.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [64]
+      "guid": "com.yanyan.repo.petcompanion",
+      "package": "Mao_die_H/PetCompanion",
+      "packageVersion": "1.3.5",
+      "name": "Pet Companion",
+      "brokenUpTo": "1.3.4",
+      "evidence": [
+        "PetCompanion\\.PetFollower"
+      ],
+      "problem": "its follower script throws an error every frame.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        64
+      ]
     },
     {
-      "guid": "REPOJP.AlwaysWingsView", "package": "REPO_JP/AlwaysWingsView", "packageVersion": "4.0.1", "name": "AlwaysWingsView", "brokenUpTo": "2.1.1",
-      "evidence": ["ItemUpgradePlayerTumbleWingsLogic\\.tumbleWing", "SemiFunc::UIWorldToCanvasPosition"],
-      "problem": "is built for an older game and errors thousands of times on Tumble Wings.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [63]
+      "guid": "REPOJP.AlwaysWingsView",
+      "package": "REPO_JP/AlwaysWingsView",
+      "packageVersion": "4.0.1",
+      "name": "AlwaysWingsView",
+      "brokenUpTo": "2.1.1",
+      "evidence": [
+        "ItemUpgradePlayerTumbleWingsLogic\\.tumbleWing",
+        "SemiFunc::UIWorldToCanvasPosition"
+      ],
+      "problem": "is built for an older game and errors thousands of times on Tumble Wings.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        63
+      ]
     },
     {
-      "guid": "bulletbot.keybindlib", "package": "BULLETBOT/KeybindLib", "packageVersion": "1.0.6", "name": "KeybindLib", "brokenUpTo": "1.0.6",
-      "evidence": ["Failed to patch void InputManager::InitializeInputs"],
-      "problem": "breaks the game's input setup (players can turn invisible or controls fail).", "fix": "Update it, or remove it and the mods that need it.",
-      "since": "2026-11-16", "reports": [74]
+      "guid": "bulletbot.keybindlib",
+      "package": "BULLETBOT/KeybindLib",
+      "packageVersion": "1.0.6",
+      "name": "KeybindLib",
+      "brokenUpTo": "1.0.6",
+      "evidence": [
+        "Failed to patch void InputManager::InitializeInputs"
+      ],
+      "problem": "breaks the game's input setup (players can turn invisible or controls fail).",
+      "fix": "Update it, or remove it and the mods that need it.",
+      "since": "2026-11-16",
+      "reports": [
+        74
+      ]
     },
     {
-      "guid": "bulletbot.moreupgrades", "package": "BULLETBOT/MoreUpgrades", "packageVersion": "1.7.3", "name": "MoreUpgrades", "brokenUpTo": "1.7.3",
-      "evidence": ["UpgradeStand::GetWeightedUpgradeExcluding"],
-      "problem": "its upgrade stand patch fails on this game version.", "fix": "Update or remove it.",
-      "since": "2026-11-16", "reports": [74]
+      "guid": "bulletbot.moreupgrades",
+      "package": "BULLETBOT/MoreUpgrades",
+      "packageVersion": "1.7.3",
+      "name": "MoreUpgrades",
+      "brokenUpTo": "1.7.3",
+      "evidence": [
+        "UpgradeStand::GetWeightedUpgradeExcluding"
+      ],
+      "problem": "its upgrade stand patch fails on this game version.",
+      "fix": "Update or remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        74
+      ]
     },
     {
-      "guid": "com.github.zehsteam.ExtractionPointConfirmButton", "package": "Zehs/ExtractionPointConfirmButton", "packageVersion": "1.2.0", "name": "ExtractionPointConfirmButton", "brokenUpTo": "1.2.0",
-      "evidence": ["ExtractionPointPatch: Failed to spawn confirm button"],
-      "problem": "cannot spawn its confirm button on this game version.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [75]
+      "guid": "m1r0.DUSHIKAPSA",
+      "name": "DUSHIKAPSA",
+      "brokenUpTo": "1.0.0",
+      "evidence": [
+        "Parameter \"name\" not found in method void PunManager::SetItemNameLOGIC"
+      ],
+      "problem": "patches the game's item-naming method with an old parameter name, which breaks every other mod's patch on it.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        69
+      ]
     },
     {
-      "guid": "m1r0.DUSHIKAPSA", "name": "DUSHIKAPSA", "brokenUpTo": "1.0.0",
-      "evidence": ["Parameter \"name\" not found in method void PunManager::SetItemNameLOGIC"],
-      "problem": "patches the game's item-naming method with an old parameter name, which breaks every other mod's patch on it.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [69]
+      "guid": "com.empress.repo.banenforcer",
+      "package": "Omniscye/BanEnforcer",
+      "packageVersion": "4.0.1",
+      "name": "Empress Ban Enforcer",
+      "brokenUpTo": "2.1.0",
+      "evidence": [
+        "Empress\\.REPO\\.BanEnforcer\\.",
+        "Field not found: SteamManager \\.SteamManager\\.instance"
+      ],
+      "problem": "reads a SteamManager field the game no longer has and errors on every refresh.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        88
+      ]
     },
     {
-      "guid": "com.empress.repo.banenforcer", "package": "Omniscye/BanEnforcer", "packageVersion": "4.0.1", "name": "Empress Ban Enforcer", "brokenUpTo": "2.1.0",
-      "evidence": ["Empress\\.REPO\\.BanEnforcer\\.", "Field not found: SteamManager \\.SteamManager\\.instance"],
-      "problem": "reads a SteamManager field the game no longer has and errors on every refresh.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [88]
+      "guid": "com.nikola.publicgamesaves",
+      "package": "JohnnyDEV/PublicGameSaves",
+      "packageVersion": "1.1.0",
+      "name": "PublicGameSaves",
+      "brokenUpTo": "1.1.0",
+      "evidence": [
+        "Could not load type MenuPageServerListCreateNew"
+      ],
+      "problem": "patches a lobby-creation page that no longer exists, so its patches fail to load.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        49,
+        94
+      ]
     },
     {
-      "guid": "com.nikola.publicgamesaves", "package": "JohnnyDEV/PublicGameSaves", "packageVersion": "1.1.0", "name": "PublicGameSaves", "brokenUpTo": "1.1.0",
-      "evidence": ["Could not load type MenuPageServerListCreateNew"],
-      "problem": "patches a lobby-creation page that no longer exists, so its patches fail to load.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [49, 94]
+      "guid": "com.empress.blackboxfixer",
+      "package": "Omniscye/BlackBox_Fixer",
+      "packageVersion": "2.1.0",
+      "name": "Empress Blackbox Fixer",
+      "brokenUpTo": "1.4.0",
+      "evidence": [
+        "\\[Error\\s*:\\s*Empress Blackbox Fixer\\]",
+        "Ambiguous match for HarmonyMethod\\[\\(class=ShopManager, methodname=ShopInitialize"
+      ],
+      "problem": "patches ShopInitialize by name, which has two overloads now, so its patch fails.",
+      "fix": "Remove it.",
+      "since": "2026-11-16",
+      "reports": [
+        94
+      ]
     },
     {
-      "guid": "com.empress.blackboxfixer", "package": "Omniscye/BlackBox_Fixer", "packageVersion": "2.1.0", "name": "Empress Blackbox Fixer", "brokenUpTo": "1.4.0",
-      "evidence": ["\\[Error\\s*:\\s*Empress Blackbox Fixer\\]", "Ambiguous match for HarmonyMethod\\[\\(class=ShopManager, methodname=ShopInitialize"],
-      "problem": "patches ShopInitialize by name, which has two overloads now, so its patch fails.", "fix": "Remove it.",
-      "since": "2026-11-16", "reports": [94]
-    },
-    {
-      "guid": "KitchenSink.StartWithGunFixed", "name": "StartWithGun + StartWithGunFixed", "kind": "duplicate",
-      "evidence": ["\"UsagiDev\\.StartWithGun\""],
-      "problem": "the same mod is installed twice.", "fix": "Keep one of them.",
-      "since": "2026-11-16", "reports": [82]
+      "guid": "KitchenSink.StartWithGunFixed",
+      "name": "StartWithGun + StartWithGunFixed",
+      "kind": "duplicate",
+      "evidence": [
+        "\"UsagiDev\\.StartWithGun\""
+      ],
+      "problem": "the same mod is installed twice.",
+      "fix": "Keep one of them.",
+      "since": "2026-11-16",
+      "reports": [
+        82
+      ]
     }
   ]
 }
