@@ -66,6 +66,7 @@ function fake(initial = [], latest = '1.2.0') {
     fetchCount: 0, failAdd: null, failLock: 0,
     now: new Date(NOW), relayCalls: [], relayGet: 'ok', relayPost: 'ok',
     rules: { mods: [] }, env: {}, logs: new Map(), discordCalls: [], discordMode: 200,
+    packages: {}, packageCalls: [],
   };
   function failure(status) { return Object.assign(new Error('Fake failure'), { status }); }
   function record(name, params) { calls.push({ name, ...clone(params) }); }
@@ -248,6 +249,19 @@ function fake(initial = [], latest = '1.2.0') {
               },
             };
           }
+          const packageMatch = url.match(/^https:\/\/thunderstore\.io\/api\/experimental\/package\/([\w.-]+\/[\w.-]+)\/$/);
+          if (packageMatch && packageMatch[1] !== 'RicketyWrecked/LateJoinPlus') {
+            const name = packageMatch[1];
+            state.packageCalls.push({ name, url, options });
+            assert(options.signal instanceof AbortSignal);
+            assert.equal(options.headers.Accept, 'application/json');
+            const version = state.packages[name];
+            if (version === 'throw') throw new Error('Network failure');
+            return { ok: version !== 'http', json: async () => {
+              if (version === 'json') throw new Error('Bad JSON');
+              return { latest: { version_number: version } };
+            } };
+          }
           state.fetchCount++;
           assert.equal(url, 'https://thunderstore.io/api/experimental/package/RicketyWrecked/LateJoinPlus/');
           assert(options.signal);
@@ -287,6 +301,199 @@ function storedReport(env, log, number = 1) {
 }
 const discordPosts = env => env.state.discordCalls.filter(call => call.method === 'POST');
 const cosmetics = '[Error : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.';
+
+test('loadRules validates package paths and fixed entries', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const file = path.join(require('node:os').tmpdir(), 'rw-updates-' + require('node:crypto').randomUUID() + '.json');
+  const write = data => fs.writeFileSync(file, JSON.stringify(data));
+  try {
+    for (const value of ['', 'Team', 'Team/Name/extra', '../Team/Name', 'Team/Bad Name', null, 12]) {
+      write({ mods: [{ ...conflictRule(), package: value }] });
+      assert.throws(() => conflicts.loadRules(file), /Invalid Thunderstore package/);
+    }
+    write({ mods: [{ ...conflictRule(), package: 'Team_1/Name-2.3' }] });
+    assert.equal(conflicts.loadRules(file).mods[0].package, 'Team_1/Name-2.3');
+    for (const fixed of [{}, [null], [{}], [{ guid: 'x', name: 'X', fixedIn: 'bad', date: '2026-11-16' }]]) {
+      write({ mods: [], fixed });
+      assert.throws(() => conflicts.loadRules(file));
+    }
+    write({ mods: [], fixed: [{ guid: 'x', name: 'X', fixedIn: '1.2', date: '2026-11-16' }] });
+    assert.equal(conflicts.loadRules(file).fixed.length, 1);
+  } finally { fs.unlinkSync(file); }
+});
+
+test('updates are judged against packageVersion, not the plugin version in brokenUpTo', async () => {
+  const env = fake([]);
+  // Plugin reports 1.0.0 while its Thunderstore package is already 4.5.4: no update yet.
+  env.state.rules = { mods: [{ ...conflictRule(), package: 'Team/Name', packageVersion: '4.5.4' }] };
+  env.state.packages['Team/Name'] = '4.5.4';
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire(null, null, null, 'schedule');
+  const updates = () => discordPosts(env).map(call => JSON.parse(call.body).content)
+    .filter(text => text.startsWith('**Update:**'));
+  assert.equal(updates().length, 0);
+  env.state.packages['Team/Name'] = '4.6.0';
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(updates().length, 1);
+});
+
+test('package checks cache per package, show updates and announce each guid/version only once', async () => {
+  const env = fake([]);
+  env.state.rules = { mods: [conflictRule(), conflictRule('example.second')].map(rule =>
+    ({ ...rule, package: 'Team/Name' })) };
+  env.state.packages['Team/Name'] = '1.2.0';
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  const timeout = AbortSignal.timeout;
+  const delays = [];
+  AbortSignal.timeout = ms => { delays.push(ms); return timeout(ms); };
+  try { await env.fire(null, null, null, 'schedule'); }
+  finally { AbortSignal.timeout = timeout; }
+  assert.equal(env.state.packageCalls.length, 1);
+  assert.equal(delays.filter(ms => ms === 15000).length, 5); // LJ+, package, two updates, list
+  assert.equal(env.state.fetchCount, 1);
+  const updates = () => discordPosts(env).map(call => JSON.parse(call.body).content)
+    .filter(text => text.startsWith('**Update:**'));
+  assert.deepEqual(updates(), Array(2).fill('**Update:** Broken Mod 1.2.0 is out; new reports will show if it works now.'));
+  assert.equal(JSON.parse(env.state.discordCalls.at(-1).body).content.match(/ - update 1\.2\.0 out, may be fixed/g).length, 2);
+  await env.fire(null, null, null, 'workflow_dispatch');
+  assert.equal(env.state.packageCalls.length, 2);
+  assert.equal(updates().length, 2);
+  await env.fire('closed', env.dashboard().number);
+  assert.equal(env.state.packageCalls.length, 2); // issue events preserve update-out without probing
+  assert(JSON.parse(env.state.discordCalls.at(-1).body).content.includes(' - update 1.2.0 out, may be fixed'));
+  env.state.packages['Team/Name'] = '1.10.0';
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(updates().length, 4);
+  env.state.packages['Team/Name'] = '1.2.0';
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(updates().length, 4); // remember all pairs, even after a rollback
+});
+
+test('package failures warn once per package and never fail the run', async () => {
+  for (const mode of ['throw', 'http', 'json', 'invalid', undefined]) {
+    const env = fake([]);
+    env.state.rules = { mods: [conflictRule(), conflictRule('example.second')].map(rule =>
+      ({ ...rule, package: 'Team/Bad' })) };
+    env.state.packages['Team/Bad'] = mode;
+    await env.fire(null, null, null, 'schedule');
+    assert(env.dashboard());
+    assert.equal(env.warnings.length, 1);
+    assert(env.warnings[0].includes('Team/Bad'));
+    assert.equal(env.state.packageCalls.length, 1);
+    assert.equal(env.state.fetchCount, 1);
+  }
+});
+
+test('only scheduled runs fetch packages and only capped newer releases count as updates', async () => {
+  const env = fake([]);
+  env.state.rules = { mods: [
+    { ...conflictRule(), package: 'Team/Equal' },
+    { ...conflictRule('other.guid'), package: 'Team/Uncapped', brokenUpTo: undefined },
+  ] };
+  env.state.packages = { 'Team/Equal': '1.0.0', 'Team/Uncapped': '99.0' };
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire('closed', null);
+  assert.equal(env.state.packageCalls.length, 0);
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(env.state.packageCalls.length, 2);
+  assert(!env.state.discordCalls.some(call => JSON.parse(call.body).content.includes('**Update:**')));
+  assert(!JSON.parse(env.state.discordCalls.at(-1).body).content.includes('may be fixed'));
+});
+
+test('fixed mods leave matching and the list and announce Works again once', async () => {
+  const env = fake([]);
+  const rule = conflictRule();
+  env.state.rules = { mods: [rule] };
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire(null, null, null, 'schedule');
+  env.state.rules.fixed = [{ guid: rule.guid.toUpperCase(), name: rule.name, fixedIn: '1.2.0', date: '2026-11-16' }];
+  assert.equal(conflicts.detect('BrokenMod.Crash', [{ guid: rule.guid, version: '1.0' }], env.state.rules).known.length, 0);
+  assert(!conflicts.listMessage(env.state.rules, new Map()).includes('Broken Mod'));
+  await env.fire(null, null, null, 'workflow_dispatch');
+  await env.fire('closed', env.dashboard().number);
+  const notes = discordPosts(env).map(call => JSON.parse(call.body).content)
+    .filter(text => text.startsWith('**Works again:**'));
+  assert.deepEqual(notes, ['**Works again:** Broken Mod 1.2.0. Removed from the list.']);
+  assert(!section(env, 'Possibly fixed').includes('Broken Mod'));
+  assert(!JSON.parse(env.state.discordCalls.at(-1).body).content.includes('Broken Mod'));
+});
+
+test('disabled or failing Discord announcements retry after recovery without losing history', async () => {
+  const env = fake([]);
+  env.state.rules = { mods: [{ ...conflictRule(), package: 'Team/Name' }],
+    fixed: [{ guid: 'fixed.guid', name: 'Fixed Mod', fixedIn: '2.0', date: '2026-11-16' }] };
+  env.state.packages['Team/Name'] = '1.2.0';
+  await env.fire(null, null, null, 'schedule');
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  env.state.discordMode = 503;
+  await env.fire(null, null, null, 'schedule');
+  env.state.discordMode = 200;
+  await env.fire(null, null, null, 'schedule');
+  const posts = discordPosts(env).length;
+  env.state.env = {};
+  await env.fire('closed', env.dashboard().number);
+  env.state.env.DISCORD_CONFLICTS_WEBHOOK = WEBHOOK;
+  await env.fire(null, null, null, 'schedule');
+  assert.equal(discordPosts(env).length, posts);
+});
+
+test('new reports label possible fixes, aggregate versions and retain closed report evidence', async () => {
+  const env = fake([issue(1), issue(2)]);
+  env.state.rules = { mods: [conflictRule()] };
+  storedReport(env, modLine('Broken Mod', 'example.broken', '1.2.0'));
+  await env.fire();
+  assert(has(env.issues.get(1), 'mod-fixed:example.broken'));
+  assert.equal(env.issues.get(1).state, 'open');
+  assert(section(env, 'Possibly fixed').includes('| Broken Mod | 1.2.0 | #1 |'));
+  // Use the issue body for the second report so the two stored logs stay independent.
+  env.issues.get(2).body += '\n' + modLine('Broken Mod', 'example.broken', '1.10.0');
+  await env.fire('opened', 2);
+  await env.fire(null, null, null, 'schedule');
+  assert(section(env, 'Possibly fixed').includes('| Broken Mod | 1.2.0, 1.10.0 |'));
+  assert(section(env, 'Possibly fixed').includes('#1'));
+  assert(section(env, 'Possibly fixed').includes('#2'));
+  assert.equal(env.issues.get(2).state, 'closed'); // duplicate still counts as evidence
+});
+
+test('possible fixes require a numeric newer version and no rule evidence, and never recheck old reports', async () => {
+  for (const [version, log, action, locked] of [
+    ['1.0', '', 'opened', false], ['unknown', '', 'opened', false],
+    ['1.2.0', 'BrokenMod.Crash', 'opened', false],
+    ['1.2.0', '', 'closed', false], ['1.2.0', '', 'schedule', true],
+  ]) {
+    const env = fake([issue(1, { locked })]);
+    env.state.rules = { mods: [conflictRule()] };
+    storedReport(env, modLine('Broken Mod', 'example.broken', version) + '\n' + log);
+    if (action === 'schedule') await env.fire(null, null, null, 'schedule');
+    else await env.fire(action, 1);
+    assert(!has(env.issues.get(1), 'mod-fixed:example.broken'));
+    assert(!section(env, 'Possibly fixed').includes('Broken Mod'));
+  }
+});
+
+test('possible-fix labels shorten long GUIDs without collisions or counting as broken mods', async () => {
+  const guid = 'example.' + 'a'.repeat(70);
+  assert.equal(conflicts.labelFor(guid, 'mod-fixed:').length, 50);
+  assert.notEqual(conflicts.labelFor(guid + 'one', 'mod-fixed:'), conflicts.labelFor(guid + 'two', 'mod-fixed:'));
+  const env = fake([issue(1)]);
+  env.state.rules = { mods: [conflictRule(guid)] };
+  storedReport(env, modLine('Broken Mod', guid, '1.2.0'));
+  await env.fire();
+  assert(has(env.issues.get(1), conflicts.labelFor(guid, 'mod-fixed:')));
+  assert(section(env, 'Possibly fixed').includes('| Broken Mod | 1.2.0 | #1 |'));
+  assert(env.dashboard().body.includes('| Broken Mod | <= 1.0 | Crashes. | Remove it. | 0 |'));
+});
+
+test('unavailable full logs cannot establish that broken evidence is absent', async () => {
+  const env = fake([issue(1)]);
+  env.state.rules = { mods: [conflictRule()] };
+  storedReport(env, '');
+  env.state.logs.clear();
+  env.issues.get(1).body += '\n' + modLine('Broken Mod', 'example.broken', '1.2.0');
+  await env.fire();
+  assert(!has(env.issues.get(1), 'mod-fixed:example.broken'));
+});
 
 test('loadRules validates harmless lists, fields and regular expressions', () => {
   const fs = require('node:fs');

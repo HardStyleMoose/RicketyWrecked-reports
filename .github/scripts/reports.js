@@ -259,6 +259,21 @@ function reminders(now) {
   return lines.length ? ['**Reminders**', lines.join('\n')] : [];
 }
 
+// JSON is base64 encoded so GUIDs cannot terminate a hidden dashboard comment.
+function storedState(body, kind) {
+  const match = String(body || '').match(new RegExp(
+    '^<!-- ljp-bot:' + kind + ':([A-Za-z0-9+/=]+) -->$', 'm'));
+  try {
+    const value = JSON.parse(Buffer.from(match?.[1] || '', 'base64').toString('utf8'));
+    return Array.isArray(value) ? value : [];
+  } catch { return []; }
+}
+
+function stateLine(kind, values) {
+  return '\n\n<!-- ljp-bot:' + kind + ':' +
+    Buffer.from(JSON.stringify(values)).toString('base64') + ' -->';
+}
+
 async function run({ github, context, core, fetch, now = new Date(), env = process.env, rules = null }) {
   const api = github.rest.issues;
   const repo = context.repo;
@@ -273,7 +288,9 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       rules = { mods: [] };
     }
   }
+  rules = { ...rules, mods: conflicts.activeRules(rules) };
   const ensured = new Set();
+  const packagePromises = new Map();
   let latestPromise;
   let capped = false;
 
@@ -312,6 +329,27 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       })();
     }
     return latestPromise;
+  }
+
+  function packageLatest(name) {
+    if (!packagePromises.has(name)) {
+      packagePromises.set(name, (async () => {
+        try {
+          if (!/^[\w.-]+\/[\w.-]+$/.test(name)) throw new Error('Invalid package');
+          const response = await fetch('https://thunderstore.io/api/experimental/package/' + name + '/', {
+            headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15000),
+          });
+          if (!response.ok) throw new Error('HTTP failure');
+          const version = (await response.json())?.latest?.version_number;
+          if (!validVersion(version)) throw new Error('Invalid version');
+          return version;
+        } catch {
+          core.warning('Thunderstore package ' + name + ' is unavailable; its update check is skipped this run.');
+          return null;
+        }
+      })());
+    }
+    return packagePromises.get(name);
   }
 
   async function ensureLabel(name) {
@@ -426,11 +464,17 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
 
   // Another mod in the player's list explains the errors. Known mods close the report; suspects
   // are labelled for the owner. Returns true when the report was closed here.
-  async function otherMod(issue) {
+  async function otherMod(issue, newReport = false) {
     // Queued opened events may arrive after closing; never re-triage a closed report.
     if (issue.state !== 'open') return has(issue, 'other-mod') || has(issue, 'harmless');
     const log = await storedLog(issue);
     const mods = conflicts.parseMods(log || issue.body);
+    if (newReport && (log || !String(issue.body).includes('](reports/') &&
+        !String(issue.body).includes('/blob/main/reports/'))) {
+      for (const { rule } of possibleFixes(log || issue.body, mods)) {
+        await add(issue, conflicts.labelFor(rule.guid, 'mod-fixed:'));
+      }
+    }
     const { known, suspects } = conflicts.detect(log || issue.body, mods, rules);
     if (known.length) {
       const fresh = [];
@@ -536,7 +580,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       }
     }
 
-    if (await otherMod(issue)) return;
+    if (await otherMod(issue, true)) return;
 
     const sig = signature(report);
     if (sig) await add(issue, sig);
@@ -609,11 +653,11 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
 
   // One message in the known-mod-conflicts channel holds the list; it's edited when the list
   // changes. The message id and the last content's hash live in a hidden dashboard line.
-  async function discordList(previousBody, modCounts) {
+  async function discordList(previousBody, modCounts, updates) {
     const previous = String(previousBody || '').match(/^<!-- ljp-bot:discord-list:(\d+):([0-9a-f]+) -->$/m);
     // Keep the id while the webhook is off, so re-enabling it reuses the same message.
     if (!webhook) return previous ? '\n\n' + previous[0] : '';
-    const content = conflicts.listMessage(rules, modCounts, now);
+    const content = conflicts.listMessage(rules, modCounts, now, updates);
     const hash = createHash('sha1').update(content).digest('hex').slice(0, 12);
     let id = previous ? previous[1] : null;
     // Even unchanged content needs an edit to notice a message deleted in Discord.
@@ -626,6 +670,55 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       return previous ? '\n\n' + previous[0] : '';
     }
     return id ? '\n\n<!-- ljp-bot:discord-list:' + id + ':' + hash + ' -->' : '';
+  }
+
+  function possibleFixes(text, mods) {
+    return rules.mods.flatMap(rule => {
+      const mod = mods.find(mod => mod.guid.toLowerCase() === rule.guid.toLowerCase());
+      if (!mod || !validVersion(mod.version) || !validVersion(rule.brokenUpTo) ||
+          compareVersions(mod.version, rule.brokenUpTo) <= 0) return [];
+      const regex = rule.regex || (rule.evidence || []).map(source => new RegExp(source, 'i'));
+      return regex.some(re => re.test(text)) ? [] : [{ rule, mod }];
+    });
+  }
+
+  async function modUpdates(previousBody) {
+    const pairs = kind => storedState(previousBody, kind).filter(pair =>
+      Array.isArray(pair) && pair.length === 2 && typeof pair[0] === 'string' && validVersion(pair[1]));
+    const announced = new Map(pairs('updates').map(pair => [JSON.stringify(pair), pair]));
+    const fixed = new Set(storedState(previousBody, 'fixed').filter(guid => typeof guid === 'string'));
+    const updates = new Map(pairs('update-out'));
+    // Thunderstore package versions often differ from the plugin versions in reports (Spawn Browser:
+    // plugin 4.0.0, package 4.5.4), so an update is judged against the package version the rule was
+    // written for (packageVersion), never against brokenUpTo.
+    const baseline = rule => rule.packageVersion || rule.brokenUpTo;
+    const eligible = rules.mods.filter(rule => rule.package && validVersion(baseline(rule)));
+    if (['schedule', 'workflow_dispatch'].includes(context.eventName)) {
+      // Check every package, including uncapped rules; only capped rules can be update-out.
+      await Promise.all(rules.mods.filter(rule => rule.package).map(rule => packageLatest(rule.package)));
+      for (const rule of eligible) {
+        const version = await packageLatest(rule.package);
+        const guid = rule.guid.toLowerCase();
+        if (!version) continue;
+        updates.delete(guid);
+        if (compareVersions(version, baseline(rule)) > 0) updates.set(guid, version);
+      }
+    }
+    for (const [guid, version] of updates) {
+      const rule = eligible.find(rule => rule.guid.toLowerCase() === guid);
+      if (!rule || compareVersions(version, baseline(rule)) <= 0) { updates.delete(guid); continue; }
+      const pair = [guid, version];
+      const key = JSON.stringify(pair);
+      if (!announced.has(key) && await discord('**Update:** ' + rule.name + ' ' + version +
+          ' is out; new reports will show if it works now.')) announced.set(key, pair);
+    }
+    for (const mod of rules.fixed || []) {
+      const guid = mod.guid.toLowerCase();
+      if (!fixed.has(guid) && await discord('**Works again:** ' + mod.name + ' ' + mod.fixedIn +
+          '. Removed from the list.')) fixed.add(guid);
+    }
+    return { updates, markers: stateLine('updates', [...announced.values()]) +
+      stateLine('fixed', [...fixed]) + stateLine('update-out', [...updates]) };
   }
 
   async function dashboard() {
@@ -688,6 +781,20 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     const knownRows = rules.mods.map(rule => [rule.name, rule.brokenUpTo ? '<= ' + rule.brokenUpTo : 'all',
       cell(rule.problem, 90), cell(rule.fix, 40), String(modCounts.get(conflicts.labelFor(rule.guid).slice(4)) || 0)])
       .sort((a, b) => Number(b[4]) - Number(a[4]) || a[0].localeCompare(b[0]));
+    const possible = new Map();
+    for (const issue of all) {
+      if (has(issue, 'dashboard') || !labels(issue).some(name => name.startsWith('mod-fixed:'))) continue;
+      const text = await storedLog(issue) || issue.body;
+      for (const { rule, mod } of possibleFixes(text, conflicts.parseMods(text))) {
+        if (!has(issue, conflicts.labelFor(rule.guid, 'mod-fixed:'))) continue;
+        const guid = rule.guid.toLowerCase();
+        if (!possible.has(guid)) possible.set(guid, { rule, versions: new Set(), reports: [] });
+        possible.get(guid).versions.add(mod.version);
+        possible.get(guid).reports.push('#' + issue.number);
+      }
+    }
+    const possibleRows = [...possible.values()].sort((a, b) => a.rule.name.localeCompare(b.rule.name))
+      .map(({ rule, versions, reports }) => [cell(rule.name), [...versions].sort(compareVersions).join(', '), reports.join(' ')]);
     const suspectTable = [...suspectRows].map(([guid, issues]) => [guid, String(issues.length),
       issues.sort(oldest).slice(0, 6).map(issue => '#' + issue.number).join(' ')])
       .sort((a, b) => Number(b[1]) - Number(a[1]) || a[0].localeCompare(b[0]));
@@ -727,6 +834,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     recent.sort((a, b) => String(b[0].closed_at).localeCompare(String(a[0].closed_at)));
     const relay = ['schedule', 'workflow_dispatch'].includes(context.eventName) ?
       await checkRelay(fetch, now) : storedRelay(dash?.body);
+    const modState = await modUpdates(dash?.body);
     const body = [
       ...relayLines(relay),
       ...reminders(now),
@@ -749,9 +857,11 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
         ['#' + issue.number, dateText(issue.created_at)])),
       '**Mods that break the game** (conflicts/known-mods.json; reports with them are closed on arrival)',
       table(['Mod', 'Versions', 'Problem', 'Fix', 'Reports'], knownRows),
+      '**Possibly fixed**',
+      table(['Mod', 'Newer version seen', 'Reports'], possibleRows),
       '**Suspected mods** (open reports whose errors point at a mod with no rule yet)',
       table(['Mod', 'Reports', 'Issues'], suspectTable),
-    ].join('\n\n') + await discordList(dash?.body, modCounts);
+    ].join('\n\n') + modState.markers + await discordList(dash?.body, modCounts, modState.updates);
 
     await ensureLabel('dashboard');
     if (!dash) {

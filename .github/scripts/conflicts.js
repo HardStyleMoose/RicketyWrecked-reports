@@ -28,6 +28,16 @@ const MAX_LABEL = 50;
 function loadRules(file = path.join(__dirname, '..', '..', 'conflicts', 'known-mods.json')) {
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   if (!Array.isArray(data.mods)) throw new Error('known-mods.json needs a "mods" list');
+  if (data.fixed !== undefined && !Array.isArray(data.fixed)) {
+    throw new Error('known-mods.json "fixed" must be a list');
+  }
+  for (const mod of data.fixed || []) {
+    if (!mod || !['guid', 'name', 'fixedIn', 'date'].every(key =>
+      typeof mod[key] === 'string' && mod[key].trim()) ||
+      !/^\d+(?:\.\d+)*$/.test(mod.fixedIn) || !/^\d{4}-\d{2}-\d{2}$/.test(mod.date)) {
+      throw new Error('Every fixed mod needs guid, name, fixedIn and date: ' + JSON.stringify(mod));
+    }
+  }
   if (data.harmless !== undefined && !Array.isArray(data.harmless)) {
     throw new Error('known-mods.json "harmless" must be a list');
   }
@@ -39,6 +49,10 @@ function loadRules(file = path.join(__dirname, '..', '..', 'conflicts', 'known-m
     rule.harmlessRegex = new RegExp(rule.pattern, 'i');
   }
   for (const rule of data.mods) {
+    if (rule.package !== undefined && (typeof rule.package !== 'string' ||
+        !/^[\w.-]+\/[\w.-]+$/.test(rule.package))) {
+      throw new Error('Invalid Thunderstore package: ' + JSON.stringify(rule.package));
+    }
     if (!rule.guid || !rule.name || !rule.problem || !rule.fix) {
       throw new Error('Every rule needs guid, name, problem and fix: ' + JSON.stringify(rule));
     }
@@ -161,7 +175,7 @@ function evidence(log, mods) {
 function detect(log, mods, rules) {
   const text = String(log || '');
   const known = [];
-  for (const rule of rules.mods) {
+  for (const rule of activeRules(rules)) {
     const mod = mods.find(m => m.guid.toLowerCase() === rule.guid.toLowerCase());
     if (!mod || !versionBroken(mod.version, rule.brokenUpTo)) continue;
     const regex = rule.regex || (rule.evidence || []).map(source => new RegExp(source, 'i'));
@@ -173,8 +187,8 @@ function detect(log, mods, rules) {
   return { known, suspects };
 }
 
-function labelFor(guid) {
-  const name = 'mod:' + String(guid).toLowerCase();
+function labelFor(guid, prefix = 'mod:') {
+  const name = prefix + String(guid).toLowerCase();
   // Truncation alone merges different GUIDs that share a long prefix.
   return name.length <= MAX_LABEL ? name : name.slice(0, MAX_LABEL - 13) + '-' +
     createHash('sha1').update(name).digest('hex').slice(0, 12);
@@ -223,9 +237,14 @@ const KINDS = {
   duplicate: 'Installed twice (keep one)',
 };
 
-function listMessage(rules, counts, now = new Date()) {
+function activeRules(rules) {
+  const fixed = new Set((rules.fixed || []).map(mod => mod.guid.toLowerCase()));
+  return rules.mods.filter(rule => !fixed.has(rule.guid.toLowerCase()));
+}
+
+function listMessage(rules, counts, now = new Date(), updates = new Map()) {
   const groups = new Map();
-  for (const rule of rules.mods) {
+  for (const rule of activeRules(rules)) {
     if (!groups.has(rule.kind)) groups.set(rule.kind, []);
     groups.get(rule.kind).push(rule);
   }
@@ -238,7 +257,9 @@ function listMessage(rules, counts, now = new Date()) {
     for (const rule of list) {
       const n = counts.get(labelFor(rule.guid).slice(4)) || 0;
       parts.push('• **' + rule.name + '**' + (rule.brokenUpTo ? ' up to ' + rule.brokenUpTo : '') +
-        ' – ' + rule.problem + (n ? ' (' + n + ' report' + (n === 1 ? '' : 's') + ')' : ''));
+        ' – ' + rule.problem + (n ? ' (' + n + ' report' + (n === 1 ? '' : 's') + ')' : '') +
+        (updates.has(rule.guid.toLowerCase()) ?
+          ' - update ' + updates.get(rule.guid.toLowerCase()) + ' out, may be fixed' : ''));
     }
   }
   let text = parts.join('\n');
@@ -299,4 +320,4 @@ if (require.main === module) {
 }
 
 module.exports = { loadRules, parseMods, detect, evidence, labelFor, knownComment, suspectComment, ownErrors, harmlessOnly,
-  listMessage, newMessage, discordSend, discordEdit, versionBroken, findMod };
+  listMessage, newMessage, discordSend, discordEdit, versionBroken, findMod, activeRules };

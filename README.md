@@ -19,6 +19,7 @@ Nothing is sent until the player presses **Send**, and they can preview all of i
 ## Mods that break the game
 
 Reports caused by a listed mod are answered and closed automatically. The list is [conflicts/known-mods.json](conflicts/known-mods.json), and the Discord channel gets the list too.
+The list also shows when a mod's update is out, and fixed mods drop off.
 
 ## Removing a report
 If a report of yours should be removed, ask on the LateJoinPlus Discord (linked on its Thunderstore page) with the report id (it's in the report), and it will be deleted.
