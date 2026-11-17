@@ -1,0 +1,317 @@
+LateJoinPlus bug report 20261117-065158-5b6637
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.1"
+installId: "3024251f200f476da7d4d85362b989cf"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Desert"
+players: 6
+language: "en-US"
+test: false
+Sender: 6bba65d65503
+Install: 3024251f200f476da7d4d85362b989cf
+
+Mods (15):
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "ReturnToLobby" | "OrigamiCoder.ReturnToLobby" | "1.0.6"
+- "SharePermissions" | "RED.SharePermissions" | "2.43.0"
+- "REPOLib" | "REPOLib" | "4.5.0"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "MoreUIPanel" | "cn_xc.MoreUIPanel" | "0.2.0"
+- "Extraction Button Confirm" | "com.user.repo.extractionbutton" | "1.0.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.4"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "MorePlayerList" | "yazirushi.MorePlayerList" | "0.9.95"
+- "CarryFriend" | "zichen.carryfriend" | "1.0.5"
+- "GameTools" | "zichen.gametools" | "1.1.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Host
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (8 threads)
+Memory: 16129 MB
+Graphics: Intel(R) Iris(R) Xe Graphics (8064 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 6589 ms
+Most memory this game: 2474 MB
+Most texture memory this game: 275 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility, SharePermissions.Preloader
+Game methods several mods patch (44):
+  MenuPlayerListed.Update: yazirushi.MorePlayerList (transpiler), ricketywrecked.repo.latejoinplus (prefix), RED.SharePermissions (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  GameManager.Awake: Linkoid.Repo.RoboUnion (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: ricketywrecked.repo.latejoinplus (prefix), Linkoid.Repo.RoboUnion (postfix)
+  HurtCollider.PlayerHurt: RED.SharePermissions (prefix), zichen.carryfriend (prefix)
+  ItemUpgradePlayerTumbleWingsLogic.LoopSound: zichen.gametools (prefix), zichen.carryfriend (prefix)
+  MenuAPI.CreateREPOButton: ricketywrecked.repo.adminmenubuttonfix (prefix), zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOInputField: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOLabel: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOToggle: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuButton.OnSelect: ricketywrecked.repo.latejoinplus (prefix), RED.SharePermissions (prefix)
+  MenuPageEsc.Start: ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix), ricketywrecked.repo.adminmenubuttonfix (postfix)
+  MenuPageEsc.Update: RED.SharePermissions (postfix), yazirushi.MorePlayerList (postfix)
+  NetworkConnect.OnJoinedRoom: RED.SharePermissions (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkManager.OnPlayerLeftRoom: ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: RED.SharePermissions (prefix), ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), zichen.gametools (postfix), zichen.carryfriend (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), zichen.carryfriend (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), zichen.gametools (postfix)
+  PlayerAvatarVisuals.Update: zichen.gametools (prefix), RED.SharePermissions (postfix), zichen.gametools (postfix)
+  PlayerHealth.HurtOtherRPC: RED.SharePermissions (prefix), zichen.gametools (prefix)
+  PlayerHealth.Update: zichen.gametools (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (finalizer)
+  PlayerTumble.TumbleRequest: RED.SharePermissions (prefix), zichen.gametools (prefix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: RED.SharePermissions (postfix), ricketywrecked.repo.fixes (postfix)
+  PunManager.UpgradeDeathHeadBattery: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeMapPlayerCount: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerCrouchRest: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerEnergy: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerExtraJump: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabRange: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerSprintSpeed: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerThrowStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleClimb: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleLaunch: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleWings: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 2):
+  01:50:32 an error from Unity Log
+  01:51:16 Level 'Level - Lobby Menu'
+(end of settings)
+[Warning: Unity Log] [2026-11-17T06:45:39] [Warning] [INIT] [] VoiceLogger object is not found in the scene. Creating one.
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point Player 184 revive waits while an extraction is running, so the game revives those players when it finishes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 60 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (20) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2702 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 3568 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 6589 ms, 7 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1476 MB of 16129 MB, 82 MB of it from mods and scripts; textures 87 MB of 8064 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 34 ms and 18 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 4.0 ms (15 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning:LateJoinPlus] Key Y is LateJoinPlus's Answer key and also SharePermissions's Voice1on1AcceptKey: one press does both. Change one of them.
+[Warning:LateJoinPlus] Key N is LateJoinPlus's Decline key and also SharePermissions's Voice1on1DeclineKey: one press does both. Change one of them.
+[Warning:LateJoinPlus] Key End is LateJoinPlus's Leave key and also SharePermissions's Voice1on1HangUpKey: one press does both. Change one of them.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-17T06:46:44] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Player 175 is running a compatible late-join mod (LJ+ 1.2.1).
+[Info   :LateJoinPlus] Player 157 is running a compatible late-join mod (LJ+ 1.2.2).
+[Warning: Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 4002 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'You' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] [2026-11-17T06:49:30] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 4 not found when trying to remove
+   (seen 4 times in total)
+[Info   :LateJoinPlus] Something asked for a player limit of 60; using LJ+ menu > Max Players (20) instead.
+[Info   :LateJoinPlus] Player 157 is running a compatible late-join mod (LJ+ 1.2.2).
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+[Warning: Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 2002 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 175' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Warning: Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 9002 but this PhotonView does not exist! Was remote PV. Owner called. By: #09 'Player 157' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, Player 184-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 4 | slow catch-up steps 0
+[Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 36's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 181's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 188's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 2251 MB of 16129 MB, 104 MB of it from mods and scripts; textures 275 MB of 8064 MB video memory.
+=== Previous game session ===
+(earlier lines left out)
+[01:02:37.515] [Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[01:02:43.357] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[01:02:43.372] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[01:02:43.578] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point Player 184 revive waits while an extraction is running, so the game revives those players when it finishes.
+[01:02:43.759] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[01:02:43.942] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[01:02:44.526] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 60 patches applied, 0 failed.
+[01:02:53.603] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[01:02:53.605] [Warning:HarmonyX] AccessTools.Method: type is null
+[01:02:58.713] [Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (20) is used instead of its player limit; its other features are untouched.
+[01:02:58.714] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[01:02:58.723] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[01:02:58.724] [Info   :LateJoinPlus] Timing: start-up took 3458 ms.
+[01:02:58.725] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[01:02:58.725] [Info   :LateJoinPlus] Timing: late patches took 4934 ms.
+[01:02:58.765] [Warning:Unity Log] Unable to load font face for [] font asset.
+[01:03:02.259] [Info   :LateJoinPlus] Timing: slowest frame so far 8165 ms, 8 s after start.
+[01:03:02.261] [Info   :LateJoinPlus] Timing: game memory 1468 MB of 16129 MB, 81 MB of it from mods and scripts; textures 88 MB of 8064 MB video memory.
+[01:03:02.261] [Info   :LateJoinPlus] Timing: Chinese font set-up took 53 ms and 1 MB.
+[01:03:02.263] [Info   :LateJoinPlus] Timing: the 3-second font scan took 2.9 ms (15 fonts).
+[01:03:05.891] [Info   :Unity Log] leaving photon
+[01:03:05.921] [Info   :Unity Log] Leave to Main Menu
+[01:03:11.359] [Warning:LateJoinPlus] Key Y is LateJoinPlus's Answer key and also SharePermissions's Voice1on1AcceptKey: one press does both. Change one of them.
+[01:03:11.361] [Warning:LateJoinPlus] Key N is LateJoinPlus's Decline key and also SharePermissions's Voice1on1DeclineKey: one press does both. Change one of them.
+[01:03:11.361] [Warning:LateJoinPlus] Key End is LateJoinPlus's Leave key and also SharePermissions's Voice1on1HangUpKey: one press does both. Change one of them.
+[01:04:41.450] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[01:04:41.500] [Warning:Unity Log] [2026-11-17T06:04:41] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[01:04:42.720] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:04:57.130] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[01:07:00.905] [Error  :Unity Log] Ev Destroy Failed. Could not find PhotonView with instantiationId 12. Sent by actorNr: 1
+   (seen 338 times in total)
+[01:07:04.514] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 1002 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 157' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 65 times in total)
+[01:07:04.516] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 2002 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 157' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 65 times in total)
+[01:07:04.518] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 3002 but this PhotonView does not exist! View was/is ours. Remote called. By: #01 'Player 157'
+   (seen 65 times in total)
+[01:07:04.644] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 2002 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 175' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 15 times in total)
+[01:07:05.020] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:07:05.086] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:07:05.121] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:07:05.171] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:07:12.454] [Warning:Unity Log] [2026-11-17T06:07:12] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 6008 found. Remote voice p#6 v#3 not linked.
+[01:07:16.505] [Info   :LateJoinPlus] Waited 0.1 s for Player 176's Steam ID before loading their upgrades and name tag.
+[01:07:24.830] [Info   :LateJoinPlus] Timing: game memory 2419 MB of 16129 MB, 120 MB of it from mods and scripts; textures 277 MB of 8064 MB video memory.
+[01:14:38.266] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:14:38.355] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:14:38.372] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:14:38.407] [Info   :LateJoinPlus] Waited 0.1 s for Player 47's Steam ID before loading their upgrades and name tag.
+[01:14:38.475] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:18:40.937] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:18:40.954] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:18:40.972] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:18:41.028] [Info   :LateJoinPlus] Waited 0.1 s for Player 47's Steam ID before loading their upgrades and name tag.
+[01:18:41.050] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:19:07.770] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:19:07.790] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:19:07.826] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:19:07.846] [Info   :LateJoinPlus] Waited 0.1 s for Player 47's Steam ID before loading their upgrades and name tag.
+[01:19:07.868] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:27:42.376] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:27:42.444] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:27:42.541] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:27:42.842] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:28:13.766] [Warning:Unity Log] BoxCollider does not support negative scale or size.
+   (seen 2 times in total)
+[01:31:00.798] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:31:00.844] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:31:00.879] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:31:00.894] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:31:10.696] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 319 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 92' Maybe GO was destroyed but RPC not cleaned up.
+[01:31:10.698] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 319 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 92' Maybe GO was destroyed but RPC not cleaned up.
+[01:31:28.647] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:31:28.743] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:31:28.745] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:31:28.810] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:38:05.401] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:38:05.500] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:38:05.516] [Info   :LateJoinPlus] Waited 0.1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[01:38:05.588] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:38:05.635] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:39:56.559] [Info   :LateJoinPlus] Timing: game memory 2935 MB of 16129 MB, 145 MB of it from mods and scripts; textures 428 MB of 8064 MB video memory.
+[01:41:05.954] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1211 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 131' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[01:41:05.955] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1211 but this PhotonView does not exist! Was remote PV. Remote called. By: #09 'Player 9' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[01:41:05.956] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1211 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 92' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[01:41:05.961] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1211 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 175' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[01:41:31.102] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:41:31.123] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:41:31.140] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:41:31.166] [Info   :LateJoinPlus] Waited 0.1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[01:41:31.214] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:41:57.489] [Info   :LateJoinPlus] Waited 0.1 s for Player 157's Steam ID before loading their upgrades and name tag.
+[01:41:57.578] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[01:41:57.594] [Info   :LateJoinPlus] Waited 0.1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[01:41:57.634] [Info   :LateJoinPlus] Waited 0.1 s for Player 131's Steam ID before loading their upgrades and name tag.
+[01:41:57.649] [Info   :LateJoinPlus] Waited 0.1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[01:45:07.848] [Info   :Unity Log] Master client left...
+[01:45:08.442] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 1238 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 175' Maybe GO was destroyed but RPC not cleaned up.
+[01:45:09.435] [Warning:Unity Log] [2026-11-17T06:45:09] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 5 not found when trying to remove
+   (seen 2 times in total)
