@@ -1,0 +1,246 @@
+LateJoinPlus bug report 20261117-201737-55bb2d
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.1"
+installId: "54f94258ba924c8dbdc7caa02c17f71d"
+category: "crash"
+description: "i want to spawn mosters in shop"
+role: "host"
+level: "Level - Shop Wasteland"
+players: 1
+language: "en-US"
+test: false
+Sender: ecc19d936f65
+Install: 54f94258ba924c8dbdc7caa02c17f71d
+
+Mods (13):
+- "SpawnConfig" | "Index154.SpawnConfig" | "1.2.11"
+- "EyesColorCustom" | "REPOJP.EyesColorCustom" | "1.3.0"
+- "REPOLib" | "REPOLib" | "4.5.0"
+- "Self Moving Cart" | "Syntaxe.SelfMovingCart" | "1.3.3"
+- "Talking Cart" | "Syntaxe.TalkingCart" | "1.5.2"
+- "XH_REPO_DamageShow&EnemyHealthBar_Mod" | "com.XhPlugin.Repo_Mod" | "1.0.3"
+- "UnlockAllCosmetics" | "com.github.Alexsei.UnlockAllCosmetics" | "1.0.5"
+- "Empress Interactive Truck Door" | "empress.repo.interactivetruckdoor" | "1.0.10"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "MorePlayers" | "ozoka.moreplayers" | "1.0.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Crash or error
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 10
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Large
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = true
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 2
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz (4 threads)
+Memory: 8156 MB
+Graphics: NVIDIA GeForce GT 1030 (1967 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 7735 ms
+Most memory this game: 2431 MB
+Most texture memory this game: 317 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (14):
+  ChatManager.Update: Syntaxe.SelfMovingCart (postfix), Syntaxe.TalkingCart (postfix)
+  EnemyDirector.Start: Index154.SpawnConfig (postfix), ricketywrecked.repo.fixes (finalizer)
+  EnemyHealth.Death: Syntaxe.TalkingCart (prefix), com.XhPlugin.Repo_Mod (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), Syntaxe.TalkingCart (postfix)
+  PlayerController.Update: Syntaxe.SelfMovingCart (postfix), Syntaxe.TalkingCart (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RoundDirector.Start: Syntaxe.TalkingCart (prefix), Syntaxe.SelfMovingCart (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  SemiFunc.InputHold: REPOJP.EyesColorCustom (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  StaticGrabObject.Update: empress.repo.interactivetruckdoor (prefix), ricketywrecked.repo.fixes (prefix)
+(end of settings)
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name HostLobby and parameters 
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static bool MorePlayers.SteamManagerPatch::HostLobbyPatch()
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MorePlayers.Plugin.Awake () (at MorePlayers/Class1.cs:46)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.InputSystem.InputSystem:.cctor()
+[Info   :R.E.P.O Fixes+] [Mod guards] XH DamageShow & EnemyHealthBar found; its welcome popup is hidden (health bars and damage numbers are unchanged).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] MorePlayers is installed: LateJoinPlus Max Players (2) takes over, so its 3 patch(es) are switched off and the game's own room and Steam lobby code runs. You can uninstall it.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 3131 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 2 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 2893 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 7735 ms, 8 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1380 MB of 8156 MB, 67 MB of it from mods and scripts; textures 87 MB of 1967 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 51 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 3.3 ms (12 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-17T20:15:25] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] PLEASE JOIN MY SERVER OLNY ENGLISH'; as typed: 'please join my server OLNY ENGLISH'.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Admin] Host shop: done - Going to the shop.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Timing: game memory 2283 MB of 8156 MB, 76 MB of it from mods and scripts; textures 317 MB of 1967 MB video memory.
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+=== Previous game session ===
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name HostLobby and parameters 
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static bool MorePlayers.SteamManagerPatch::HostLobbyPatch()
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MorePlayers.Plugin.Awake () (at MorePlayers/Class1.cs:46)
+[18:57:00.144] [Info   :R.E.P.O Fixes+] [Mod guards] XH DamageShow & EnemyHealthBar found; its welcome popup is hidden (health bars and damage numbers are unchanged).
+[18:57:01.794] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[18:57:07.301] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[18:57:08.243] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[18:57:09.472] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[18:57:09.476] [Warning:HarmonyX] AccessTools.Method: type is null
+[18:57:13.165] [Info   :LateJoinPlus] MorePlayers is installed: LateJoinPlus Max Players (2) takes over, so its 3 patch(es) are switched off and the game's own room and Steam lobby code runs. You can uninstall it.
+[18:57:13.166] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[18:57:13.174] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[18:57:13.175] [Info   :LateJoinPlus] Timing: start-up took 2414 ms.
+[18:57:13.176] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 2 Steam IDs, on).
+[18:57:13.179] [Info   :LateJoinPlus] Timing: late patches took 2666 ms.
+[18:57:13.253] [Warning:Unity Log] Unable to load font face for [] font asset.
+[18:57:14.193] [Info   :LateJoinPlus] Timing: slowest frame so far 5944 ms, 6 s after start.
+[18:57:14.195] [Info   :LateJoinPlus] Timing: game memory 1563 MB of 8156 MB, 83 MB of it from mods and scripts; textures 114 MB of 1967 MB video memory.
+[18:57:14.196] [Info   :LateJoinPlus] Timing: Chinese font set-up took 41 ms and 1 MB.
+[18:57:14.197] [Info   :LateJoinPlus] Timing: the 3-second font scan took 2.4 ms (12 fonts).
+[18:57:25.212] [Info   :LateJoinPlus] Timing: slowest frame so far 10452 ms, 21 s after start.
+[18:57:28.717] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox 13/Audio". No AudioMixerGroup is assigned.
+[18:57:28.718] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox Cat/Audio". No AudioMixerGroup is assigned.
+[18:57:28.719] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox OS/Audio". No AudioMixerGroup is assigned.
+[18:57:31.800] [Info   :Unity Log] leaving photon
+[18:57:31.819] [Info   :Unity Log] Leave to Main Menu
+[18:57:53.263] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[18:58:15.619] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[18:58:15.621] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:58:17.237] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[18:58:17.254] [Warning:Unity Log] [2026-11-17T17:58:17] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[18:58:29.676] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[18:58:34.743] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[18:58:35.726] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:58:36.316] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:58:36.735] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[18:58:40.446] [Info   :LateJoinPlus] Timing: game memory 2244 MB of 8156 MB, 82 MB of it from mods and scripts; textures 269 MB of 1967 MB video memory.
+[18:58:50.647] [Warning:Lobby Guard] [Lobby Guard] 'Valuables/SmallVoodooDoll' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[18:58:50.672] [Warning:Unity Log] No colliders found on the object or its children!
+[18:58:52.514] [Info   :LateJoinPlus] [Run] Level built in 15 s. Slowest step: none (no other players).
+[18:59:36.827] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 2 times in total)
+[19:01:58.082] [Info   :LateJoinPlus] Late joiner Player 200 connected (level Level - Wizard). Catching them up.
+[19:01:58.587] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 200' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[19:02:01.044] [Warning:LateJoinPlus] Your lobby is full: 2 players, and LJ+ menu > Max Players is 2. Full lobbies don't show in the server list and refuse new players. Raise Max Players (up to 20) to let more in.
+[19:02:01.183] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 200 (without LateJoinPlus).
+[19:02:06.076] [Info   :LateJoinPlus] Late joiner Player 200 finished loading in 8.0 s (without LateJoinPlus).
+[19:02:07.409] [Info   :LateJoinPlus] Uncovered 1 explored room(s) on Player 200's map (6 messages).
+[19:02:28.963] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 200' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 7 KB in 50 messages (about 145 bytes each).
+[19:03:23.479] [Warning:Unity Log] [2026-11-17T18:03:23] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #2 of player 2 not found when trying to remove
+[19:03:27.366] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[19:03:27.828] [Warning:Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_17_18_57_54
