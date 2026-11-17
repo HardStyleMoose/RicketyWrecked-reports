@@ -1,0 +1,336 @@
+LateJoinPlus bug report 20261117-022019-472126
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.1"
+installId: "3024251f200f476da7d4d85362b989cf"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Wizard"
+players: 12
+language: "en-US"
+test: false
+Sender: 6bba65d65503
+Install: 3024251f200f476da7d4d85362b989cf
+
+Mods (15):
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "ReturnToLobby" | "OrigamiCoder.ReturnToLobby" | "1.0.6"
+- "SharePermissions" | "RED.SharePermissions" | "2.43.0"
+- "REPOLib" | "REPOLib" | "4.5.0"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "MoreUIPanel" | "cn_xc.MoreUIPanel" | "0.2.0"
+- "Extraction Button Confirm" | "com.user.repo.extractionbutton" | "1.0.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.4"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "MorePlayerList" | "yazirushi.MorePlayerList" | "0.9.95"
+- "CarryFriend" | "zichen.carryfriend" | "1.0.5"
+- "GameTools" | "zichen.gametools" | "1.1.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Host
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (8 threads)
+Memory: 16129 MB
+Graphics: Intel(R) Iris(R) Xe Graphics (8064 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 14766 ms
+Most memory this game: 3288 MB
+Most texture memory this game: 325 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility, SharePermissions.Preloader
+Game methods several mods patch (44):
+  MenuPlayerListed.Update: yazirushi.MorePlayerList (transpiler), ricketywrecked.repo.latejoinplus (prefix), RED.SharePermissions (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  GameManager.Awake: Linkoid.Repo.RoboUnion (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: ricketywrecked.repo.latejoinplus (prefix), Linkoid.Repo.RoboUnion (postfix)
+  HurtCollider.PlayerHurt: RED.SharePermissions (prefix), zichen.carryfriend (prefix)
+  ItemUpgradePlayerTumbleWingsLogic.LoopSound: zichen.gametools (prefix), zichen.carryfriend (prefix)
+  MenuAPI.CreateREPOButton: ricketywrecked.repo.adminmenubuttonfix (prefix), zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOInputField: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOLabel: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOSlider: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuAPI.CreateREPOToggle: zichen.gametools (postfix), zichen.carryfriend (postfix)
+  MenuButton.OnSelect: ricketywrecked.repo.latejoinplus (prefix), RED.SharePermissions (prefix)
+  MenuPageEsc.Start: ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix), ricketywrecked.repo.adminmenubuttonfix (postfix)
+  MenuPageEsc.Update: RED.SharePermissions (postfix), yazirushi.MorePlayerList (postfix)
+  NetworkConnect.OnJoinedRoom: RED.SharePermissions (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkManager.OnPlayerLeftRoom: ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: RED.SharePermissions (prefix), ricketywrecked.repo.latejoinplus (postfix), RED.SharePermissions (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), zichen.gametools (postfix), zichen.carryfriend (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), zichen.carryfriend (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), zichen.gametools (postfix)
+  PlayerAvatarVisuals.Update: zichen.gametools (prefix), RED.SharePermissions (postfix), zichen.gametools (postfix)
+  PlayerHealth.HurtOtherRPC: RED.SharePermissions (prefix), zichen.gametools (prefix)
+  PlayerHealth.Update: zichen.gametools (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (finalizer)
+  PlayerTumble.TumbleRequest: RED.SharePermissions (prefix), zichen.gametools (prefix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: RED.SharePermissions (postfix), ricketywrecked.repo.fixes (postfix)
+  PunManager.UpgradeDeathHeadBattery: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeMapPlayerCount: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerCrouchRest: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerEnergy: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerExtraJump: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabRange: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerSprintSpeed: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerThrowStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleClimb: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleLaunch: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleWings: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 80):
+  21:17:34 an error from Unity Log
+  21:17:34 an error from Unity Log
+  21:17:34 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:35 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:36 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:37 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:38 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:39 an error from Unity Log
+  21:17:40 an error from Unity Log
+  21:17:40 an error from Unity Log
+  21:17:40 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:41 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:42 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:43 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:44 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:45 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:46 an error from Unity Log
+  21:17:47 an error from Unity Log
+  21:17:47 an error from Unity Log
+  21:17:47 an error from Unity Log
+  21:18:32 an error from Unity Log
+  21:18:38 an error from Unity Log
+  21:18:53 an error from Unity Log
+  21:20:03 an error from Unity Log
+  21:20:16 an error from Unity Log
+(end of settings)
+[Info   :Lobby Guard] [Lobby Guard] Moved 1 new Steam ID(s) from the BlockedSteamIds setting to your Block List, which is now kept on this PC instead of in the mod profile.
+[Warning: Unity Log] [2026-11-17T02:14:53] [Warning] [INIT] [] VoiceLogger object is not found in the scene. Creating one.
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point Player 204 revive waits while an extraction is running, so the game revives those players when it finishes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 60 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (20) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2518 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1680 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 3629 ms, 4 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1481 MB of 16129 MB, 97 MB of it from mods and scripts; textures 87 MB of 8064 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 39 ms and 17 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.7 ms (15 fonts).
+[Info   :LateJoinPlus] Timing: slowest frame so far 5493 ms, 9 s after start.
+[Warning:LateJoinPlus] Key Y is LateJoinPlus's Answer key and also SharePermissions's Voice1on1AcceptKey: one press does both. Change one of them.
+[Warning:LateJoinPlus] Key N is LateJoinPlus's Decline key and also SharePermissions's Voice1on1DeclineKey: one press does both. Change one of them.
+[Warning:LateJoinPlus] Key End is LateJoinPlus's Leave key and also SharePermissions's Voice1on1HangUpKey: one press does both. Change one of them.
+[Info   :LateJoinPlus] Timing: slowest frame so far 14766 ms, 33 s after start.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Conflicts] Asked what to do about: SharePermissions 2.43.0.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-17T02:16:13] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 211's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 72's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 165's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 44's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 60's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 139's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-17T02:16:22] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 80008 found. Remote voice p#80 v#2 not linked.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] The host has not sent 17 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 159's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 49's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 212's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] RPC method 'PocketDimensionSyncStoredTotals(Int32, Int32)' not found on object with PhotonView 738. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+   (seen 501 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] Host room connections received: 17 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] Timing: game memory 2604 MB of 16129 MB, 138 MB of it from mods and scripts; textures 313 MB of 8064 MB video memory.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning: Unity Log] [2026-11-17T02:18:22] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 78's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 152's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 27's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 63's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 110's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 121's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 180's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host has not sent 9 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Info   :LateJoinPlus] Host room connections received: 9 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 103's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 74's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 136's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-17T02:19:28] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #2 of player 25 not found when trying to remove
+   (seen 3 times in total)
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] Waited 0.1 s for Player 78's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 152's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 27's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 63's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 110's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 121's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 180's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host has not sent 9 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 103's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Host room connections received: 9 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
