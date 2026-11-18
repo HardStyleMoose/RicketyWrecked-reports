@@ -1,0 +1,365 @@
+LateJoinPlus bug report 20261118-110525-6c75aa
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "243f45388bdf4dfcbcdfa4ed7eb1e22e"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Arctic"
+players: 6
+language: "en-US"
+test: false
+Sender: c93ad2a68a9b
+Install: 243f45388bdf4dfcbcdfa4ed7eb1e22e
+
+Mods (8):
+- "PickupableCart" | "McHorse.PickupableCart" | "1.0"
+- "FastCosmeticGacha" | "REPOJP.FastCosmeticGacha" | "1.1.0"
+- "REPOLib" | "REPOLib" | "4.5.0"
+- "RetrievePlayerUpgrades" | "com.github.zehsteam.RetrievePlayerUpgrades" | "1.3.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 8
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: AMD Ryzen 7 5700X 8-Core Processor  (16 threads)
+Memory: 16294 MB
+Graphics: NVIDIA GeForce GTX 1070 Ti (8059 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 3001 ms
+Most memory this game: 5189 MB
+Most texture memory this game: 1197 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  MetaManager.Load: REPOLib (postfix)
+  MetaManager.Save: REPOLib (prefix)
+Game methods several mods patch (7):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TruckPopulateItemVolumes: ricketywrecked.repo.fixes (prefix), com.github.zehsteam.RetrievePlayerUpgrades (postfix), ricketywrecked.repo.fixes (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 4):
+  19:52:24 an error from Unity Log
+  19:52:25 an error from REPOLib
+  19:53:57 an error from Unity Log
+  19:56:20 an error from Unity Log
+(end of settings)
+[Warning:  HarmonyX] AccessTools.Property: Could not find property for type Photon.Pun.PhotonMessageInfo and name Sender
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Error  : Unity Log] MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+Stack trace:
+REPOLib.Patches.MetaManagerPatch.LoadPatch (MetaManager __instance) (at ./Patches/MetaManagerPatch.cs:188)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Load>(MetaManager)
+MetaManager.Start () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1299 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 831 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Error  :   REPOLib] Exception occured while invoking event: System.MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+  at REPOLib.Modules.Cosmetics.RegisterCosmetics () [0x0005f] in ./Modules/Cosmetics.cs:44 
+  at REPOLib.Modules.Utilities.SafeInvokeEvent (System.Action action) [0x00000] in ./Modules/Utilities.cs:59 
+[Info   :LateJoinPlus] Timing: slowest frame so far 3001 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1448 MB of 16294 MB, 56 MB of it from mods and scripts; textures 89 MB of 8059 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 18 ms and 17 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 2.4 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-18T10:53:11] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] KR 20+ MIC'; as typed: 'KR 20+ mic'.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Timing: game memory 2063 MB of 16294 MB, 76 MB of it from mods and scripts; textures 202 MB of 8059 MB video memory.
+[Warning: Unity Log] no IconMaker found in Item Cart Medium... add the SemiIconMaker prefab and line up its camera for a proper icon.. or make a custom icon and put it in the Item Attributes
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Timing: game memory 3129 MB of 16294 MB, 100 MB of it from mods and scripts; textures 600 MB of 8059 MB video memory.
+[Error  : Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MenuPageCosmetics.OnDestroy () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Timing: game memory 3726 MB of 16294 MB, 91 MB of it from mods and scripts; textures 1094 MB of 8059 MB video memory.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Cart Medium/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Cart Medium/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.3 m away, 0.9 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning: Unity Log] [2026-11-18T11:04:38] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+[Info   :LateJoinPlus] Waited 0.1 s for .'s Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joined: '.' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 117' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 48' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 69' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for .'s Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player '.' peaked at 46 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 69's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 117's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 48's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+=== Previous game session ===
+(earlier lines left out)
+[16:44:55.950] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[16:44:56.184] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[16:44:56.489] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[16:44:56.489] [Warning:HarmonyX] AccessTools.Method: type is null
+[16:44:58.170] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[16:44:58.172] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[16:44:58.172] [Info   :LateJoinPlus] Timing: start-up took 769 ms.
+[16:44:58.172] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[16:44:58.172] [Info   :LateJoinPlus] Timing: late patches took 747 ms.
+[16:44:58.201] [Warning:Unity Log] Unable to load font face for [] font asset.
+[16:44:58.499] [Info   :LateJoinPlus] Timing: slowest frame so far 1826 ms, 2 s after start.
+[16:44:58.499] [Info   :LateJoinPlus] Timing: game memory 1414 MB of 16294 MB, 95 MB of it from mods and scripts; textures 89 MB of 8059 MB video memory.
+[16:44:58.499] [Info   :LateJoinPlus] Timing: Chinese font set-up took 9 ms and 33 MB.
+[16:44:58.499] [Info   :LateJoinPlus] Timing: the 3-second font scan took 2.6 ms (12 fonts).
+[16:45:07.018] [Info   :Unity Log] leaving photon
+[16:45:07.021] [Info   :Unity Log] Leave to Main Menu
+[16:45:16.682] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[16:45:22.918] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[16:45:22.918] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:45:23.159] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[16:45:23.185] [Warning:Unity Log] [2026-11-18T07:45:23] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+[16:45:26.810] [Info   :LateJoinPlus] Timing: game memory 2029 MB of 16294 MB, 90 MB of it from mods and scripts; textures 123 MB of 8059 MB video memory.
+[16:45:34.947] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[16:45:39.951] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[16:45:40.941] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:45:41.487] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:45:41.636] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[16:45:42.586] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+ItemAttributes.RefreshLocalizations () (at <0a5e2ccaed2a4a6886f7bf3248ba8a19>:0)
+ItemAttributes.Awake () (at <0a5e2ccaed2a4a6886f7bf3248ba8a19>:0)
+UnityEngine.GameObject:AddComponent()
+PickupableCart.Patches.PhysGrabCartStartPatch:InjectLargeCartInventoryComponents(PhysGrabCart) (at PickupableCart/Patches/PhysGrabCartStartPatch.cs:21)
+PhysGrabCart:DMD<PhysGrabCart::Start>(PhysGrabCart)
+   (seen 19 times in total)
+[16:45:53.797] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 22 times in total)
+[16:46:14.262] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×10.
+   (seen 10 times in total)
+[16:46:30.542] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[16:46:40.703] [Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 22; grab strength on the host 1.00 -> 5.40 (expected 5.40)
+[16:46:40.704] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 22.
+[16:46:45.869] [Info   :LateJoinPlus] [Admin] Range for You: 0 -> 29; grab range on the host 2.50 -> 31.50 (expected 31.50)
+[16:46:45.870] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Range set to 29.
+[16:47:10.256] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. ×10.
+[16:47:16.062] [Info   :LateJoinPlus] [Admin] Host despawn: done - Removed 2 enemies.
+[16:47:27.853] [Info   :LateJoinPlus] [Slots] You put Item Cart Medium/1 in slot 1.
+[16:47:29.528] [Info   :LateJoinPlus] [Slots] You took Item Cart Medium/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[16:48:13.727] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Museum duck man ×10.
+   (seen 2 times in total)
+[16:48:47.044] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:48:47.687] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:48:56.841] [Info   :LateJoinPlus] Timing: game memory 2658 MB of 16294 MB, 117 MB of it from mods and scripts; textures 358 MB of 8059 MB video memory.
+[16:50:01.221] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:50:01.856] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:50:10.281] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:50:10.893] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:50:33.837] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×10.
+   (seen 3 times in total)
+[16:51:53.185] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×10.
+   (seen 2 times in total)
+[16:51:58.489] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×5.
+   (seen 3 times in total)
+[16:52:09.654] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×5.
+   (seen 15 times in total)
+[16:52:28.861] [Warning:Unity Log] Ran out of virtual channels. Audio clip "phys cosmetic world object rare impact heavy02" will not be played.
+   (seen 530 times in total)
+[16:52:29.088] [Warning:Unity Log] Ran out of virtual channels. Audio clip "phys cosmetic world object rare impact medium02" will not be played.
+   (seen 724 times in total)
+[16:52:29.180] [Warning:Unity Log] Ran out of virtual channels. Audio clip "phys cosmetic world object rare impact light01" will not be played.
+   (seen 476 times in total)
+[16:52:35.199] [Warning:Unity Log] Ran out of virtual channels. Audio clip "phys cosmetic world object rare break light03" will not be played.
+   (seen 2 times in total)
+[16:52:35.205] [Warning:Unity Log] Ran out of virtual channels. Audio clip "material impact wood light02" will not be played.
+[16:52:37.183] [Warning:Unity Log] Ran out of virtual channels. Audio clip "cosmetic world object health beep high" will not be played.
+   (seen 4 times in total)
+[16:52:37.188] [Warning:Unity Log] Ran out of virtual channels. Audio clip "ambience breaker desert mine05" will not be played.
+[16:52:44.156] [Warning:Unity Log] Ran out of virtual channels. Audio clip "Wood hollow Big - Impact - Light01" will not be played.
+[16:52:46.124] [Warning:Unity Log] Ran out of virtual channels. Audio clip "phys cosmetic world object rare break medium01" will not be played.
+[16:52:46.139] [Warning:Unity Log] Ran out of virtual channels. Audio clip "material impact wood medium01" will not be played.
+[16:52:47.722] [Warning:Unity Log] Ran out of virtual channels. Audio clip "footstep gravel light03" will not be played.
+[16:52:47.728] [Warning:Unity Log] Ran out of virtual channels. Audio clip "cosmetic world object ring move03" will not be played.
+   (seen 4 times in total)
+[16:52:48.879] [Info   :LateJoinPlus] Timing: slowest frame so far 9137 ms, 462 s after start.
+[16:52:50.433] [Info   :LateJoinPlus] Timing: slowest frame so far 10661 ms, 473 s after start.
+[16:53:22.414] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Small Potion ×10.
+   (seen 7 times in total)
+[16:53:43.973] [Warning:Unity Log] Received RPC "ExtractRPC" for viewID 515 but this PhotonView does not exist! Was remote PV. Remote called. Player 100: #01 'You' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[16:53:56.854] [Info   :LateJoinPlus] [Slots] You put Item Cart Medium/4 in slot 1.
+[16:54:04.342] [Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 28.
+[16:54:04.342] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Stamina set to 28.
+[16:54:05.177] [Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 6.
+[16:54:05.179] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 6.
+[16:54:08.021] [Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[16:54:08.021] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 30.
+[16:54:11.220] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[16:54:29.983] [Info   :LateJoinPlus] [Slots] You took Item Cart Medium/4 out of slot 1 (2.6 m away, 2.1 m above their feet).
+[16:54:32.210] [Info   :LateJoinPlus] [Slots] You put Item Cart Medium/4 in slot 1.
+[16:54:32.848] [Info   :LateJoinPlus] [Slots] You took Item Cart Medium/4 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[16:54:40.028] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×2.
+   (seen 4 times in total)
+[16:54:52.952] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+   (seen 14 times in total)
+[16:55:09.183] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[16:55:37.883] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:55:38.543] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:56:26.897] [Info   :LateJoinPlus] Timing: game memory 3234 MB of 16294 MB, 125 MB of it from mods and scripts; textures 446 MB of 8059 MB video memory.
+[16:57:58.453] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:57:59.109] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:57:59.385] [Info   :LateJoinPlus] [Menu] Call phone opened.
+[16:57:59.385] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[16:58:22.644] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:58:23.266] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[16:58:33.578] [Info   :LateJoinPlus] [Slots] You put Item Cart Medium/1 in slot 1.
+[16:58:34.339] [Info   :LateJoinPlus] [Slots] You put Item Cart Medium/2 in slot 2.
+[16:58:36.683] [Info   :LateJoinPlus] [Slots] You took Item Cart Medium/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:58:39.147] [Info   :LateJoinPlus] [Slots] You took Item Cart Medium/2 out of slot 2 (1.2 m away, 0.9 m above their feet).
+[16:58:48.088] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×5.
+   (seen 10 times in total)
+[16:59:07.441] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Small Potion ×5.
+[16:59:07.635] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×5.
+[16:59:07.808] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×5.
+[16:59:07.958] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Small Potion ×5.
+[16:59:08.136] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×5.
+[16:59:08.321] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×5.
+[16:59:08.489] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Small Potion ×5.
+   (seen 9 times in total)
+[16:59:26.934] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[16:59:29.640] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[16:59:31.329] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[17:00:20.830] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Small Potion ×5.
+   (seen 3 times in total)
+[17:00:25.607] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[17:01:10.724] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[17:01:11.374] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[17:08:03.529] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
