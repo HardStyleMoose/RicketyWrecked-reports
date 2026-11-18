@@ -1,0 +1,499 @@
+LateJoinPlus bug report 20261118-171028-a707ac
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "9492706d9e7b4342aa87e0c0939df5a0"
+category: "join"
+description: "Stuck on a loading screen."
+role: "menu"
+level: "Level - Main Menu"
+players: 0
+language: "en-US"
+test: false
+Sender: a766842c2519
+Install: 9492706d9e7b4342aa87e0c0939df5a0
+
+Mods (11):
+- "REPOLib" | "REPOLib" | "4.5.0"
+- "Best Mod Menu" | "bestmodmenu.repo" | "1.1.0"
+- "NoSaveDelete" | "com.PxntxrezStudio.nosavedelete" | "1.3.0"
+- "UnlockAllCosmetics" | "com.github.Alexsei.UnlockAllCosmetics" | "1.0.5"
+- "Minimum One Box" | "minimum.one.box" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "SkinCopy" | "purtzel_hd.skincopy" | "1.1.1"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "GameTools" | "zichen.gametools" | "1.1.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 6
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26200)
+CPU: Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz (12 threads)
+Memory: 32690 MB
+Graphics: NVIDIA GeForce RTX 3060 (12115 MB, Direct3D11)
+Screen: 2560x1369
+Slowest frame this game: 3236 ms
+Most memory this game: 5237 MB
+Most texture memory this game: 1250 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  MetaManager.Save: REPOLib (prefix)
+  PhotonNetwork.RPC: ricketywrecked.repo.latejoinplus (prefix)
+  ResultScreenUI.Update: ricketywrecked.repo.latejoinplus (prefix)
+Game methods several mods patch (36):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  InputManager.GetMovementX: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.GetMovementY: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.GetScrollY: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.KeyDown: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.KeyHold: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.KeyPullAndPush: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  InputManager.KeyUp: purtzel_hd.skincopy (prefix), zichen.gametools (prefix)
+  ItemBattery.Update: zichen.gametools (prefix), zichen.gametools (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObjectImpactDetector.Break: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: com.PxntxrezStudio.nosavedelete (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Revive: com.PxntxrezStudio.nosavedelete (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), zichen.gametools (postfix)
+  PlayerAvatar.Start: com.PxntxrezStudio.nosavedelete (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), zichen.gametools (postfix)
+  PlayerAvatarVisuals.Update: purtzel_hd.skincopy (prefix), zichen.gametools (prefix), zichen.gametools (postfix)
+  PlayerHealth.Hurt: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerHealth.Update: zichen.gametools (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (finalizer)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeDeathHeadBattery: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeMapPlayerCount: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerCrouchRest: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerEnergy: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerExtraJump: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabRange: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerSprintSpeed: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerThrowStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleClimb: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleLaunch: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleWings: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 54):
+  19:07:03 an error from Unity Log
+  19:07:04 an error from REPOLib
+  19:10:15 an error from Unity Log
+  19:13:36 an error from Unity Log
+  19:25:23 an error from Unity Log
+  19:25:25 an error from Unity Log
+  19:25:25 an error from Unity Log
+  19:26:02 an error from Unity Log
+  19:26:02 an error from Unity Log
+  19:26:02 an error from Unity Log
+  19:26:02 an error from Unity Log
+  19:26:05 Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+  19:26:05 an error from Unity Log
+  19:26:19 an error from Unity Log
+  19:26:19 an error from Unity Log
+  19:26:20 an error from Unity Log
+  19:26:20 Level change waited 60 s for everyone's results screen; the last to finish: You (53 s after the others).
+  19:26:20 Level 'Level - Desert'
+  19:27:13 an error from Unity Log
+  19:29:22 Level 'Level - Shop Harbor'
+  19:35:08 an error from Unity Log
+  19:35:11 an error from Unity Log
+  19:35:11 an error from Unity Log
+  19:35:50 Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+  19:35:50 an error from Unity Log
+  19:36:05 an error from Unity Log
+  19:36:05 Level change waited 60 s for everyone's results screen; the last to finish: You (51 s after the others).
+  19:36:05 an error from Unity Log
+  19:37:34 Everyone back to the lobby (You); Start picks up at the shop.
+  19:41:50 Level 'Level - Lobby Menu'
+  19:49:49 an error from Unity Log
+  19:49:51 an error from Unity Log
+  19:49:51 an error from Unity Log
+  19:50:06 an error from Unity Log
+  19:50:12 an error from Unity Log
+  19:50:15 an error from Unity Log
+  19:50:27 an error from Unity Log
+  19:50:29 an error from Unity Log
+  19:50:30 an error from Unity Log
+  19:50:30 an error from Unity Log
+  19:50:31 Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+  19:50:31 an error from Unity Log
+  19:50:46 an error from Unity Log
+  19:50:46 Level change waited 60 s for everyone's results screen; the last to finish: You (54 s after the others).
+  19:50:46 an error from Unity Log
+  19:50:46 Level 'Level - Desert'
+  20:01:42 an error from Unity Log
+  20:01:44 an error from Unity Log
+  20:02:16 an error from Unity Log
+  20:02:22 Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+  20:02:22 an error from Unity Log
+  20:02:37 an error from Unity Log
+  20:02:37 Level change waited 60 s for everyone's results screen; the last to finish: You (51 s after the others).
+  20:02:37 an error from Unity Log
+(end of settings)
+[Error  : Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MetaManager.CosmeticTokenAdd (SemiFunc+Rarity _rarity) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+ResultScreenUI.StateFadeOut () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+(wrapper dynamic-method) ResultScreenUI.DMD<ResultScreenUI::Update>(ResultScreenUI)
+   (seen 18449 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Warning:LateJoinPlus] You never finished the end-of-level outro within 60 s; continuing without them.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Run] Level change waited 60 s for everyone's results screen; the last to finish: You (53 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 9,0 s, slowest 10,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 2 (8 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 2 (slowest 33 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 45' peaked at 39 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MetaManager.CosmeticTokenRemove () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.RewardSet () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.StateRewardCurrency () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.StateMachine () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.UpdateStateRPC (CosmeticShopMachine+State _state, Photon.Pun.PhotonMessageInfo _info) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Pun.PhotonNetwork.DMD<Photon.Pun.PhotonNetwork::RPC>(Photon.Pun.PhotonView,string,Photon.Pun.RpcTarget,Photon.Realtime.Player,bool,object[])
+Photon.Pun.PhotonNetwork.RPC (Photon.Pun.PhotonView view, System.String methodName, Photon.Pun.RpcTarget target, System.Boolean encrypt, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonView.RPC (System.String methodName, Photon.Pun.RpcTarget target, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+CosmeticShopMachine.UpdateState (CosmeticShopMachine+State _state) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.StateRewardCurrencyIntro () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.StateMachine () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+CosmeticShopMachine.Update () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+[Info   :LateJoinPlus] Late joiner Player 44 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 44' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 44 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 44 finished loading in 8,2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 8 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 44' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $10K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $20K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $120K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $80K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $20K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $30K.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Harbor': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 8,2 s, slowest 8,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 24 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 44's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 38' peaked at 58 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 152 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 44' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 152 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 44' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 44's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 44' peaked at 67 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MetaManager.CosmeticTokenAdd (SemiFunc+Rarity _rarity) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+ResultScreenUI.AnimationEventCosmeticTokenAdd () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Run] Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+[Info   :LateJoinPlus] [Run] Level change waited 60 s for everyone's results screen; the last to finish: You (51 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 38' peaked at 50 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 44's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 6 times in total)
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Run] Everyone back to the lobby (You); Start picks up at the shop.
+[Info   :LateJoinPlus] [Run] You asked to lobby: Everyone is going back to the lobby.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 45' peaked at 38 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 44's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 7 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   : Unity Log] leaving photon
+[Warning: Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+   (seen 2 times in total)
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Report] Session (2 level(s) with activity): OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 8,7 s, slowest 10,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 2 (8 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 3 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 3 (slowest 33 ms)
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Warning: Unity Log] [2026-11-18T16:39:17] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Микрофон (Usb Audio Device)
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] АДЕКВАТЫ 18+ БЕЗ МОД'; as typed: 'АДЕКВАТЫ 18+ без мод'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 45' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 116 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 38' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 38' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 94 bytes each).
+[Info   :LateJoinPlus] [Moderators] Status: host; moderators here: none; with LateJoinPlus: 0; run starts in 0:02.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 38' peaked at 36 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 50 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 50' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 50 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 76 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 76' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 76 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 50 finished loading in 8,8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 50's map (21 messages).
+[Info   :LateJoinPlus] Late joiner Player 76 finished loading in 7,7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 76's map (21 messages).
+[Info   :LateJoinPlus] Late joiner Player 54 connected (level Level - Desert). Catching them up.
+[Warning:LateJoinPlus] Your lobby is full: 6 players, and LJ+ menu > Max Players is 6. Full lobbies don't show in the server list and refuse new players. Raise Max Players (up to 20) to let more in.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 54' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 54 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 54 finished loading in 7,7 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 50' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 32 messages (about 168 bytes each).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 54's map (21 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 76' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 163 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 54' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 31 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Death drop] Player 76 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 76 when they died: Valuable Desert Pan Flute(Clone) #84 1,2 m away, floor 0,89 m | state - | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 76 when they died: Valuable Desert Pan Flute(Clone) #84 1,0 m away, floor 0,18 m | state - | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 76 when they died: Valuable Desert Pan Flute(Clone) #84 2,9 m away, floor 0,33 m | state - | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 54 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Warning: Unity Log] [2026-11-18T16:45:33] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #5 of player 5 not found when trying to remove
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: DeathHeadBattery set to 30.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 68 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 68' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 68 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 68 finished loading in 9,2 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 68' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 37 messages (about 109 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Warning: Unity Log] Save file not found in C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_18_19_39_09/REPO_SAVE_2026_11_18_19_39_09.es3
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Run] Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+[Info   :LateJoinPlus] [Run] Level change waited 60 s for everyone's results screen; the last to finish: You (54 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 4 (0 with LateJoinPlus), loaded 4 (avg 8,4 s, slowest 9,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (9 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 4 | slow catch-up steps 4 (slowest 28 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 68's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $10K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $20K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $30K.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 68's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 68' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 68's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 68' peaked at 40 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Death drop] Player 68 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Run] Level change has waited 45 s for You (still on the results screen, or their game isn't answering).
+[Info   :LateJoinPlus] [Run] Level change waited 60 s for everyone's results screen; the last to finish: You (51 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 46 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 45' peaked at 32 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "LandRPC" for viewID 2045 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 45' peaked at 37 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host heal Player 45: done - Healed Player 45.
+[Info   :LateJoinPlus] [Admin] Host heal Player 38: done - Healed Player 38.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 38 (game id ok): Health 1, Stamina 1, Speed 0, Strength 1, Range 0, Throw 0, ExtraJump 1, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Report] Session (2 level(s) with activity): OK | joins 4 (0 with LateJoinPlus), loaded 4 (avg 8,4 s, slowest 9,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (9 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 3 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 5 | slow catch-up steps 4 (slowest 28 ms)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+=== Previous game session ===
+[Error  : Unity Log] Script error (FlyController): Start() can not take parameters.
+   (seen 2 times in total)
+[19:04:35.394] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[19:04:35.405] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[19:04:35.577] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point auto revive waits while an extraction is running, so the game revives those players when it finishes.
+[19:04:35.755] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[19:04:35.924] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[19:04:36.416] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 60 patches applied, 0 failed.
+[19:04:37.993] [Warning:Unity Log] There can be only one active Event System.
+[19:04:38.600] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[19:04:38.978] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[19:04:39.485] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[19:04:39.486] [Warning:HarmonyX] AccessTools.Method: type is null
+[19:04:40.235] [Error  :Unity Log] MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+Stack trace:
+REPOLib.Patches.MetaManagerPatch.LoadPatch (MetaManager __instance) (at ./Patches/MetaManagerPatch.cs:188)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Load>(MetaManager)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Start>(MetaManager)
+[19:04:41.419] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[19:04:41.427] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[19:04:41.428] [Info   :LateJoinPlus] Timing: start-up took 1440 ms.
+[19:04:41.428] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[19:04:41.429] [Info   :LateJoinPlus] Timing: late patches took 1230 ms.
+[19:04:41.480] [Warning:Unity Log] Unable to load font face for [] font asset.
+[19:04:41.622] [Error  :REPOLib] Exception occured while invoking event: System.MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+  at REPOLib.Modules.Cosmetics.RegisterCosmetics () [0x0005f] in ./Modules/Cosmetics.cs:44 
+  at REPOLib.Modules.Utilities.SafeInvokeEvent (System.Action action) [0x00000] in ./Modules/Utilities.cs:59 
+[19:04:41.884] [Info   :LateJoinPlus] Timing: slowest frame so far 3379 ms, 3 s after start.
+[19:04:41.885] [Info   :LateJoinPlus] Timing: game memory 1479 MB of 32690 MB, 82 MB of it from mods and scripts; textures 89 MB of 12115 MB video memory.
+[19:04:41.886] [Info   :LateJoinPlus] Timing: Chinese font set-up took 20 ms and 1 MB.
+[19:04:41.886] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1,9 ms (13 fonts).
+[19:04:52.515] [Info   :Unity Log] leaving photon
+[19:04:52.526] [Info   :Unity Log] Leave to Main Menu
+[19:05:01.491] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[19:05:13.296] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[19:05:13.296] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[19:05:13.680] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[19:05:13.710] [Warning:Unity Log] [2026-11-18T16:05:13] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[19:05:14.022] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] АДЕКВАТЫ 18+ БЕЗ МОД'; as typed: 'АДЕКВАТЫ 18+ без мод'.
+[19:05:27.878] [Error  :Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MenuPageCosmetics.OnDestroy () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+   (seen 2 times in total)
+[19:05:31.028] [Warning:HarmonyX] AccessTools.Field: Could not find field for type MenuLib.MonoBehaviors.REPOSlider and name leftButtonTMP
+   (seen 2 times in total)
+[19:05:31.028] [Warning:HarmonyX] AccessTools.Field: Could not find field for type MenuLib.MonoBehaviors.REPOSlider and name rightButtonTMP
+   (seen 2 times in total)
+[19:05:31.033] [Warning:HarmonyX] AccessTools.Field: Could not find field for type MenuLib.MonoBehaviors.REPOInputField and name leftButtonTMP
+[19:05:31.034] [Warning:HarmonyX] AccessTools.Field: Could not find field for type MenuLib.MonoBehaviors.REPOInputField and name rightButtonTMP
+[19:05:38.681] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[19:05:39.950] [Info   :LateJoinPlus] Timing: game memory 2241 MB of 32690 MB, 99 MB of it from mods and scripts; textures 180 MB of 12115 MB video memory.
+[19:05:40.467] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[19:05:40.945] [Info   :Unity Log] leaving photon
+[19:05:40.995] [Warning:Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+[19:05:41.005] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:05:41.010] [Info   :Unity Log] Leave to Main Menu
