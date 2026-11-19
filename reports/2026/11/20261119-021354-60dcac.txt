@@ -1,0 +1,618 @@
+LateJoinPlus bug report 20261119-021354-60dcac
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "fc7b2443215346799e7bf4148d263767"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Wizard"
+players: 6
+language: "en-US"
+test: false
+Sender: 71a445e5785a
+Install: fc7b2443215346799e7bf4148d263767
+
+Mods (6):
+- "Minimap" | "Minimap" | "1.1.3"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "LateJoinNow" | "zichen.latejoinnow" | "1.1.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: AMD Ryzen Threadripper 2990WX 32-Core Processor (64 threads)
+Memory: 32661 MB
+Graphics: NVIDIA GeForce GTX 1080 Ti (11106 MB, Direct3D11)
+Screen: 3440x1440
+Slowest frame this game: 3879 ms
+Most memory this game: 2613 MB
+Most texture memory this game: 259 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Didn't start: LateJoinNow 1.1.2
+Didn't load: Could not load [ExtractionPointConfirmButton 1.2.0] because it has missing dependencies: REPOLib
+Game methods several mods patch (7):
+  PlayerNameChecker.Update: Minimap (transpiler), ricketywrecked.repo.fixes (finalizer)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+Timeline (last 3):
+  18:10:28 an error from Unity Log
+  18:13:35 Level building has made no progress for 45 s on step ModuleSpawnRemote, waiting for Player 5 (a slow PC, or their game has stopped answering). Where …
+  18:13:37 Level building moved again. Where everyone is: Player 6 28% (valuables, last message 0 s ago), Player 5 28% (valuables, last message 0 s ago), Player…
+(end of settings)
+[Error  :   BepInEx] Could not load [ExtractionPointConfirmButton 1.2.0] because it has missing dependencies: REPOLib
+[Warning:  HarmonyX] AccessTools.Property: Could not find property for type PlayerController and name instance
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1373 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1708 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 3879 ms, 4 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1579 MB of 32661 MB, 66 MB of it from mods and scripts; textures 88 MB of 11106 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 18 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 2.0 ms (13 fonts).
+[Info   :LateJoinPlus] Timing: the callback check for LateJoinNow took 157 ms.
+[Info   :LateJoinPlus] [Conflicts] Switched off LateJoinNow for this game: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Warning:LateJoinPlus] LateJoinNow (Zichen) is installed next to LateJoinPlus. LateJoinPlus does late join itself, so it was switched off (50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException). You can uninstall it.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-19T02:08:29] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 39 messages (about 102 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 5' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 8 messages (about 81 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 97 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 35 messages (about 99 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 103 bytes each).
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 5' peaked at 43 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 2139 MB of 32661 MB, 88 MB of it from mods and scripts; textures 259 MB of 11106 MB video memory.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step ModuleSpawnRemote, waiting for Player 5 (a slow PC, or their game has stopped answering). Where everyone is: Player 5 14% (rooms, last message 0 s ago), Player 6 28% (valuables, last message 0 s ago), Player 4 28% (valuables, last message 0 s ago), Player 2 28% (valuables, last message 0 s ago), Player 7 28% (valuables, last message 0 s ago), You 28% (valuables).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 6 28% (valuables, last message 0 s ago), Player 5 28% (valuables, last message 0 s ago), Player 4 28% (valuables, last message 0 s ago), Player 2 28% (valuables, last message 0 s ago), Player 7 28% (valuables, last message 0 s ago), You 28% (valuables).
+=== Previous game session ===
+[18:34:13.982] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[18:34:13.983] [Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[18:34:13.997] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[18:34:14.308] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[18:34:17.352] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[18:34:17.355] [Warning:HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[18:34:19.522] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (86 methods)
+[18:34:19.532] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[18:34:19.533] [Info   :LateJoinPlus] Timing: start-up took 1345 ms.
+[18:34:19.534] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[18:34:19.535] [Info   :LateJoinPlus] Timing: late patches took 1738 ms.
+[18:34:19.576] [Warning:Unity Log] Unable to load font face for [] font asset.
+[18:34:19.906] [Warning:HarmonyX] AccessTools.Property: Could not find property for type PlayerController and name instance
+[18:34:20.409] [Info   :LateJoinPlus] Timing: slowest frame so far 3265 ms, 3 s after start.
+[18:34:20.410] [Info   :LateJoinPlus] Timing: game memory 1503 MB of 32661 MB, 59 MB of it from mods and scripts; textures 87 MB of 11106 MB video memory.
+[18:34:20.410] [Info   :LateJoinPlus] Timing: Chinese font set-up took 17 ms and 17 MB.
+[18:34:20.411] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.9 ms (12 fonts).
+[18:34:20.412] [Info   :LateJoinPlus] Timing: the callback check for LateJoinNow took 133 ms.
+[18:34:20.413] [Info   :LateJoinPlus] [Conflicts] Switched off LateJoinNow for this game: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[18:34:20.417] [Warning:LateJoinPlus] LateJoinNow (Zichen) is installed next to LateJoinPlus. LateJoinPlus does late join itself, so it was switched off (50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException). You can uninstall it.
+[18:34:30.956] [Info   :Unity Log] leaving photon
+[18:34:30.960] [Info   :Unity Log] Leave to Main Menu
+[18:34:31.203] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[18:34:31.204] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[18:34:31.205] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[18:34:40.462] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[18:34:47.725] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[18:34:51.884] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[18:34:51.885] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:34:52.244] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[18:34:52.378] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[18:34:52.388] [Warning:Unity Log] [2026-11-17T02:34:52] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[18:34:52.591] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[18:34:52.592] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[18:34:52.593] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[18:35:03.963] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:35:04.960] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:35:24.029] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:35:34.056] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 38 messages (about 117 bytes each).
+[18:35:35.057] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 32 messages (about 116 bytes each).
+[18:35:35.815] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[18:35:40.817] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[18:35:41.812] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:35:42.623] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[18:35:42.721] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[18:35:42.722] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[18:35:42.723] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[18:35:42.853] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[18:35:43.001] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[18:35:43.034] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[18:35:43.061] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[18:35:43.090] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 37 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[18:35:47.787] [Info   :LateJoinPlus] Timing: game memory 2299 MB of 32661 MB, 87 MB of it from mods and scripts; textures 338 MB of 11106 MB video memory.
+[18:35:52.150] [Info   :LateJoinPlus] [Run] Level built in 9 s. Slowest step: rooms, 1 s from the first player to the last, Player 8.
+[18:35:54.178] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 5' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 39 messages (about 100 bytes each).
+[18:36:07.127] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:36:09.524] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Feather/1 in slot 1.
+[18:36:11.595] [Info   :LateJoinPlus] [Slots] Player 2 took Item Drone Feather/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[18:36:12.938] [Info   :LateJoinPlus] [Slots] 1 remembered item(s) are in their slots, 20 s into this level.
+[18:36:13.179] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:36:16.221] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Feather/1 in slot 2.
+[18:36:18.427] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Battery/1 in slot 1.
+[18:36:19.159] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 3.
+[18:36:21.579] [Info   :LateJoinPlus] [Slots] Player 2 put Item Orb Battery/1 in slot 2.
+[18:36:23.104] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:36:52.096] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[18:36:53.580] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:38:30.966] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Feather/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[18:38:33.802] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 3 (1.5 m away, 1.2 m above their feet).
+[18:38:37.927] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 3.
+[18:38:38.562] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 3 (1.9 m away, 1.6 m above their feet).
+[18:39:26.882] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 0.9 m above their feet).
+[18:39:32.192] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:39:34.343] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[18:39:35.355] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Feather/1 in slot 3.
+[18:39:49.345] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[18:40:22.908] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[18:40:58.640] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (0.6 m away, 0.5 m above their feet).
+[18:41:01.337] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[18:41:01.581] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Feather/1 out of slot 3 (0.6 m away, 0.5 m above their feet).
+[18:41:03.312] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Feather/1 in slot 3.
+[18:41:05.173] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[18:41:10.939] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[18:41:12.303] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:41:37.604] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[18:42:14.914] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:43:18.162] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[18:43:19.804] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:43:20.329] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[18:43:21.816] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:44:03.807] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[18:44:04.083] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:44:05.289] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (0.6 m away, 0.6 m above their feet).
+[18:45:16.406] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[18:45:22.202] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:45:37.586] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:45:41.794] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[18:45:43.011] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:46:09.883] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.1 m away, 0.3 m above their feet).
+[18:46:16.701] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:46:17.956] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.7 m above their feet).
+[18:46:20.815] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:47:14.625] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[18:47:51.417] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[18:48:50.637] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.0 m away, 0.8 m above their feet).
+[18:48:52.747] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:48:57.479] [Info   :LateJoinPlus] [Slots] Player 2 took Item Drone Battery/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[18:49:00.260] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 1.2 m above their feet).
+[18:49:09.004] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:49:11.002] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Battery/1 in slot 1.
+[18:50:37.108] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[18:50:40.499] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:54:27.134] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.7 m above their feet).
+[18:54:30.053] [Info   :LateJoinPlus] [Slots] You put Item Health Pack Medium/5 in slot 3.
+[18:54:33.312] [Info   :LateJoinPlus] [Slots] You put Item Health Pack Large/1 in slot 2.
+[18:54:34.197] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[18:54:39.544] [Info   :LateJoinPlus] [Slots] You took Item Health Pack Large/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[18:54:51.608] [Info   :LateJoinPlus] [Slots] You took Item Health Pack Medium/5 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[18:54:56.462] [Info   :LateJoinPlus] [Slots] Player 2 took Item Drone Battery/1 out of slot 1 (1.0 m away, 0.9 m above their feet).
+[18:54:57.639] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.4 m above their feet).
+[18:55:03.258] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 1.
+[18:55:05.161] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Battery/1 in slot 3.
+[18:55:08.466] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[18:55:08.698] [Info   :LateJoinPlus] [Slots] You put Item Health Pack Large/1 in slot 2.
+[18:55:17.922] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:55:19.098] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[18:55:21.054] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 1.
+[18:55:23.156] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 3.
+[18:55:27.184] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[18:55:38.016] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (0.8 m away, 0.6 m above their feet).
+[18:55:42.381] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:55:42.923] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.2 m away, 0.9 m above their feet).
+[18:55:44.421] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 1 (1.3 m away, 1.3 m above their feet).
+[18:55:45.753] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[18:55:48.080] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 1.
+[18:55:49.642] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[18:56:13.007] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[18:56:19.802] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.9 m away, 1.5 m above their feet).
+[18:56:23.382] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[18:56:24.883] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[18:56:31.198] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[18:56:31.402] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 1.
+[18:56:31.943] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[18:56:35.356] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[18:56:37.383] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[18:58:07.900] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:58:15.178] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.4 m away, 1.0 m above their feet).
+[18:58:16.687] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[18:58:26.468] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[18:58:31.128] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:00:23.294] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.5 m above their feet).
+[19:00:24.818] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:00:27.381] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[19:00:28.817] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 1.
+[19:00:31.839] [Info   :LateJoinPlus] [Slots] You took Item Health Pack Large/1 out of slot 2 (1.4 m away, 1.0 m above their feet).
+[19:01:13.939] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[19:03:09.963] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[19:03:12.123] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:03:20.041] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[19:03:21.181] [Info   :LateJoinPlus] [Slots] Player 2 took Item Drone Battery/1 out of slot 3 (1.4 m away, 0.9 m above their feet).
+[19:03:24.318] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:03:25.017] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Battery/1 in slot 1.
+[19:03:41.834] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[19:05:15.763] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[19:05:17.144] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:07:05.442] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[19:07:14.463] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:07:17.222] [Info   :LateJoinPlus] [Slots] Player 2 took Item Drone Battery/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[19:07:17.500] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[19:07:20.242] [Info   :LateJoinPlus] [Slots] Player 2 took Item Orb Battery/1 out of slot 2 (1.1 m away, 0.9 m above their feet).
+[19:07:21.538] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[19:07:31.433] [Info   :LateJoinPlus] [Slots] Player 2 put Item Orb Battery/1 in slot 2.
+[19:07:31.864] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:07:32.895] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:07:33.205] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Battery/1 in slot 1.
+[19:07:36.640] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[19:07:50.977] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Feather/1 out of slot 3 (1.2 m away, 0.9 m above their feet).
+[19:07:52.546] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Feather/1 in slot 3.
+[19:07:54.945] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:07:56.806] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[19:08:16.323] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[19:08:17.980] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:08:18.562] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[19:08:19.943] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:10:59.464] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.7 m above their feet).
+[19:11:07.587] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[19:11:10.915] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[19:11:12.421] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:11:14.700] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 0.8 m above their feet).
+[19:11:16.225] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[19:11:42.017] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[19:11:43.442] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[19:11:46.301] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Shotgun/1 in slot 3.
+[19:11:54.255] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:12:59.635] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:14:15.977] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Shotgun/1 out of slot 3 (1.9 m away, 1.7 m above their feet).
+[19:14:17.978] [Info   :LateJoinPlus] [Death drop] Player 2 died; the host shows them holding 0 item(s).
+[19:14:18.492] [Info   :LateJoinPlus] [Slots] Player 2's Item Drone Battery/1 was forced out of slot 1, as happens when someone dies (1.1 m away, 1.1 m above their feet).
+[19:14:18.492] [Info   :LateJoinPlus] [Slots] Player 2's Item Orb Battery/1 was forced out of slot 2, as happens when someone dies (1.1 m away, 1.1 m above their feet).
+[19:14:18.645] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Battery(Clone) #325 0.1 m away, floor 1.89 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:14:18.646] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Orb Battery(Clone) #332 0.1 m away, floor 1.84 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:14:18.996] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Battery(Clone) #325 4.2 m away, floor 5.08 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:14:18.997] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+   (seen 2 times in total)
+[19:14:28.539] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[19:14:29.857] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:14:43.066] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[19:14:47.930] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:15:58.856] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.3 m away, 0.8 m above their feet).
+[19:16:22.724] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:17:51.123] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[19:17:53.454] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:19:13.180] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[19:19:14.319] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:20:00.255] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.5 m above their feet).
+[19:20:07.593] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:20:41.856] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[19:20:47.855] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:21:08.638] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[19:21:35.899] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:22:10.637] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[19:22:25.401] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:22:33.882] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[19:22:34.178] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[19:22:36.567] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:22:43.934] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:23:10.656] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[19:23:12.413] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:23:18.736] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.6 m above their feet).
+[19:23:20.406] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:23:51.341] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[19:23:53.119] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:23:55.316] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[19:24:00.721] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:24:48.435] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[19:24:51.383] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:25:25.897] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.4 m away, 1.2 m above their feet).
+[19:25:39.879] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:26:08.720] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (2.2 m away, 1.6 m above their feet).
+[19:26:13.986] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[19:26:31.665] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[19:26:34.503] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:28:37.630] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[19:28:38.078] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Revolver/1 was forced out of slot 1, as happens when someone dies (2.9 m away, 2.9 m above their feet).
+[19:28:38.243] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #330 0.0 m away, floor 0.12 m | state Idle owner 4010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[19:28:38.587] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[19:29:16.029] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[19:29:16.518] [Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 was forced out of slot 1, as happens when someone dies (0.3 m away, 0.3 m above their feet).
+[19:29:16.677] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 0.2 m away, floor 0.24 m | state Idle owner 1010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:29:17.025] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 0.9 m away, floor 0.09 m | state Idle owner 1010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:29:19.527] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 1.0 m away, floor 0.08 m | state Idle owner 1010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:30:07.144] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[19:30:08.723] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Handgun/1 in slot 1.
+[19:30:38.001] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Handgun/1 out of slot 1 (0.7 m away, 0.5 m above their feet).
+[19:30:40.263] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Handgun/1 in slot 1.
+[19:30:57.524] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Handgun/1 out of slot 1 (1.3 m away, 1.1 m above their feet).
+[19:30:59.040] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Handgun/1 in slot 1.
+[19:31:04.951] [Info   :LateJoinPlus] [Death drop] Player 2 died; the host shows them holding 0 item(s).
+[19:36:15.353] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[19:40:40.558] [Info   :LateJoinPlus] [Death drop] Player 8 died; the host shows them holding 0 item(s).
+[19:40:41.057] [Info   :LateJoinPlus] [Slots] Player 8's Item Gun Handgun/1 was forced out of slot 1, as happens when someone dies (2.1 m away, -0.4 m above their feet).
+[19:40:41.057] [Info   :LateJoinPlus] [Slots] Player 8's Item Drone Indestructible/1 was forced out of slot 2, as happens when someone dies (2.2 m away, -0.3 m above their feet).
+[19:40:41.058] [Info   :LateJoinPlus] [Slots] Player 8's Item Drone Feather/1 was forced out of slot 3, as happens when someone dies (2.0 m away, -0.3 m above their feet).
+[19:40:41.222] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 0.0 m away, floor 0.07 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:41.223] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #329 0.0 m away, floor 0.00 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:41.224] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Feather(Clone) #322 0.0 m away, floor 0.00 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:41.580] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 0.9 m away, floor 0.12 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:41.581] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #329 0.8 m away, floor 0.02 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:41.582] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Feather(Clone) #322 0.8 m away, floor 0.02 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:44.076] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #328 2.4 m away, floor 0.06 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:44.077] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #329 2.7 m away, floor 0.12 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:44.078] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Drone Feather(Clone) #322 2.7 m away, floor 0.12 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[19:40:59.365] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[19:40:59.842] [Info   :Unity Log] leaving photon
+[19:41:00.036] [Warning:Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+   (seen 2 times in total)
+[19:41:00.049] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:41:00.062] [Info   :Unity Log] Leave to Main Menu
+[19:41:00.476] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:41:00.477] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:41:00.477] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:41:44.325] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:41:51.834] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[19:41:51.836] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[19:41:52.071] [Warning:Unity Log] [2026-11-17T03:41:52] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Microphone (Elgato Wave:3)
+   (seen 2 times in total)
+[19:41:52.187] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:41:52.187] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:41:52.188] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:44:34.812] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[19:45:04.944] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 100 bytes each).
+[19:45:19.642] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[19:45:21.854] [Info   :LateJoinPlus] [Moderators] Status: host; moderators here: none; with LateJoinPlus: 0; run starts in 0:03.
+[19:45:24.654] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[19:45:25.662] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[19:45:26.618] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[19:45:26.713] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:45:26.714] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:45:26.714] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:45:27.176] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[19:45:27.501] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[19:45:28.033] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 35 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[19:45:42.683] [Info   :LateJoinPlus] [Run] Level built in 15 s. Slowest step: loading, 0 s from the first player to the last, Player 8.
+[19:45:55.097] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[19:45:55.600] [Info   :Unity Log] leaving photon
+[19:45:55.788] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:45:55.799] [Info   :Unity Log] Leave to Main Menu
+[19:45:56.149] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:45:56.150] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:45:56.150] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:46:05.927] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:46:25.622] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[19:46:25.622] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[19:46:25.985] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:46:25.986] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:46:25.987] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:46:39.400] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[19:46:42.544] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[19:46:47.556] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[19:46:48.564] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[19:46:49.308] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[19:46:49.452] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[19:46:49.453] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[19:46:49.453] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[19:46:49.571] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[19:46:49.734] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[19:46:50.478] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 34 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[19:46:55.757] [Warning:Unity Log] No colliders found on the object or its children!
+   (seen 2 times in total)
+[19:46:57.709] [Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: loading, 0 s from the first player to the last, Player 8.
+[19:47:08.599] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[19:47:09.603] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 159 bytes each).
+[19:47:10.460] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:47:15.070] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:47:18.290] [Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[19:47:24.994] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Shotgun/1 in slot 3.
+[19:48:57.512] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[19:49:13.981] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:49:15.580] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[19:49:24.580] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[19:50:41.560] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[19:50:43.703] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:55:46.495] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[19:55:47.875] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:57:29.271] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[19:57:29.829] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.3 m away, 0.8 m above their feet).
+[19:57:30.797] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[19:57:35.652] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[20:00:02.029] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[20:00:32.349] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:01:22.535] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[20:01:39.991] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:03:04.738] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[20:03:32.734] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:04:20.597] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[20:04:41.471] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:05:03.095] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[20:05:03.876] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:05:57.915] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (2.1 m away, 1.9 m above their feet).
+[20:06:14.276] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:06:34.625] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[20:06:36.812] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:06:38.414] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[20:06:40.017] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:06:44.235] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[20:06:44.737] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:06:48.314] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Shotgun/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[20:06:50.215] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Shotgun/1 in slot 3.
+[20:07:01.157] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.0 m away, 0.7 m above their feet).
+[20:07:02.400] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:07:06.979] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[20:07:08.498] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:08:05.833] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[20:08:06.950] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:11:20.674] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.0 m away, 0.7 m above their feet).
+[20:11:21.892] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.1 m away, 0.9 m above their feet).
+[20:11:25.508] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[20:11:26.258] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:11:26.531] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.1 m away, 0.8 m above their feet).
+[20:11:29.710] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:11:30.128] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Shotgun/1 out of slot 3 (1.1 m away, 0.8 m above their feet).
+[20:11:31.253] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Shotgun/1 in slot 3.
+[20:11:31.434] [Info   :LateJoinPlus] [Slots] You put Item Drone Battery/1 in slot 2.
+[20:14:37.817] [Info   :LateJoinPlus] [Slots] Player 8 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[20:14:49.574] [Info   :LateJoinPlus] [Slots] Player 8 put Item Drone Indestructible/1 in slot 2.
+[20:17:47.355] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.3 m away, 0.7 m above their feet).
+[20:17:51.676] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:18:04.248] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[20:18:05.769] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Shotgun/1 in slot 3.
+[20:18:31.691] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[20:18:33.252] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Tranq/1 in slot 1.
+[20:18:57.859] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Shotgun/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[20:19:01.770] [Info   :LateJoinPlus] [Slots] Player 8 put Item Gun Shotgun/1 in slot 3.
+[20:19:35.000] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[20:22:18.097] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Tranq/1 out of slot 1 (1.1 m away, 1.1 m above their feet).
+[20:22:19.595] [Info   :LateJoinPlus] [Slots] Player 8 took Item Gun Shotgun/1 out of slot 3 (0.8 m away, 0.6 m above their feet).
+[20:22:40.953] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (1 on the results screen, 0 loading, 1 ready); the players panel is up.
+[20:22:41.531] [Info   :LateJoinPlus] [Run] Level change waited 11 s for everyone's results screen; the last to finish: You (2 s after the others).
+[20:22:41.682] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[20:22:41.863] [Warning:Unity Log] Received RPC "TumbleRequestRPC" for viewID 1021 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 8'
+[20:22:41.866] [Warning:Unity Log] Received RPC "TumbleOverrideTimeRPC" for viewID 1021 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 8'
+[20:22:41.869] [Warning:Unity Log] Received RPC "TumbleForceRPC" for viewID 1021 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 8'
+[20:22:41.870] [Warning:Unity Log] Received RPC "TumbleTorqueRPC" for viewID 1021 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 8'
+[20:22:41.875] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[20:22:41.876] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[20:22:41.877] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[20:22:42.030] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[20:22:42.070] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 47 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[20:22:42.152] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[20:22:49.210] [Info   :LateJoinPlus] Timing: game memory 2898 MB of 32661 MB, 118 MB of it from mods and scripts; textures 419 MB of 11106 MB video memory.
+[20:26:14.923] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[20:26:15.722] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[20:26:15.928] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[20:26:15.929] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[20:26:15.929] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[20:26:16.055] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[20:26:16.060] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[20:26:16.177] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[20:26:17.593] [Info   :LateJoinPlus] [Slots] You's Item Drone Battery/1 is back in slot 2 (the game restoring slots).
+[20:26:17.621] [Info   :LateJoinPlus] [Slots] Player 8's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[20:27:00.158] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[20:27:00.902] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[20:27:01.081] [Info   :LateJoinPlus] [Conflicts] Kept LateJoinNow switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 50 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 4 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[20:27:01.081] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that LateJoinNow had removed.
+[20:27:01.082] [Info   :LateJoinPlus] LateJoinPlus is whole again: 223 of 223 patches, 5 of 5 switches.
+[20:27:01.184] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[20:27:01.210] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 8' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[20:27:01.356] [Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[20:27:07.466] [Error  :Unity Log] Module - Desert - DE - 3 - Climbing Caver (Clone)  |  ValuablePropSwitch: No ValuableVolume found in children...
+[20:27:09.942] [Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: loading, 0 s from the first player to the last, Player 8.
+[20:27:09.994] [Info   :LateJoinPlus] [Slots] You's Item Drone Battery/1 is back in slot 2 (the game restoring slots).
+[20:27:09.994] [Info   :LateJoinPlus] [Slots] Player 8's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[20:27:23.011] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
