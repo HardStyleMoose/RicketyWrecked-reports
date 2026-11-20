@@ -1,0 +1,653 @@
+LateJoinPlus bug report 20261120-194953-a18226
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "574e95b5dc7a4a098e5f6121be3315fa"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Wizard"
+players: 13
+language: "en-US"
+test: false
+Sender: 33b052679726
+Install: 574e95b5dc7a4a098e5f6121be3315fa
+
+Mods (14):
+- "GodMode" | "DaanDeReus.GodMode" | "2.2.0"
+- "EnemyHealthBar" | "DarkSpider90.EnemyHealthBar" | "1.2.0"
+- "Infinite Stamina" | "Galaxcito.REPO.InfiniteStamina" | "1.0.0"
+- "More Shop Items" | "Jettcodey.MoreShopItems" | "4.3.2"
+- "Revive_at_Cart" | "Kai.Revive_at_Cart" | "1.0"
+- "REPO.Cosmetics" | "REPO.Cosmetics.Awesome.Cool" | "0.0.1"
+- "EnemyOrbMerge" | "REPOJP.EnemyOrbMerge" | "4.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "UnlockAllCosmetics" | "com.github.Alexsei.UnlockAllCosmetics" | "1.0.5"
+- "Repo Terrain Scanner" | "com.mod.repoterrainscanner" | "3.1.0"
+- "StickyGun" | "com.sinan.stickygun" | "1.0.0"
+- "REPOFly" | "dev.coolchair.REPOFly" | "1.0.7"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 0
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 8
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: AMD FX(tm)-8350 Eight-Core Processor  (8 threads)
+Memory: 16281 MB
+Graphics: Radeon (TM) RX 480 Graphics (8135 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 13331 ms
+Most memory this game: 7523 MB
+Most texture memory this game: 1079 MB
+BepInEx: [ip]
+Patchers: FixPluginTypesSerialization, LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  LoadBalancingClient.OnEvent: ricketywrecked.repo.latejoinplus (prefix)
+  MenuPageEsc.Start: ricketywrecked.repo.latejoinplus (postfix)
+Game methods several mods patch (9):
+  ExtractionPoint.OnShopClick: Vippy.BigFriendlyButton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  MetaManager.Load: REPOLib (prefix), REPOLib (postfix), REPO.Cosmetics.Awesome.Cool (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Kai.Revive_at_Cart (postfix)
+  PlayerController.FixedUpdate: DaanDeReus.GodMode (postfix), Galaxcito.REPO.InfiniteStamina (postfix)
+  PlayerController.Start: DaanDeReus.GodMode (postfix), dev.coolchair.REPOFly (postfix)
+  PlayerController.Update: DaanDeReus.GodMode (postfix), Galaxcito.REPO.InfiniteStamina (postfix)
+  PlayerHealth.Hurt: DaanDeReus.GodMode (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  RunManager.Awake: REPOLib (postfix), Jettcodey.MoreShopItems (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 19):
+  12:31:55 an error from Unity Log
+  12:35:17 an error from Unity Log
+  12:38:04 Level 'Level - Lobby Menu'
+  12:38:25 an error from Unity Log
+  12:47:16 an error from Unity Log
+  12:47:16 an error from Unity Log
+  12:51:20 an error from Unity Log
+  12:53:29 an error from Unity Log
+  12:53:30 an error from Unity Log
+  12:56:15 an error from Unity Log
+  13:03:08 an error from Unity Log
+  13:04:29 an error from Unity Log
+  13:09:38 an error from Unity Log
+  13:20:56 an error from Unity Log
+  13:25:40 an error from Unity Log
+  13:26:07 an error from Unity Log
+  13:29:27 an error from Unity Log
+  13:44:55 an error from Unity Log
+  13:48:12 an error from Unity Log
+(end of settings)
+[Error  :LateJoinPlus] First error this session: FileNotFoundException: Could not load file or assembly 'MenuLib, Version=[ip], Culture=neutral, PublicKeyToken=null' or 
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] MenuLib isn't installed, so there's no LATE JOIN button in the main menu; the settings are in the config file (or REPOConfig).
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 4059 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 4334 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 13331 ms, 13 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1455 MB of 16281 MB, 69 MB of it from mods and scripts; textures 89 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 55 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 5.0 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning: Unity Log] [2026-11-20T18:31:46] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+   (seen 3 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 219' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 248' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 95' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 58' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 150' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 316' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 219's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-20T18:31:52] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 5008 found. Remote voice p#5 v#2 not linked.
+   (seen 7 times in total)
+[Info   :LateJoinPlus] The host has not sent 6 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+PhysGrabObject.GrabLinkRPC (System.Int32 playerPhotonID, System.Int32 colliderID, UnityEngine.Vector3 point, UnityEngine.Vector3 cameraRelativeGrabbedForward, UnityEngine.Vector3 cameraRelativeGrabbedUp, System.Int32 _grabRevision, Photon.Pun.PhotonMessageInfo _info) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonNetwork.OnEvent (ExitGames.Client.Photon.EventData photonEvent) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Realtime.LoadBalancingClient.DMD<Photon.Realtime.LoadBalancingClient::OnEvent>(Photon.Realtime.LoadBalancingClient,ExitGames.Client.Photon.EventData)
+ExitGames.Client.Photon.PeerBase.DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer stream) (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.EnetPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Rethrow as AggregateException: Caught 5 exception(s) in methods called by DispatchIncomingCommands(). Rethrowing first only (see above). (Exception has been thrown by the target of an invocation.)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonHandler.FixedUpdate () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 4 times in total)
+[Info   :LateJoinPlus] Host room connections received: 6 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] Waited 0.2 s for Player 248's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Info   :LateJoinPlus] Timing: game memory 2368 MB of 16281 MB, 78 MB of it from mods and scripts; textures 256 MB of 8135 MB video memory.
+[Warning:More Shop Items] Host does NOT have the mod Enabled or is using a different Version, Mod is disabled! Client running on v4.3.2.
+   (seen 15 times in total)
+[Warning: Unity Log] [2026-11-20T18:33:53] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #13 of player 4 not found when trying to remove
+   (seen 3 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 219's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 248's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 58's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 150's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 316's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 219' peaked at 443 messages/s (flood limit 500); most data from one player 79 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 55' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 95' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 55' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 163 bytes each).
+[Error  : Unity Log] FileNotFoundException: Could not load file or assembly 'MenuLib, Version=[ip], Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+Stack trace:
+LateJoinPlus.Patches.MenuPageEscStartPatch.Postfix (MenuPageEsc __instance) (at <cd7769108d564909a1e24d886c08d66b>:0)
+(wrapper dynamic-method) MenuPageEsc.DMD<MenuPageEsc::Start>(MenuPageEsc)
+   (seen 16 times in total)
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] 21+ SUZIES LOBBY/ MODDED/ COME HANG <3'; as typed: '21+ Suzies Lobby/ Modded/ Come Hang ‹3'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 256' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 95' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 256' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 14 messages (about 125 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 95' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 100 bytes each).
+[Warning: Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 0
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 179' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 241' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 318' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 52' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 258' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 133' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 222' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 114' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 193' (player #20, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 93' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 306' (player #22, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 193's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 258's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 222's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host has not sent 10 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 1234 but this PhotonView does not exist! Was remote PV. Remote called. By: #16 'Player 133' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 1234 but this PhotonView does not exist! Was remote PV. Remote called. By: #16 'Player 133' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] Host room connections received: 10 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] [Moderators] The host says we're a moderator: Kicking, Banning, Block List, Notes, Calls, Run control; host has the Admin page: yes.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 1 protected, 2 with LateJoinPlus.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 0 loading, 12 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 71' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Status: moderator (Kicking, Banning, Block List, Notes, Calls, Run control); moderators here: none; with LateJoinPlus: 2; Admin page: not allowed.
+   (seen 144 times in total)
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 4 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 171' (player #25, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 71' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 17 messages (about 131 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #25' (player #25, Steam ID unknown), first 30 s: busiest second 0 KB in 1 messages (about 110 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 135' (player #26, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 135' (player #26, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 158 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 171' (player #27, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #27' (player #27, Steam ID unknown), first 30 s: busiest second 0 KB in 1 messages (about 110 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 40' (player #28, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 40' (player #28, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 245' (player #29, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 245' (player #29, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 32 messages (about 164 bytes each).
+[Error  : Unity Log] RPC method 'UpgradePlayerGrabStrengthRPC(String, Int32)' not found on object with PhotonView 11. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be Player 313 or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'UpgradePlayerGrabStrengthRPC' messages from 'Player 40' (player #28) (to object 11): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Error  : Unity Log] RPC method 'UpgradePlayerThrowStrengthRPC(String, Int32)' not found on object with PhotonView 11. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be Player 313 or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'UpgradePlayerThrowStrengthRPC' messages from 'Player 40' (player #28) (to object 11): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #30, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Timing: game memory 2947 MB of 16281 MB, 117 MB of it from mods and scripts; textures 344 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] Cosmetic boxes: 1 token(s) for this level, which you joined mid-level.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 15 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 193's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 594 messages/s (flood limit 500); most data from one player 104 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 40's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 258's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 45' (player #30, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 56 messages (about 102 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 14 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 193's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 258's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 199 messages/s (flood limit 500); most data from one player 34 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 40's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 557 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 241' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 557 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 241' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 545 but this PhotonView does not exist! Was remote PV. Remote called. By: #08 'Player 318' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 545 but this PhotonView does not exist! Was remote PV. Remote called. By: #08 'Player 318' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 14 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 193's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 258's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 40's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 227 messages/s (flood limit 500); most data from one player 22 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] RPC method 'ReleaseObjectRPC' found on object with PhotonView 21038 but has wrong parameters. Implement as 'ReleaseObjectRPC(Boolean, Single)'. PhotonMessageInfo is optional as final parameter.Return type must be Player 313 or IEnumerator (if you enable RunRpcCoroutines).
+   (seen 79 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 116' (player #31, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 116' (player #31, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 284' (player #32, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 284' (player #32, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 33 messages (about 151 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 302' (player #33, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 302' (player #33, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 242' (player #34, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 242' (player #34, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 159 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 231' (player #35, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "EnemyReadyRPC" for viewID 299 but this PhotonView does not exist! Was remote PV. Remote called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "UpdateHealthRPC" for viewID 35002 but this PhotonView does not exist! Was remote PV. Owner called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "ModulesReadyRPC" for viewID 299 but this PhotonView does not exist! Was remote PV. Remote called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 1479 but this PhotonView does not exist! Was remote PV. Remote called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 1479 but this PhotonView does not exist! Was remote PV. Remote called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 35001 but this PhotonView does not exist! Was remote PV. Owner called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 35001 but this PhotonView does not exist! Was remote PV. Owner called. By: #35 'Player 231' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 15 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 193's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 242's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 135' peaked at 388 messages/s (flood limit 500); most data from one player 43 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 231' (player #35, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 34 messages (about 98 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 0 loading, 12 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 0 loading, 12 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "EyeMaterialOverrideRPC" for viewID 8066 but this PhotonView does not exist! Was remote PV. Owner called. By: #08 'Player 318' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 12 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 191 messages/s (flood limit 500); most data from one player 33 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 0 loading, 12 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 0 loading, 12 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 12 player(s) (0 on the results screen, 12 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 93's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 373 messages/s (flood limit 500); most data from one player 22 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 234' (player #36, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 234' (player #36, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 159 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (0 on the results screen, 0 loading, 11 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (0 on the results screen, 0 loading, 11 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (0 on the results screen, 11 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 234's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 180 messages/s (flood limit 500); most data from one player 32 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #37, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 52' (player #38, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 45' (player #37, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 33 messages (about 150 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 52' (player #38, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 37 messages (about 121 bytes each).
+[Info   :LateJoinPlus] Timing: game memory 3660 MB of 16281 MB, 147 MB of it from mods and scripts; textures 678 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 0 loading, 13 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 0 loading, 13 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "LandRPC" for viewID 33031 but this PhotonView does not exist! Was remote PV. Owner called. By: #33 'Player 302' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 13 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 148 messages/s (flood limit 500); most data from one player 26 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 234's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 0 loading, 13 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 0 loading, 13 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 13 player(s) (0 on the results screen, 13 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 306's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 234's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 149 messages/s (flood limit 500); most data from one player 21 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 198' (player #39, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #39' (player #39, Steam ID unknown), first 30 s: busiest second 0 KB in 1 messages (about 110 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 290' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 290' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 26 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 154' (player #41, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 154' (player #41, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 163 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 147' (player #42, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 56' (player #43, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 147' (player #42, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 34 messages (about 156 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 56' (player #43, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 163 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 278' (player #44, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 278' (player #44, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 154 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 0 loading, 15 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 15 player(s) (0 on the results screen, 15 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 154's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 278's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 290's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 147's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 268 messages/s (flood limit 500); most data from one player 59 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 14 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 154's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 290's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 147's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 190 messages/s (flood limit 500); most data from one player 28 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 0 loading, 14 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 14 player(s) (0 on the results screen, 14 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 241's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 135's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 179' peaked at 167 messages/s (flood limit 500); most data from one player 26 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 154's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 302's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 318's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 147's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 290's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 52's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 231's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+=== Previous game session ===
+[06:34:25.777] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[06:34:26.321] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[06:34:35.729] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[06:34:35.731] [Info   :LateJoinPlus] MenuLib isn't installed, so there's no LATE JOIN button in the main menu; the settings are in the config file (or REPOConfig).
+[06:34:35.742] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[06:34:35.743] [Info   :LateJoinPlus] Timing: start-up took 3629 ms.
+[06:34:35.744] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[06:34:35.745] [Info   :LateJoinPlus] Timing: late patches took 2768 ms.
+[06:34:35.841] [Warning:Unity Log] Unable to load font face for [] font asset.
+[06:34:37.215] [Info   :LateJoinPlus] Timing: slowest frame so far 7902 ms, 8 s after start.
+[06:34:37.217] [Info   :LateJoinPlus] Timing: game memory 1455 MB of 16281 MB, 69 MB of it from mods and scripts; textures 89 MB of 8135 MB video memory.
+[06:34:37.218] [Info   :LateJoinPlus] Timing: Chinese font set-up took 39 ms and 1 MB.
+[06:34:37.220] [Info   :LateJoinPlus] Timing: the 3-second font scan took 3.3 ms (13 fonts).
+[06:34:48.996] [Info   :Unity Log] leaving photon
+[06:34:49.003] [Info   :Unity Log] Leave to Main Menu
+[06:35:43.335] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[06:36:04.015] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 161' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.016] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 90' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.018] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 84' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.019] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 28' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.020] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 37' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.021] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 287' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.022] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 91' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.023] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 94' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.024] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 96' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.025] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 152' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.029] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 262' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.031] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 166' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:04.449] [Warning:Unity Log] [2026-11-20T12:36:04] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[06:36:04.853] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 161' peaked at 1 messages/s (flood limit 500); most data from one player 0 KB/s (limit 100); 0 messages dropped.
+[06:36:06.586] [Info   :LateJoinPlus] Waited 0.1 s for Player 37's Steam ID before loading their upgrades and name tag.
+[06:36:07.123] [Info   :LateJoinPlus] Waited 0.1 s for Player 161's Steam ID before loading their upgrades and name tag.
+[06:36:09.557] [Info   :LateJoinPlus] Waited 0.1 s for Player 84's Steam ID before loading their upgrades and name tag.
+[06:36:09.558] [Info   :LateJoinPlus] Waited 0.1 s for Player 28's Steam ID before loading their upgrades and name tag.
+[06:36:09.559] [Info   :LateJoinPlus] Waited 0.1 s for Player 287's Steam ID before loading their upgrades and name tag.
+[06:36:09.560] [Info   :LateJoinPlus] Waited 0.1 s for Player 90's Steam ID before loading their upgrades and name tag.
+[06:36:11.120] [Warning:Unity Log] [2026-11-20T12:36:11] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 17008 found. Remote voice p#16 v#2 not linked.
+   (seen 8 times in total)
+[06:36:11.384] [Info   :LateJoinPlus] The host has not sent 3 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[06:36:13.303] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+PhysGrabObject.GrabLinkRPC (System.Int32 playerPhotonID, System.Int32 colliderID, UnityEngine.Vector3 point, UnityEngine.Vector3 cameraRelativeGrabbedForward, UnityEngine.Vector3 cameraRelativeGrabbedUp, System.Int32 _grabRevision, Photon.Pun.PhotonMessageInfo _info) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonNetwork.OnEvent (ExitGames.Client.Photon.EventData photonEvent) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Realtime.LoadBalancingClient.DMD<Photon.Realtime.LoadBalancingClient::OnEvent>(Photon.Realtime.LoadBalancingClient,ExitGames.Client.Photon.EventData)
+ExitGames.Client.Photon.PeerBase.DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer stream) (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.EnetPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Rethrow as AggregateException: Caught 2 exception(s) in methods called by DispatchIncomingCommands(). Rethrowing first only (see above). (Exception has been thrown by the target of an invocation.)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonHandler.FixedUpdate () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+[06:36:13.372] [Info   :LateJoinPlus] Host room connections received: 3 matched our estimate, 0 corrected to the host's.
+[06:36:18.743] [Warning:More Shop Items] Host does NOT have the mod Enabled or is using a different Version, Mod is disabled! Client running on v4.3.2.
+[06:36:23.767] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 11 times in total)
+[06:36:28.629] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[06:36:29.006] [Info   :LateJoinPlus] Timing: game memory 2344 MB of 16281 MB, 87 MB of it from mods and scripts; textures 305 MB of 8135 MB video memory.
+[06:36:41.642] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 176' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:36:44.831] [Error  :Unity Log] FileNotFoundException: Could not load file or assembly 'MenuLib, Version=[ip], Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+Stack trace:
+LateJoinPlus.Patches.MenuPageEscStartPatch.Postfix (MenuPageEsc __instance) (at <cd7769108d564909a1e24d886c08d66b>:0)
+(wrapper dynamic-method) MenuPageEsc.DMD<MenuPageEsc::Start>(MenuPageEsc)
+   (seen 9 times in total)
+[06:36:46.340] [Info   :Unity Log] leaving photon
+[06:36:46.552] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[06:36:46.571] [Info   :Unity Log] Leave to Main Menu
+[06:36:53.962] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[06:37:11.569] [Warning:Unity Log] [2026-11-20T12:37:11] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+[06:37:11.942] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 41' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.942] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 38' (player #172, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.944] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 253' (player #208, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.945] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 73' (player #228, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.946] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 100' (player #277, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.947] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 49' (player #280, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:37:11.970] [Info   :LateJoinPlus] Waited 0.1 s for Player 41's Steam ID before loading their upgrades and name tag.
+[06:37:11.971] [Info   :LateJoinPlus] Waited 0.1 s for Player 73's Steam ID before loading their upgrades and name tag.
+[06:37:14.071] [Info   :LateJoinPlus] Waited 0.1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[06:37:14.072] [Info   :LateJoinPlus] Waited 0.1 s for Player 253's Steam ID before loading their upgrades and name tag.
+[06:37:23.087] [Info   :LateJoinPlus] The host has not sent 24 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[06:37:24.294] [Info   :LateJoinPlus] Waited 0.1 s for Player 100's Steam ID before loading their upgrades and name tag.
+[06:37:25.289] [Info   :LateJoinPlus] Waited 0.1 s for Player 49's Steam ID before loading their upgrades and name tag.
+[06:37:25.503] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[06:37:25.574] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 2 times in total)
+[06:37:26.584] [Info   :LateJoinPlus] Host room connections received: 24 matched our estimate, 0 corrected to the host's.
+[06:37:26.586] [Info   :LateJoinPlus] [Moderators] Roles from the host: 2 moderator(s), 0 protected, 5 with LateJoinPlus.
+[06:37:29.023] [Info   :LateJoinPlus] Timing: game memory 3012 MB of 16281 MB, 109 MB of it from mods and scripts; textures 419 MB of 8135 MB video memory.
+[06:39:44.878] [Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 0 protected, 4 with LateJoinPlus.
+[06:40:37.906] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 94' (player #282, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:40:47.011] [Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 0 protected, 5 with LateJoinPlus.
+[06:40:58.045] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 91' (player #283, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:41:08.175] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 94' (player #282, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 170 bytes each).
+[06:41:27.422] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 91' (player #283, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 9 messages (about 109 bytes each).
+[06:41:49.636] [Warning:Unity Log] Received RPC "DiscoverRPC" for viewID 929 but this PhotonView does not exist! Was remote PV. Remote called. By: #277 'Player 100' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[06:43:35.437] [Warning:Unity Log] Received RPC "DiscoverRPC" for viewID 946 but this PhotonView does not exist! Was remote PV. Remote called. By: #280 'Player 49' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[06:44:04.122] [Warning:Unity Log] Received RPC "DiscoverRPC" for viewID 963 but this PhotonView does not exist! Was remote PV. Remote called. By: #282 'Player 94' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[06:44:34.540] [Warning:Unity Log] Received RPC "DiscoverRPC" for viewID 972 but this PhotonView does not exist! Was remote PV. Remote called. By: #283 'Player 91' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[06:46:15.584] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 320' (player #284, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:46:46.001] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 320' (player #284, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 159 bytes each).
+[06:47:13.589] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 30' (player #285, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:47:43.014] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 30' (player #285, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 157 bytes each).
+[06:47:58.527] [Warning:Unity Log] [2026-11-20T12:47:58] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #5 of player 276 not found when trying to remove
+   (seen 2 times in total)
+[06:48:17.581] [Warning:Unity Log] Received RPC "DiscoverRPC" for viewID 55 but this PhotonView does not exist! Was remote PV. Remote called. By: #285 'Player 30' Maybe GO was destroyed but RPC not cleaned up.
+[06:53:10.930] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 111' (player #286, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:53:41.285] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 111' (player #286, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 23 messages (about 159 bytes each).
+[06:57:42.527] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 59' (player #287, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[06:58:12.846] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 59' (player #287, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 170 bytes each).
