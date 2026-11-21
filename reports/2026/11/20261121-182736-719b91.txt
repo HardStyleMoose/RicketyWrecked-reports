@@ -1,0 +1,659 @@
+LateJoinPlus bug report 20261121-182736-719b91
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "db20989dec4c4e30bdb98644582411f9"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Bunker"
+players: 2
+language: "en-US"
+test: false
+Sender: 9a07c0a8a86c
+Install: db20989dec4c4e30bdb98644582411f9
+
+Mods (18):
+- "TextUpgradesUIScale" | "DarkSpider90.TextUpgradesUIScale" | "1.4.1"
+- "NoItemSpawnLimit" | "HeroHanex.NoItemSpawnLimit" | "1.0.9"
+- "Improved Stamina" | "ImprovedStamina" | "1.2.0"
+- "Shop Discounts" | "Jettcodey.ShopDiscounts" | "1.1.0"
+- "MapValueTracker" | "MapValueTracker" | "1.3.1"
+- "Mimics" | "Mimics" | "1.1.6"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Shop Items spawn in Level" | "REPO_Shop_Items_in_Level" | "1.7.21"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "WesleysEnemies" | "WesleysEnemies" | "2.0.0"
+- "WesleysLevels" | "WesleysLevels" | "1.0.0"
+- "KeybindLib" | "bulletbot.keybindlib" | "1.0.6"
+- "MoreUpgrades" | "bulletbot.moreupgrades" | "1.7.3"
+- "ExtractionPointConfirmButton" | "com.github.zehsteam.ExtractionPointConfirmButton" | "1.2.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: AMD Ryzen 5 2500U with Radeon Vega Mobile Gfx  (8 threads)
+Memory: 15260 MB
+Graphics: Radeon 530 Series (2038 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 6208 ms
+Most memory this game: 4076 MB
+Most texture memory this game: 549 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: InputManager.InitializeInputs, UpgradeStand.GetWeightedUpgradeExcluding
+Who patches the methods in this log's errors:
+  ExtractionPoint.Update: com.github.zehsteam.ExtractionPointConfirmButton (postfix)
+  InputManager.InitializeInputs: bulletbot.keybindlib (transpiler)
+  InputManager.Start: bulletbot.keybindlib (transpiler)
+  UpgradeStand.GetWeightedUpgradeExcluding: bulletbot.moreupgrades (transpiler)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (21):
+  ItemAttributes.GetValue: bulletbot.moreupgrades (transpiler), Vippy.SharedUpgradesPlus (prefix), Vippy.SharedUpgradesPlus (postfix)
+  EnemyDirector.Start: Mimics (postfix), ricketywrecked.repo.fixes (finalizer)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  LevelGenerator.GenerateDone: HeroHanex.NoItemSpawnLimit (postfix), Tansinator.REPO.MapValueTracker (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObject.DestroyPhysGrabObjectRPC: ricketywrecked.repo.latejoinplus (prefix), Tansinator.REPO.MapValueTracker (postfix)
+  PhysGrabObjectImpactDetector.Break: bulletbot.moreupgrades (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Awake: Mimics (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.LateStart: bulletbot.moreupgrades (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.PlayerDeathRPC: bulletbot.moreupgrades (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), bulletbot.moreupgrades (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  PunManager.TruckPopulateItemVolumes: HeroHanex.NoItemSpawnLimit (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (postfix)
+  RunManager.Awake: REPOLib (postfix), Jettcodey.ShopDiscounts (postfix)
+  RunManager.UpdateLevel: com.github.zehsteam.ExtractionPointConfirmButton (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopManager.ShopInitialize: Vippy.SharedUpgradesPlus (prefix), Jettcodey.ShopDiscounts (postfix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+  StatsManager.Start: Tansinator.REPO.MapValueTracker (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 80):
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+  21:26:28 an error from Unity Log
+(end of settings)
+[Error  :  HarmonyX] Failed to patch Item UpgradeStand::GetWeightedUpgradeExcluding(Item excludeItem, System.Collections.Generic.Dictionary<string, int> displayedCounts, System.Collections.Generic.Dictionary<string, int> selectedDuringReroll, bool secondAttempt): System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) [0x00093] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) [0x00066] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () [0x00084] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x0002b] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?1013716990(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MoreUpgrades.Plugin+<>c__DisplayClass11_0.<PatchAll>b__1 (System.Type x) (at <949184619b50456ca6746bc688355c95>:0)
+System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+MoreUpgrades.Plugin.PatchAll (System.String name) (at <949184619b50456ca6746bc688355c95>:0)
+MoreUpgrades.Plugin.Awake () (at <949184619b50456ca6746bc688355c95>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 276 times in total)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 23 times in total)
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?1013716990(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 13 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMapValueTracker
+   (seen 4 times in total)
+[Warning:R.E.P.O Fixes+] Suppressed exception in EnemyDirector.Start (1 so far): MissingFieldException: Field not found: System.Collections.Generic.List`1<UnityEngine.GameObject> .EnemySetup.spawnObjects Due to: Could not find field in class
+[Error  : Unity Log] ArgumentException: An item with the same key has already been added. Key: [1133127397]
+Stack trace:
+System.Collections.Generic.Dictionary`2[TKey,TValue].TryInsert (TKey key, TValue value, System.Collections.Generic.InsertionBehavior behavior) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Collections.Generic.Dictionary`2[TKey,TValue].Add (TKey key, TValue value) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+KeybindLib.Patches.InputManagerPatch.Start (System.Collections.Generic.Dictionary`2[System.String,InputKey]& tagDictionary) (at <60cb781ccc98403f990dbed9a796f812>:0)
+(wrapper dynamic-method) InputManager.DMD<InputManager::Start>(InputManager)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 3220 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 2483 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 6208 ms, 6 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1995 MB of 15260 MB, 68 MB of it from mods and scripts; textures 208 MB of 2038 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 35 ms and 17 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 14,6 ms (15 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeAutoscan
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeExtra Life
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeItem Resist
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeItem Value
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Cosmetics Tracker
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Enemy Tracker
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Player Tracker
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Zoom
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeSprint Usage
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeValuable Count
+   (seen 3 times in total)
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-21T18:05:06] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?1013716990(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+   (seen 10 times in total)
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 48 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 3559 MB of 15260 MB, 82 MB of it from mods and scripts; textures 340 MB of 2038 MB video memory.
+[Error  : Unity Log] Level Point: Not connected: 
+   (seen 3 times in total)
+[Error  : Unity Log]           Point Name: Left
+   (seen 2 times in total)
+[Error  : Unity Log]           Point Name: N/A
+[Info   :LateJoinPlus] Timing: game memory 2520 MB of 15260 MB, 91 MB of it from mods and scripts; textures 340 MB of 2038 MB video memory.
+[Warning: Unity Log] Can not play a disabled audio source
+   (seen 17 times in total)
+[Warning: Unity Log] Only custom filters can be played. Please add a custom filter or an audioclip to the audiosource (Metal hollow Big - Destroy03).
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+ExtractionPoint.StateWarning () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+(wrapper dynamic-method) ExtractionPoint.DMD<ExtractionPoint::Update>(ExtractionPoint)
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 137 messages/s (flood limit 500); most data from one player 91 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 136 messages/s (flood limit 500); most data from one player 15 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 65 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 177 messages/s (flood limit 500); most data from one player 82 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: Joined. SCS v0 UDP SocketError: 0 
+[Info   : Unity Log] Disconnected from server for reason ClientTimeout
+[Error  : Unity Log] network disconnect report: cause=ClientTimeout, summary=SCS v0 UDP SocketError: 0  (458752), build=0.5.2, scene=Main, game=Main, loading=0,0s, receiveGap=2049ms, rtt=555ms, rttVariance=406ms, resends=156
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning: Unity Log] [2026-11-21T18:24:05] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Микрофон (Realtek(R) Audio)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning: Unity Log] Received RPC "ChargingStationSegmentChangedRPC" for viewID 339 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Failed to create agent because it is not close enough to the NavMesh
+   (seen 6 times in total)
+[Error  : Unity Log] Failed to find a PhotonView with ID=392 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+   (seen 202 times in total)
+[Warning: Unity Log] Received RPC "OpenImpulseRPC" for viewID 363 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 12 times in total)
+[Warning: Unity Log] Received RPC "ImpactLightRPC" for viewID 363 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 23 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Warning: Unity Log] Received RPC "ImpactHeavyRPC" for viewID 421 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 12 times in total)
+[Warning: Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 399 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 20 times in total)
+[Warning: Unity Log] Received RPC "HaulGoalSetRPC" for viewID 336 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Warning: Unity Log] Received RPC "StateSetRPC" for viewID 336 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "CloseImpulseRPC" for viewID 363 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Warning: Unity Log] Received RPC "ImpactMediumRPC" for viewID 421 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 15 times in total)
+[Warning:LateJoinPlus] Joined mid-level: the host's late-join mod set up 1 level piece(s) that never reached this game (no floors or walls there). Nothing on this side can rebuild them; the next level loads fresh.
+   (seen 5 times in total)
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Warning:    Mimics] Received chunk index 34 exceeds expected 0.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Warning: Unity Log] Received RPC "HingeBreakRPC" for viewID 411 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+=== Previous game session ===
+[Error  :  HarmonyX] Failed to patch Item UpgradeStand::GetWeightedUpgradeExcluding(Item excludeItem, System.Collections.Generic.Dictionary<string, int> displayedCounts, System.Collections.Generic.Dictionary<string, int> selectedDuringReroll, bool secondAttempt): System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <b2ed3aa968d84284a17b07ec9195055c>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) [0x00093] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) [0x00066] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () [0x00084] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x0002b] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-2024368130(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MoreUpgrades.Plugin+<>c__DisplayClass11_0.<PatchAll>b__1 (System.Type x) (at <949184619b50456ca6746bc688355c95>:0)
+System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+MoreUpgrades.Plugin.PatchAll (System.String name) (at <949184619b50456ca6746bc688355c95>:0)
+MoreUpgrades.Plugin.Awake () (at <949184619b50456ca6746bc688355c95>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[22:00:11.018] [Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[22:00:11.018] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[22:00:19.895] [Warning:HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 1035 times in total)
+[22:00:19.904] [Error  :HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 45 times in total)
+[22:00:19.914] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-2024368130(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 5 times in total)
+[22:00:24.628] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[22:00:24.630] [Warning:HarmonyX] AccessTools.Method: type is null
+[22:00:25.497] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMapValueTracker
+   (seen 2 times in total)
+[22:00:26.221] [Warning:R.E.P.O Fixes+] Suppressed exception in EnemyDirector.Start (1 so far): MissingFieldException: Field not found: System.Collections.Generic.List`1<UnityEngine.GameObject> .EnemySetup.spawnObjects Due to: Could not find field in class
+[22:00:26.932] [Error  :Unity Log] ArgumentException: An item with the same key has already been added. Key: [1133127397]
+Stack trace:
+System.Collections.Generic.Dictionary`2[TKey,TValue].TryInsert (TKey key, TValue value, System.Collections.Generic.InsertionBehavior behavior) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Collections.Generic.Dictionary`2[TKey,TValue].Add (TKey key, TValue value) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+KeybindLib.Patches.InputManagerPatch.Start (System.Collections.Generic.Dictionary`2[System.String,InputKey]& tagDictionary) (at <60cb781ccc98403f990dbed9a796f812>:0)
+(wrapper dynamic-method) InputManager.DMD<InputManager::Start>(InputManager)
+[22:00:27.083] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[22:00:27.101] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[22:00:27.103] [Info   :LateJoinPlus] Timing: start-up took 2840 ms.
+[22:00:27.104] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[22:00:27.105] [Info   :LateJoinPlus] Timing: late patches took 2364 ms.
+[22:00:27.194] [Warning:Unity Log] Unable to load font face for [] font asset.
+[22:00:27.845] [Info   :LateJoinPlus] Timing: slowest frame so far 5410 ms, 5 s after start.
+[22:00:27.846] [Info   :LateJoinPlus] Timing: game memory 2013 MB of 15260 MB, 86 MB of it from mods and scripts; textures 208 MB of 2038 MB video memory.
+[22:00:27.847] [Info   :LateJoinPlus] Timing: Chinese font set-up took 42 ms and 2 MB.
+[22:00:27.848] [Info   :LateJoinPlus] Timing: the 3-second font scan took 19,2 ms (15 fonts).
+[22:00:38.869] [Info   :Unity Log] leaving photon
+[22:00:38.874] [Info   :Unity Log] Leave to Main Menu
+[22:00:48.971] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeAutoscan
+[22:00:48.984] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeExtra Life
+[22:00:48.986] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeItem Resist
+[22:00:48.991] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeItem Value
+[22:00:48.992] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Cosmetics Tracker
+[22:00:48.994] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Enemy Tracker
+[22:00:48.998] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Player Tracker
+[22:00:48.999] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMap Zoom
+[22:00:49.003] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeSprint Usage
+[22:00:49.004] [Warning:HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeValuable Count
+[22:00:58.725] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[22:00:58.797] [Warning:Unity Log] [2026-11-19T19:00:58] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[22:00:59.664] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[22:01:00.009] [Info   :LateJoinPlus] Waited 0,2 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:01:00.145] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[22:01:00.146] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[22:01:00.563] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[22:01:11.943] [Error  :Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: ConnectingToMasterServer. SCS v0 UDP SocketError: 0 
+[22:01:11.945] [Warning:Unity Log] Voice Disconnected and will attempt to reconnect. Cause: ClientTimeout
+[22:01:15.444] [Info   :R.E.P.O Fixes+] [Voice fix] Your voice chat dropped (ClientTimeout) and reconnected; restarted your microphone so the others hear you again.
+[22:01:46.281] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-2024368130(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+   (seen 40 times in total)
+[22:01:47.195] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 87 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[22:01:47.274] [Info   :LateJoinPlus] Waited 0,2 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:01:55.457] [Info   :LateJoinPlus] Timing: game memory 2532 MB of 15260 MB, 95 MB of it from mods and scripts; textures 371 MB of 2038 MB video memory.
+[22:07:09.811] [Warning:Unity Log] Can not play a disabled audio source
+   (seen 159 times in total)
+[22:08:02.788] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:08:03.303] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 212 messages/s (flood limit 500); most data from one player 84 KB/s (limit 100); 0 messages dropped.
+[22:09:03.700] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:09:04.283] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 137 messages/s (flood limit 500); most data from one player 23 KB/s (limit 100); 0 messages dropped.
+[22:09:19.956] [Info   :LateJoinPlus] Waited 0,2 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:09:20.464] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 67 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[22:17:40.228] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:17:40.694] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 450 messages/s (flood limit 500); most data from one player 97 KB/s (limit 100); 0 messages dropped.
+[22:17:55.875] [Info   :LateJoinPlus] Timing: game memory 3047 MB of 15260 MB, 117 MB of it from mods and scripts; textures 515 MB of 2038 MB video memory.
+[22:18:59.991] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:19:00.491] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 100 messages/s (flood limit 500); most data from one player 16 KB/s (limit 100); 0 messages dropped.
+[22:19:19.035] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 52 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[22:19:19.037] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:32:17.955] [Error  :Unity Log] Coroutine couldn't be started because the the game object 'Player Avatar Controller' is inactive!
+   (seen 3 times in total)
+[22:34:52.992] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:34:53.392] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 423 messages/s (flood limit 500); most data from one player 78 KB/s (limit 100); 0 messages dropped.
+[22:36:02.250] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:36:02.684] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 135 messages/s (flood limit 500); most data from one player 22 KB/s (limit 100); 0 messages dropped.
+[22:36:40.466] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:36:40.821] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 57 messages/s (flood limit 500); most data from one player 9 KB/s (limit 100); 0 messages dropped.
+[22:44:03.472] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 421 messages/s (flood limit 500); most data from one player 86 KB/s (limit 100); 0 messages dropped.
+[22:44:03.559] [Info   :LateJoinPlus] Waited 0,2 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:45:17.774] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 132 messages/s (flood limit 500); most data from one player 20 KB/s (limit 100); 0 messages dropped.
+[22:45:17.776] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:45:33.395] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:45:33.746] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 67 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[23:02:51.479] [Warning:Unity Log] Item Item Health Pack Large/1 already exists in the dictionary
+[23:05:33.271] [Warning:Unity Log] Received RPC "ReceiveAudioChunk" for viewID 1609 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 26 times in total)
+[23:05:33.943] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:05:34.320] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 889 messages/s (flood limit 500); most data from one player 184 KB/s (limit 100); 0 messages dropped.
+[23:06:55.840] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:06:56.043] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 96 messages/s (flood limit 500); most data from one player 63 KB/s (limit 100); 0 messages dropped.
+[23:07:57.186] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:07:57.378] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 65 messages/s (flood limit 500); most data from one player 13 KB/s (limit 100); 0 messages dropped.
+[23:20:44.840] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 494 messages/s (flood limit 500); most data from one player 90 KB/s (limit 100); 0 messages dropped.
+[23:20:44.862] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:22:05.291] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:22:05.592] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 97 messages/s (flood limit 500); most data from one player 12 KB/s (limit 100); 0 messages dropped.
+[23:22:31.328] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[23:22:31.489] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 83 messages/s (flood limit 500); most data from one player 13 KB/s (limit 100); 0 messages dropped.
+[23:28:49.771] [Warning:Unity Log] Item Item Health Pack Small/1 already exists in the dictionary
+   (seen 3 times in total)
+[23:41:07.447] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 1159 messages/s (flood limit 500); most data from one player 232 KB/s (limit 100); 0 messages dropped.
+[23:41:07.448] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
