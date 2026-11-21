@@ -1,0 +1,318 @@
+LateJoinPlus bug report 20261121-074654-a92c78
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "c26c0d2e66674d2ba35a8496611106a2"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Shop Dead Forest"
+players: 6
+language: "zh-TW"
+test: false
+Sender: de2a47d3da7c
+Install: c26c0d2e66674d2ba35a8496611106a2
+
+Mods (14):
+- "MoneySpawn" | "DerFabek.MoneySpawn" | "1.1.0"
+- "Infinite Stamina" | "Galaxcito.REPO.InfiniteStamina" | "1.0.0"
+- "InfiniteAmmo" | "InfiniteAmmo" | "1.1.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "ScalerCore" | "Vippy.ScalerCore" | "1.1.1"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "AdvanceGunMod" | "com.yourname.advancegunmod" | "1.0.0"
+- "InfiniteItemBatteryMod" | "com.yourname.infiniteitembatterymod" | "1.0.0"
+- "CosmeticBoxConfig" | "cosmetic.box.config" | "1.0.0"
+- "InfinityEnergy" | "finnick.InfinityEnergy" | "1.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 6
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: AMD Ryzen 9 6900HX with Radeon Graphics  (16 threads)
+Memory: 14092 MB
+Graphics: NVIDIA GeForce RTX 3060 Laptop GPU (5994 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 3076 ms
+Most memory this game: 3609 MB
+Most texture memory this game: 437 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (17):
+  EnemyHealth.Hurt: ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ItemBattery.Update: com.yourname.infiniteitembatterymod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: ricketywrecked.repo.latejoinplus (postfix), Vippy.ScalerCore (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), Vippy.ScalerCore (postfix)
+  PlayerController.Update: finnick.InfinityEnergy (prefix), finnick.InfinityEnergy (postfix), Galaxcito.REPO.InfiniteStamina (postfix)
+  PlayerHealth.Hurt: ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (prefix), Vippy.ScalerCore (postfix)
+  PlayerTumble.SetupDone: Vippy.ScalerCore (postfix), Vippy.SharedUpgradesPlus (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix), Vippy.ScalerCore (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  RunManager.ChangeLevel: ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (prefix), Vippy.ScalerCore (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  StatsManager.ItemFetchName: ricketywrecked.repo.fixes (prefix), Vippy.ScalerCore (prefix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 3):
+  15:37:11 Level 'Level - Desert'
+  15:39:17 Level 'Level - Shop Wasteland'
+  15:46:19 Level 'Level - Wizard'
+(end of settings)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for 坏's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 114' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] You put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Grenade Stun/2 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 133' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 64's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 186's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for 坏's Steam ID before loading their upgrades and name tag.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyBeamer and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyTick and name feetTransform
+[Info   :LateJoinPlus] [Slots] You's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Grenade Stun/2 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 114's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[Warning: Unity Log] BoxCollider does not support negative scale or size.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Item Grenade Stun/1 out of slot 1 (1.1 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] Player 133 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 133 when they died: Rigidbody #269 1.9 m away, floor 2.90 m | state - | held by Player 133 | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 133 when they died: Rigidbody #269 1.8 m away, floor 2.62 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 133 when they died: Rigidbody #269 3.0 m away, floor 0.32 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 64 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 64 when they died: Rigidbody #269 2.3 m away, floor 2.61 m | state - | held by Player 64 | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 64 when they died: Rigidbody #269 2.3 m away, floor 2.76 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 64 when they died: Rigidbody #269 0.8 m away, floor 0.32 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Grenade Stun/1 out of slot 1 (1.4 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Admin] Host world: done - Endless batteries: on.
+[Info   :LateJoinPlus] [Slots] Player 114 took Item Gun Tranq/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 195 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 195' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 195 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 114 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] Not waiting for Player 195 at the end of the level: they are still on the loading screen. The next level loads for them as well.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (5 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 1 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 1, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 3 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 114's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 195's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 64's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for 坏's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 133' peaked at 61 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 195' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 30 messages (about 93 bytes each).
+=== Previous game session ===
+[15:21:44.844] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[15:21:48.441] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[15:21:48.442] [Warning:HarmonyX] AccessTools.Method: type is null
+[15:21:50.110] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[15:21:50.113] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[15:21:50.113] [Info   :LateJoinPlus] Timing: start-up took 1953 ms.
+[15:21:50.113] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[15:21:50.113] [Info   :LateJoinPlus] Timing: late patches took 1414 ms.
+[15:21:50.162] [Warning:Unity Log] Unable to load font face for [] font asset.
+[15:21:50.636] [Info   :LateJoinPlus] Timing: slowest frame so far 3394 ms, 3 s after start.
+[15:21:50.636] [Info   :LateJoinPlus] Timing: game memory 1477 MB of 14092 MB, 80 MB of it from mods and scripts; textures 89 MB of 5994 MB video memory.
+[15:21:50.637] [Info   :LateJoinPlus] Timing: Chinese font set-up took 20 ms and 1 MB.
+[15:21:50.637] [Info   :LateJoinPlus] Timing: the 3-second font scan took 3.1 ms (13 fonts).
+[15:22:01.364] [Info   :Unity Log] leaving photon
+[15:22:01.368] [Info   :Unity Log] Leave to Main Menu
+[15:22:19.964] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 4 times in total)
+[15:22:47.389] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[15:22:47.409] [Warning:Unity Log] [2026-11-21T07:22:47] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[15:22:48.544] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 171' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:22:48.544] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 168' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:22:48.544] [Info   :LateJoinPlus] Waited 0.1 s for Player 171's Steam ID before loading their upgrades and name tag.
+[15:22:48.544] [Info   :LateJoinPlus] Waited 0.1 s for Player 168's Steam ID before loading their upgrades and name tag.
+[15:22:49.134] [Info   :LateJoinPlus] Timing: game memory 2259 MB of 14092 MB, 77 MB of it from mods and scripts; textures 175 MB of 5994 MB video memory.
+[15:22:49.883] [Error  :Unity Log] RPC method 'ReassignPlayerDeathHeadRPC(Int32)' not found on object with PhotonView 1032. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[15:22:50.041] [Error  :Unity Log] Failed to find a PhotonView with ID=745 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+[15:22:50.158] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'ReassignPlayerDeathHeadRPC' messages from 'Player 171' (player #1) (to object 2017): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[15:23:02.238] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[15:23:16.357] [Error  :Unity Log] Ev Destroy Failed. Could not find PhotonView with instantiationId 1041. Sent by actorNr: 1
+   (seen 11 times in total)
+[15:23:19.453] [Warning:Unity Log] Received RPC "VersionCheckRPC" for viewID 745 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 171' Maybe GO was destroyed but RPC not cleaned up.
+[15:23:19.517] [Info   :LateJoinPlus] Waited 0.1 s for Player 171's Steam ID before loading their upgrades and name tag.
+[15:23:19.561] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 171' peaked at 293 messages/s (flood limit 500); most data from one player 37 KB/s (limit 100); 0 messages dropped.
+[15:23:19.843] [Info   :LateJoinPlus] Waited 0.1 s for Player 168's Steam ID before loading their upgrades and name tag.
+[15:23:24.129] [Warning:Unity Log] Item 'Item Gun AK47' not found in the itemDictionary.
+[15:23:28.428] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadController and name feetTransform
+[15:23:28.428] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 14 times in total)
+[15:23:28.428] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 12 times in total)
+[15:23:28.429] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 12 times in total)
+[15:23:28.429] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 12 times in total)
+[15:23:28.429] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 12 times in total)
+[15:23:28.429] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 12 times in total)
+[15:23:28.430] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 11 times in total)
+[15:23:28.430] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 5 times in total)
+[15:23:28.430] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 5 times in total)
+[15:23:28.430] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 5 times in total)
+[15:23:28.430] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 12 times in total)
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyAttackStuckPhysObject and name feetTransform
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateRoaming and name feetTransform
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 11 times in total)
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseBegin and name feetTransform
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSneak and name feetTransform
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChase and name feetTransform
+[15:23:28.431] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseSlow and name feetTransform
+[15:23:28.433] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseEnd and name feetTransform
+[15:23:28.433] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateLookUnder and name feetTransform
+[15:23:28.433] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadHalloween and name feetTransform
+[15:23:28.496] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBombThrower and name feetTransform
+[15:23:28.531] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyShadow and name feetTransform
+[15:23:28.533] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyShadowHalloween and name feetTransform
+[15:23:28.570] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyUpscream and name feetTransform
+[15:23:28.573] [Warning:HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+   (seen 5 times in total)
+[15:23:28.591] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableThrower and name feetTransform
+   (seen 2 times in total)
+[15:23:28.614] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHidden and name feetTransform
+[15:23:28.661] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyDuck and name feetTransform
+[15:23:28.682] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyGnome and name feetTransform
+   (seen 4 times in total)
+[15:23:37.576] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 403 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 168' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[15:23:37.576] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 403 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 168' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[15:23:48.869] [Info   :LateJoinPlus] Timing: game memory 2962 MB of 14092 MB, 100 MB of it from mods and scripts; textures 449 MB of 5994 MB video memory.
+[15:24:01.863] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 163' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:24:09.980] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 220' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:24:14.007] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:24:31.106] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 163' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 157 bytes each).
+[15:24:40.165] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #7' (player #7, Steam ID unknown), first 30 s: busiest second 4 KB in 36 messages (about 138 bytes each).
+[15:24:43.181] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 31 messages (about 104 bytes each).
+[15:25:28.870] [Warning:Unity Log] BoxCollider does not support negative scale or size.
+   (seen 3 times in total)
+[15:28:16.678] [Info   :Unity Log] leaving photon
+[15:28:16.775] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[15:28:16.780] [Info   :Unity Log] Leave to Main Menu
