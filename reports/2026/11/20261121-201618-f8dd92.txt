@@ -1,0 +1,538 @@
+LateJoinPlus bug report 20261121-201618-f8dd92
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "0ad8d81343474e549cc4e5a1fc0dcc23"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Wizard"
+players: 7
+language: "en-US"
+test: false
+Sender: 552e71abe9be
+Install: 0ad8d81343474e549cc4e5a1fc0dcc23
+
+Mods (5):
+- "TextUpgradesUIScale" | "DarkSpider90.TextUpgradesUIScale" | "1.4.1"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.2"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.4"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 13th Gen Intel(R) Core(TM) i9-13900H (20 threads)
+Memory: 65244 MB
+Graphics: NVIDIA GeForce RTX 4060 Laptop GPU (7972 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 2355 ms
+Most memory this game: 4000 MB
+Most texture memory this game: 401 MB
+BepInEx: [ip]
+Patchers: 
+Game methods several mods patch (2):
+  MenuPageEsc.Start: ricketywrecked.repo.adminmenubuttonfix (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+Timeline (last 27):
+  21:35:26 Level 'Level - Museum'
+  21:36:21 an error from Unity Log
+  21:38:04 an error from Unity Log
+  21:40:17 Level 'Level - Shop Wasteland'
+  21:40:42 Level built in 24 s. Slowest step: valuables, 8 s from the first player to the last, Player 7.
+  21:42:57 Level built in 113 s. Slowest step: rooms, 26.1 s from the first player to the last, Player 7.
+  21:43:51 an error from Unity Log
+  21:53:21 Level change waited 8 s for everyone's results screen; the last to finish: Player 4, Player 5 (0 s after the others).
+  21:53:21 Level 'Level - Manor'
+  21:54:26 Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone …
+  21:54:43 Level building moved again. Where everyone is: Player 4 50% (extras, last message 0 s ago), Player 5 50% (extras, last message 0 s ago), Player 2 50%…
+  21:55:29 Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone …
+  21:57:01 Level building moved again. Where everyone is: Player 4 66% (props, last message 0 s ago), Player 5 66% (props, last message 0 s ago), Player 2 66% (…
+  21:57:03 Level built in 221 s. Slowest step: valuables, 63.1 s from the first player to the last, Player 7.
+  21:57:49 an error from Unity Log
+  21:59:44 Level 'Level - Shop Forest'
+  22:01:11 Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone …
+  22:01:13 Level building moved again. Where everyone is: Player 7 83% (spawning, last message 0 s ago), Player 4 99% (finishing, last message 0 s ago), Player …
+  22:01:58 Level building has made no progress for 45 s on step PlayerSpawn, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyo…
+  22:02:56 Level built in 192 s. Slowest step: props, 47.3 s from the first player to the last, Player 7.
+  22:03:31 Level built in 17 s. Slowest step: rooms, 11.1 s from the first player to the last, Player 8.
+  22:04:04 an error from Unity Log
+  22:10:37 Level change waited 8 s for everyone's results screen; the last to finish: Player 8 (0 s after the others).
+  22:10:37 Level 'Level - Arctic'
+  22:11:01 Level built in 23 s. Slowest step: valuables, 7.1 s from the first player to the last, Player 8.
+  22:13:38 Level built in 8 s. Slowest step: valuables, 2.5 s from the first player to the last, Player 7.
+  22:15:48 Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone …
+(end of settings)
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 4090 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 844 ms.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2355 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1418 MB of 65244 MB, 49 MB of it from mods and scripts; textures 88 MB of 7972 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 15 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.3 ms (13 fonts).
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Timing: game memory 2118 MB of 65244 MB, 55 MB of it from mods and scripts; textures 132 MB of 7972 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 28 messages (about 112 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 32 messages (about 102 bytes each).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 41 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Late joiner Player 5 connected (level Level - Museum). Catching them up.
+[Info   :LateJoinPlus] Player 5 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 5 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 5 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Player 5's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 5 holds no moderator key of ours.
+[Info   :LateJoinPlus] Late joiner Player 5 finished loading in 10.1 s (has LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 5' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 27 messages (about 111 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Museum': OK | joins 1 (1 with LateJoinPlus), loaded 1 (avg 10.1 s, slowest 10.1 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 20 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 54 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 2913 MB of 65244 MB, 76 MB of it from mods and scripts; textures 379 MB of 7972 MB video memory.
+[Info   :LateJoinPlus] Late joiner Player 7 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 7 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 7 finished loading in 27.6 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 17 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 8 times in total)
+[Info   :LateJoinPlus] Late joiner Player 4 connected (shop). Catching them up.
+[Info   :LateJoinPlus] Player 4 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 4 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 4 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[Info   :LateJoinPlus] [Admin] Player 4's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 4 holds no moderator key of ours.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 4' (player #6) (to object 1051): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Late joiner Player 4 finished loading in 10.7 s (has LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] Player 6 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 80 messages (about 73 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $45K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $55K.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Wasteland': OK | joins 2 (1 with LateJoinPlus), loaded 2 (avg 19.2 s, slowest 27.6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 25 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 60 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Menu] Volume for Player 6 set to 50%.
+[Info   :LateJoinPlus] [Run] Level built in 24 s. Slowest step: valuables, 8 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 7 put Item Melee Inflatable Hammer/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Health Pack Large/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Mine Stun/1 in slot 3.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 53 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Menu] Text from Player 4.
+[Info   :LateJoinPlus] [Run] Level built in 113 s. Slowest step: rooms, 26.1 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] You's Item Melee Whip/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] Late joiner Player 5 connected (level Level - Manor). Catching them up.
+[Info   :LateJoinPlus] Player 5 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 5 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 5's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 5 holds no moderator key of ours.
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 5 (has LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 6 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Slots] Player 5's Item Health Pack Large/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Mine Stun/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 4 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 5 finished loading in 6.2 s (has LateJoinPlus).
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 6 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 7.6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 1 explored room(s) on Player 2's map (7 messages).
+[Info   :LateJoinPlus] Late joiner Player 6 finished loading in 7.7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 1 explored room(s) on Player 6's map (7 messages).
+[Info   :LateJoinPlus] Late joiner Player 7 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 5' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 39 messages (about 136 bytes each).
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 7 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 39 messages (about 128 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 36 messages (about 145 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 15 messages (about 116 bytes each).
+[Info   :LateJoinPlus] Player 7 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] Late joiner Player 7 finished loading in 43.4 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 5 explored room(s) on Player 7's map (35 messages).
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Gun Laser/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] You took Item Melee Whip/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 5 when they died: Item Gun Shotgun(Clone) #231 3000.3 m away, floor none below | state Equipped owner 7002 | held by Player 5 | kinematic True collisions False colliders on 0/4 | active False deactivate 0.08 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shotgun/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Health Pack Large/1 was forced out of slot 2, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Mine Stun/1 was forced out of slot 3, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 5 when they died: Item Gun Shotgun(Clone) #231 1.4 m away, floor 1.43 m | state Idle owner 7002 | held by nobody | kinematic True collisions False colliders on 4/4 | active False deactivate 0.06 pin 0.08 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #231 0.0 m away, floor 0.02 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Health Pack Large(Clone) #232 0.0 m away, floor 1.47 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Mine Stun(Clone) #230 0.0 m away, floor 0.02 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #231 0.8 m away, floor 0.07 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Health Pack Large(Clone) #232 0.8 m away, floor 0.73 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Mine Stun(Clone) #230 0.7 m away, floor 0.01 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 5 when they died: Item Gun Shotgun(Clone) #231 0.4 m away, floor 0.00 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #231 1.4 m away, floor 0.00 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Health Pack Large(Clone) #232 1.2 m away, floor 0.24 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Mine Stun(Clone) #230 1.4 m away, floor 0.04 m | state Idle owner 7002 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] Player 2 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 2 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Calls] Player 5 asks for a call.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Death drop] Player 6 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 6 when they died: Rigidbody #272 2.1 m away, floor 1.37 m | state - | held by Player 6 | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 6 when they died: Rigidbody #272 2.2 m away, floor 1.69 m | state - | held by Player 6 | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 6 when they died: Rigidbody #272 2.5 m away, floor 0.39 m | state - | held by nobody | kinematic False collisions True colliders on 1/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Shotgun/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Shotgun/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Health Pack Large/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Laser/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Admin] Host heal Player 6: done - Healed Player 6.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Health Pack Large/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Mine Stun/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] You put Item Melee Inflatable Hammer/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Melee Inflatable Hammer/1 out of slot 2 (1.0 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Inflatable Hammer/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Item Gun Laser/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Laser/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Laser/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Laser/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Item Gun Laser/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Laser/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (3 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 4, Player 5 (0 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 6 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Manor': OK | joins 4 (1 with LateJoinPlus), loaded 4 (avg 16.2 s, slowest 43.4 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (7 rooms) | extraction: opened for joiner 3, already had it 1, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 4 (slowest 25 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 5' peaked at 52 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone is: Player 7 33% (valuables, last message 0 s ago), Player 4 50% (extras, last message 0 s ago), Player 5 50% (extras, last message 0 s ago), Player 2 50% (extras, last message 0 s ago), Player 6 50% (extras, last message 0 s ago), You 50% (extras).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 4 50% (extras, last message 0 s ago), Player 5 50% (extras, last message 0 s ago), Player 2 50% (extras, last message 0 s ago), Player 6 50% (extras, last message 0 s ago), Player 7 50% (extras, last message 0 s ago), You 50% (extras).
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone is: Player 7 50% (extras, last message 0 s ago), Player 4 66% (props, last message 0 s ago), Player 5 66% (props, last message 0 s ago), Player 2 66% (props, last message 0 s ago), Player 6 66% (props, last message 0 s ago), You 66% (props).
+[Info   :Lobby Guard] [Lobby Guard] You kicked 'Player 7' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 4 66% (props, last message 0 s ago), Player 5 66% (props, last message 0 s ago), Player 2 66% (props, last message 0 s ago), Player 6 66% (props, last message 0 s ago), You 66% (props).
+[Info   :LateJoinPlus] [Run] Level built in 221 s. Slowest step: valuables, 63.1 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] Late joiner Player 7 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 7 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 6 (game id ok): Health 2, Stamina 0, Speed 1, Strength 1, Range 2, Throw 0, ExtraJump 0, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 11 messages (about 146 bytes each).
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $139K.
+[Info   :LateJoinPlus] Late joiner Player 7 finished loading in 68.3 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] Late joiner Player 8 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 8 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] Player 6 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 8 finished loading in 13.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] Player 4 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 4: done - Revived Player 4.
+[Info   :LateJoinPlus] [Admin] Host heal Player 4: done - Healed Player 4.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 20 messages (about 161 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Forest': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 41.1 s, slowest 68.3 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 23 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 40 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone is: Player 7 66% (props, last message 0 s ago), Player 4 83% (spawning, last message 0 s ago), Player 5 83% (spawning, last message 0 s ago), Player 6 83% (spawning, last message 0 s ago), Player 8 83% (spawning, last message 0 s ago), You 83% (spawning).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 7 83% (spawning, last message 0 s ago), Player 4 99% (finishing, last message 0 s ago), Player 5 99% (finishing, last message 0 s ago), Player 6 99% (finishing, last message 0 s ago), Player 8 99% (finishing, last message 0 s ago), You 99% (finishing).
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step PlayerSpawn, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone is: Player 7 83% (spawning, last message 0 s ago), Player 4 99% (finishing, last message 0 s ago), Player 5 99% (finishing, last message 0 s ago), Player 6 99% (finishing, last message 0 s ago), Player 8 99% (finishing, last message 0 s ago), You 99% (finishing).
+[Info   :LateJoinPlus] [Run] Level built in 192 s. Slowest step: props, 47.3 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Laser/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Inflatable Hammer/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Mine Stun/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Health Pack Large/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Whip/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (5 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 5 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 5' peaked at 48 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 17 s. Slowest step: rooms, 11.1 s from the first player to the last, Player 8.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Laser/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Inflatable Hammer/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Mine Stun/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Health Pack Large/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Whip/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Mine Stun/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] 5 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] Late joiner Player 7 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 7 (without LateJoinPlus).
+[Info   :LateJoinPlus] Player 7 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 12 messages (about 108 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 7 finished loading in 34.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 5 explored room(s) on Player 7's map (35 messages).
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Mine Stun/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Inflatable Hammer/1 out of slot 2 (1.4 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Inflatable Hammer/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Inflatable Hammer/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 7.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Inflatable Hammer/1 in slot 1.
+[Info   :LateJoinPlus] Uncovered 10 explored room(s) on Player 2's map (70 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 158 bytes each).
+[Info   :LateJoinPlus] [Slots] You put Item Mine Stun/2 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Mine Stun/2 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (5 on the results screen, 0 loading, 2 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 8 (0 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 21.4 s, slowest 34.9 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 2 (15 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 3 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 2 (slowest 33 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 62 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level built in 23 s. Slowest step: valuables, 7.1 s from the first player to the last, Player 8.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: valuables, 2.5 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Laser/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Inflatable Hammer/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Mine Stun/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 5's Item Health Pack Large/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 4's Item Melee Whip/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 7 tried to put Item Melee Inflatable Hammer/1 in slot 1, but it's in Player 4's slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Whip/1 out of slot 2 (1.0 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Whip/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Inflatable Hammer/1 out of slot 1 (0.9 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Inflatable Hammer/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Inflatable Hammer/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Inflatable Hammer/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 5' peaked at 44 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step Valuable, waiting for Player 7 (a slow PC, or their game has stopped answering). Where everyone is: Player 7 42% (extras, last message 0 s ago), Player 4 57% (props, last message 0 s ago), Player 5 57% (props, last message 0 s ago), Player 6 57% (props, last message 0 s ago), Player 8 57% (props, last message 0 s ago), Player 2 57% (props, last message 0 s ago), You 57% (props).
