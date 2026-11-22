@@ -1,0 +1,375 @@
+LateJoinPlus bug report 20261122-154531-239964
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "1142e3c6514e4665a86c5f1d2928a870"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Museum"
+players: 16
+language: "en-US"
+test: false
+Sender: 5bab0e058139
+Install: 1142e3c6514e4665a86c5f1d2928a870
+
+Mods (9):
+- "Empress Spawn Browser" | "Empress.SpawnBrowser" | "4.0.0"
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "ShowMoreLobbyPlayers" | "com.repo.kr.ShowMoreLobbyPlayers" | "1.0.2"
+- "SharedUpgrades" | "com.sharedupgrades.mod" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26340)
+CPU: AMD Ryzen 7 5800H with Radeon Graphics  (16 threads)
+Memory: 14188 MB
+Graphics: NVIDIA GeForce RTX 3060 Laptop GPU (5996 MB, Direct3D11)
+Screen: 1920x1009
+Slowest frame this game: 2923 ms
+Most memory this game: 4657 MB
+Most texture memory this game: 312 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Didn't start: ShowMoreLobbyPlayers 1.0.2
+Patches that failed: PunManager.UpgradePlayerHealth
+Who patches the methods in this log's errors:
+  LoadBalancingClient.OnEvent: ricketywrecked.repo.latejoinplus (prefix)
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (9):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  GameManager.Awake: Linkoid.Repo.RoboUnion (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: ricketywrecked.repo.latejoinplus (prefix), Linkoid.Repo.RoboUnion (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 35):
+  07:44:06 an error from HarmonyX
+  07:44:08 an error from Empress Spawn Browser
+  07:44:09 an error from Empress Spawn Browser
+  07:44:09 an error from Empress Spawn Browser
+  07:44:09 an error from Empress Spawn Browser
+  07:44:19 an error from Empress Spawn Browser
+  07:44:19 an error from Empress Spawn Browser
+  07:44:48 an error from Empress Spawn Browser
+  07:44:50 an error from Empress Spawn Browser
+  07:44:56 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:58 an error from Empress Spawn Browser
+  07:44:59 an error from Empress Spawn Browser
+  07:44:59 an error from Empress Spawn Browser
+  07:45:00 an error from Empress Spawn Browser
+  07:45:01 an error from Empress Spawn Browser
+  07:45:01 an error from Empress Spawn Browser
+  07:45:03 an error from Empress Spawn Browser
+  07:45:04 an error from Empress Spawn Browser
+  07:45:06 an error from Unity Log
+  07:45:06 an error from Empress Spawn Browser
+  07:45:07 an error from Empress Spawn Browser
+  07:45:07 an error from Empress Spawn Browser
+  07:45:11 an error from Empress Spawn Browser
+  07:45:15 an error from Empress Spawn Browser
+  07:45:17 an error from Unity Log
+  07:45:17 an error from Empress Spawn Browser
+  07:45:20 an error from Empress Spawn Browser
+  07:45:24 an error from Empress Spawn Browser
+  07:45:29 an error from Empress Spawn Browser
+(end of settings)
+[Error  :  HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+   (seen 2 times in total)
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?1625950882(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+SharedUpgrades.Plugin.Awake () (at <31372448eba649c9acf0ac79bfeb08c2>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Error  :Empress Spawn Browser] System.MissingMethodException: Method not found: void .PlayerController.OverrideSpeed(single,single)
+  at Empress.SpawnBrowser.SectorActions.Tick () [0x00000] in <e1dfd3621f9640bfbf4da8c93ec55021>:0 
+   (seen 9375 times in total)
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (10) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1992 ms.
+[Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 940 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2923 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1527 MB of 14188 MB, 71 MB of it from mods and scripts; textures 88 MB of 5996 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 13 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.8 ms (13 fonts).
+[Info   :LateJoinPlus] Timing: the callback check for ShowMoreLobbyPlayers took 98 ms.
+[Info   :LateJoinPlus] [Conflicts] Switched off ShowMoreLobbyPlayers for this game: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Warning:LateJoinPlus] ShowMoreLobbyPlayers (kr_zhou) is installed next to LateJoinPlus. LateJoinPlus does the lobby player list itself, so it was switched off (1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException). You can uninstall it.
+[Info   :LateJoinPlus] Put back 12 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Conflicts] Kept ShowMoreLobbyPlayers switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Conflicts] Kept ShowMoreLobbyPlayers switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-22T15:44:58] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for CABLE Output (VB-Audio Virtual Cable)
+[Warning: Unity Log] Received RPC "SetupCosmeticsModdedRPC" for viewID 23009 but this PhotonView does not exist! Was remote PV. Owner called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 23009 but this PhotonView does not exist! Was remote PV. Owner called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 23009 but this PhotonView does not exist! Was remote PV. Owner called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsModdedRPC" for viewID 1205 but this PhotonView does not exist! Was remote PV. Remote called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 1205 but this PhotonView does not exist! Was remote PV. Remote called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 1205 but this PhotonView does not exist! Was remote PV. Remote called. By: #23 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 21's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 25's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 30's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 28' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 32' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 11' (player #23, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 25' (player #30, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 21' (player #31, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 30' (player #34, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 18' (player #37, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #39, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #42, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #44, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #50, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 33' (player #51, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #52, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 16' (player #53, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #54, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 28's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 29's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-22T15:45:03] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 54008 found. Remote voice p#52 v#4 not linked.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] The host has not sent 10 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Warning:R.E.P.O Fixes+] Suppressed exception in PhysGrabber.PhysGrabBeamDeactivateRPC (sender already left) (1 so far): NullReferenceException: Object reference not set to an instance of an object
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+ItemUpgradePlayerGrabRange.Upgrade () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+UnityEngine.Events.InvokableCall.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+ItemUpgrade.PlayerUpgrade () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+UnityEngine.Events.InvokableCall.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+ItemToggle.ToggleItemLogic (System.Boolean toggle, System.Int32 player) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+ItemToggle.ToggleItemRPC (System.Boolean toggle, System.Int32 player, Photon.Pun.PhotonMessageInfo _info) (at <bb352449c1e74a419f750ed4e11521ea>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonNetwork.OnEvent (ExitGames.Client.Photon.EventData photonEvent) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Realtime.LoadBalancingClient.DMD<Photon.Realtime.LoadBalancingClient::OnEvent>(Photon.Realtime.LoadBalancingClient,ExitGames.Client.Photon.EventData)
+ExitGames.Client.Photon.PeerBase.DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer stream) (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.EnetPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Rethrow as AggregateException: Caught 67 exception(s) in methods called by DispatchIncomingCommands(). Rethrowing first only (see above). (Exception has been thrown by the target of an invocation.)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonHandler.FixedUpdate () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 22' (player #56, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Timing: game memory 2841 MB of 14188 MB, 108 MB of it from mods and scripts; textures 312 MB of 5996 MB video memory.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] Host room connections received: 10 matched our estimate, 0 corrected to the host's.
+[Warning:Lobby Guard] [Lobby Guard] 'Player 28' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]) is flooding the lobby (501 messages per second; limit 500). Tell the host; no local player block applied.
+=== Previous game session ===
+[Error  :  HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+[07:21:38.430] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[07:21:41.358] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[07:21:41.478] [Error  :HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[07:21:41.661] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[07:21:42.476] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[07:21:42.477] [Warning:HarmonyX] AccessTools.Method: type is null
+[07:21:44.648] [Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (10) is used instead of its player limit; its other features are untouched.
+[07:21:44.648] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[07:21:44.653] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[07:21:44.653] [Info   :LateJoinPlus] Timing: start-up took 2334 ms.
+[07:21:44.653] [Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[07:21:44.654] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[07:21:44.654] [Info   :LateJoinPlus] Timing: late patches took 1437 ms.
+[07:21:44.731] [Warning:Unity Log] Unable to load font face for [] font asset.
+[07:21:45.350] [Info   :LateJoinPlus] Timing: slowest frame so far 4223 ms, 4 s after start.
+[07:21:45.351] [Info   :LateJoinPlus] Timing: game memory 1535 MB of 14188 MB, 76 MB of it from mods and scripts; textures 88 MB of 5996 MB video memory.
+[07:21:45.351] [Info   :LateJoinPlus] Timing: Chinese font set-up took 36 ms and 1 MB.
+[07:21:45.352] [Info   :LateJoinPlus] Timing: the 3-second font scan took 2.5 ms (13 fonts).
+[07:21:45.352] [Info   :LateJoinPlus] Timing: the callback check for ShowMoreLobbyPlayers took 119 ms.
+[07:21:45.353] [Info   :LateJoinPlus] [Conflicts] Switched off ShowMoreLobbyPlayers for this game: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[07:21:45.355] [Warning:LateJoinPlus] ShowMoreLobbyPlayers (kr_zhou) is installed next to LateJoinPlus. LateJoinPlus does the lobby player list itself, so it was switched off (1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException). You can uninstall it.
+[07:21:45.451] [Info   :LateJoinPlus] Put back 12 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[07:21:45.452] [Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[07:21:53.244] [Warning:LateJoinPlus] Key F8 is LateJoinPlus's Admin page key and also Admin Menu's MenuHotkey: one press does both. Change one of them.
+[07:21:56.010] [Info   :Unity Log] leaving photon
+[07:21:56.024] [Info   :Unity Log] Leave to Main Menu
+[07:21:56.284] [Info   :LateJoinPlus] [Conflicts] Kept ShowMoreLobbyPlayers switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[07:21:56.285] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[07:21:56.285] [Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[07:22:10.966] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[07:22:13.351] [Info   :LateJoinPlus] [Conflicts] Kept ShowMoreLobbyPlayers switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[07:22:13.351] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[07:22:13.351] [Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[07:22:15.023] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[07:22:15.053] [Warning:Unity Log] [2026-11-22T15:22:15] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[07:22:15.696] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 24' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[07:22:15.696] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[07:22:15.697] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 13' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[07:22:15.697] [Info   :LateJoinPlus] Waited 0.1 s for Player 24's Steam ID before loading their upgrades and name tag.
+[07:22:15.970] [Info   :LateJoinPlus] Waited 0.1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[07:22:22.645] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 9' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[07:22:29.833] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[07:22:41.178] [Info   :LateJoinPlus] [Conflicts] Kept ShowMoreLobbyPlayers switched off: 0 patch(es) removed, 0 plugin(s) marked for destruction, 0 behaviour(s) disabled, 0 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); earlier stops this session: 1 patch(es) removed, 1 plugin(s) marked for destruction, 1 behaviour(s) disabled, 1 first coroutine-stop call(s), 0 behaviour(s) with invokes cancelled, 0 voice connection(s) disconnected, 0 Photon target(s), 0 delegate(s) removed, 0 player property(s) cleared, 0 resource stop/disposal call(s); incomplete: remove published callback BepInEx.Unix.UnixStreamHelper.dup: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fdopen: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fread: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fwrite: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fclose: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.fflush: EntryPointNotFoundException; remove published callback BepInEx.Unix.UnixStreamHelper.isatty: EntryPointNotFoundException.
+[07:22:41.178] [Info   :LateJoinPlus] Put back 0 of LateJoinPlus's patches that ShowMoreLobbyPlayers had removed.
+[07:22:41.178] [Info   :LateJoinPlus] LateJoinPlus is whole again: 224 of 224 patches, 5 of 5 switches.
+[07:22:41.399] [Info   :LateJoinPlus] Waited 0.1 s for Player 24's Steam ID before loading their upgrades and name tag.
+[07:22:41.414] [Info   :LateJoinPlus] Waited 0.1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[07:22:41.436] [Info   :LateJoinPlus] Waited 0.1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[07:22:41.457] [Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[07:22:41.707] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 31' peaked at 62 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[07:22:52.766] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 9' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 8 KB in 93 messages (about 95 bytes each).
+[07:23:12.940] [Info   :LateJoinPlus] Timing: game memory 2302 MB of 14188 MB, 91 MB of it from mods and scripts; textures 255 MB of 5996 MB video memory.
+[07:24:47.492] [Warning:Unity Log] [2026-11-22T15:24:47] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #8 of player 7 not found when trying to remove
+   (seen 2 times in total)
