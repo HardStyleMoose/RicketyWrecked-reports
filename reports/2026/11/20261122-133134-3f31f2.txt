@@ -1,0 +1,235 @@
+LateJoinPlus bug report 20261122-133134-3f31f2
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.2"
+installId: "ee4a1258be614ad393aae4ded6b1dc02"
+category: "join"
+description: "Stuck on a loading screen."
+role: "menu"
+level: "Level - Shop Forest"
+players: 0
+language: "en-US"
+test: false
+Sender: 6ce65cf7b719
+Install: ee4a1258be614ad393aae4ded6b1dc02
+
+Mods (16):
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "REPO Japanese Translation" | "REPOJapaneseTranslation" | "1.0.7"
+- "REPOLib" | "REPOLib" | "4.3.0"
+- "NoSaveDelete" | "com.PxntxrezStudio.nosavedelete" | "1.3.0"
+- "XH_REPO_DamageShow&EnemyHealthBar_Mod" | "com.XhPlugin.Repo_Mod" | "1.0.3"
+- "Medic Mod" | "com.callmehill.medic" | "1.1.4"
+- "ExtractionPointConfirmButton" | "com.github.zehsteam.ExtractionPointConfirmButton" | "1.2.0"
+- "SoloHUD" | "com.solo.repo.solohud" | "1.14.1"
+- "CosmeticBoxConfig" | "cosmetic.box.config" | "1.0.0"
+- "Cosmetic Scanner" | "cosmetic.scanner" | "1.0.3"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "Enemy/Valuable Spawn Manager" | "soundedsquash.spawnmanager" | "[ip]"
+- "Enemy Location" | "wzk.lingxi.plugin.enemylocation" | "1.0"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 13th Gen Intel(R) Core(TM) i7-13620H (16 threads)
+Memory: 32497 MB
+Graphics: NVIDIA GeForce RTX 4060 Laptop GPU (7956 MB, Direct3D11)
+Screen: 1920x1009
+Slowest frame this game: 6430 ms
+Most memory this game: 3467 MB
+Most texture memory this game: 492 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  MetaManager.Load: REPOLib (postfix)
+  MetaManager.Save: REPOLib (prefix)
+Game methods several mods patch (16):
+  EnemyDirector.Start: soundedsquash.spawnmanager (postfix), ricketywrecked.repo.fixes (finalizer)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  GameManager.Awake: Linkoid.Repo.RoboUnion (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: ricketywrecked.repo.latejoinplus (prefix), Linkoid.Repo.RoboUnion (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: com.callmehill.medic (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: com.PxntxrezStudio.nosavedelete (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Revive: com.PxntxrezStudio.nosavedelete (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Start: com.PxntxrezStudio.nosavedelete (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), cosmetic.scanner (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RunManager.Awake: soundedsquash.spawnmanager (prefix), REPOLib (postfix), REPOJapaneseTranslation (postfix)
+  RunManager.ChangeLevel: ricketywrecked.repo.latejoinplus (prefix), soundedsquash.spawnmanager (prefix)
+  RunManager.UpdateLevel: com.github.zehsteam.ExtractionPointConfirmButton (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 3):
+  22:29:42 an error from Unity Log
+  22:29:45 an error from REPOLib
+  22:29:55 an error from Unity Log
+(end of settings)
+[Warning: Unity Log] Unable to load font face for [NotoSansJP-subset]. Make sure "Include Font Data" is enabled in the Font Import Settings.
+[Warning:REPO Japanese Translation] TMP_FontAsset を作成できませんでした。
+[Warning:REPO Japanese Translation] 日本語フォントの作成に失敗しました。日本語文字が正しく表示されない可能性があります。
+[Info   :R.E.P.O Fixes+] [Mod guards] SoloHUD found; players' name tags show in levels again (its minimap keeps the map switched on, which hid them).
+[Info   :R.E.P.O Fixes+] [Mod guards] XH DamageShow & EnemyHealthBar found; its welcome popup is hidden (health bars and damage numbers are unchanged).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 57 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Error  : Unity Log] MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+Stack trace:
+REPOLib.Patches.MetaManagerPatch.LoadPatch (MetaManager __instance) (at ./Patches/MetaManagerPatch.cs:188)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Load>(MetaManager)
+MetaManager.Start () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (10) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 777 ms.
+[Info   :LateJoinPlus] Something asked for a player limit of 8; using LJ+ menu > Max Players (10) instead.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 678 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2126 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 2515 MB of 32497 MB, 87 MB of it from mods and scripts; textures 492 MB of 7956 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 8 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 6.4 ms (13 fonts).
+[Info   :LateJoinPlus] Timing: slowest frame so far 6430 ms, 9 s after start.
+[Error  :   REPOLib] Exception occured while invoking event: System.MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+  at REPOLib.Modules.Cosmetics.RegisterCosmetics () [0x0005f] in ./Modules/Cosmetics.cs:44 
+  at REPOLib.Modules.Utilities.SafeInvokeEvent (System.Action action) [0x00000] in ./Modules/Utilities.cs:59 
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Error  : Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MenuPageCosmetics.OnDestroy () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List.
+=== Previous game session ===
+[22:08:41.226] [Info   :R.E.P.O Fixes+] Kept your settings from the old settings file.
+[22:08:41.419] [Info   :R.E.P.O Fixes+] [Mod guards] SoloHUD found; players' name tags show in levels again (its minimap keeps the map switched on, which hid them).
+[22:08:41.421] [Info   :R.E.P.O Fixes+] [Mod guards] XH DamageShow & EnemyHealthBar found; its welcome popup is hidden (health bars and damage numbers are unchanged).
+[22:08:41.702] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 57 patches applied, 0 failed.
+[22:08:43.280] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[22:08:43.467] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[22:08:43.764] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[22:08:43.764] [Warning:HarmonyX] AccessTools.Method: type is null
+[22:08:47.878] [Error  :Unity Log] MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+Stack trace:
+REPOLib.Patches.MetaManagerPatch.LoadPatch (MetaManager __instance) (at ./Patches/MetaManagerPatch.cs:188)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Load>(MetaManager)
+MetaManager.Start () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+[22:08:50.039] [Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (10) is used instead of its player limit; its other features are untouched.
+[22:08:50.040] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[22:08:50.043] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[22:08:50.044] [Info   :LateJoinPlus] Timing: start-up took 793 ms.
+[22:08:50.044] [Info   :LateJoinPlus] Something asked for a player limit of 8; using LJ+ menu > Max Players (10) instead.
+[22:08:50.044] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[22:08:50.044] [Info   :LateJoinPlus] Timing: late patches took 675 ms.
+[22:08:50.070] [Warning:Unity Log] Unable to load font face for [] font asset.
+[22:08:50.541] [Info   :LateJoinPlus] Timing: slowest frame so far 2136 ms, 2 s after start.
+[22:08:50.542] [Info   :LateJoinPlus] Timing: game memory 2535 MB of 32497 MB, 103 MB of it from mods and scripts; textures 492 MB of 7956 MB video memory.
+[22:08:50.542] [Info   :LateJoinPlus] Timing: Chinese font set-up took 9 ms and 1 MB.
+[22:08:50.542] [Info   :LateJoinPlus] Timing: the 3-second font scan took 6.4 ms (13 fonts).
+[22:08:50.584] [Info   :LateJoinPlus] Timing: slowest frame so far 6488 ms, 9 s after start.
+[22:08:50.603] [Error  :REPOLib] Exception occured while invoking event: System.MissingMethodException: Method not found: void .MetaManager.DeleteSaveFile(string)
+  at REPOLib.Modules.Cosmetics.RegisterCosmetics () [0x0005f] in ./Modules/Cosmetics.cs:44 
+  at REPOLib.Modules.Utilities.SafeInvokeEvent (System.Action action) [0x00000] in ./Modules/Utilities.cs:59 
+[22:08:58.513] [Info   :Unity Log] leaving photon
+[22:08:58.516] [Info   :Unity Log] Leave to Main Menu
+[22:09:10.412] [Error  :Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+MenuPageCosmetics.OnDestroy () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+[22:09:14.041] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+[22:09:15.648] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators.
+   (seen 2 times in total)
+[22:09:16.232] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: History.
+   (seen 2 times in total)
+[22:09:33.477] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List.
+[22:09:34.191] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings.
+   (seen 15 times in total)
+[22:10:44.176] [Info   :LateJoinPlus] Timing: game memory 3056 MB of 32497 MB, 144 MB of it from mods and scripts; textures 560 MB of 7956 MB video memory.
+[22:27:15.574] [Error  :Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::CosmeticTokenAdd>(MetaManager,SemiFunc/Rarity)
+ResultScreenUI.AnimationEventCosmeticTokenAdd () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+   (seen 13 times in total)
+[22:28:05.114] [Error  :Unity Log] MissingMethodException: Method not found: bool .MetaManager.VerifySaveFile(string)
+Stack trace:
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::Save>(MetaManager)
+(wrapper dynamic-method) MetaManager.DMD<MetaManager::CosmeticTokenAdd>(MetaManager,SemiFunc/Rarity)
+ResultScreenUI.StateFadeOut () (at <bb352449c1e74a419f750ed4e11521ea>:0)
+(wrapper dynamic-method) ResultScreenUI.DMD<ResultScreenUI::Update>(ResultScreenUI)
+   (seen 1901 times in total)
