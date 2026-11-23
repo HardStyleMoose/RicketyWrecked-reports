@@ -1,0 +1,547 @@
+LateJoinPlus bug report 20261123-190421-7e18d2
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.3"
+installId: "296a11f061534387989e53658a716bc4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Museum"
+players: 10
+language: "zh-TW"
+test: false
+Sender: d4c3ac81b8d8
+Install: 296a11f061534387989e53658a716bc4
+
+Mods (14):
+- "ShrinkCart" | "AngelcoMilk.ShrinkCart" | "0.3.2"
+- "R.E.P.O SharedHealthPacks" | "Cuajitox.REPO.SharedHealthPacks" | "1.0.0"
+- "HuraInstantRevive" | "HuraInstantRevive" | "1.0.0"
+- "More Shop Items" | "Jettcodey.MoreShopItems" | "4.3.2"
+- "More Revive HP" | "Tidaleus.MoreReviveHP" | "1.0.1"
+- "ScalerCore" | "Vippy.ScalerCore" | "1.1.1"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "More Tax Tokens Consume Simple" | "cn_xc.MoreTaxTokensConsumeSimple" | "1.2.1"
+- "More Tax Tokens Simple" | "dyxc666.MoreTaxTokensSimple" | "1.8.1"
+- "Just Retry" | "nickklmao.justretry" | "1.0.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "SaveKeeper" | "zichen.savekeeper" | "1.4.0"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 85
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = WASD
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Plain
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 8
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: AMD Ryzen 5 9600X 6-Core Processor  (12 threads)
+Memory: 31860 MB
+Graphics: NVIDIA GeForce RTX 5070 (11942 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 1777 ms
+Most memory this game: 6682 MB
+Most texture memory this game: 386 MB
+BepInEx: [ip]
+Patchers: 
+Game methods several mods patch (17):
+  EnemyHealth.Hurt: ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  NetworkConnect.OnConnectedToMaster: ricketywrecked.repo.latejoinplus (prefix), zichen.savekeeper.patch (postfix)
+  NetworkConnect.OnJoinedRoom: zichen.savekeeper.patch (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.PlayerDeathRPC: Vippy.ScalerCore (postfix), ricketywrecked.repo.latejoinplus (postfix), zichen.savekeeper.patch (postfix)
+  PlayerAvatar.Revive: zichen.savekeeper.patch (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Tidaleus.MoreReviveHP (postfix)
+  PlayerAvatar.Start: Vippy.ScalerCore (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerDeathHead.Update: Vippy.ScalerCore (postfix), HuraInstantRevive (postfix)
+  PlayerHealth.Hurt: Vippy.ScalerCore (prefix), ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  PlayerTumble.SetupDone: Vippy.ScalerCore (postfix), Vippy.SharedUpgradesPlus (postfix)
+  PlayerVoiceChat.Start: Vippy.ScalerCore (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.Start: Vippy.ScalerCore (postfix), Jettcodey.MoreShopItems (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  RunManager.ChangeLevel: Vippy.ScalerCore (prefix), AngelcoMilk.ShrinkCart (prefix), dyxc666.MoreTaxTokensSimple (prefix), ricketywrecked.repo.latejoinplus (prefix), zichen.savekeeper.patch (prefix), Vippy.ScalerCore (postfix), zichen.savekeeper.patch (postfix)
+  RunManager.RestartScene: ricketywrecked.repo.latejoinplus (prefix), zichen.savekeeper.patch (prefix), zichen.savekeeper.patch (postfix)
+  ShopManager.ShopInitialize: Vippy.SharedUpgradesPlus (prefix), Jettcodey.MoreShopItems (prefix)
+  StatsManager.LoadGame: Vippy.SharedUpgradesPlus (postfix), zichen.savekeeper.patch (postfix)
+Timeline (last 80):
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:01 an error from Unity Log
+  03:04:11 an error from Unity Log
+(end of settings)
+[Warning:   BepInEx] Skipping [REPOConfig 1.2.7] because a newer version exists (REPOConfig 1.3.0)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 578 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 734 ms.
+[Info   :LateJoinPlus] Timing: slowest frame so far 1777 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1406 MB of 31860 MB, 67 MB of it from mods and scripts; textures 90 MB of 11942 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 6 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.1 ms (13 fonts).
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 46' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #77, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyRobe and name feetTransform
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 26 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 28 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 25 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 16 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 16 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 11 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyBombThrower and name feetTransform
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadController and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyAttackStuckPhysObject and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateRoaming and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseBegin and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSneak and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChase and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseSlow and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseEnd and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateLookUnder and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadHalloween and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyBowtie and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+   (seen 11 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableThrower and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOogly and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyDebugGUI and name feetTransform
+   (seen 4 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyTricycle and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPitCheck and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyGnome and name feetTransform
+   (seen 8 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 26' (player #1) (to object 1251): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[Info   :LateJoinPlus] Timing: game memory 2487 MB of 31860 MB, 83 MB of it from mods and scripts; textures 383 MB of 11942 MB video memory.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 46' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #77, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #84, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 48' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 18' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 20' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 37' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 28' (player #38, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 44' (player #48, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #52, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 36' (player #54, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #55, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyUpscream and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeartHugger and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemySlowMouth and name feetTransform
+   (seen 2 times in total)
+[Info   :LateJoinPlus] The host has not sent 16 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 48' (player #1) (to object 1504): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 4' (player #52) (to object 52009): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Warning:More Shop Items] Host does NOT have the mod Enabled or is using a different Version, Mod is disabled! Client running on v4.3.2.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+=== Previous game session ===
+[01:28:47.707] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 2 times in total)
+[01:28:48.332] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[01:28:48.332] [Warning:HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[01:28:48.622] [Error  :Unity Log] OperationException : Failed to initialize localization, could not preload string tables.
+[01:28:49.007] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[01:28:49.008] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[01:28:49.008] [Info   :LateJoinPlus] Timing: start-up took 619 ms.
+[01:28:49.008] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[01:28:49.008] [Info   :LateJoinPlus] Timing: late patches took 909 ms.
+[01:28:49.028] [Warning:Unity Log] Unable to load font face for [] font asset.
+[01:28:49.284] [Info   :LateJoinPlus] Timing: slowest frame so far 1981 ms, 2 s after start.
+[01:28:49.284] [Info   :LateJoinPlus] Timing: game memory 1392 MB of 31860 MB, 65 MB of it from mods and scripts; textures 90 MB of 11942 MB video memory.
+[01:28:49.284] [Info   :LateJoinPlus] Timing: Chinese font set-up took 7 ms and 1 MB.
+[01:28:49.284] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.6 ms (13 fonts).
+[01:28:59.842] [Info   :Unity Log] leaving photon
+[01:28:59.844] [Info   :Unity Log] Leave to Main Menu
+[01:29:18.523] [Info   :LateJoinPlus] Timing: game memory 2391 MB of 31860 MB, 76 MB of it from mods and scripts; textures 473 MB of 11942 MB video memory.
+[01:29:21.708] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[01:29:51.712] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[01:29:54.674] [Warning:Unity Log] [2026-11-23T17:29:54] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 麦克风 (Razer Seiren V3 Mini)
+[01:29:54.786] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 13' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:29:54.786] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:29:54.786] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 23' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:29:54.786] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 30' (player #20, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:29:54.786] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 34' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:29:55.427] [Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[01:29:55.427] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[01:29:55.427] [Info   :LateJoinPlus] Waited 0.1 s for Player 23's Steam ID before loading their upgrades and name tag.
+[01:29:56.655] [Warning:Unity Log] [2026-11-23T17:29:56] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 20008 found. Remote voice p#20 v#1 not linked.
+   (seen 2 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBombThrower and name feetTransform
+   (seen 3 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 52 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 47 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 47 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 47 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 47 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 47 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 45 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 44 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 42 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 34 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 34 times in total)
+[01:29:57.390] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 33 times in total)
+[01:29:57.706] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySnatcher and name feetTransform
+   (seen 3 times in total)
+[01:29:57.707] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPitCheck and name feetTransform
+   (seen 3 times in total)
+[01:29:57.707] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyDebugGUI and name feetTransform
+   (seen 4 times in total)
+[01:29:57.707] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySnatcherBackKickHurt and name feetTransform
+[01:29:57.819] [Warning:HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+   (seen 17 times in total)
+[01:29:57.898] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableThrower and name feetTransform
+   (seen 2 times in total)
+[01:29:57.927] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyAnimal and name feetTransform
+   (seen 2 times in total)
+[01:29:57.989] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHidden and name feetTransform
+[01:29:58.042] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBirthdayBoy and name feetTransform
+   (seen 2 times in total)
+[01:29:58.115] [Error  :Unity Log] RPC method 'SetupCosmeticsModdedRPC(String)' not found on object with PhotonView 1162. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+   (seen 7 times in total)
+[01:29:58.159] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 13' (player #1) (to object 1170): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:29:58.248] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 23' (player #6) (to object 1179): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:29:58.366] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 30' (player #20) (to object 20001): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:29:58.413] [Info   :LateJoinPlus] Waited 0.1 s for Player 30's Steam ID before loading their upgrades and name tag.
+[01:29:58.470] [Error  :Unity Log] Failed to find a PhotonView with ID=870 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+   (seen 35 times in total)
+[01:29:58.502] [Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[01:29:58.584] [Warning:Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 914 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 13' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:30:06.753] [Warning:LateJoinPlus] Joined mid-level: the host's late-join mod set up 1 level piece(s) that never reached this game (no floors or walls there). Nothing on this side can rebuild them; the next level loads fresh.
+   (seen 4 times in total)
+[01:30:09.573] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[01:30:24.358] [Info   :Unity Log] leaving photon
+[01:30:24.435] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[01:30:24.437] [Info   :Unity Log] Leave to Main Menu
+[01:30:42.699] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[01:31:00.832] [Warning:Unity Log] [2026-11-23T17:31:00] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 3 times in total)
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 39' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #22, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 32' (player #33, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #39, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 42' (player #46, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.114] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #58, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:01.198] [Info   :LateJoinPlus] Waited 0.1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[01:31:01.476] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[01:31:02.557] [Info   :LateJoinPlus] The host has not sent 3 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[01:31:02.606] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 39' (player #1) (to object 1816): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:31:02.834] [Info   :LateJoinPlus] Host room connections received: 3 matched our estimate, 0 corrected to the host's.
+[01:31:04.086] [Error  :Unity Log] Ev Destroy Failed. Could not find PhotonView with instantiationId 1866. Sent by actorNr: 1
+   (seen 32 times in total)
+[01:31:15.735] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[01:31:19.692] [Info   :LateJoinPlus] Waited 0.1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[01:31:19.713] [Info   :LateJoinPlus] Waited 0.1 s for Player 39's Steam ID before loading their upgrades and name tag.
+[01:31:19.831] [Info   :LateJoinPlus] Waited 0.1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[01:31:20.088] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 39' peaked at 372 messages/s (flood limit 500); most data from one player 42 KB/s (limit 100); 0 messages dropped.
+[01:31:47.180] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #62, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:31:48.166] [Info   :Unity Log] leaving photon
+[01:31:48.189] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[01:31:48.192] [Info   :Unity Log] Leave to Main Menu
+[01:31:48.193] [Warning:SaveKeeper] 新存档首次保存，放行: 
+[01:31:48.545] [Info   :LateJoinPlus] Timing: game memory 2921 MB of 31860 MB, 73 MB of it from mods and scripts; textures 494 MB of 11942 MB video memory.
+[01:31:57.738] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 17 times in total)
+[01:39:26.643] [Warning:Unity Log] Received RPC "ChargingStationSegmentChangedRPC" for viewID 785 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[01:39:27.076] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:39:27.076] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 38' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:39:27.076] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 41' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:39:27.076] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 16' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:39:27.076] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 47' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[01:39:27.076] [Info   :LateJoinPlus] Waited 0.1 s for Player 41's Steam ID before loading their upgrades and name tag.
+[01:39:27.076] [Info   :LateJoinPlus] Waited 0.1 s for Player 38's Steam ID before loading their upgrades and name tag.
+[01:39:28.420] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyRobe and name feetTransform
+   (seen 2 times in total)
+[01:39:28.478] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyShadow and name feetTransform
+   (seen 2 times in total)
+[01:39:28.478] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyShadowHalloween and name feetTransform
+   (seen 2 times in total)
+[01:39:28.529] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHunter and name feetTransform
+   (seen 3 times in total)
+[01:39:28.563] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyUpscream and name feetTransform
+   (seen 2 times in total)
+[01:39:28.602] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBowtie and name feetTransform
+   (seen 2 times in total)
+[01:39:28.670] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyThinMan and name feetTransform
+[01:39:28.744] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySlowMouth and name feetTransform
+   (seen 3 times in total)
+[01:39:28.882] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 45' (player #1) (to object 1299): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:39:28.882] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 38' (player #2) (to object 1308): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:39:28.919] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 47' (player #21) (to object 1311): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:39:28.939] [Error  :Unity Log] RPC method 'SetBeamColourRPC(Single, Single, Single, Single, Boolean, Byte)' not found on object with PhotonView 21017. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[01:39:28.944] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetBeamColourRPC' messages from 'Player 47' (player #21) (to object 21017): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[01:39:29.041] [Warning:Unity Log] Received RPC "StateSetRPC" for viewID 782 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[01:39:29.261] [Warning:Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 811 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:30.180] [Warning:Unity Log] Received RPC "SyncTimerRPC" for viewID 862696255 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[01:39:41.407] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[01:39:47.782] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #21 'Player 47' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:47.782] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #21 'Player 47' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:47.880] [Warning:Unity Log] Received RPC "GrabPlayerAddRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:48.180] [Warning:Unity Log] Received RPC "GrabPlayerRemoveRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:48.380] [Warning:Unity Log] Received RPC "ImpactHeavyRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[01:39:48.381] [Warning:Unity Log] Received RPC "BreakRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[01:39:48.542] [Warning:Unity Log] Received RPC "ImpactLightRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[01:39:55.177] [Warning:Unity Log] Received RPC "HalloweenPillarLightsRPC" for viewID 782 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 11 times in total)
+[01:39:55.297] [Error  :Unity Log] RPC method 'UpdateAllDecorationsCompressed(Byte[], String[], String[], Byte[])' not found on object with PhotonView 21017. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[01:39:57.203] [Warning:Unity Log] Received RPC "CloseImpulseRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[01:39:58.239] [Warning:Unity Log] Received RPC "OpenImpulseRPC" for viewID 813 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 45' Maybe GO was destroyed but RPC not cleaned up.
+[01:40:37.647] [Info   :Unity Log] leaving photon
+[01:40:37.701] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[01:40:37.703] [Info   :Unity Log] Leave to Main Menu
+[01:40:49.671] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[01:41:17.383] [Warning:SaveKeeper] 已保存公开房间名: REPO_SAVE_2026_11_18_01_16_02 -> CN VC ONLY MOD NOKIDS
+[01:41:20.491] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[01:41:20.491] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[01:41:20.641] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[01:41:21.612] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] CN VC ONLY MOD NOKIDS'; as typed: 'CN VC ONLY MOD NOKIDS'.
+[01:41:25.806] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[01:41:30.782] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[01:41:31.796] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:41:32.342] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[01:44:08.149] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:44:08.746] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[01:44:16.906] [Info   :LateJoinPlus] [Slots] You put Item Melee Sledge Hammer/1 in slot 1.
+[01:44:19.935] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 2.
+[01:44:31.973] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/2 in slot 3.
+[01:44:38.433] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:44:39.013] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[01:44:42.018] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySpinny and name feetTransform
+[01:44:42.018] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableExplosion and name feetTransform
+[01:44:42.019] [Warning:HarmonyX] AccessTools.Field: Could not find field for type ParticleScriptExplosion and name feetTransform
+   (seen 4 times in total)
+[01:44:42.045] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBang and name feetTransform
+   (seen 3 times in total)
+[01:44:42.066] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyTumbler and name feetTransform
+[01:44:42.098] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyTick and name feetTransform
+[01:44:42.111] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyDuck and name feetTransform
+[01:44:42.282] [Info   :LateJoinPlus] [Slots] You's Item Melee Sledge Hammer/1 is back in slot 1 (the game restoring slots).
+[01:44:42.282] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[01:44:42.308] [Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/2 is back in slot 3 (the game restoring slots).
+[01:44:48.657] [Info   :LateJoinPlus] Timing: game memory 3438 MB of 31860 MB, 97 MB of it from mods and scripts; textures 751 MB of 11942 MB video memory.
+[01:44:56.916] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[01:45:02.806] [Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[01:45:04.633] [Info   :LateJoinPlus] [Admin] Host level: done - Going to Museum of Human Art.
+[01:45:06.438] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:45:07.108] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[01:45:09.751] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBeamer and name feetTransform
+[01:45:09.843] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyOogly and name feetTransform
+[01:45:09.889] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyGnome and name feetTransform
+   (seen 4 times in total)
+[01:45:10.057] [Info   :LateJoinPlus] [Slots] You's Item Melee Sledge Hammer/1 is back in slot 1 (the game restoring slots).
+[01:45:10.057] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[01:45:10.057] [Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/2 is back in slot 3 (the game restoring slots).
+[01:45:30.471] [Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
