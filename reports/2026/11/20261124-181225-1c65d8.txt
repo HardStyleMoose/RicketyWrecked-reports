@@ -1,0 +1,740 @@
+LateJoinPlus bug report 20261124-181225-1c65d8
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.3"
+installId: "96a3e53d71fe41bd8028b65eda4020a2"
+category: "join"
+description: "Stuck on the loading screen."
+role: "menu"
+level: "Level - Main Menu"
+players: 0
+language: "en-US"
+test: false
+Sender: 17756bac4c0d
+Install: 96a3e53d71fe41bd8028b65eda4020a2
+
+Mods (16):
+- "Infinite Dead Head (Fixed)" | "BridgeGPT.InfiniteDeadHead.Fixed" | "1.1.0"
+- "TextUpgradesUIScale" | "DarkSpider90.TextUpgradesUIScale" | "1.4.1"
+- "MoreHead" | "Mhz.REPOMoreHead" | "1.4.6"
+- "PaintedUtils" | "PaintedThornStudios.PaintedUtils" | "1.1.0"
+- "REPOLib" | "REPOLib" | "4.2.0"
+- "ALL Shop Items spawn in Level" | "REPO_All_Shop_Items_in_Level" | "1.1.0"
+- "BattleScars" | "Vippy.BattleScars" | "1.2.6"
+- "TheSniperRifle" | "Wakaura.TheSniperRifle" | "0.6.0"
+- "KeybindLib" | "bulletbot.keybindlib" | "1.0.6"
+- "MoreGuns" | "me.brunson.MoreGuns" | "1.0.0"
+- "loaforcsSoundAPI" | "me.loaforc.soundapi" | "2.0.13"
+- "loaforcsSoundAPI.REPO" | "me.loaforc.soundapi.repo" | "1.0.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.1"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.2.7"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: AMD Ryzen 7 8700F 8-Core Processor  (16 threads)
+Memory: 32365 MB
+Graphics: NVIDIA GeForce RTX 5070 (11943 MB, Direct3D11)
+Screen: 3840x2160
+Slowest frame this game: 1893 ms
+Most memory this game: 2256 MB
+Most texture memory this game: 129 MB
+BepInEx: [ip]
+Patchers: FixPluginTypesSerialization, LateJoinPlus.MenuLibCompatibility
+Patches that failed: InputManager.InitializeInputs
+Known problem: REPOLib 4.2.0: This version is too old for this game: some of its patches fail. Update it.
+Who patches the methods in this log's errors:
+  GameObject.AddComponent: me.loaforc.soundapi (postfix)
+  InputManager.InitializeInputs: bulletbot.keybindlib (transpiler)
+  Object.Instantiate: me.loaforc.soundapi (postfix)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (12):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  MenuManager.Start: bulletbot.keybindlib (prefix), Mhz.REPOMoreHead (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: Mhz.REPOMoreHead (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: ricketywrecked.repo.latejoinplus (postfix), Vippy.BattleScars (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerHealth.Update: PaintedThornStudios.PaintedUtils (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (finalizer)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RunManager.ChangeLevel: REPO_All_Shop_Items_in_Level (prefix), ricketywrecked.repo.latejoinplus (prefix), REPO_All_Shop_Items_in_Level (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 11):
+  19:10:42 an error from HarmonyX
+  19:10:42 an error from Unity Log
+  19:10:44 an error from HarmonyX
+  19:10:44 an error from Unity Log
+  19:10:49 an error from HarmonyX
+  19:10:49 an error from Unity Log
+  19:10:49 an error from Unity Log
+  19:10:49 an error from Unity Log
+  19:10:58 an error from Unity Log
+  19:10:58 an error from Unity Log
+  19:11:17 an error from Unity Log
+(end of settings)
+[Warning:   BepInEx] Skipping [Menu Lib 2.5.4] because a newer version exists (Menu Lib 2.6.1)
+[Warning:   BepInEx] Skipping [REPOConfig 1.2.6] because a newer version exists (REPOConfig 1.2.7)
+[Warning:me.loaforc.soundapi] Native backend is not yet supported for unity version: 6000.3.28f1
+[Warning:me.loaforc.soundapi] Native backend failed, falling back to default harmony backend!
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name Awake and parameters 
+[Error  :   REPOLib] HarmonyLib.HarmonyException: Patching exception in method null ---> System.ArgumentException: Undefined target method for patch method static void REPOLib.Patches.SteamManagerPatch::AwakePatch(SteamManager __instance)
+  at HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) [0x00047] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x0006a] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+   --- End of inner exception stack trace ---
+  at HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) [0x0006c] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x00095] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Harmony.PatchAll (System.Type type) [0x00008] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at REPOLib.Plugin.Awake () [0x00089] in ./Plugin.cs:37 
+[Error  : Unity Log] TypeLoadException: Could not load type REPOLib.Objects.CustomPrefabPool, REPOLib, Version=[ip], Culture=neutral, PublicKeyToken=null while decoding custom attribute: (null)
+Stack trace:
+System.MonoCustomAttrs.GetCustomAttributesBase (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inheritedOnly) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.MonoCustomAttrs.GetCustomAttributes (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetCustomAttributes (System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.HarmonyMethodExtensions.GetFromType (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type, System.Boolean allowUnannotatedType) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.CreateClassProcessor (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+PaintedUtils.PaintedUtils.Patch () (at <e1b632bc975143cd84ef77cc3a35c0fb>:0)
+PaintedUtils.PaintedUtils.Awake () (at <e1b632bc975143cd84ef77cc3a35c0fb>:0)
+UnityEngine.GameObject:DMD<UnityEngine.GameObject::AddComponent>(GameObject, Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Warning:  HarmonyX] AccessTools.Method: Could not find method for type ValuableDirector and name Spawn and parameters 
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:me.loaforc.soundapi] No sound-packs were found to load! This can be ignorable if you're doing testing or using SoundAPI for another purpose, but if you expected sound-packs to load you may have set it up incorrectly.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 6 times in total)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 3 times in total)
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-1271305566(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1295 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 593 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Warning:me.loaforc.soundapi] The game will freeze for a moment!
+[Info   :LateJoinPlus] Timing: slowest frame so far 1893 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1496 MB of 32365 MB, 85 MB of it from mods and scripts; textures 91 MB of 11943 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 15 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1,3 ms (14 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Error  : Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform,bool)
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform,bool)
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform)
+MenuLib.MenuAPI.CreateREPOButton (System.String text, System.Action onClick, UnityEngine.Transform parent, UnityEngine.Vector2 localPosition) (at <47458051189f4c4987ce84823db6c0f5>:0)
+REPOConfig.Entry.MenuPageMain_StartHook (System.Action`1[T] orig, MenuPageMain self) (at <cd94632c49a742fb8c6cb69fb3b463ef>:0)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Hook<MenuPageMain::Start>?-1219975260(MenuPageMain)
+   (seen 2 times in total)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+MenuPageMain.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+   (seen 10723 times in total)
+[Warning:ALL Shop Items spawn in Level] The game's item list is not ready yet - still waiting (no timeout)
+=== Previous game session ===
+[Warning:   BepInEx] Skipping [Menu Lib 2.5.4] because a newer version exists (Menu Lib 2.6.1)
+[Warning:   BepInEx] Skipping [REPOConfig 1.2.6] because a newer version exists (REPOConfig 1.2.7)
+[Warning:me.loaforc.soundapi] Native backend is not yet supported for unity version: 6000.3.28f1
+[Warning:me.loaforc.soundapi] Native backend failed, falling back to default harmony backend!
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name Awake and parameters 
+[Error  :   REPOLib] HarmonyLib.HarmonyException: Patching exception in method null ---> System.ArgumentException: Undefined target method for patch method static void REPOLib.Patches.SteamManagerPatch::AwakePatch(SteamManager __instance)
+  at HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) [0x00047] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x0006a] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+   --- End of inner exception stack trace ---
+  at HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) [0x0006c] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x00095] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Harmony.PatchAll (System.Type type) [0x00008] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at REPOLib.Plugin.Awake () [0x00089] in ./Plugin.cs:37 
+[Error  : Unity Log] TypeLoadException: Could not load type REPOLib.Objects.CustomPrefabPool, REPOLib, Version=[ip], Culture=neutral, PublicKeyToken=null while decoding custom attribute: (null)
+Stack trace:
+System.MonoCustomAttrs.GetCustomAttributesBase (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inheritedOnly) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.MonoCustomAttrs.GetCustomAttributes (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetCustomAttributes (System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.HarmonyMethodExtensions.GetFromType (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type, System.Boolean allowUnannotatedType) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.CreateClassProcessor (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+[17:59:29.898] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[17:59:29.976] [Warning:me.loaforc.soundapi] No sound-packs were found to load! This can be ignorable if you're doing testing or using SoundAPI for another purpose, but if you expected sound-packs to load you may have set it up incorrectly.
+[17:59:30.029] [Warning:HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 210 times in total)
+[17:59:30.033] [Error  :HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 20 times in total)
+[17:59:30.035] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?142428834(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 10 times in total)
+[17:59:31.286] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[17:59:31.426] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[17:59:31.673] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[17:59:31.673] [Warning:HarmonyX] AccessTools.Method: type is null
+[17:59:32.452] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[17:59:32.454] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[17:59:32.455] [Info   :LateJoinPlus] Timing: start-up took 1289 ms.
+[17:59:32.455] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[17:59:32.455] [Info   :LateJoinPlus] Timing: late patches took 596 ms.
+[17:59:32.481] [Warning:Unity Log] Unable to load font face for [] font asset.
+[17:59:32.555] [Warning:me.loaforc.soundapi] The game will freeze for a moment!
+[17:59:32.686] [Info   :LateJoinPlus] Timing: slowest frame so far 1851 ms, 2 s after start.
+[17:59:32.686] [Info   :LateJoinPlus] Timing: game memory 1484 MB of 32365 MB, 72 MB of it from mods and scripts; textures 90 MB of 11943 MB video memory.
+[17:59:32.686] [Info   :LateJoinPlus] Timing: Chinese font set-up took 7 ms and 1 MB.
+[17:59:32.687] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1,3 ms (13 fonts).
+[17:59:36.019] [Info   :Unity Log] leaving photon
+[17:59:36.022] [Info   :Unity Log] Leave to Main Menu
+[17:59:36.586] [Error  :Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform,bool)
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform,bool)
+(wrapper dynamic-method) UnityEngine.Object.DMD<UnityEngine.Object::Instantiate>(UnityEngine.Object,UnityEngine.Transform)
+MenuLib.MenuAPI.CreateREPOButton (System.String text, System.Action onClick, UnityEngine.Transform parent, UnityEngine.Vector2 localPosition) (at <47458051189f4c4987ce84823db6c0f5>:0)
+REPOConfig.Entry.MenuPageMain_StartHook (System.Action`1[T] orig, MenuPageMain self) (at <cd94632c49a742fb8c6cb69fb3b463ef>:0)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Hook<MenuPageMain::Start>?-1094801540(MenuPageMain)
+   (seen 4 times in total)
+[17:59:36.608] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+MenuPageMain.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+   (seen 68017 times in total)
+[17:59:44.140] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[17:59:53.664] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[17:59:53.664] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[17:59:53.823] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[17:59:53.844] [Warning:Unity Log] [2026-11-24T16:59:53] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Mikrofon (Logitech G432 Gaming Headset)
+   (seen 2 times in total)
+[18:00:31.921] [Info   :LateJoinPlus] Timing: game memory 2043 MB of 32365 MB, 72 MB of it from mods and scripts; textures 122 MB of 11943 MB video memory.
+[18:00:33.865] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 69 times in total)
+[18:00:42.004] [Warning:LateJoinPlus] Your game isn't the owner of its Steam lobby any more (owner , 0 member(s)). Players can't invite friends like this; making a new one in 10 s if it doesn't recover.
+[18:00:48.006] [Warning:LateJoinPlus] Making a new Steam lobby so everyone can invite friends: your game lost its Steam lobby.
+[18:00:48.236] [Info   :LateJoinPlus] New Steam lobby ready (109775241219000584); sent it to 0 player(s).
+[18:01:03.057] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:01:29.894] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[18:01:33.087] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 14' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 107 bytes each).
+[18:01:34.916] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[18:01:35.905] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:01:36.617] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?142428834(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+   (seen 10 times in total)
+[18:01:36.632] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[18:01:36.811] [Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 0 | slow catch-up steps 0
+[18:01:36.819] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[18:01:36.987] [Info   :LateJoinPlus] Waited 0,1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[18:01:37.104] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 14' peaked at 33 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[18:01:39.996] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+loaforcsSoundAPI.REPO.Patches.SoundPatch.ResetAudioInfoFetched (Sound __instance) (at ./Patches/SoundPatch.cs:30)
+(wrapper dynamic-method) Sound.DMD<Sound::PlayLoop>(Sound,bool,single,single,single,single)
+ItemVehicle.DamageParticlesTick () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+ItemVehicle.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+   (seen 771340 times in total)
+[18:01:41.131] [Error  :Unity Log] MultiplayerPool failed to load "Items/Item Orb Battery". Make sure it's in a "Resources" folder.
+[18:01:41.131] [Error  :Unity Log] Failed to network-Instantiate: Items/Item Orb Battery
+[18:02:01.946] [Info   :LateJoinPlus] Timing: game memory 3168 MB of 32365 MB, 94 MB of it from mods and scripts; textures 421 MB of 11943 MB video memory.
+[18:02:21.622] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[18:02:34.184] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[18:02:36.817] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:02:45.468] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:02:58.116] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:03:02.658] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:03:02.783] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 1.
+[18:03:17.788] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[18:03:18.516] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:03:20.146] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 1.
+[18:03:21.015] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:03:51.962] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 2.
+[18:03:52.163] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[18:03:56.162] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 1.
+[18:03:57.244] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[18:03:58.018] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:03:58.539] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[18:03:59.326] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 1.
+[18:04:04.025] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 2.
+[18:04:08.580] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:04:33.349] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:04:33.349] [Info   :LateJoinPlus] [Admin] Host kill Player 14: done - Player 14 was killed.
+[18:04:33.968] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Revolver/1 was forced out of slot 1, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[18:04:33.968] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Shotgun/2 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[18:04:34.123] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #194 0,0 m away, floor 0,12 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:34.124] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #197 0,0 m away, floor 0,02 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:34.469] [Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #194 0,7 m away, floor 0,23 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:34.469] [Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #197 0,7 m away, floor 0,08 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:35.052] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:04:36.974] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #194 1,7 m away, floor 0,09 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:36.974] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #197 1,4 m away, floor 0,03 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:04:39.461] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:04:40.481] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:04:58.385] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.9 m away, 1.7 m above their feet).
+[18:04:58.995] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:05:01.705] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:05:22.646] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[18:05:23.380] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:05:23.925] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:05:27.827] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:05:28.684] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:06:05.171] [Info   :LateJoinPlus] [Admin] Host level: done - Going to McJannek Station.
+[18:06:06.977] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:06:08.414] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[18:06:08.582] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[18:06:08.813] [Info   :LateJoinPlus] Waited 0,1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[18:06:09.302] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 14' peaked at 46 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[18:06:13.634] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Revolver/1 is back in slot 2 (the game restoring slots).
+[18:06:13.634] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Shotgun/2 is back in slot 1 (the game restoring slots).
+[18:06:23.014] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[18:06:24.090] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:06:24.285] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:06:34.042] [Info   :LateJoinPlus] [Slots] 2 remembered item(s) are in their slots, 20 s into this level.
+[18:07:15.644] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[18:07:16.259] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:07:16.742] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:07:21.043] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.1 m away, 0.7 m above their feet).
+[18:07:22.003] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[18:07:24.927] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:07:26.241] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:09:01.100] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 545 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 14' Maybe GO was destroyed but RPC not cleaned up.
+[18:09:01.100] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 545 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 14' Maybe GO was destroyed but RPC not cleaned up.
+[18:09:19.770] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:09:20.055] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:09:21.361] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:09:21.626] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:09:32.439] [Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[18:09:36.124] [Info   :LateJoinPlus] [Admin] Host world: done - Enemies can't see anyone: on.
+[18:09:44.410] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 3, Stamina 2, Speed 3, Strength 5, Range 2, Throw 0, ExtraJump 0, Launch 2, TumbleWings 3, TumbleClimb 1, CrouchRest 3, DeathHeadBattery 30, MapPlayerCount 0.
+[18:09:52.292] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Arctic Ice Saw ×1.
+[18:10:32.013] [Info   :LateJoinPlus] Timing: game memory 3684 MB of 32365 MB, 114 MB of it from mods and scripts; textures 729 MB of 11943 MB video memory.
+[18:13:18.181] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.2 m away, 0.3 m above their feet).
+[18:13:18.706] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:13:19.103] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (2.1 m away, -0.1 m above their feet).
+[18:13:20.126] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:13:25.383] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:13:27.491] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:13:27.718] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:14:43.043] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[18:14:44.944] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:14:46.303] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[18:14:47.844] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:14:48.461] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:15:20.342] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[18:15:21.508] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:16:18.341] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:16:19.753] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[18:16:20.440] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:16:20.883] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:16:22.569] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:16:23.826] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shotgun/2 out of slot 1 (1.4 m away, 1.0 m above their feet).
+[18:16:25.106] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:16:26.725] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:16:28.763] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Revolver/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[18:16:47.330] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:16:47.803] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Shotgun/2 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[18:16:47.963] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 0,0 m away, floor 0,02 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:16:48.313] [Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 0,8 m away, floor 0,05 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:16:50.809] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 1,2 m away, floor 0,00 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:17:02.767] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/2 in slot 1.
+[18:17:03.827] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 2.
+[18:17:35.489] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:17:54.108] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/2 out of slot 1 (1.0 m away, 0.8 m above their feet).
+[18:17:57.420] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shotgun/2 in slot 1.
+[18:17:58.360] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 2 (1.0 m away, 0.7 m above their feet).
+[18:18:02.560] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Revolver/1 in slot 2.
+[18:18:05.648] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:18:06.184] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Shotgun/2 was forced out of slot 1, as happens when someone dies (1.6 m away, 1.6 m above their feet).
+[18:18:06.184] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Revolver/1 was forced out of slot 2, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[18:18:06.343] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 0,1 m away, floor 0,00 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:18:06.343] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #491 0,2 m away, floor 3,72 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:18:06.691] [Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 0,1 m away, floor 0,04 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:18:06.691] [Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #491 1,2 m away, floor 0,01 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:18:09.190] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shotgun(Clone) #494 0,1 m away, floor 0,04 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0,01 | view owner 1
+[18:18:09.190] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[18:18:12.852] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:18:14.010] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:18:14.600] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:18:19.802] [Info   :LateJoinPlus] [Admin] Host bring Player 14: done - Moved Player 14 to You.
+[18:18:20.804] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:18:36.054] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:19:19.299] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:19:19.476] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:20.676] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:21.025] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:23.015] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:19:23.541] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:19:25.859] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:19:26.522] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:26.803] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:27.670] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:19:27.913] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:28.135] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:19:30.164] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:19:30.404] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:31.188] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:19:31.963] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:19:32.171] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:33.151] [Info   :LateJoinPlus] [Admin] Host revive You: not done - Not now: wait until the level has loaded.
+[18:19:33.553] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:19:33.767] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:33.961] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:34.466] [Info   :LateJoinPlus] [Slots] Player 14 put Item Melee Sword/1 in slot 1.
+[18:19:34.513] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:34.736] [Info   :LateJoinPlus] [Admin] Host revive You: not done - Not now: wait until the level has loaded.
+[18:19:35.613] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:19:35.988] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:19:36.218] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:19:37.223] [Info   :LateJoinPlus] [Slots] Player 14 took Item Melee Sword/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[18:19:40.905] [Info   :LateJoinPlus] [Slots] Player 14 put Item Melee Sword/1 in slot 1.
+[18:19:53.568] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shockwave/1 in slot 2.
+[18:19:54.927] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Handgun/2 in slot 3.
+[18:19:57.108] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Handgun/2 out of slot 3 (1.1 m away, 0.7 m above their feet).
+[18:20:02.414] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[18:20:04.998] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 1, Stamina 30, Speed 0, Strength 5, Range 1, Throw 0, ExtraJump 0, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 30, DeathHeadBattery 0, MapPlayerCount 0.
+[18:20:06.184] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Handgun/1 in slot 3.
+[18:20:07.863] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shockwave/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[18:20:09.021] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shockwave/1 in slot 2.
+[18:20:29.766] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shockwave/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[18:20:34.561] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shockwave/1 in slot 2.
+[18:21:17.963] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Shockwave/1 out of slot 2 (1.9 m away, 1.7 m above their feet).
+[18:21:26.081] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Handgun/1 out of slot 3 (1.6 m away, 1.4 m above their feet).
+[18:21:27.126] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:21:28.326] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Handgun/1 in slot 3.
+[18:21:33.545] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Shockwave/1 in slot 2.
+[18:21:34.587] [Info   :LateJoinPlus] [Slots] Player 14 took Item Melee Sword/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[18:21:36.162] [Info   :LateJoinPlus] [Slots] Player 14 put Item Melee Sword/1 in slot 1.
+[18:21:36.628] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:21:36.836] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:21:39.889] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Handgun/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[18:21:50.245] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Handgun/1 in slot 3.
+[18:22:02.126] [Info   :LateJoinPlus] Timing: game memory 4224 MB of 32365 MB, 128 MB of it from mods and scripts; textures 1058 MB of 11943 MB video memory.
+[18:22:53.481] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:23:15.699] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:23:16.199] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:23:18.266] [Info   :LateJoinPlus] [Slots] Player 14 took Item Gun Handgun/1 out of slot 3 (1.5 m away, 1.2 m above their feet).
+[18:23:19.547] [Info   :LateJoinPlus] [Slots] Player 14 put Item Gun Handgun/1 in slot 3.
+[18:24:09.893] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:24:11.371] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:24:11.945] [Info   :LateJoinPlus] [Slots] Player 14's Item Melee Sword/1 was forced out of slot 1, as happens when someone dies (1.5 m away, 1.3 m above their feet).
+[18:24:11.945] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Shockwave/1 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.4 m above their feet).
+[18:24:11.945] [Info   :LateJoinPlus] [Slots] Player 14's Item Gun Handgun/1 was forced out of slot 3, as happens when someone dies (1.5 m away, 1.4 m above their feet).
+[18:24:12.104] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Melee Sword(Clone) #498 0,0 m away, floor 0,02 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[18:24:12.104] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Shockwave(Clone) #493 0,0 m away, floor 0,07 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[18:24:12.104] [Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #623 0,0 m away, floor 0,08 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[18:24:12.128] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:24:12.449] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+   (seen 3 times in total)
+[18:24:13.045] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:24:14.158] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:24:14.630] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:24:15.587] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:24:15.630] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:24:15.787] [Info   :LateJoinPlus] [Admin] Host truck You: not done - Not now: wait until the level has loaded.
+[18:24:16.377] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:24:16.578] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:24:17.038] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:24:21.507] [Info   :LateJoinPlus] [Admin] Host bring Player 14: done - Moved Player 14 to You.
+[18:24:49.545] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:24:49.752] [Info   :LateJoinPlus] [Admin] Host heal Player 14: done - Healed Player 14.
+[18:24:52.007] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:24:52.207] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:24:53.842] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 1 item(s).
+[18:24:53.842] [Info   :LateJoinPlus] [Admin] Host kill Player 14: done - Player 14 was killed.
+[18:24:53.986] [Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 14 when they died: Item Staff Torque(Clone) #473 1,9 m away, floor 0,03 m | state Idle | held by Player 14 | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[18:24:54.335] [Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 14 when they died: Item Staff Torque(Clone) #473 3,1 m away, floor 0,02 m | state Idle | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[18:24:55.841] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:24:56.836] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 14 when they died: Item Staff Torque(Clone) #473 3,8 m away, floor 0,00 m | state Idle | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[18:25:09.483] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/2 in slot 1.
+[18:25:17.948] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:25:25.669] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/2 out of slot 1 (1.1 m away, 0.2 m above their feet).
+[18:25:28.973] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:25:35.571] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:25:37.596] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:25:38.240] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:25:38.458] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:25:39.534] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:25:39.678] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:25:39.704] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:25:39.845] [Info   :LateJoinPlus] [Admin] Host truck You: not done - Not now: wait until the level has loaded.
+[18:25:40.286] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:25:40.508] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:25:40.706] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:25:43.140] [Info   :LateJoinPlus] [Admin] Host bring Player 14: done - Moved Player 14 to You.
+[18:25:45.070] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:26:01.759] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 3, Stamina 2, Speed 3, Strength 5, Range 2, Throw 0, ExtraJump 0, Launch 2, TumbleWings 3, TumbleClimb 1, CrouchRest 3, DeathHeadBattery 30, MapPlayerCount 0.
+[18:26:15.646] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[18:26:32.952] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Coin ×1.
+[18:26:36.435] [Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $500 in it.
+[18:26:54.255] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:26:54.548] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[18:27:53.552] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 1 item(s).
+[18:27:53.700] [Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 14 when they died: Valuable Arctic Ice Saw(Clone) #616 0,9 m away, floor 0,18 m | state - | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[18:27:54.051] [Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 14 when they died: Valuable Arctic Ice Saw(Clone) #616 1,0 m away, floor none below | state - | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[18:27:56.554] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 14 when they died: Valuable Arctic Ice Saw(Clone) #616 0,7 m away, floor 0,22 m | state - | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[18:28:04.320] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Coin ×1.
+[18:28:08.426] [Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $600 in it.
+[18:28:33.493] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:28:40.135] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:30:14.054] [Info   :LateJoinPlus] [Admin] Host extract.done: not done - Nothing is in the extraction point yet.
+[18:30:16.410] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Cowboy action figure ×1.
+[18:30:18.092] [Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $1.500 in it.
+[18:30:35.431] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:30:43.380] [Info   :LateJoinPlus] [Admin] Host truck Player 14: done - Sent Player 14 to the truck.
+[18:30:50.134] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:31:44.607] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Coin ×1.
+[18:31:47.528] [Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $500 in it.
+[18:31:59.106] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:32:10.470] [Info   :LateJoinPlus] Late joiner Player 22 connected (level Level - Arctic). Catching them up.
+[18:32:11.340] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 22' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:32:13.486] [Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 22 (without LateJoinPlus).
+[18:32:23.808] [Info   :LateJoinPlus] Late joiner Player 22 finished loading in 13,3 s (without LateJoinPlus).
+[18:32:29.285] [Info   :LateJoinPlus] Uncovered 14 explored room(s) on Player 22's map (99 messages).
+[18:32:37.447] [Info   :LateJoinPlus] [Death drop] Player 22 died; the host shows them holding 0 item(s).
+[18:32:40.493] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 22' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 156 bytes each).
+[18:32:41.694] [Info   :LateJoinPlus] [Admin] Host bring Player 14: done - Moved Player 14 to You.
+[18:32:47.343] [Info   :LateJoinPlus] [Admin] Host bring Player 22: done - Moved Player 22 to You.
+[18:33:28.848] [Info   :LateJoinPlus] [Admin] Host revive Player 22: done - Revived Player 22.
+[18:33:29.526] [Info   :LateJoinPlus] [Admin] Host bring Player 22: done - Moved Player 22 to You.
+[18:33:35.345] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:34:06.129] [Info   :LateJoinPlus] [Death drop] Player 22 died; the host shows them holding 0 item(s).
+[18:34:11.730] [Info   :LateJoinPlus] [Admin] Host revive Player 22: done - Revived Player 22.
+[18:34:18.492] [Info   :LateJoinPlus] [Death drop] Player 22 died; the host shows them holding 0 item(s).
+[18:35:18.347] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Coin ×1.
+[18:35:20.157] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[18:35:20.437] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[18:35:22.304] [Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $600 in it.
+[18:35:34.384] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[18:35:37.060] [Info   :LateJoinPlus] [Admin] Host bring Player 14: done - Moved Player 14 to You.
+[18:35:38.651] [Info   :LateJoinPlus] [Admin] Host bring Player 22: done - Moved Player 22 to You.
+[18:36:25.084] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (2 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:36:26.514] [Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 14 (0 s after the others).
+[18:36:26.620] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[18:36:26.837] [Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 13,3 s, slowest 13,3 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (14 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 2 (slowest 47 ms)
+[18:36:26.844] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[18:36:27.070] [Info   :LateJoinPlus] Waited 0,1 s for Player 22's Steam ID before loading their upgrades and name tag.
+[18:36:27.126] [Info   :LateJoinPlus] Waited 0,1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[18:36:27.414] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 14' peaked at 53 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[18:38:09.106] [Info   :LateJoinPlus] [Death drop] Player 22 died; the host shows them holding 0 item(s).
+[18:38:19.928] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:38:23.259] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:38:37.705] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:38:43.154] [Info   :LateJoinPlus] [Admin] Host revive Player 14: done - Revived Player 14.
+[18:38:44.423] [Info   :LateJoinPlus] [Admin] Host revive Player 22: done - Revived Player 22.
+[18:38:50.282] [Info   :LateJoinPlus] [Death drop] Player 22 died; the host shows them holding 0 item(s).
+[18:39:32.322] [Info   :LateJoinPlus] [Admin] Host revive Player 22: done - Revived Player 22.
+[18:39:37.722] [Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[18:41:58.615] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:41:59.440] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[18:41:59.553] [Warning:Unity Log] Received RPC "LandRPC" for viewID 2024 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 14' Maybe GO was destroyed but RPC not cleaned up.
+[18:41:59.642] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[18:41:59.954] [Info   :LateJoinPlus] Waited 0,1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[18:42:00.253] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[18:42:18.044] [Info   :LateJoinPlus] [Slots] Player 14 put Item WalkieTalkie/3 in slot 3.
+[18:46:05.310] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 14's Item WalkieTalkie/3 from slot 3: they're no longer here.
+[18:46:05.312] [Info   :LateJoinPlus] Dropped 1 item(s) left in the inventory of a player who is no longer here where they last stood.
+[18:49:52.313] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 1, Stamina 30, Speed 0, Strength 5, Range 1, Throw 0, ExtraJump 0, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 30, DeathHeadBattery 0, MapPlayerCount 0.
+[18:49:58.005] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Valuables can only be spawned in a level.
+[18:50:06.902] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Valuables can only be spawned in a level.
+[18:50:14.001] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Valuables can only be spawned in a level.
+[18:50:14.237] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Valuables can only be spawned in a level.
+[18:50:15.805] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Valuables can only be spawned in a level.
+[18:50:22.933] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[18:50:23.492] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:50:23.669] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[18:50:23.675] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 35 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[18:50:33.645] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Arctic Ice Saw ×1.
+[18:52:19.485] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[18:52:23.338] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[18:52:23.887] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:52:25.401] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:52:25.600] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:52:25.817] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:52:26.086] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[18:52:30.248] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[18:52:30.729] [Info   :Unity Log] leaving photon
+[18:52:30.831] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[18:52:30.837] [Info   :Unity Log] Leave to Main Menu
+[18:52:31.179] [Info   :LateJoinPlus] [Report] Session (2 level(s) with activity): OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 13,3 s, slowest 13,3 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (14 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 0 | slow catch-up steps 2 (slowest 47 ms)
+[18:52:38.204] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[18:52:43.288] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[18:52:45.224] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 3 times in total)
+[18:53:02.339] [Info   :LateJoinPlus] Timing: game memory 3554 MB of 32365 MB, 110 MB of it from mods and scripts; textures 730 MB of 11943 MB video memory.
+[18:53:05.422] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 13' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.422] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 9' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.422] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.423] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 25' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.423] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 24' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.423] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.424] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.424] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:05.424] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:53:06.429] [Warning:Unity Log] [2026-11-24T17:53:06] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 19008 found. Remote voice p#19 v#3 not linked.
+   (seen 2 times in total)
+[18:53:07.585] [Error  :Unity Log] RPC method 'SetupCosmeticsModdedRPC(String)' not found on object with PhotonView 1181. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[18:53:07.606] [Info   :LateJoinPlus] The host has not sent 24 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[18:53:07.665] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 13' (player #1) (to object 1189): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[18:53:07.974] [Info   :LateJoinPlus] Waited 0,1 s for Player 19's Steam ID before loading their upgrades and name tag.
+[18:53:08.022] [Error  :Unity Log] Failed to find a PhotonView with ID=840 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+   (seen 5 times in total)
+[18:53:08.068] [Info   :LateJoinPlus] Waited 0,1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[18:53:08.068] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[18:53:08.068] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[18:53:08.119] [Info   :LateJoinPlus] Host room connections received: 24 matched our estimate, 0 corrected to the host's.
+[18:53:08.242] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[18:54:02.347] [Info   :LateJoinPlus] Timing: game memory 4084 MB of 32365 MB, 128 MB of it from mods and scripts; textures 930 MB of 11943 MB video memory.
+[19:02:26.116] [Info   :Unity Log] leaving photon
+[19:02:26.203] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[19:02:26.207] [Info   :Unity Log] Leave to Main Menu
