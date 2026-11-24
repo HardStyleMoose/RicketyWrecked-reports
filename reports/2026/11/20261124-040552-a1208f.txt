@@ -1,0 +1,937 @@
+LateJoinPlus bug report 20261124-040552-a1208f
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.3"
+installId: "7335d58f3a244811b5a45f9358cccbb6"
+category: "join"
+description: "Stuck on the loading screen."
+role: "menu"
+level: "Level - Arctic"
+players: 0
+language: "en-US"
+test: false
+Sender: 48779767154c
+Install: 7335d58f3a244811b5a45f9358cccbb6
+
+Mods (11):
+- "SharedUpgradesByCat" | "Catmino.SharedUpgradesByCat" | "1.0"
+- "NoGunSpread" | "Lazarus.NoGunSpread" | "1.0.0"
+- "TheEverythingMap" | "Nubez.TheEverythingMap" | "1.0.8"
+- "Weapon Lasers" | "WeaponLasers" | "1.0.0"
+- "Player Health Regen" | "com.bridgegpt.repo.playerhealthregen" | "1.0.1"
+- "REPO Max Players Mod" | "com.crepo.repo.maxplayers" | "1.0.4"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "GameTools" | "zichen.gametools" | "1.1.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: AMD Ryzen 5 5500  (12 threads)
+Memory: 16253 MB
+Graphics: Radeon RX550/550 Series (4075 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 5877 ms
+Most memory this game: 2348 MB
+Most texture memory this game: 198 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (29):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  GameManager.Awake: com.crepo.repo.maxplayers (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: com.crepo.repo.maxplayers (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ItemBattery.Update: zichen.gametools (prefix), zichen.gametools (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  LevelGenerator.GenerateDone: Nubez.TheEverythingMap (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObjectImpactDetector.Break: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: Nubez.TheEverythingMap (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Nubez.TheEverythingMap (postfix), zichen.gametools (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), zichen.gametools (postfix)
+  PlayerController.Start: Catmino.SharedUpgradesByCat (prefix), Catmino.SharedUpgradesByCat (postfix), zichen.gametools (postfix)
+  PlayerHealth.Hurt: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerHealth.Update: zichen.gametools (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (finalizer)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeDeathHeadBattery: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradeMapPlayerCount: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerCrouchRest: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerEnergy: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerExtraJump: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabRange: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerGrabStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerSprintSpeed: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerThrowStrength: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleClimb: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleLaunch: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerTumbleWings: zichen.gametools (prefix), ricketywrecked.repo.latejoinplus (postfix)
+(end of settings)
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point auto revive waits while an extraction is running, so the game revives those players when it finishes.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 59 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 987 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 968 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 5877 ms, 6 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1398 MB of 16253 MB, 134 MB of it from mods and scripts; textures 88 MB of 4075 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 12 ms and 2 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.7 ms (16 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] Timing: game memory 1934 MB of 16253 MB, 113 MB of it from mods and scripts; textures 198 MB of 4075 MB video memory.
+=== Previous game session ===
+[16:21:25.371] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; ProhibitOthers is only re-sent to the room when it actually changes.
+[16:21:25.381] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; only the host can remotely kill, revive or heal you, and a kill + revive requested at the same time is ignored.
+[16:21:25.496] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; its extraction-point auto revive waits while an extraction is running, so the game revives those players when it finishes.
+[16:21:25.603] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a head revived on a cart is moved to the floor beside the cart first, so the player isn't revived inside it.
+[16:21:25.714] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools found; a player who dies in a cart is only cart-revived once their head has been taken out and put back.
+[16:21:26.098] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[16:21:26.098] [Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[16:21:26.112] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 59 patches applied, 0 failed.
+[16:21:27.686] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[16:21:27.850] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+[16:21:28.018] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[16:21:28.450] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[16:21:28.450] [Warning:HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[16:21:29.765] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[16:21:29.769] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[16:21:29.769] [Info   :LateJoinPlus] Timing: start-up took 928 ms.
+[16:21:29.769] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[16:21:29.769] [Info   :LateJoinPlus] Timing: late patches took 1024 ms.
+[16:21:29.804] [Warning:Unity Log] Unable to load font face for [] font asset.
+[16:21:30.152] [Info   :LateJoinPlus] Timing: slowest frame so far 2558 ms, 3 s after start.
+[16:21:30.154] [Info   :LateJoinPlus] Timing: game memory 1380 MB of 16253 MB, 84 MB of it from mods and scripts; textures 88 MB of 4075 MB video memory.
+[16:21:30.155] [Info   :LateJoinPlus] Timing: Chinese font set-up took 12 ms and 1 MB.
+[16:21:30.155] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.6 ms (16 fonts).
+[16:21:40.806] [Info   :Unity Log] leaving photon
+[16:21:40.809] [Info   :Unity Log] Leave to Main Menu
+[16:21:40.922] [Info   :LateJoinPlus] Something asked for a player limit of 20; using LJ+ menu > Max Players (10) instead.
+[16:21:47.127] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+[16:21:57.808] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators.
+[16:22:01.910] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: History.
+[16:22:10.186] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List.
+[16:22:10.774] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings.
+[16:22:27.000] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[16:22:38.638] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[16:22:38.638] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:22:38.935] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[16:22:39.024] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[16:22:39.035] [Warning:Unity Log] [2026-11-23T08:22:39] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[16:22:57.796] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:22:58.807] [Info   :LateJoinPlus] Timing: game memory 2078 MB of 16253 MB, 84 MB of it from mods and scripts; textures 129 MB of 4075 MB video memory.
+[16:22:59.511] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[16:23:01.575] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+   (seen 2 times in total)
+[16:23:05.817] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:23:12.802] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 12 times in total)
+[16:23:23.646] [Info   :LateJoinPlus] Player 2 is running a compatible late-join mod (LJ+ 1.2.2).
+[16:23:23.647] [Info   :LateJoinPlus] [Moderators] Asked Player 2 (LateJoinPlus) whether they hold one of our moderator keys.
+[16:23:24.004] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:23:24.116] [Info   :LateJoinPlus] [Admin] Player 2's LateJoinPlus has the Admin page (1.2).
+[16:23:24.116] [Info   :LateJoinPlus] [Moderators] Player 2 holds no moderator key of ours.
+[16:23:24.189] [Error  :Unity Log] RPC method 'SetupCosmeticsModdedRPC(String)' not found on object with PhotonView 4001. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[16:23:25.000] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:23:26.005] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:23:28.027] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 22 messages (about 108 bytes each).
+[16:23:35.134] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+[16:23:36.071] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #3' (player #3, Steam ID unknown), first 30 s: busiest second 3 KB in 32 messages (about 96 bytes each).
+[16:23:42.122] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:23:54.208] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 35 messages (about 123 bytes each).
+[16:23:55.219] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 26 messages (about 113 bytes each).
+[16:23:56.228] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 5' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 29 messages (about 127 bytes each).
+[16:24:04.402] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 3 times in total)
+[16:24:04.404] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[16:24:12.362] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 101 bytes each).
+[16:24:20.131] [Info   :LateJoinPlus] [Calls] You rings Player 2.
+[16:24:20.131] [Info   :LateJoinPlus] [Calls] Ringing Player 2.
+[16:24:23.478] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:24:39.702] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[16:24:44.720] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[16:24:45.742] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:24:46.558] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[16:24:46.781] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[16:24:46.993] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[16:24:47.012] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[16:24:47.031] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[16:24:47.053] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[16:24:47.073] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[16:24:47.094] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[16:24:47.661] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 5' peaked at 35 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[16:24:53.709] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 112 bytes each).
+[16:25:00.293] [Info   :LateJoinPlus] [Run] Level built in 13 s. Slowest step: valuables, 9.7 s from the first player to the last, Player 6.
+[16:25:00.432] [Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 2' (player #4) (to object 4009): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[16:25:04.528] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 2.
+[16:25:05.430] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:25:06.623] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[16:25:06.664] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:25:07.255] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:25:07.421] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Stun/1 in slot 1.
+[16:25:08.455] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Shockwave/1 in slot 2.
+[16:25:09.506] [Info   :LateJoinPlus] [Slots] Player 2 put Item Staff Void/1 in slot 2.
+[16:25:10.471] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:25:10.623] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[16:25:14.928] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 43 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 7' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[16:25:14.928] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 43 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 7' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[16:25:19.769] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:25:21.445] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[16:25:21.694] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[16:25:21.873] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[16:25:21.895] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[16:25:21.904] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[16:25:21.934] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[16:25:21.955] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[16:25:21.988] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 6' peaked at 43 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[16:25:21.998] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[16:25:32.049] [Info   :LateJoinPlus] [Menu] Volume for Player 2 set to 100%.
+   (seen 9 times in total)
+[16:25:49.565] [Info   :LateJoinPlus] [Run] Level built in 27 s. Slowest step: rooms, 3.6 s from the first player to the last, Player 6.
+[16:25:49.565] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[16:25:49.565] [Info   :LateJoinPlus] [Slots] Player 7's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[16:25:49.565] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[16:25:49.565] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[16:25:49.567] [Info   :LateJoinPlus] [Slots] Player 2's Item Gun Handgun/2 is back in slot 1 (the game restoring slots).
+[16:25:49.567] [Info   :LateJoinPlus] [Slots] Player 2's Item Staff Void/1 is back in slot 2 (the game restoring slots).
+[16:25:49.567] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Stun/1 is back in slot 1 (the game restoring slots).
+[16:26:00.790] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Stun/1 out of slot 1 (0.7 m away, 0.6 m above their feet).
+[16:26:06.397] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[16:26:08.149] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Stun/1 in slot 3.
+[16:26:10.037] [Info   :LateJoinPlus] [Slots] 8 remembered item(s) are in their slots, 20 s into this level.
+[16:26:26.239] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 17, Stamina 24, Speed 5, Strength 23, Range 15, Throw 0, ExtraJump 9, Launch 1, TumbleWings 4, TumbleClimb 10, CrouchRest 8, DeathHeadBattery 1, MapPlayerCount 10.
+[16:26:35.524] [Info   :LateJoinPlus] [Admin] Host heal Player 6: done - Healed Player 6.
+[16:26:37.679] [Info   :LateJoinPlus] [Admin] Host heal Player 2: done - Healed Player 2.
+[16:26:42.448] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.5 m above their feet).
+[16:26:48.158] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:26:58.689] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (2.1 m away, 1.8 m above their feet).
+[16:27:00.019] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 2 (game id ok): Health 8, Stamina 14, Speed 5, Strength 12, Range 7, Throw 0, ExtraJump 6, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[16:27:01.991] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:27:03.599] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.8 m away, 1.4 m above their feet).
+[16:27:07.118] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:27:08.563] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[16:27:09.505] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[16:27:16.831] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:27:18.029] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:27:21.013] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:27:21.708] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.5 m away, 1.1 m above their feet).
+[16:27:22.965] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.4 m away, 1.0 m above their feet).
+[16:27:25.669] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:27:28.893] [Info   :LateJoinPlus] Timing: game memory 2599 MB of 16253 MB, 121 MB of it from mods and scripts; textures 369 MB of 4075 MB video memory.
+[16:27:29.561] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[16:27:31.544] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:27:32.169] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:27:35.267] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:27:35.842] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.7 m away, 1.3 m above their feet).
+[16:27:38.507] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:27:46.201] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:28:07.284] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 320 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[16:28:07.284] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 320 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[16:29:04.947] [Info   :LateJoinPlus] [Slots] You put Item ReviveItem/1 in slot 3.
+[16:29:08.308] [Info   :LateJoinPlus] [Slots] You put Item Melee Stun Baton/1 in slot 1.
+[16:29:13.279] [Info   :LateJoinPlus] [Slots] You put Item Leaf Blower/1 in slot 2.
+[16:29:29.745] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[16:29:35.604] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:30:15.978] [Info   :LateJoinPlus] [Slots] Player 4 put Item Staff Zero Gravity/1 in slot 1.
+[16:30:19.446] [Info   :LateJoinPlus] [Slots] Player 4 put Item Drone Feather/1 in slot 2.
+[16:31:15.351] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:31:41.551] [Info   :LateJoinPlus] [Admin] Host heal Player 5: done - Healed Player 5.
+[16:31:49.814] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 0.9 m above their feet).
+[16:31:56.015] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 5 (game id ok): Health 0, Stamina 4, Speed 0, Strength 2, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[16:32:27.342] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:32:34.831] [Info   :LateJoinPlus] [Menu] Volume for Player 5 set to 150%.
+   (seen 2 times in total)
+[16:33:04.893] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[16:33:05.392] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[16:33:46.056] [Info   :LateJoinPlus] [Slots] Player 2 took Item Staff Void/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[16:33:53.001] [Info   :LateJoinPlus] [Slots] Player 2 put Item Staff Void/1 in slot 2.
+[16:33:53.553] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[16:34:02.837] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:34:10.713] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:34:12.928] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[16:34:13.590] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:34:14.451] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[16:34:15.023] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[16:34:17.409] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:34:19.172] [Info   :LateJoinPlus] [Slots] Player 5 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[16:34:19.710] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:34:21.662] [Info   :LateJoinPlus] [Slots] Player 5 put Item Gun Revolver/1 in slot 1.
+[16:34:21.677] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:34:29.588] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.9 m above their feet).
+[16:34:33.874] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:35:02.390] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[16:35:04.009] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:35:10.274] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:35:15.697] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[16:35:40.626] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:35:47.017] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[16:35:47.531] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Revolver/1 was forced out of slot 1, as happens when someone dies (3.9 m away, 3.9 m above their feet).
+[16:35:47.533] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Shockwave/1 was forced out of slot 2, as happens when someone dies (3.7 m away, 3.7 m above their feet).
+[16:35:47.533] [Info   :LateJoinPlus] [Slots] Player 5's Item Gun Stun/1 was forced out of slot 3, as happens when someone dies (3.8 m away, 3.8 m above their feet).
+[16:35:47.661] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #214 0.0 m away, floor 0.12 m | state Idle owner 6017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[16:35:47.661] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Shockwave(Clone) #224 0.0 m away, floor 0.07 m | state Idle owner 6017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[16:35:47.661] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Stun(Clone) #217 0.0 m away, floor 0.03 m | state Idle owner 6017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[16:35:48.011] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+   (seen 3 times in total)
+[16:35:48.276] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:39:20.602] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[16:39:21.688] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:39:33.530] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[16:39:41.288] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[16:40:11.896] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:40:52.858] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[16:40:54.190] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:40:57.166] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (2.0 m away, 1.7 m above their feet).
+[16:41:05.295] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.5 m away, 1.2 m above their feet).
+[16:41:12.883] [Info   :LateJoinPlus] [Slots] Player 4 took Item Staff Zero Gravity/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[16:41:12.884] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:41:23.991] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[16:41:29.023] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[16:41:36.046] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:41:45.238] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:41:56.917] [Info   :LateJoinPlus] [Slots] Player 4 put Item Staff Zero Gravity/1 in slot 1.
+[16:42:04.199] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (4 on the results screen, 0 loading, 3 ready); the players panel is up.
+[16:42:05.795] [Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 2, Player 4, Player 7 (0 s after the others).
+[16:42:05.871] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[16:42:05.973] [Warning:Unity Log] Received RPC "ResetPhysPusher" for viewID 5017 but this PhotonView does not exist! Was remote PV. Owner called. By: #05 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[16:42:06.175] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[16:42:06.399] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[16:42:06.450] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[16:42:06.470] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[16:42:06.492] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[16:42:06.524] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[16:42:06.546] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[16:42:06.752] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 4' peaked at 52 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[16:42:23.290] [Info   :LateJoinPlus] [Run] Level built in 17 s. Slowest step: valuables, 1 s from the first player to the last, Player 6.
+[16:44:05.259] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:44:06.181] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[16:44:06.577] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[16:44:06.759] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[16:44:06.775] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[16:44:06.796] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[16:44:06.826] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 50 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[16:44:06.826] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[16:44:06.846] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[16:44:06.865] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[16:44:14.654] [Info   :LateJoinPlus] [Slots] Player 4's Item Staff Zero Gravity/1 is back in slot 1 (the game restoring slots).
+[16:44:14.654] [Info   :LateJoinPlus] [Slots] You's Item Leaf Blower/1 is back in slot 2 (the game restoring slots).
+[16:44:14.655] [Info   :LateJoinPlus] [Slots] Player 7's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[16:44:14.655] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[16:44:14.655] [Info   :LateJoinPlus] [Slots] Player 4's Item Drone Feather/1 is back in slot 2 (the game restoring slots).
+[16:44:14.655] [Info   :LateJoinPlus] [Slots] You's Item Melee Stun Baton/1 is back in slot 1 (the game restoring slots).
+[16:44:14.695] [Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: valuables, 4.6 s from the first player to the last, Player 6.
+[16:44:14.712] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[16:44:14.712] [Info   :LateJoinPlus] [Slots] Player 2's Item Gun Handgun/2 is back in slot 1 (the game restoring slots).
+[16:44:14.713] [Info   :LateJoinPlus] [Slots] Player 2's Item Staff Void/1 is back in slot 2 (the game restoring slots).
+[16:44:14.713] [Info   :LateJoinPlus] [Slots] You's Item ReviveItem/1 is back in slot 3 (the game restoring slots).
+[16:44:26.072] [Info   :LateJoinPlus] [Slots] Player 5 put Item Melee Whip/1 in slot 1.
+[16:44:32.080] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 422 but this PhotonView does not exist! Was remote PV. Remote called. By: #08 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[16:44:32.082] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 422 but this PhotonView does not exist! Was remote PV. Remote called. By: #08 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[16:44:34.185] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 423 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[16:44:34.186] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 423 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 6 times in total)
+[16:44:39.560] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 425 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[16:44:39.561] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 425 but this PhotonView does not exist! Was remote PV. Remote called. By: #05 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[16:44:44.503] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:44:46.095] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[16:44:46.310] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[16:44:46.547] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[16:44:46.565] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[16:44:46.584] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[16:44:46.604] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[16:44:46.625] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[16:44:46.645] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[16:44:47.246] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 4' peaked at 38 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[16:45:15.441] [Info   :LateJoinPlus] [Run] Level built in 28 s. Slowest step: rooms, 0.5 s from the first player to the last, Player 7.
+[16:45:15.441] [Info   :LateJoinPlus] [Slots] Player 5's Item Melee Whip/1 is back in slot 1 (the game restoring slots).
+[16:45:15.441] [Info   :LateJoinPlus] [Slots] Player 4's Item Staff Zero Gravity/1 is back in slot 1 (the game restoring slots).
+[16:45:15.441] [Info   :LateJoinPlus] [Slots] Player 7's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[16:45:15.441] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[16:45:15.442] [Info   :LateJoinPlus] [Slots] You's Item Leaf Blower/1 is back in slot 2 (the game restoring slots).
+[16:45:15.442] [Info   :LateJoinPlus] [Slots] Player 4's Item Drone Feather/1 is back in slot 2 (the game restoring slots).
+[16:45:15.442] [Info   :LateJoinPlus] [Slots] You's Item Melee Stun Baton/1 is back in slot 1 (the game restoring slots).
+[16:45:15.443] [Info   :LateJoinPlus] [Slots] Player 2's Item Gun Handgun/2 is back in slot 1 (the game restoring slots).
+[16:45:15.444] [Info   :LateJoinPlus] [Slots] Player 2's Item Staff Void/1 is back in slot 2 (the game restoring slots).
+[16:45:15.444] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[16:45:15.444] [Info   :LateJoinPlus] [Slots] You's Item ReviveItem/1 is back in slot 3 (the game restoring slots).
+[16:45:25.588] [Info   :LateJoinPlus] [Slots] Player 4 took Item Staff Zero Gravity/1 out of slot 1 (0.6 m away, 0.5 m above their feet).
+[16:45:28.033] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Shockwave/1 in slot 1.
+[16:45:28.885] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:45:30.302] [Info   :LateJoinPlus] [Slots] Player 4 took Item Drone Feather/1 out of slot 2 (1.1 m away, 0.8 m above their feet).
+[16:45:35.735] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Shockwave/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[16:45:35.818] [Info   :LateJoinPlus] [Slots] 10 remembered item(s) are in their slots, 20 s into this level.
+[16:45:36.164] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[16:45:38.128] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:45:39.473] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[16:45:45.053] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:45:46.931] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[16:45:57.504] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:46:21.732] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[16:46:25.918] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.9 m away, 1.5 m above their feet).
+[16:46:32.268] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:46:32.793] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.0 m above their feet).
+[16:46:37.033] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:46:46.377] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[16:46:47.933] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[16:46:49.408] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:46:49.983] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[16:46:50.015] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:46:58.713] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:47:02.726] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:47:12.562] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[16:47:22.668] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:47:41.717] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (0.9 m away, 0.2 m above their feet).
+[16:47:45.831] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:47:46.275] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.0 m away, 0.3 m above their feet).
+[16:47:48.136] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (0.9 m away, 0.3 m above their feet).
+[16:47:51.726] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:47:54.940] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[16:48:24.467] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.0 m away, 0.3 m above their feet).
+[16:48:28.666] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:48:30.191] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.1 m away, 0.5 m above their feet).
+[16:48:35.004] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:49:05.583] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[16:49:24.734] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:49:31.179] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[16:49:46.031] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:50:13.511] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[16:50:49.659] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:51:54.711] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[16:52:08.028] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[16:52:22.795] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:52:33.733] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:52:34.751] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (2.0 m away, 1.6 m above their feet).
+[16:52:42.042] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:53:01.190] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (2.3 m away, 2.2 m above their feet).
+[16:53:01.922] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[16:53:14.315] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:53:15.911] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[16:53:16.270] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:53:26.993] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:53:32.641] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:53:33.132] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[16:53:35.311] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:53:40.916] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[16:53:42.633] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:53:50.373] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:53:51.334] [Info   :LateJoinPlus] [Slots] Player 5 took Item Melee Whip/1 out of slot 1 (1.9 m away, 1.5 m above their feet).
+[16:53:53.325] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:54:01.325] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:54:13.973] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:54:22.439] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:54:24.164] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.7 m away, 1.3 m above their feet).
+[16:54:24.875] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[16:54:26.693] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:54:27.675] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[16:54:27.964] [Info   :LateJoinPlus] [Slots] Player 5 put Item Melee Whip/1 in slot 1.
+[16:54:31.647] [Error  :Unity Log] Coroutine couldn't be started because the the game object 'Controller' is inactive!
+[16:55:00.373] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[16:55:00.900] [Info   :LateJoinPlus] [Slots] Player 5's Item Melee Whip/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.3 m above their feet).
+[16:55:00.900] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[16:55:00.917] [Info   :R.E.P.O Fixes+] [Mod guards] Held GameTools' extraction auto revive while the extraction is running (Extracting); the game revives heads in the extraction point when it finishes.
+[16:55:01.031] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Melee Whip(Clone) #508 0.0 m away, floor 0.03 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:01.032] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 0.0 m away, floor 0.58 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:01.375] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Melee Whip(Clone) #508 11.9 m away, floor 8.74 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:01.375] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 0.2 m away, floor 0.46 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:03.881] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Melee Whip(Clone) #508 3.3 m away, floor 0.01 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:03.881] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 1.9 m away, floor 0.03 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:14.121] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:55:30.456] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 1 item(s).
+[16:55:30.588] [Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 5 when they died: Item Cart Medium(Clone) #494 4.0 m away, floor 0.19 m | state - | held by nobody | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[16:55:30.921] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[16:55:31.011] [Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 5 when they died: Item Cart Medium(Clone) #494 4.1 m away, floor 0.19 m | state - | held by nobody | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[16:55:31.073] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 0.0 m away, floor 1.54 m | state Idle owner 6038 | held by nobody | kinematic True collisions False colliders on 2/2 | active False deactivate -0.02 pin -0.01 | view owner 1
+[16:55:31.444] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 10.9 m away, floor 11.21 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:33.453] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 5 when they died: Item Cart Medium(Clone) #494 4.1 m away, floor 0.19 m | state - | held by nobody | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[16:55:33.929] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 7.8 m away, floor 0.03 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:55:36.027] [Info   :R.E.P.O Fixes+] [Mod guards] GameTools: moved Player 5's head off the cart to the floor beside it before reviving (1 so far).
+[16:55:43.806] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:55:45.813] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:55:50.151] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:55:51.950] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.9 m away, 1.6 m above their feet).
+[16:56:06.724] [Warning:Unity Log] Physics.ClosestPoint can only be used with a BoxCollider, SphereCollider, CapsuleCollider and a convex MeshCollider.
+[16:56:08.089] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (2.0 m away, 1.8 m above their feet).
+[16:56:11.913] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:56:51.613] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[16:57:07.355] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:57:19.413] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 1.
+[16:57:28.310] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[16:57:28.842] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[16:57:28.989] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 0.0 m away, floor 1.19 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:57:29.343] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 13.0 m away, floor 14.11 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:57:31.845] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 14.5 m away, floor 0.01 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[16:57:47.122] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:57:54.411] [Info   :LateJoinPlus] [Admin] Host heal Player 5: done - Healed Player 5.
+[16:57:56.430] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.3 m away, 0.9 m above their feet).
+[16:57:59.953] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[16:58:00.033] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:58:00.826] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:58:11.372] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.9 m away, 1.6 m above their feet).
+[16:58:18.992] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:58:22.675] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (2.0 m away, 1.7 m above their feet).
+[16:58:26.266] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:58:31.693] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[16:58:32.218] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Head ×1.
+[16:58:35.471] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Beamer ×1.
+[16:58:54.302] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:58:54.776] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:58:57.138] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[16:59:01.483] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[16:59:02.752] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[16:59:03.034] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[16:59:05.436] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.4 m away, 0.0 m above their feet).
+[16:59:06.476] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (2.0 m away, 1.7 m above their feet).
+[16:59:15.225] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:59:15.644] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[16:59:17.906] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:59:18.425] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:59:18.734] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:59:20.443] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:59:22.389] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[16:59:23.310] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 1.
+[16:59:26.672] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:59:27.905] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[16:59:28.298] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[16:59:32.895] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[16:59:32.999] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[16:59:37.132] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[16:59:41.986] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[16:59:47.882] [Info   :LateJoinPlus] [Slots] You took Item Melee Stun Baton/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:59:49.255] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 1 (2.0 m away, 1.7 m above their feet).
+[16:59:57.244] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 1.
+[16:59:58.835] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:00:01.668] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:00:02.055] [Info   :LateJoinPlus] [Slots] You took Item Leaf Blower/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[17:00:03.226] [Info   :LateJoinPlus] [Slots] You put Item Leaf Blower/1 in slot 2.
+[17:00:04.543] [Info   :LateJoinPlus] [Slots] You put Item Melee Stun Baton/1 in slot 1.
+[17:00:09.473] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:00:11.249] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:00:11.880] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[17:00:13.934] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:00:15.664] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[17:00:35.791] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:01:44.341] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[17:01:50.619] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:01:51.661] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.8 m away, 1.4 m above their feet).
+[17:01:56.721] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:01:59.769] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.9 m away, 1.7 m above their feet).
+[17:02:01.808] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:02:03.370] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[17:02:03.474] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[17:02:08.340] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:02:09.257] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:02:15.999] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:02:18.521] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:02:18.886] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.0 m away, 0.4 m above their feet).
+[17:02:24.149] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:02:24.167] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Revolver/1 out of slot 1 (1.0 m away, 0.2 m above their feet).
+[17:02:28.050] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Revolver/1 in slot 1.
+[17:02:28.543] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:02:28.934] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[17:02:30.623] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:02:33.697] [Info   :LateJoinPlus] [Slots] Player 2 took Item Staff Void/1 out of slot 2 (1.6 m away, 1.5 m above their feet).
+[17:02:35.936] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[17:02:40.724] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[17:02:49.593] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:03:06.201] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:03:07.359] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:03:08.773] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Void/1 in slot 1.
+[17:03:09.673] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:03:30.248] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[17:04:00.547] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:04:01.751] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:04:08.399] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[17:04:08.507] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[17:04:15.440] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Void/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[17:04:22.992] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:04:23.227] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:04:23.432] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.2 m away, 0.8 m above their feet).
+[17:04:24.311] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.1 m away, 0.8 m above their feet).
+[17:04:30.633] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Void/1 in slot 1.
+[17:04:32.236] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:04:32.447] [Info   :LateJoinPlus] [Slots] You took Item Leaf Blower/1 out of slot 2 (1.1 m away, 0.5 m above their feet).
+[17:04:34.886] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[17:04:36.575] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Void/1 out of slot 1 (0.8 m away, 0.1 m above their feet).
+[17:04:36.575] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:04:39.242] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[17:04:39.865] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 1 item(s).
+[17:04:39.997] [Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 5 when they died: Item Staff Void(Clone) #516 2.1 m away, floor 0.05 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:40.327] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 was forced out of slot 2, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[17:04:40.397] [Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 5 when they died: Item Staff Void(Clone) #516 2.2 m away, floor 0.04 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:40.498] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 0.0 m away, floor 1.50 m | state Idle owner 6038 | held by nobody | kinematic True collisions False colliders on 2/2 | active False deactivate -0.02 pin -0.02 | view owner 1
+[17:04:40.856] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 13.5 m away, floor 14.39 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.02 | view owner 1
+[17:04:42.870] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 5 when they died: Item Staff Void(Clone) #516 2.3 m away, floor 0.02 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:43.123] [Info   :LateJoinPlus] [Death drop] Player 4 died; the host shows them holding 1 item(s).
+[17:04:43.252] [Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 4 when they died: Item Gun Stun(Clone) #506 1.7 m away, floor 0.00 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:43.355] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #498 11.8 m away, floor 0.14 m | state Idle owner 6038 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.02 | view owner 1
+[17:04:43.588] [Info   :LateJoinPlus] [Slots] Player 4's Item Gun Revolver/1 was forced out of slot 1, as happens when someone dies (1.3 m away, 0.0 m above their feet).
+[17:04:43.644] [Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 4 when they died: Item Gun Stun(Clone) #506 1.3 m away, floor 0.01 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:43.764] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #503 0.0 m away, floor 0.13 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[17:04:44.114] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #503 12.7 m away, floor 1.33 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[17:04:44.969] [Info   :LateJoinPlus] [Slots] You took Item Melee Stun Baton/1 out of slot 1 (1.4 m away, 1.3 m above their feet).
+[17:04:46.111] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 4 when they died: Item Gun Stun(Clone) #506 8.6 m away, floor 0.02 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:04:46.613] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #503 15.6 m away, floor 0.08 m | state Idle owner 8038 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[17:05:04.214] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (3 on the results screen, 0 loading, 4 ready); the players panel is up.
+[17:05:05.834] [Info   :LateJoinPlus] [Run] Level change waited 16 s for everyone's results screen; the last to finish: Player 6, Player 7 (0 s after the others).
+[17:05:05.963] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[17:05:06.372] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[17:05:06.554] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[17:05:06.616] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[17:05:06.656] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[17:05:06.682] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[17:05:06.691] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[17:05:06.762] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[17:05:07.229] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 62 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[17:05:18.752] [Info   :LateJoinPlus] [Run] Level built in 12 s. Slowest step: rooms, 5.6 s from the first player to the last, Player 6.
+[17:05:29.590] [Info   :LateJoinPlus] Timing: game memory 3138 MB of 16253 MB, 137 MB of it from mods and scripts; textures 507 MB of 4075 MB video memory.
+[17:07:18.305] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[17:07:19.508] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[17:07:19.935] [Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[17:07:20.120] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[17:07:20.136] [Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[17:07:20.154] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[17:07:20.172] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[17:07:20.191] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[17:07:20.220] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[17:07:20.749] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 38 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[17:07:27.938] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[17:07:27.938] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[17:07:27.938] [Info   :LateJoinPlus] [Slots] You's Item ReviveItem/1 is back in slot 3 (the game restoring slots).
+[17:07:33.172] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:07:34.804] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Void/1 in slot 1.
+[17:07:35.166] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Sword/1 in slot 1.
+[17:07:39.134] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:07:40.540] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:07:41.314] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:07:41.930] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 1.
+[17:07:47.413] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Stun Baton/1 in slot 3.
+[17:07:47.808] [Info   :LateJoinPlus] [Slots] You took Item Gun Shockwave/1 out of slot 1 (1.0 m away, 0.7 m above their feet).
+[17:07:48.540] [Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Stun Baton/1 out of slot 3 (1.5 m away, 1.2 m above their feet).
+[17:07:50.470] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Stun Baton/1 in slot 3.
+[17:07:50.901] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:07:52.430] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 2.
+[17:07:58.889] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[17:08:00.500] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[17:08:00.802] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[17:08:01.011] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[17:08:01.061] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[17:08:01.071] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[17:08:01.092] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[17:08:01.135] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[17:08:01.194] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 44 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[17:08:15.466] [Info   :LateJoinPlus] [Run] Level built in 14 s. Slowest step: rooms, 1 s from the first player to the last, Player 7.
+[17:08:15.466] [Info   :LateJoinPlus] [Slots] Player 4's Item Melee Stun Baton/1 is back in slot 3 (the game restoring slots).
+[17:08:15.466] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[17:08:15.467] [Info   :LateJoinPlus] [Slots] Player 4's Item Gun Stun/1 is back in slot 2 (the game restoring slots).
+[17:08:15.467] [Info   :LateJoinPlus] [Slots] Player 2's Item Gun Handgun/2 is back in slot 1 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Void/1 is back in slot 1 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 is back in slot 2 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] You's Item ReviveItem/1 is back in slot 3 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] Player 4's Item Melee Sword/1 is back in slot 1 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] Player 7's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[17:08:15.468] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[17:08:15.469] [Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[17:08:15.469] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[17:08:31.985] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 0.9 m above their feet).
+[17:08:35.748] [Info   :LateJoinPlus] [Slots] 11 remembered item(s) are in their slots, 20 s into this level.
+[17:08:54.284] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:09:09.372] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[17:09:09.495] [Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Sword/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[17:09:12.555] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:09:18.191] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:09:22.371] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Sword/1 in slot 1.
+[17:09:22.467] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (0.8 m away, -0.1 m above their feet).
+[17:09:25.256] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:09:25.277] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[17:09:26.335] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:09:28.715] [Info   :LateJoinPlus] [Slots] You took Item ReviveItem/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[17:09:29.055] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:09:30.038] [Info   :LateJoinPlus] [Slots] You put Item ReviveItem/1 in slot 3.
+[17:09:30.423] [Info   :LateJoinPlus] [Slots] You took Item Gun Shockwave/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[17:09:38.312] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.5 m away, 1.1 m above their feet).
+[17:09:39.776] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (0.7 m away, 0.4 m above their feet).
+[17:09:40.152] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:09:48.635] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:09:49.995] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.0 m away, 0.7 m above their feet).
+[17:09:51.867] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:09:53.434] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[17:10:02.054] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:10:11.530] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.0 m above their feet).
+[17:10:13.016] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:10:29.895] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.2 m away, 0.9 m above their feet).
+[17:10:56.940] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:11:11.795] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.0 m away, 0.7 m above their feet).
+[17:11:20.686] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:11:41.493] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[17:11:45.863] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[17:11:47.049] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[17:11:47.815] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:11:48.961] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:12:04.359] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.1 m away, 0.8 m above their feet).
+[17:12:20.157] [Info   :LateJoinPlus] [Slots] You put Item Drone Feather/1 in slot 1.
+[17:12:28.512] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.9 m above their feet).
+[17:12:30.076] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:12:59.631] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:13:22.822] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.2 m away, 0.9 m above their feet).
+[17:13:24.553] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:13:55.732] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:14:02.808] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:14:03.565] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.4 m away, 1.0 m above their feet).
+[17:14:11.398] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:14:14.541] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:14:15.962] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[17:14:16.469] [Info   :LateJoinPlus] [Slots] You's Item Drone Feather/1 was forced out of slot 1, as happens when someone dies (0.5 m away, 0.5 m above their feet).
+[17:14:16.469] [Info   :LateJoinPlus] [Slots] You's Item ReviveItem/1 was forced out of slot 3, as happens when someone dies (0.4 m away, 0.4 m above their feet).
+[17:14:16.605] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Feather(Clone) #925 0.0 m away, floor 0.01 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:16.605] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item ReviveItem(Clone) #940 0.1 m away, floor 0.58 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:16.944] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Feather(Clone) #925 0.4 m away, floor 0.18 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:16.944] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item ReviveItem(Clone) #940 0.7 m away, floor 0.87 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:17.155] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[17:14:17.433] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:14:19.454] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Drone Feather(Clone) #925 0.4 m away, floor 0.12 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:19.454] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item ReviveItem(Clone) #940 1.1 m away, floor 1.04 m | state Idle owner 1261 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0.01 | view owner 1
+[17:14:31.655] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:14:32.948] [Info   :LateJoinPlus] [Admin] Host heal Player 4: done - Healed Player 4.
+[17:14:34.231] [Info   :LateJoinPlus] [Admin] Host heal Player 5: done - Healed Player 5.
+[17:14:35.069] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[17:14:40.994] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[17:14:45.850] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[17:14:49.095] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:14:49.317] [Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Sword/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[17:14:49.695] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[17:14:54.730] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Sword/1 in slot 1.
+[17:14:57.318] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:14:58.224] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:15:04.400] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (2.4 m away, 2.1 m above their feet).
+[17:15:11.198] [Info   :LateJoinPlus] [Slots] You put Item Drone Feather/1 in slot 1.
+[17:15:17.556] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[17:15:19.554] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:15:23.538] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:15:39.240] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.9 m away, 1.5 m above their feet).
+[17:15:45.148] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[17:15:46.626] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:15:53.739] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.5 m above their feet).
+[17:15:58.857] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:16:11.013] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:16:12.502] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:16:16.635] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:16:22.141] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[17:16:24.481] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:16:25.921] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.9 m away, 1.5 m above their feet).
+[17:16:33.868] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[17:16:34.678] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[17:16:36.184] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:16:36.378] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:16:43.578] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:17:33.906] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:17:36.993] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:17:37.781] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.5 m away, 1.1 m above their feet).
+[17:17:43.301] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:17:44.590] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[17:17:57.685] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Indestructible/1 in slot 2.
+[17:19:08.997] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[17:19:09.155] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[17:19:34.797] [Info   :LateJoinPlus] [Slots] You took Item Drone Feather/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:19:40.106] [Info   :LateJoinPlus] [Slots] Player 7 put Item Drone Feather/1 in slot 2.
+[17:19:51.648] [Info   :LateJoinPlus] [Slots] Player 7 took Item Drone Feather/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[17:19:54.077] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:20:29.842] [Info   :LateJoinPlus] [Slots] Player 2 put Item Drone Feather/1 in slot 3.
+[17:20:37.561] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[17:20:45.435] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:21:03.684] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:21:35.948] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[17:21:39.083] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:21:39.083] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[17:21:43.422] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.0 m away, 0.1 m above their feet).
+[17:21:47.703] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:21:49.523] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:21:50.125] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.1 m away, 0.4 m above their feet).
+[17:21:51.521] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:21:51.777] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (0.5 m away, 0.5 m above their feet).
+[17:21:52.050] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:21:52.293] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (0.5 m away, 0.5 m above their feet).
+[17:21:52.563] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:22:01.493] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[17:22:05.736] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[17:22:09.202] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.0 m away, 0.1 m above their feet).
+[17:22:10.292] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:22:10.703] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:22:14.376] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:22:21.993] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Zero Gravity/1 out of slot 2 (1.9 m away, 1.6 m above their feet).
+[17:22:23.358] [Info   :LateJoinPlus] [Slots] Player 2 took Item Gun Handgun/2 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[17:22:23.414] [Info   :LateJoinPlus] [Slots] Player 4 took Item Gun Stun/1 out of slot 2 (0.8 m away, 0.8 m above their feet).
+[17:22:29.486] [Info   :LateJoinPlus] [Slots] Player 4 put Item Gun Stun/1 in slot 2.
+[17:22:30.076] [Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Stun Baton/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[17:22:33.684] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Tranq/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:22:34.069] [Info   :LateJoinPlus] [Slots] Player 5 took Item Staff Void/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:22:36.564] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Void/1 in slot 1.
+[17:22:38.439] [Info   :LateJoinPlus] [Slots] Player 5 put Item Staff Zero Gravity/1 in slot 2.
+[17:22:38.551] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Tranq/1 in slot 1.
+[17:22:39.466] [Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Handgun/2 in slot 1.
+[17:22:43.991] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Stun Baton/1 in slot 3.
+[17:22:46.889] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[17:22:48.148] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[17:23:04.598] [Info   :LateJoinPlus] [Slots] Player 4 took Item Melee Stun Baton/1 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[17:23:13.550] [Info   :LateJoinPlus] [Slots] Player 4 put Item Melee Stun Baton/1 in slot 3.
+[17:23:33.122] [Info   :LateJoinPlus] [Admin] Host heal Player 5: done - Healed Player 5.
+[17:23:37.677] [Info   :LateJoinPlus] [Slots] Player 7 took Item Gun Shotgun/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[17:23:39.268] [Info   :LateJoinPlus] [Slots] Player 7 put Item Gun Shotgun/1 in slot 3.
+[17:23:48.526] [Info   :LateJoinPlus] [Death drop] Player 4 died; the host shows them holding 1 item(s).
+[17:23:48.677] [Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 4 when they died: Item Cart Medium(Clone) #918 6.4 m away, floor 0.19 m | state - | held by You | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[17:23:48.985] [Info   :LateJoinPlus] [Slots] Player 4's Item Melee Sword/1 was forced out of slot 1, as happens when someone dies (1.3 m away, 1.3 m above their feet).
+[17:23:48.985] [Info   :LateJoinPlus] [Slots] Player 4's Item Gun Stun/1 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[17:23:48.985] [Info   :LateJoinPlus] [Slots] Player 4's Item Melee Stun Baton/1 was forced out of slot 3, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[17:23:49.038] [Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 4 when they died: Item Cart Medium(Clone) #918 6.5 m away, floor 0.19 m | state - | held by You | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[17:23:49.160] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Melee Sword(Clone) #941 0.0 m away, floor 0.21 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:49.160] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Stun(Clone) #929 1.5 m away, floor 8.51 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:49.161] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Melee Stun Baton(Clone) #927 0.0 m away, floor 7.50 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:49.506] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Melee Sword(Clone) #941 5.5 m away, floor 12.81 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:49.506] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Stun(Clone) #929 12.7 m away, floor 3.46 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:49.506] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Melee Stun Baton(Clone) #927 8.4 m away, floor 12.19 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:51.550] [Info   :LateJoinPlus] [Death drop] +3 s, held by Player 4 when they died: Item Cart Medium(Clone) #918 10.3 m away, floor 0.19 m | state - | held by You | kinematic False collisions True colliders on 11/11 | active True deactivate -123 pin 0 | view owner 1
+[17:23:52.016] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[17:23:52.018] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Stun(Clone) #929 10.6 m away, floor 0.08 m | state Idle owner 8059 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.01 | view owner 1
+[17:23:52.018] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[17:24:19.026] [Info   :LateJoinPlus] [Admin] Host heal Player 4: done - Healed Player 4.
+[17:24:22.219] [Info   :LateJoinPlus] [Death drop] Player 5 died; the host shows them holding 0 item(s).
+[17:24:22.725] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Void/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[17:24:22.726] [Info   :LateJoinPlus] [Slots] Player 5's Item Staff Zero Gravity/1 was forced out of slot 2, as happens when someone dies (1.3 m away, 1.3 m above their feet).
+[17:24:22.885] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Void(Clone) #939 0.1 m away, floor 0.11 m | state Idle owner 6059 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:24:22.886] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #921 0.2 m away, floor 0.03 m | state Idle owner 6059 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:24:23.228] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Void(Clone) #939 1.2 m away, floor 0.03 m | state Idle owner 6059 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:24:23.228] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Zero Gravity(Clone) #921 1.8 m away, floor 0.02 m | state Idle owner 6059 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[17:24:25.738] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+   (seen 2 times in total)
+[17:24:52.214] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[17:25:42.454] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (4 on the results screen, 0 loading, 2 ready); the players panel is up.
+[17:25:44.957] [Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 5, Player 7 (0 s after the others).
+[17:25:45.032] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[17:25:45.436] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[17:25:45.520] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 4' peaked at 55 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[17:25:45.600] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[17:25:45.659] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[17:25:45.675] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[17:25:45.692] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[17:25:45.757] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[17:26:45.811] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1322 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 3'
+   (seen 3 times in total)
+[17:26:45.833] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1322 but this PhotonView does not exist! View was/is ours. Remote called. By: #06 'Player 5'
+   (seen 3 times in total)
+[17:26:45.834] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1322 but this PhotonView does not exist! View was/is ours. Remote called. By: #04 'Player 2'
+   (seen 3 times in total)
+[17:26:45.834] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1322 but this PhotonView does not exist! View was/is ours. Remote called. By: #08 'Player 4'
+   (seen 3 times in total)
+[17:26:46.190] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1322 but this PhotonView does not exist! View was/is ours. Remote called. By: #07 'Player 7'
+   (seen 3 times in total)
+[17:26:51.184] [Info   :LateJoinPlus] Timing: game memory 3740 MB of 16253 MB, 146 MB of it from mods and scripts; textures 931 MB of 4075 MB video memory.
+[17:27:44.035] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[17:27:45.217] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[17:27:45.582] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[17:27:45.817] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[17:27:45.837] [Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[17:27:45.857] [Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[17:27:45.867] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[17:27:45.887] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 40 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[17:27:45.888] [Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[17:27:48.523] [Info   :LateJoinPlus] [Slots] Player 2's Item Drone Feather/1 is back in slot 3 (the game restoring slots).
+[17:27:48.542] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Tranq/1 is back in slot 1 (the game restoring slots).
+[17:27:48.542] [Info   :LateJoinPlus] [Slots] Player 2's Item Gun Handgun/2 is back in slot 1 (the game restoring slots).
+[17:27:48.623] [Info   :LateJoinPlus] [Slots] Player 7's Item Gun Shotgun/1 is back in slot 3 (the game restoring slots).
+[17:28:06.763] [Warning:Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 2073 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'You' Maybe GO was destroyed but RPC not cleaned up.
+[17:28:08.865] [Warning:Unity Log] [2026-11-23T09:28:08] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #4 of player 4 not found when trying to remove
+[17:28:09.359] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 2's Item Gun Handgun/2 from slot 1: they're no longer here.
+[17:28:09.359] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 2's Item Drone Feather/1 from slot 3: they're no longer here.
+[17:28:09.359] [Info   :LateJoinPlus] Dropped 2 item(s) left in the inventory of a player who is no longer here where they last stood.
+[17:28:24.852] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 7's Item Gun Tranq/1 from slot 1: they're no longer here.
+[17:28:24.852] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 7's Item Gun Shotgun/1 from slot 3: they're no longer here.
+[17:28:24.852] [Info   :LateJoinPlus] Dropped 2 item(s) left in the inventory of a player who is no longer here where they last stood.
+[17:29:19.702] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
