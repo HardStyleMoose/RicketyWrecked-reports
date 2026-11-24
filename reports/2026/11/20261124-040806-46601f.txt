@@ -1,0 +1,233 @@
+LateJoinPlus bug report 20261124-040806-46601f
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.3"
+installId: "144e4c882b4c44eda9b6c4308d3bcc5d"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Desert"
+players: 6
+language: "en-US"
+test: false
+Sender: 5fa6d903ff08
+Install: 144e4c882b4c44eda9b6c4308d3bcc5d
+
+Mods (9):
+- "FullHealth" | "FullHealth" | "1.9.0"
+- "ReviveHeadInTruckOrExtractionPoint" | "Hypn.ReviveHeadInTruckOrExtractionPoint" | "1.2.0"
+- "MapValueTracker" | "MapValueTracker" | "1.3.1"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "BattleScars" | "Vippy.BattleScars" | "1.2.6"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: AMD Ryzen 7 3750H with Radeon Vega Mobile Gfx  (8 threads)
+Memory: 16191 MB
+Graphics: NVIDIA GeForce GTX 1660 Ti (5966 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 4733 ms
+Most memory this game: 3248 MB
+Most texture memory this game: 382 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (15):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  LevelGenerator.GenerateDone: Tansinator.REPO.MapValueTracker (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObject.DestroyPhysGrabObjectRPC: ricketywrecked.repo.latejoinplus (prefix), Tansinator.REPO.MapValueTracker (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: FullHealth (postfix), ricketywrecked.repo.latejoinplus (postfix), Vippy.BattleScars (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), FullHealth (postfix)
+  PlayerCosmetics.SetupCosmetics: REPOLib (prefix), Vippy.BattleScars (postfix)
+  PlayerCosmetics.SetupCosmeticsLogic: REPOLib (prefix), Vippy.BattleScars (prefix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+  StatsManager.Start: Tansinator.REPO.MapValueTracker (postfix), Vippy.BattleScars (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 54):
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:58 an error from Unity Log
+  05:06:59 an error from Unity Log
+(end of settings)
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeMapValueTracker
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1842 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 2129 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 4733 ms, 5 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1478 MB of 16191 MB, 67 MB of it from mods and scripts; textures 88 MB of 5966 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 21 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 2.6 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-24T04:06:47] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 50' (player #32, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 50's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] Failed to find a PhotonView with ID=604 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+   (seen 53 times in total)
+[Warning: Unity Log] Received RPC "ImpactLightRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[Warning: Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 679 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Warning: Unity Log] Received RPC "StateSetRPC" for viewID 680 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Error  : Unity Log] RPC method 'PocketDimensionSyncStoredTotals(Int32, Int32)' not found on object with PhotonView 701. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'PocketDimensionSyncStoredTotals' messages from 'Player 4' (player #1) (to object 700): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Waited 0.2 s for Player 49's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #32 'Player 50' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #32 'Player 50' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPlayerAddRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "ImpactMediumRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "ImpactHeavyRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 49' (player #58, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning: Unity Log] Received RPC "GrabPlayerRemoveRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "DestroyObjectRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "ImpactEffectRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "DestroyPhysGrabObjectRPC" for viewID 666 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[Warning:LateJoinPlus] Joined mid-level: the host's late-join mod set up 1 level piece(s) that never reached this game (no floors or walls there). Nothing on this side can rebuild them; the next level loads fresh.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] Timing: game memory 2398 MB of 16191 MB, 92 MB of it from mods and scripts; textures 382 MB of 5966 MB video memory.
+[Warning: Unity Log] Received RPC "AddToGrabbersList" for viewID 682 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "HaulGoalSetRPC" for viewID 680 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "RemoveFromGrabbersList" for viewID 682 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 4' Maybe GO was destroyed but RPC not cleaned up.
