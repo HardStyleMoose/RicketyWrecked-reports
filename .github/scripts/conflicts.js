@@ -74,6 +74,14 @@ function parseMods(text) {
   return mods;
 }
 
+function storedMods(text) {
+  const lines = text.replace(/\r\n?/g, '\n').split('\n');
+  const start = lines.findIndex(line => /^Mods \(\d+\):?\s*$/.test(line));
+  if (start === -1) return null;
+  const end = lines.findIndex((line, index) => index > start && !line.startsWith('- '));
+  return parseMods(lines.slice(start + 1, end === -1 ? lines.length : end).join('\n'));
+}
+
 const squash = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
 // Name tokens a mod can be recognised by: "Pet Companion 宠物伙伴" -> petcompanion; guid segments.
@@ -229,6 +237,55 @@ function suspectComment(suspects) {
     '\n\nThe owner will look at it. Try without that mod first.';
 }
 
+const withoutLinks = text => text
+  .replace(/\[([^\]\r\n]+)\]\([^\r\n)]*\)/g, '$1')
+  .replace(/\b(?:[a-z][a-z\d+.-]*:\/\/|www\.)[^\s<>]+/gi, '');
+
+function mailboxMods(matches, modList) {
+  const listed = new Map(modList.map(mod => [mod.guid.toLowerCase(), mod.name]));
+  const entries = [];
+  for (const { mod, rule } of matches) {
+    // Names only from the report's recognised mod list, never from other log lines (player data): a mod missing
+    // there is left out (11-24: a review suggested falling back to log names; the test below keeps this rule).
+    const name = withoutLinks(listed.get(mod.guid.toLowerCase()) || '').replace(/[^a-z0-9 ._()\-]/gi, ' ')
+      .replace(/ +/g, ' ').trim().slice(0, 60).trimEnd();
+    if (!/[a-z0-9]/i.test(name)) continue;
+    const fix = rule ? withoutLinks(rule.fix).replace(/[<>`*_~[\]]/g, '')
+      .replace(/\s+/g, ' ').trim() : '';
+    entries.push([name, fix.length < 600 ? fix : '']);
+    if (entries.length === 5) break;
+  }
+  return entries;
+}
+
+const retryAdvice = 'Try without them and send a new report if it still happens.';
+const defaultFix = 'Remove or update it.';
+
+function mailboxComment(kind, entries) {
+  const names = entries.map(([name]) => name).join(', ');
+  if (kind === 'suspect-mod') {
+    return (names ? 'These mods in your list might be causing it: ' + names + '. ' :
+      'Some mods in your list might be causing it. ') + retryAdvice;
+  }
+  const subject = entries.length === 1 ? "a mod that doesn't work" : "mods that don't work";
+  const intro = 'Your mod list has ' + subject + ' with LateJoinPlus';
+  const fixes = new Set(entries.map(([, fix]) => fix || defaultFix));
+  if (!names) return intro + '. Remove or update the conflicting mods.';
+  if (fixes.size === 1) {
+    const prefix = intro + ': ' + names + '. ';
+    const [fix] = fixes;
+    return prefix + (prefix.length + fix.length < 600 ? fix : defaultFix);
+  }
+  // Reserve room for all five names and divide the remaining space among their instructions.
+  const prefix = intro + ':';
+  const rows = entries.map(([name, fix]) => ['\n' + name + ': ', fix || defaultFix]);
+  const complete = prefix + rows.map(row => row.join('')).join('');
+  if (complete.length < 600) return complete;
+  const overhead = rows.reduce((length, [label]) => length + label.length, prefix.length);
+  const budget = Math.floor((599 - overhead) / rows.length);
+  return prefix + rows.map(([label, fix]) => label + (fix.length <= budget ? fix : defaultFix)).join('');
+}
+
 // ---- Discord ------------------------------------------------------------------------------
 
 const KINDS = {
@@ -319,5 +376,6 @@ if (require.main === module) {
   console.log('\nKnown mods matched: ' + [...totals].map(([n, c]) => n + ' ×' + c).join(', '));
 }
 
-module.exports = { loadRules, parseMods, detect, evidence, labelFor, knownComment, suspectComment, ownErrors, harmlessOnly,
-  listMessage, newMessage, discordSend, discordEdit, versionBroken, findMod, activeRules };
+module.exports = { loadRules, parseMods, storedMods, detect, evidence, labelFor, knownComment, suspectComment,
+  mailboxMods, mailboxComment, ownErrors, harmlessOnly, listMessage, newMessage, discordSend, discordEdit,
+  versionBroken, findMod, activeRules };

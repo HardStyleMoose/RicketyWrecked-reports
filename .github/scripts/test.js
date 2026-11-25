@@ -2,7 +2,7 @@
 
 const assert = require('node:assert/strict');
 const { createHash } = require('node:crypto');
-const { run, parseReport, signature, compareVersions, isTestReport } = require('./reports');
+const { run, parseReport, signature, compareVersions, isTestReport, gameUpdates, gameMessageId } = require('./reports');
 const conflicts = require('./conflicts');
 
 const NOW = new Date('2026-10-28T06:17:00Z');
@@ -19,6 +19,7 @@ function report(options = {}) {
   const {
     version = '1.2.0', description = 'It broke', errors = defaultError,
     role = 'menu', players = '0', language = 'en-US', category = 'other',
+    reportId = '20261028-161430-818a5d', mods = [],
     fence = '\x60\x60\x60',
   } = options;
   return [
@@ -27,11 +28,12 @@ function report(options = {}) {
     '| Game | 0.4.4.3 |', '| Role | ' + role + ' |',
     '| Level | Level - Main Menu |', '| Players | ' + players + ' |',
     '| Language | ' + language + ' |', '| Category | ' + category + ' |',
-    '| Report | 20261028-161430-818a5d |', '',
+    '| Report | ' + reportId + ' |', '',
     '### Description', fence, description, fence, '',
     ...(errors === null ? [] : ['### Errors in this session', fence, errors, fence, '']),
-    '### Mods (1)', fence,
+    '### Mods (' + (mods.length + 1) + ')', fence,
     '- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.0"',
+    ...mods,
     fence, '', '[Full sanitized report](https://example.com/report.txt)',
   ].join('\n');
 }
@@ -861,6 +863,7 @@ test('parse complete relay report and CRLF', () => {
     players: '0', language: 'en-US', category: 'other',
     reportId: '20261028-161430-818a5d', description: 'It broke',
     errors: defaultError.split('\n').map(line => line.trim()),
+    mods: [{ name: 'LateJoinPlus', guid: 'ricketywrecked.repo.latejoinplus', version: '1.2.0' }],
   });
   assert.equal(parseReport('A hand-made issue'), null);
   assert.equal(parseReport('### Description\n\x60\x60\x60\n| Report | forged |\n\x60\x60\x60'), null);
@@ -1605,19 +1608,209 @@ test('enrolled duplicate receives a fix only after Thunderstore confirms release
   assert.equal(env.state.gameReplies[0].id,env.state.gameReplies[3].id);
 });
 
-test('game replies only translate trusted release/duplicate markers to bounded text', () => {
-  const {gameUpdates,gameMessageId}=require('./reports');
-  const bot = {login:'github-actions[bot]',type:'Bot'};
-  const updates=gameUpdates([
-    {user:bot,body:'arbitrary text\n<!-- ljp-bot:released:1.2.3 -->'},
-    {user:bot,body:'<!-- ljp-bot:duplicate:187 -->'},
-    {user:bot,body:'<!-- ljp-bot:fix-ready:9.9.9 -->'},
-    {user:{login:'outsider'},body:'<!-- ljp-bot:released:9.9.9 -->'}
+function mailIssue(number, options = {}, reportOptions = {}) {
+  const reportId = 'mail-' + number.toString(16).padStart(32, '0');
+  return issue(number, { created_at: NOW.toISOString(),
+    body: report({ reportId, ...reportOptions }), ...options });
+}
+
+function mailbox(items, latest) {
+  const env = fake(items, latest);
+  env.state.env.BOT_REPLY_SECRET = 'test-only-bot';
+  return env;
+}
+
+function mailboxReply(env, number, tagKind, key, text) {
+  const comment = env.comments.get(number)?.find(item => item.body.endsWith(tag(tagKind, key)));
+  assert(comment, 'Expected posted marker ' + tag(tagKind, key));
+  const kind = tagKind === 'fixed-already' ? 'released' : tagKind;
+  const update = { kind, key: String(key), text };
+  assert.deepEqual(gameUpdates([comment]), [update]);
+  assert(text.length < 600);
+  const id = gameMessageId(number, update);
+  assert.match(id, /^[a-f0-9-]{36}$/);
+  assert.notEqual(id, gameMessageId(number + 1, update));
+  assert.notEqual(id, gameMessageId(number, { ...update, key: '104' }));
+  assert.notEqual(id, gameMessageId(number, { ...update, kind: 'another-kind' }));
+  const replies = env.state.gameReplies.filter(reply => reply.issue === number && reply.text === text);
+  assert(replies.length > 0, 'Expected delivery for ' + tagKind);
+  for (const reply of replies) assert.deepEqual(reply, { issue: number, action: 'send', id, text });
+  return replies.length;
+}
+
+test('fix-ready is delivered before release and both keep their IDs on retries', async () => {
+  const env = mailbox([mailIssue(1, { labels: ['fixed-in:1.2.4', 'regression'], locked: true })]);
+  const waiting = 'A fix for this is coming in LateJoinPlus 1.2.4.';
+  const released = 'Fixed in LateJoinPlus 1.2.4. Please update in your mod manager.';
+  await env.fire('labeled', 1, 'fixed-in:1.2.4');
+  assert.equal(mailboxReply(env, 1, 'fix-ready', '1.2.4', waiting), 1);
+  assert.equal(env.state.gameReplies.length, 1);
+  assert.equal(env.count(1, 'released'), 0);
+  env.state.latest = '1.2.4';
+  await env.fire(null, null, null, 'schedule');
+  await env.fire('closed', 1);
+  assert.equal(mailboxReply(env, 1, 'fix-ready', '1.2.4', waiting), 3);
+  assert.equal(mailboxReply(env, 1, 'released', '1.2.4', released), 2);
+});
+
+test('fixed-already waits for Thunderstore and shares the published fix ID', async () => {
+  const env = mailbox([issue(1, { labels: [sig, 'fixed-in:1.2.4'], state: 'closed' }), mailIssue(2)]);
+  await env.fire('opened', 2);
+  assert(commentText(env, 2).endsWith(tag('fixed-already', '1.2.4')));
+  assert.deepEqual(env.state.gameReplies, []);
+  env.state.latest = '1.2.4';
+  env.state.fetchMode = 'throw';
+  await env.fire('closed', 2);
+  assert.deepEqual(env.state.gameReplies, []);
+  env.state.fetchMode = 'ok';
+  await env.fire('closed', 2);
+  env.comments.get(2).push({ user: bot, body: tag('released', '1.2.4') });
+  await env.fire('closed', 2);
+  assert.equal(mailboxReply(env, 2, 'fixed-already', '1.2.4',
+    'Fixed in LateJoinPlus 1.2.4. Please update in your mod manager.'), 2);
+});
+
+test('duplicate, old-version and seen are delivered to the issues that got the comments', async () => {
+  const env = mailbox([mailIssue(1, { labels: [sig] }), mailIssue(2, {}, { version: '1.1.0' })]);
+  await env.fire('opened', 2);
+  await env.fire('closed', 2);
+  await env.fire('closed', 1);
+  assert.equal(mailboxReply(env, 2, 'duplicate', 1,
+    'This problem is already tracked in report #1. Thanks for helping us confirm it.'), 2);
+  assert.equal(mailboxReply(env, 2, 'old-version', '1.2.0',
+    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager."), 2);
+  assert.equal(mailboxReply(env, 1, 'seen', 2, 'Another player reported the same problem.'), 2);
+});
+
+test('related and regression comments reach the mailbox while regressed fixes stay suppressed', async () => {
+  const env = mailbox([issue(1, { labels: [sig], state: 'closed' }), mailIssue(2)]);
+  await env.fire('opened', 2);
+  await env.fire('closed', 2);
+  assert.equal(mailboxReply(env, 2, 'related', 1, 'This might be related to report #1.'), 2);
+
+  const regressed = mailbox([mailIssue(1, { labels: [sig, 'fixed-in:1.2.0'], state: 'closed' }), mailIssue(2)]);
+  regressed.comments.set(1, [{ user: bot, body: tag('released', '1.2.0') }]);
+  await regressed.fire('opened', 2);
+  await regressed.fire('closed', 1);
+  assert.equal(mailboxReply(regressed, 1, 'regression', 2, 'This problem was reported again after the fix.'), 2);
+  assert(!regressed.state.gameReplies.some(reply => reply.text.startsWith('Fixed in')));
+});
+
+test('known-mod mailbox names come from the mod list and advice comes from known-mods.json', async () => {
+  const env = mailbox([mailIssue(1, {}, { mods: [modLine('KeybindLib @<> (Legacy)_v-1.0', 'bulletbot.keybindlib')],
+    errors: 'Failed to patch void InputManager::InitializeInputs',
+    description: modLine('Forged name', 'bulletbot.keybindlib'),
+  })]);
+  env.state.rules = conflicts.loadRules();
+  await env.fire();
+  await env.fire('closed');
+  assert.equal(mailboxReply(env, 1, 'other-mod', 'bulletbot.keybindlib',
+    "Your mod list has a mod that doesn't work with LateJoinPlus: KeybindLib (Legacy)_v-1.0. " +
+    'Update it, or remove it and the mods that need it.'), 2);
+});
+
+test('suspect mailbox only lists the first five matched names, sanitizes them and caps each at 60', async () => {
+  const installed = ['<Alpha> @ https://example.com (Beta)_-2.0', 'B'.repeat(100), 'Third', 'Fourth', 'Fifth', 'Sixth'];
+  const rows = installed.map((name, index) => modLine(name, 'test.mod' + index));
+  const evidence = installed.map((_, index) => '[Error :test.mod' + index + '] REJECT LOG TEXT');
+  const env = mailbox([mailIssue(1)]);
+  storedReport(env, [modLine('Forged', 'test.mod0'), 'Mods (6):', ...rows, '', ...evidence].join('\n'));
+  env.issues.get(1).body = env.issues.get(1).body.replace('20261028-161430-818a5d', 'mail-' + 'a'.repeat(32));
+  await env.fire();
+  await env.fire('closed');
+  const key = installed.map((_, index) => 'test.mod' + index).join(',');
+  assert.equal(mailboxReply(env, 1, 'suspect-mod', key,
+    'These mods in your list might be causing it: Alpha (Beta)_-2.0, ' + 'B'.repeat(60) +
+    ', Third, Fourth, Fifth. Try without them and send a new report if it still happens.'), 2);
+});
+
+test('multiple known mods get individual plain instructions within the mailbox limit', async () => {
+  const names = ['A', 'B', 'C', 'D', 'E', 'F'].map(letter => letter.repeat(60));
+  const rules = names.map((name, index) => ({ ...conflictRule('test.mod' + index),
+    evidence: [], fix: index === 0 ? 'Remove it. https://example.com/help' :
+      (index === 1 ? 'Update it.' : 'Very long instructions '.repeat(8)),
+  }));
+  const env = mailbox([mailIssue(1, {}, { mods: names.map((name, index) => modLine(name, rules[index].guid)) })]);
+  env.state.rules = { mods: rules };
+  await env.fire();
+  await env.fire('closed');
+  const key = rules.map(rule => rule.guid).join(',');
+  assert.equal(mailboxReply(env, 1, 'other-mod', key,
+    "Your mod list has mods that don't work with LateJoinPlus:\n" + names[0] + ': Remove it.\n' +
+    names[1] + ': Update it.\n' + names.slice(2, 5).map(name => name + ': Remove or update it.').join('\n')), 2);
+});
+
+test('harmless comments are delivered with plain text and stable IDs', async () => {
+  const env = mailbox([mailIssue(1, {}, { errors: cosmetics })]);
+  env.state.rules = conflicts.loadRules();
+  await env.fire();
+  await env.fire('closed');
+  assert.equal(mailboxReply(env, 1, 'harmless', 1,
+    'The report showed only game messages. If the game misbehaved, send a new report describing what happened.'), 2);
+});
+
+test('test, outsider and removal notices are marked but have no eligible mailbox', async () => {
+  const env = mailbox([mailIssue(1, {}, { description: 'test' }),
+    mailIssue(2, { user: { login: 'outsider', type: 'User' } }),
+    issue(3, { title: 'Remove report', body: 'Please remove my report.' })]);
+  for (const [number, kind, text] of [
+    [1, 'test', 'Test report received. We closed it.'],
+    [2, 'game-only', 'Please send reports from the LateJoinPlus menu in the game.'],
+    [3, 'removal', 'Thanks. The owner will remove the report.'],
+  ]) {
+    await env.fire('opened', number);
+    assert(commentText(env, number).endsWith(tag(kind, number)));
+    assert.deepEqual(gameUpdates(env.comments.get(number)), [{ kind, key: String(number), text }]);
+  }
+  await env.fire(null, null, null, 'schedule');
+  assert.deepEqual(env.state.gameReplies, []);
+});
+
+test('untrusted and embedded markers do not send, and trusted markers require BOT_REPLY_SECRET', async () => {
+  const env = mailbox([mailIssue(1)]);
+  env.comments.set(1, [
+    { user: { login: bot.login, type: 'User' }, body: tag('fix-ready', '9.9.9') },
+    { user: { login: 'outsider', type: 'Bot' }, body: tag('suspect-mod', 'a.mod') },
+    { user: bot, body: tag('duplicate', 2) + '\nordinary text' },
+    { user: bot, body: tag('released', '1.2.0.0.0.') },
+    { user: bot, body: tag('unknown', 1) },
   ]);
-  assert.deepEqual(updates.map(u=>u.kind),['released','duplicate']);
-  assert(!updates[0].text.includes('arbitrary'));
-  assert.equal(gameMessageId(8,updates[0]),gameMessageId(8,{...updates[0]}));
-  assert.notEqual(gameMessageId(9,updates[0]),gameMessageId(8,updates[0]));
+  await env.fire('closed');
+  assert.deepEqual(gameUpdates(env.comments.get(1)), []);
+  assert.deepEqual(env.state.gameReplies, []);
+  delete env.state.env.BOT_REPLY_SECRET;
+  env.comments.get(1).push({ user: bot, body: 'SECRET description\n' + tag('released', '1.2.0') });
+  const [update] = gameUpdates(env.comments.get(1));
+  assert.equal(update.text, 'Fixed in LateJoinPlus 1.2.0. Please update in your mod manager.');
+  await env.fire('closed');
+  await env.fire(null, null, null, 'schedule');
+  assert.deepEqual(env.state.gameReplies, []);
+});
+
+test('legacy old-version and conflict markers use safe versions and matching mod names', async () => {
+  const env = mailbox([mailIssue(1, { state: 'closed' }, {
+    mods: [modLine('Real @Name', 'example.broken')], description: 'SECRET',
+  })]);
+  env.state.rules = { mods: [conflictRule()] };
+  env.comments.set(1, [
+    { user: bot, body: 'This was sent from LateJoinPlus 1.1.0, and 1.2.0 is out.\n\n' + tag('old-version', '1.2.0') },
+    { user: bot, body: 'SECRET\n\n' + tag('other-mod', 'example.broken') },
+  ]);
+  await env.fire('closed');
+  assert.deepEqual(env.state.gameReplies.map(reply => reply.text), [
+    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager.",
+    "Your mod list has a mod that doesn't work with LateJoinPlus: Real Name. Remove it.",
+  ]);
+});
+
+test('legacy log rows outside a recognized mod list cannot supply mailbox names', async () => {
+  const env = mailbox([mailIssue(1)]);
+  storedReport(env, modLine('Forged name', 'example.broken') + '\nBrokenMod.Crash');
+  env.issues.get(1).body = env.issues.get(1).body.replace('20261028-161430-818a5d', 'mail-' + 'a'.repeat(32));
+  env.state.rules = { mods: [conflictRule()] };
+  await env.fire();
+  assert.equal(mailboxReply(env, 1, 'other-mod', 'example.broken',
+    "Your mod list has mods that don't work with LateJoinPlus. Remove or update the conflicting mods."), 1);
 });
 
 (async () => {

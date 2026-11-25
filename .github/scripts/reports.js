@@ -31,8 +31,8 @@ const COLORS = {
 const MOD = /^mod:/;
 
 function parseReport(body) {
-  const fields = {};
-  const sections = {};
+  const fields = Object.create(null);
+  const sections = Object.create(null);
   let section = '';
   let fence = 0;
   let header = true;
@@ -67,6 +67,7 @@ function parseReport(body) {
   const errors = (sections['Errors in this session'] || [])
     .map(line => line.trim())
     .filter(line => line && !/^(?:(?:there (?:were|are) )?none[.!]?|(?:there (?:were|are) )?no errors\b.*|No matching error lines\.)$/i.test(line));
+  const [, modLines = []] = Object.entries(sections).find(([name]) => /^Mods(?: \(\d+\))?$/.test(name)) || [];
   return {
     version: (fields.Mod || '').replace(/^LateJoinPlus\s+/i, '').trim(),
     game: fields.Game || '',
@@ -78,6 +79,7 @@ function parseReport(body) {
     reportId: fields.Report || '',
     description: (sections["Player's description"] || sections.Description || []).join('\n').trim(),
     errors,
+    mods: conflicts.parseMods(modLines.join('\n')),
   };
 }
 
@@ -142,18 +144,70 @@ const excluded = issue => ['test', 'dashboard', 'manual', 'removal-request']
   .some(name => has(issue, name));
 const marker = (kind, key) => '<!-- ljp-bot:' + kind + ':' + key + ' -->';
 
+const versionReplies = {
+  'fix-ready': version => 'A fix for this is coming in LateJoinPlus ' + version + '.',
+  released: version => 'Fixed in LateJoinPlus ' + version + '. Please update in your mod manager.',
+};
+const issueReplies = {
+  duplicate: issue => 'This problem is already tracked in report #' + issue + '. Thanks for helping us confirm it.',
+  related: issue => 'This might be related to report #' + issue + '.',
+  seen: () => 'Another player reported the same problem.',
+  regression: () => 'This problem was reported again after the fix.',
+  harmless: () => 'The report showed only game messages. If the game misbehaved, send a new report describing what happened.',
+  removal: () => 'Thanks. The owner will remove the report.',
+  test: () => 'Test report received. We closed it.',
+  'game-only': () => 'Please send reports from the LateJoinPlus menu in the game.',
+};
+
+function conflictKey(matches) {
+  const guids = matches.map(({ mod }) => mod.guid.toLowerCase()).sort();
+  const key = guids.join(',');
+  return guids.every(guid => /^[a-z0-9._-]+$/.test(guid)) ? key :
+    createHash('sha256').update(JSON.stringify(guids)).digest('hex');
+}
+
+function conflictDetails(details, key, { mods = [], rules = [] }) {
+  if (details) {
+    const entries = storedState(details, 'mailbox');
+    return entries.length <= 5 && entries.every(entry => Array.isArray(entry) && entry.length === 2 &&
+      typeof entry[0] === 'string' && /^[a-z0-9 ._()\-]{1,60}$/i.test(entry[0]) &&
+      typeof entry[1] === 'string') ? entries : [];
+  }
+  // Older markers only stored GUIDs. Recover names from the issue's mod list when present.
+  const guids = new Set(key.split(','));
+  return conflicts.mailboxMods(mods.filter(mod => guids.has(mod.guid.toLowerCase())).map(mod => ({
+    mod, rule: rules.find(rule => rule.guid.toLowerCase() === mod.guid.toLowerCase()),
+  })), mods);
+}
+
 // Only structured, trusted triage markers select player-facing text.
-function gameUpdates(items) {
+function gameUpdates(items, legacy = {}) {
   const result = [];
   for (const comment of items) {
     if (!trusted(comment)) continue;
-    const match = (comment.body || '').match(/^<!-- ljp-bot:(duplicate|released|fixed-already):([\d.]+) -->$/m);
+    const body = (comment.body || '').trimEnd();
+    const lines = body.split(/\r?\n/);
+    const match = lines.at(-1).match(/^<!-- ljp-bot:([a-z-]+):([a-z0-9.,_-]+) -->$/);
     if (!match) continue;
-    const [,kind,key] = match;
-    if (kind === 'duplicate' && /^[1-9]\d{0,9}$/.test(key))
-      result.push({kind,key,text:'This problem is already tracked in report #' + key + '. Thanks for helping us confirm it.'});
-    else if (kind !== 'duplicate' && validVersion(key))
-      result.push({kind:'released',key,text:'Fixed in LateJoinPlus ' + key + '. Please update in your mod manager.'});
+    const [, tag, key] = match;
+    const details = lines.at(-2);
+    // Both comments describe the same published fix and share the original relay ID.
+    const kind = tag === 'fixed-already' ? 'released' : tag;
+    let text;
+    if (Object.hasOwn(versionReplies, kind) && validVersion(key)) {
+      text = versionReplies[kind](key);
+    } else if (Object.hasOwn(issueReplies, kind) && /^[1-9]\d{0,9}$/.test(key)) {
+      text = issueReplies[kind](key);
+    } else if (kind === 'old-version' && validVersion(key)) {
+      const [installed] = storedState(details, 'mailbox');
+      const version = installed ?? lines[0].match(/^This was sent from LateJoinPlus ([\d.]+), and /)?.[1];
+      const display = validVersion(version) && compareVersions(version, key) < 0 ? ' (' + version + ')' : '';
+      text = "You're on an older LateJoinPlus" + display + '. Please update in your mod manager.';
+    } else if (kind === 'other-mod' || kind === 'suspect-mod') {
+      text = conflicts.mailboxComment(kind, conflictDetails(
+        details?.startsWith('<!-- ljp-bot:mailbox:') ? details : null, key, legacy));
+    }
+    if (text && text.length < 600) result.push({ kind, key, text });
   }
   return result;
 }
@@ -300,6 +354,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
   const repo = context.repo;
   const commentCache = new Map();
   const logCache = new Map();
+  const notifiedIssues = new Map();
   const webhook = String(env.DISCORD_CONFLICTS_WEBHOOK || '').trim();
   if (!rules) {
     try {
@@ -447,11 +502,12 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
   }
 
   async function sendGameUpdates(issue) {
-    if (!env.BOT_REPLY_SECRET || issue.user?.login !== repo.owner || has(issue,'test') ||
-        !/^mail-[a-f0-9]{32}$/.test(parseReport(issue.body)?.reportId || '') ||
-        !issue.created_at || now - new Date(issue.created_at) > 30*86400000) return;
-    const own = gameUpdates(await comments(issue));
-    const updates = own.filter(item => item.kind === 'duplicate' || !has(issue, 'regression'));
+    if (!env.BOT_REPLY_SECRET || issue.user?.login !== repo.owner || has(issue, 'test') ||
+        !issue.created_at || now - new Date(issue.created_at) > 30 * 86400000) return;
+    const report = parseReport(issue.body);
+    if (!/^mail-[a-f0-9]{32}$/.test(report?.reportId || '') || isTestReport(report)) return;
+    const own = gameUpdates(await comments(issue), { mods: report.mods, rules: rules.mods });
+    const updates = own.filter(item => item.kind !== 'released' || !has(issue, 'regression'));
     for (const related of own.filter(item => item.kind === 'duplicate')) {
       const {data: original} = await api.get({...repo, issue_number: Number(related.key)});
       if (original?.state !== 'closed' || has(original, 'regression')) continue;
@@ -465,7 +521,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
         const current = await latest();
         if (!current || compareVersions(current, update.key) < 0) continue;
       }
-      const id = gameMessageId(issue.number,update);
+      const id = gameMessageId(issue.number, update);
       if (seen.has(id)) continue;
       seen.add(id);
       try {
@@ -481,11 +537,12 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     }
   }
 
-  async function once(issue, kind, key, message) {
+  async function once(issue, kind, key, message, details = null) {
+    notifiedIssues.set(issue.number, issue);
     if (await marked(issue, kind, key)) return;
     const response = await api.createComment({
       ...repo, issue_number: issue.number,
-      body: message + '\n\n' + marker(kind, key),
+      body: message + (details ? stateLine('mailbox', details) + '\n' : '\n\n') + marker(kind, key),
     });
     (await comments(issue)).push(response.data);
   }
@@ -524,10 +581,14 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     // Queued opened events may arrive after closing; never re-triage a closed report.
     if (issue.state !== 'open') return has(issue, 'other-mod') || has(issue, 'harmless');
     const log = await storedLog(issue);
-    const mods = conflicts.parseMods(log || issue.body);
+    const report = parseReport(issue.body);
+    const storedList = log ? conflicts.storedMods(log) : null;
+    const modList = report?.mods || [];
+    // An empty stored list falls back to the log's own mod lines (review 11-24: [] is truthy and skipped it).
+    const mods = log ? (storedList?.length ? storedList : conflicts.parseMods(log)) : modList;
     if (newReport && (log || !String(issue.body).includes('](reports/') &&
         !String(issue.body).includes('/blob/main/reports/'))) {
-      for (const { rule } of possibleFixes(log || issue.body, mods)) {
+      for (const { rule } of possibleFixes(log || issue.body, conflicts.parseMods(log || issue.body))) {
         await add(issue, conflicts.labelFor(rule.guid, 'mod-fixed:'));
       }
     }
@@ -554,8 +615,9 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       // Our own mods logging an error too (not the relay's "First error this session" line) means
       // the other mod may not be the whole story: the owner looks, the report stays open.
       const ours = conflicts.ownErrors(log || issue.body);
-      await once(issue, 'other-mod', known.map(k => k.mod.guid.toLowerCase()).sort().join(','),
-        conflicts.knownComment(known) + (ours ? '\n\nLateJoinPlus or Fixes+ logged errors in this session as well, so the owner will still look at it.' : ''));
+      await once(issue, 'other-mod', conflictKey(known),
+        conflicts.knownComment(known) + (ours ? '\n\nLateJoinPlus or Fixes+ logged errors in this session as well, so the owner will still look at it.' : ''),
+        conflicts.mailboxMods(known, storedList || modList));
       if (!ours) await close(issue, 'not_planned');
       for (const { rule, mod } of known) {
         if (fresh.includes(mod.guid.toLowerCase())) {
@@ -567,10 +629,10 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
     if (suspects.length && issue.state === 'open') {
       for (const { mod } of suspects) await add(issue, conflicts.labelFor(mod.guid));
       await add(issue, 'suspect-mod');
-      await once(issue, 'suspect-mod', suspects.map(s => s.mod.guid.toLowerCase()).sort().join(','),
-        conflicts.suspectComment(suspects));
+      await once(issue, 'suspect-mod', conflictKey(suspects),
+        conflicts.suspectComment(suspects), conflicts.mailboxMods(suspects, storedList || modList));
     }
-    const harmless = conflicts.harmlessOnly(parseReport(issue.body)?.errors, rules);
+    const harmless = conflicts.harmlessOnly(report?.errors, rules);
     if (!suspects.length && !has(issue, 'suspect-mod') && harmless &&
         !conflicts.ownErrors(log) && !conflicts.ownErrors(issue.body)) {
       await add(issue, 'harmless');
@@ -646,7 +708,8 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       await add(issue, 'old-version');
       await once(issue, 'old-version', current,
         'This was sent from LateJoinPlus ' + report.version + ', and ' + current +
-        ' is out. Please update in r2modman; if it still happens, send a new report from the game.');
+        ' is out. Please update in r2modman; if it still happens, send a new report from the game.',
+        [report.version]);
     }
     if (!sig) return;
 
@@ -968,6 +1031,9 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
           // Protect every triage exit, including partial failures and retries.
           if (outsider || parseReport(issue.body)) await lock(issue);
           if (!outsider) await sendGameUpdates(issue);
+          for (const notified of notifiedIssues.values()) {
+            if (notified.number !== issue.number) await sendGameUpdates(notified);
+          }
         }
       }
     } else if (['schedule', 'workflow_dispatch'].includes(context.eventName)) {
