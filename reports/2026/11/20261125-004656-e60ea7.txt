@@ -1,0 +1,934 @@
+LateJoinPlus bug report 20261125-004656-e60ea7
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.3"
+installId: "a61f0ccf9f1e4745a38e2aa940e7e46b"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Shop Harbor"
+players: 6
+language: "en-US"
+test: false
+Sender: 915f11722d90
+Install: a61f0ccf9f1e4745a38e2aa940e7e46b
+
+Mods (5):
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "HaulerUnlimited" | "com.olyvion.hauler_unlimited" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = true
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 7
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 13th Gen Intel(R) Core(TM) i7-13620H (16 threads)
+Memory: 16087 MB
+Graphics: NVIDIA GeForce RTX 4060 Laptop GPU (7956 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 5314 ms
+Most memory this game: 4362 MB
+Most texture memory this game: 477 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (6):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+Timeline (last 33):
+  01:44:15 Level 'Level - Manor'
+  02:00:36 an error from Unity Log
+  02:08:12 Level change waited 8 s for everyone's results screen; the last to finish: Player 190 (0 s after the others).
+  02:08:13 Level 'Level - Wizard'
+  02:09:32 Level built in 78 s. Slowest step: valuables, 21,7 s from the first player to the last, Player 190.
+  02:12:16 an error from Unity Log
+  02:12:18 an error from Unity Log
+  02:12:59 Level 'Level - Shop Harbor'
+  02:13:16 Level built in 16 s. Slowest step: rooms, 6 s from the first player to the last, Player 190.
+  02:14:07 Level built in 36 s. Slowest step: rooms, 12,1 s from the first player to the last, Player 190.
+  02:23:20 an error from Unity Log
+  02:23:21 an error from Unity Log
+  02:27:07 Level 'Level - Arctic'
+  02:27:34 Level built in 26 s. Slowest step: valuables, 11,6 s from the first player to the last, Player 190.
+  02:33:15 Level building has made no progress for 45 s on step PlayerSpawn, waiting for Player 190 (a slow PC, or their game has stopped answering). Where ever…
+  02:33:16 Level building moved again. Where everyone is: Player 190 71% (spawning, last message 0 s ago), Player 112 85% (enemies, last message 0 s ago), Playe…
+  02:33:52 an error from Unity Log
+  02:33:54 Level built in 189 s. Slowest step: props, 56,4 s from the first player to the last, Player 190.
+  02:33:56 an error from Unity Log
+  02:41:51 an error from Unity Log
+  02:45:29 an error from Unity Log
+  02:45:29 an error from Unity Log
+  02:45:30 Level 'Level - Wizard'
+  02:49:38 Level 'Level - Lobby Menu'
+  03:00:54 Level 'Level - Manor'
+  03:17:29 Level 'Level - Shop Suburb'
+  03:19:27 an error from Unity Log
+  03:20:19 an error from Unity Log
+  03:28:25 an error from Unity Log
+  03:39:53 an error from Unity Log
+  03:45:27 Level 'Level - Desert'
+  03:46:41 Level building has made no progress for 45 s on step Valuable, waiting for Player 190 (a slow PC, or their game has stopped answering). Where everyon…
+  03:46:41 Level building moved again. Where everyone is: Player 190 66% (props, last message 0 s ago), Player 112 83% (spawning, last message 0 s ago), Player …
+(end of settings)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1829 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1008 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2461 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1531 MB of 16087 MB, 59 MB of it from mods and scripts; textures 88 MB of 7956 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 12 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 2,0 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-24T22:40:00] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] TR +18'; as typed: 'TR +18'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 112' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run started at once (Shift-click).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 32 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 2206 MB of 16087 MB, 69 MB of it from mods and scripts; textures 269 MB of 7956 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 112' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 159 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 94 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 94' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 94 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 94 finished loading in 10,6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 94's map (21 messages).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 91 times in total)
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 94' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 159 bytes each).
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: off.
+[Info   :LateJoinPlus] [Death drop] Player 94 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 94 when they died: Sauna door #26 2,5 m away, floor 0,05 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 94 when they died: Sauna door #26 2,5 m away, floor 0,05 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 94 when they died: Sauna door #26 2,5 m away, floor 0,05 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Warning: Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_25_01_39_57
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Manor': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 10,6 s, slowest 10,6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (3 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 48 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 2779 MB of 16087 MB, 75 MB of it from mods and scripts; textures 412 MB of 7956 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 94 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 94 when they died: Valuable Arctic Fan(Clone) #116 3,4 m away, floor 0,07 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 94 when they died: Valuable Arctic Fan(Clone) #116 2,9 m away, floor 0,09 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 94 when they died: Valuable Arctic Fan(Clone) #116 4,0 m away, floor 0,24 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 74 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 35 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 3 player(s).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: off.
+[Info   :LateJoinPlus] [Death drop] Player 94 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 112 when they died: Rigidbody #162 1,7 m away, floor 0,62 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 112 when they died: Rigidbody #162 1,7 m away, floor 0,62 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 112 when they died: Rigidbody #162 1,7 m away, floor 0,62 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 41 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1081 but this PhotonView does not exist! View was/is ours. Remote called. By: #03 'Player 94'
+   (seen 3 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1081 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 112'
+   (seen 36 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 94' peaked at 57 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 220 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 94' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 5 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 220 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 94' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 94' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 190 connected (level Level - Wizard). Catching them up.
+[Info   :LateJoinPlus] Player 190 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 190 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 190' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 190 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 190 for their moderator key: moderation protocol not confirmed (1/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 190 (LateJoinPlus) whether they hold one of our moderator keys.
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Admin] Player 190's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 190 holds no moderator key of ours.
+[Info   :LateJoinPlus] [Moderators] Player 190 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] Late joiner Player 190 finished loading in 16,2 s (has LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 190' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 15 messages (about 148 bytes each).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 190 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 190 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: off.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 190 (0 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 1 (1 with LateJoinPlus), loaded 1 (avg 16,2 s, slowest 16,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 69 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 78 s. Slowest step: valuables, 21,7 s from the first player to the last, Player 190.
+[Warning:LateJoinPlus] Your game isn't the owner of its Steam lobby any more (owner , 0 member(s)). Players can't invite friends like this; making a new one in 10 s if it doesn't recover.
+[Warning:LateJoinPlus] Making a new Steam lobby so everyone can invite friends: your game lost its Steam lobby.
+[Info   :LateJoinPlus] New Steam lobby ready (109775241242534272); sent it to 3 player(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 150 connected (shop). Catching them up.
+[Info   :LateJoinPlus] Player 150 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 150 (LateJoinPlus) whether they hold one of our moderator keys.
+[Error  : Unity Log] RPC method 'UpdateAllDecorationsCompressed(Byte[], String[], String[], Byte[])' not found on object with PhotonView 5002. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 150' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Error  : Unity Log] RPC method 'SetupCosmeticsModdedRPC(String)' not found on object with PhotonView 5001. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] [Admin] Player 150's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 150 holds no moderator key of ours.
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 150' (player #5) (to object 1138): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 150 (has LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 150 finished loading in 6,1 s (has LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'UpdateAllDecorationsCompressed' messages from 'Player 150' (player #5) (to object 5002): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 150' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 168 bytes each).
+[Info   :R.E.P.O Fixes+] Pupil size messages: held back 3 in the last minute (at most 10 a second go out).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (5 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 0 loading, 5 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Harbor': OK | joins 1 (1 with LateJoinPlus), loaded 1 (avg 6,1 s, slowest 6,1 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 4 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 94' peaked at 43 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 150's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 16 s. Slowest step: rooms, 6 s from the first player to the last, Player 190.
+[Info   :LateJoinPlus] [Slots] Player 94 put Item Grenade Explosive/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (5 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 5 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 150' peaked at 39 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 150's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-24T23:14:01] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #2 of player 5 not found when trying to remove
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Run] Level built in 36 s. Slowest step: rooms, 12,1 s from the first player to the last, Player 190.
+[Info   :LateJoinPlus] [Slots] Player 94's Item Grenade Explosive/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 112 put Item Health Pack Medium/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] 2 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] Late joiner Player 81 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 81' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 7 level piece(s) once to Player 81 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 81 finished loading in 8,7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 81's map (21 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 81' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 155 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 112's Item Health Pack Medium/1 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Health Pack Medium(Clone) #498 1,0 m away, floor 1,75 m | state Idle owner 2073 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Health Pack Medium(Clone) #498 1,5 m away, floor 1,84 m | state Idle owner 2073 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Health Pack Medium(Clone) #498 4,9 m away, floor 0,05 m | state Idle owner 2073 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: off.
+[Info   :LateJoinPlus] [Death drop] Player 190 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Slots] Player 94 put Item Health Pack Medium/1 in slot 2.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: off.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 81 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 94 took Item Health Pack Medium/1 out of slot 2 (1.9 m away, 1.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 94 took Item Grenade Explosive/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 116 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 116' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 75 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 75' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning:LateJoinPlus] Your lobby is full: 7 players, and LJ+ menu > Max Players is 7. Full lobbies don't show in the server list and refuse new players. Raise Max Players (up to 20) to let more in.
+[Info   :LateJoinPlus] Sent the setup of 7 level piece(s) once to Player 116 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 116' (player #7) (to object 1188): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Sent the setup of 7 level piece(s) once to Player 75 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 75' (player #8) (to object 8001): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Late joiner Player 116 finished loading in 8,8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 75 finished loading in 7,8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 8 explored room(s) on Player 116's map (56 messages).
+[Info   :LateJoinPlus] Uncovered 8 explored room(s) on Player 75's map (56 messages).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 116' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 75' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 37 messages (about 147 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 5 player(s).
+[Info   :LateJoinPlus] [Death drop] Player 116 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Golden Wheel ×1.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 7 player(s) to the truck.
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host power You: not done - Not now: wait until the level has loaded.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 2, Stamina 3, Speed 3, Strength 1, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 8.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 8.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 75 (#8): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 75 (#8): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 75 (#8): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 75 (#8): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 75 (#8): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 81 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "LandRPC" for viewID 4024 but this PhotonView does not exist! Was remote PV. Owner called. By: #04 'Player 190' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: not done - Not now: wait until the level has loaded.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 8,4 s, slowest 8,8 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (19 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 2 (slowest 23 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 116' peaked at 80 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 116's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 81's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 75's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 26 s. Slowest step: valuables, 11,6 s from the first player to the last, Player 190.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 8 -> 0.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 0.
+[Info   :LateJoinPlus] [Death drop] Player 75 died; the host shows them holding 0 item(s).
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 81' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 116' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 112' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 94' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #08 'Player 75' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SwingHitRPC" for viewID 613 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 190' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 94 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "EyeMaterialOverrideRPC" for viewID 3073 but this PhotonView does not exist! Was remote PV. Owner called. By: #03 'Player 94' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 81's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 116's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 75's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 94' peaked at 63 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 624 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 116' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 624 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 116' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Admin] You's ExtraJump went from 0 to 1: SharedUpgradesPlus shared a teammate's purchase.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 625 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 112' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 625 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 112' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Slots] Player 94 put Item Grenade Duct Taped/1 in slot 1.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 628 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 81' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 628 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 81' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 81' peaked at 49 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 81's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 116's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 94's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 75's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step PlayerSpawn, waiting for Player 190 (a slow PC, or their game has stopped answering). Where everyone is: Player 190 71% (spawning, last message 0 s ago), Player 112 85% (enemies, last message 0 s ago), Player 94 85% (enemies, last message 0 s ago), Player 116 85% (enemies, last message 0 s ago), Player 75 85% (enemies, last message 0 s ago), You 85% (enemies).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 190 71% (spawning, last message 0 s ago), Player 112 85% (enemies, last message 0 s ago), Player 116 85% (enemies, last message 0 s ago), Player 75 85% (enemies, last message 0 s ago), You 85% (enemies).
+[Error  : Unity Log] [2026-11-24T23:33:52] [Error] [Recorder] [Voice(Clone)] [PV] MicWrapper: Microphone is no longer recording
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Run] Level built in 189 s. Slowest step: props, 56,4 s from the first player to the last, Player 190.
+[Info   :LateJoinPlus] Late joiner Player 112 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 112' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 112 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 112 finished loading in 11,2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 112's map (14 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 112' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 37 messages (about 144 bytes each).
+[Info   :LateJoinPlus] [Slots] You put Item Grenade Duct Taped/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Grenade Duct Taped/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 116 took Item Grenade Duct Taped/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 116 took Item Grenade Duct Taped/1 out of slot 2 (1.4 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 116 took Item Grenade Duct Taped/1 out of slot 1 (1.2 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 63 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 63' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 63 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 63 finished loading in 7,6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 63's map (49 messages).
+[Info   :LateJoinPlus] [Death drop] Player 116 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 116: done - Player 116 was killed.
+[Info   :LateJoinPlus] [Slots] Player 116's Item Grenade Duct Taped/1 was forced out of slot 1, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Grenade Duct Taped(Clone) #763 0,4 m away, floor 0,03 m | state Idle owner 7024 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Admin] Host revive Player 116: done - Revived Player 116.
+[Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Grenade Duct Taped(Clone) #763 1,3 m away, floor 0,38 m | state Idle owner 7024 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Admin] Host heal Player 116: done - Healed Player 116.
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Grenade Duct Taped(Clone) #763 4,2 m away, floor 0,20 m | state Idle owner 7024 | held by Player 116 | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin -0,01 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 63' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 36 messages (about 139 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 116 took Item Grenade Duct Taped/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 116 put Item Grenade Duct Taped/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 173 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 173' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 173 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 173 finished loading in 8,2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 173's map (49 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #11' (player #11, Steam ID unknown), first 30 s: busiest second 4 KB in 27 messages (about 155 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 63 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 75 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 75' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 75 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 75' (player #12) (to object 1284): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Late joiner Player 75 finished loading in 7,6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 8 explored room(s) on Player 75's map (56 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 75' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 42 messages (about 123 bytes each).
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 116 (game id ok): Health 2, Stamina 3, Speed 4, Strength 1, Range 1, Throw 0, ExtraJump 1, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Death drop] Player 116 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 116's Item Grenade Duct Taped/1 was forced out of slot 1, as happens when someone dies (1.1 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, dropped from a dead player's slot: Item Grenade Duct Taped(Clone) #763 1,5 m away, floor 3,51 m | state Idle owner 7024 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, dropped from a dead player's slot: Item Grenade Duct Taped(Clone) #763 14,8 m away, floor 16,66 m | state Idle owner 7024 | held by nobody | kinematic False collisions True colliders on 5/5 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 116: 1 -> 2.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 116: done - Player 116: ExtraJump set to 2.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 116: 2 -> 3.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 116: done - Player 116: ExtraJump set to 3.
+[Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 116: 3 -> 1.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 116: done - Player 116: ExtraJump set to 1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 112 (game id ok): Health 2, Stamina 3, Speed 4, Strength 1, Range 1, Throw 0, ExtraJump 1, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 63 (game id ok): Health 2, Stamina 3, Speed 4, Strength 1, Range 1, Throw 0, ExtraJump 1, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 75 (game id ok): Health 2, Stamina 3, Speed 4, Strength 1, Range 1, Throw 0, ExtraJump 1, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 2, Stamina 3, Speed 4, Strength 1, Range 1, Throw 0, ExtraJump 1, Launch 1, TumbleWings 0, TumbleClimb 0, CrouchRest 2, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 1 -> 4.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 4.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 4 -> 14.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 14.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 14 -> 1.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 1.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: off.
+[Info   :LateJoinPlus] Timing: slowest frame so far 5314 ms, 3970 s after start.
+[Error  : Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: Joined. SCS v0 UDP SocketError: 0 
+[Info   : Unity Log] Disconnected from server for reason ClientTimeout
+[Error  : Unity Log] network disconnect report: cause=ClientTimeout, summary=SCS v0 UDP SocketError: 0  (458752), build=0.5.3, scene=Main, game=Main, loading=0,0s, receiveGap=10884ms, rtt=59ms, rttVariance=3ms, resends=2389
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 4 (0 with LateJoinPlus), loaded 4 (avg 8,6 s, slowest 11,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 4 (24 rooms) | extraction: opened for joiner 4, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 2 (slowest 21 ms)
+[Info   :LateJoinPlus] [Report] Session (5 level(s) with activity): OK | joins 10 (2 with LateJoinPlus), loaded 10 (avg 9,3 s, slowest 16,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 8 (46 rooms) | extraction: opened for joiner 10, already had it 0, softlocks prevented 0, auto-presses ignored 9 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 12 | slow catch-up steps 4 (slowest 23 ms)
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Warning: Unity Log] [2026-11-24T23:46:48] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Mikrofon (2- Realtek(R) Audio)
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] TR +18'; as typed: 'TR +18'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 112' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 112' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 37 messages (about 96 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 160' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 89' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run started at once (Shift-click).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 36 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 160' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 163 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 89' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 38 messages (about 100 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 128 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 128' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 128 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 128 finished loading in 7,6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 128's map (44 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 128' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 24 messages (about 115 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 112: done - Player 112 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host heal Player 112: done - Healed Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host truck Player 112: done - Sent Player 112 to the truck.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host crown Player 89: done - Player 89 has the crown.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (2 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 0 loading, 5 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Manor': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 7,6 s, slowest 7,6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (6 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 67 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 128's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 89 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host heal Player 89: done - Healed Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 160: done - Player 160 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host heal Player 160: done - Healed Player 160.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 89 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 89 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1055 but this PhotonView does not exist! View was/is ours. Remote called. By: #03 'Player 160'
+   (seen 33 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1055 but this PhotonView does not exist! View was/is ours. Remote called. By: #04 'Player 89'
+   (seen 33 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1055 but this PhotonView does not exist! View was/is ours. Remote called. By: #05 'Player 128'
+   (seen 30 times in total)
+[Info   :LateJoinPlus] [Death drop] Player 128 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 128: done - Revived Player 128.
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 128 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 89 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 112 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 112 when they died: Item Upgrade Player Grab Strength(Clone) #163 2,5 m away, floor 1,44 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 112 when they died: Item Upgrade Player Grab Strength(Clone) #163 3,6 m away, floor 0,02 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 112 when they died: Item Upgrade Player Grab Strength(Clone) #163 5,3 m away, floor 0,01 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 4 player(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 112' peaked at 71 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 4 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 89' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 89 (game id ok): Health 1, Stamina 2, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9999K.
+[Info   :LateJoinPlus] [Admin] Host shop: done - Going to the shop.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 4 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 160' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 160 (#3): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 160 when they died: Item Power Crystal(Clone) #332 3,0 m away, floor 0,33 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 160 when they died: Item Power Crystal(Clone) #332 5,3 m away, floor 0,24 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 160 when they died: Item Power Crystal(Clone) #332 3,6 m away, floor 0,13 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host revive Player 160: done - Revived Player 160.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 112 when they died: Item Upgrade Player Grab Range(Clone) #335 2,3 m away, floor 0,18 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 112 when they died: Item Upgrade Player Grab Range(Clone) #335 2,3 m away, floor 0,18 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 112 when they died: Item Upgrade Player Grab Range(Clone) #335 2,3 m away, floor 0,18 m | state - | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host revive Player 112: done - Revived Player 112.
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 4 player(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 89 (#4): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] Late joiner Player 153 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 153' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 153 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 153 finished loading in 8,2 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 153' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 156 bytes each).
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 112 (game id ok): Health 1, Stamina 2, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $0K.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (5 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 0 loading, 5 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "EyeMaterialOverrideRPC" for viewID 6002 but this PhotonView does not exist! Was remote PV. Owner called. By: #06 'Player 153' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "EyeMaterialOverrideRPC" for viewID 4038 but this PhotonView does not exist! Was remote PV. Owner called. By: #04 'Player 89' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Suburb': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 8,2 s, slowest 8,2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 153's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 89' peaked at 40 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (5 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 0 loading, 5 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 5 player(s) (0 on the results screen, 4 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 153's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 153' peaked at 40 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Late joiner Player 116 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 116' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 116 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 116' (player #7) (to object 1191): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Late joiner Player 116 finished loading in 7,8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 4 explored room(s) on Player 116's map (28 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 116' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 38 messages (about 154 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 75 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 75' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 75 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'SetupCosmeticsModdedRPC' messages from 'Player 75' (player #8) (to object 1194): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] Late joiner Player 75 finished loading in 7,7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 75's map (42 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 75' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 40 messages (about 129 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: off.
+[Info   :LateJoinPlus] [Admin] Host truck Player 75: done - Sent Player 75 to the truck.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 153 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 116 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 112 when they died: Rigidbody #461 1,9 m away, floor 1,03 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 112 when they died: Rigidbody #461 1,7 m away, floor 1,10 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 112 when they died: Rigidbody #461 2,0 m away, floor 1,03 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 190 connected (level Level - Desert). Catching them up.
+[Info   :LateJoinPlus] Player 190 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 190 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 190' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 190 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 190 for their moderator key: moderation protocol not confirmed (1/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 190 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Admin] Player 190's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 190 holds no moderator key of ours.
+[Info   :LateJoinPlus] [Moderators] Player 190 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] Late joiner Player 190 finished loading in 16,7 s (has LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 190' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 20 messages (about 143 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 160 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Death drop] Player 89 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill Player 89: done - Player 89 was killed.
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host kill You: done - You was killed.
+[Info   :LateJoinPlus] [Admin] Host extract.done: done - Finishing the extraction with $7.412 in it.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 190 (#9): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 153 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 89: done - Revived Player 89.
+[Info   :LateJoinPlus] [Admin] Host revive Player 153: done - Revived Player 153.
+[Info   :LateJoinPlus] [Death drop] Player 116 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Our powers from the host: Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Death drop] Player 112 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0,15 s, held by Player 112 when they died: Rigidbody #461 2,2 m away, floor 1,03 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0,5 s, held by Player 112 when they died: Rigidbody #461 2,0 m away, floor 0,60 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 153 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 112 when they died: Rigidbody #461 4,1 m away, floor 1,14 m | state - | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 153 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 153 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 190 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 0 loading, 7 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 3 (1 with LateJoinPlus), loaded 3 (avg 10,7 s, slowest 16,7 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 2 (10 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 4 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 3 (slowest 29 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 89' peaked at 132 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 116's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 160's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 89's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 153's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 112's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 190's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step Valuable, waiting for Player 190 (a slow PC, or their game has stopped answering). Where everyone is: Player 190 50% (extras, last message 0 s ago), Player 112 66% (props, last message 0 s ago), Player 160 66% (props, last message 0 s ago), Player 153 66% (props, last message 0 s ago), Player 116 66% (props, last message 0 s ago), You 66% (props).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 190 66% (props, last message 0 s ago), Player 112 83% (spawning, last message 0 s ago), Player 160 83% (spawning, last message 0 s ago), Player 153 83% (spawning, last message 0 s ago), Player 116 83% (spawning, last message 0 s ago), You 83% (spawning).
+=== Previous game session ===
+[01:28:49.470] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[01:28:49.470] [Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[01:28:49.479] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[01:28:49.802] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+   (seen 3 times in total)
+[01:28:52.521] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[01:28:52.522] [Warning:HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[01:28:54.104] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[01:28:54.115] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[01:28:54.116] [Info   :LateJoinPlus] Timing: start-up took 1398 ms.
+[01:28:54.117] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[01:28:54.117] [Info   :LateJoinPlus] Timing: late patches took 1245 ms.
+[01:28:54.153] [Warning:Unity Log] Unable to load font face for [] font asset.
+[01:28:54.458] [Info   :LateJoinPlus] Timing: slowest frame so far 2919 ms, 3 s after start.
+[01:28:54.459] [Info   :LateJoinPlus] Timing: game memory 1513 MB of 16087 MB, 59 MB of it from mods and scripts; textures 88 MB of 7956 MB video memory.
+[01:28:54.460] [Info   :LateJoinPlus] Timing: Chinese font set-up took 25 ms and 1 MB.
+[01:28:54.460] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1,4 ms (13 fonts).
+[01:28:57.513] [Info   :Unity Log] leaving photon
+[01:28:57.517] [Info   :Unity Log] Leave to Main Menu
+[01:29:04.917] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 4 times in total)
+[01:29:13.699] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.PlayerUpgrade
+[01:29:17.613] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[01:29:17.614] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[01:29:17.834] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[01:29:17.923] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[01:29:17.926] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] TR +18'; as typed: 'TR +18'.
+[01:29:17.950] [Warning:Unity Log] [2026-11-24T22:29:17] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Mikrofon (2- Realtek(R) Audio)
+[01:33:58.774] [Info   :LateJoinPlus] [Run] Run started at once (Shift-click).
+[01:33:59.798] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:34:00.351] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[01:34:00.536] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[01:34:22.926] [Info   :LateJoinPlus] Timing: game memory 2126 MB of 16087 MB, 71 MB of it from mods and scripts; textures 242 MB of 7956 MB video memory.
+[01:37:42.974] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[01:37:47.469] [Warning:Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_25_01_29_13
+   (seen 3 times in total)
+[01:37:47.595] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:37:48.149] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[01:37:48.322] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[01:38:04.094] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[01:38:08.886] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:38:09.437] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[01:38:09.614] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[01:38:26.699] [Info   :LateJoinPlus] [Run] Run started at once (Shift-click).
+[01:38:27.719] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[01:38:28.354] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[01:38:55.560] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
