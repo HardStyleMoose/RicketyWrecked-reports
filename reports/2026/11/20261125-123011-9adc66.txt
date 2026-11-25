@@ -1,0 +1,784 @@
+LateJoinPlus bug report 20261125-123011-9adc66
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Shop Suburb"
+players: 6
+language: "en-US"
+test: false
+
+Mods (13):
+- "ShrinkCart" | "AngelcoMilk.ShrinkCart" | "0.3.2"
+- "InfiniteAmmo" | "InfiniteAmmo" | "1.1.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "ScalerCore" | "Vippy.ScalerCore" | "1.1.1"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "MoreUIPanel" | "cn_xc.MoreUIPanel" | "0.3.0"
+- "CrewUpgrades" | "com.deegamenchill.crewupgrades" | "1.0.1"
+- "REPO Command Console" | "com.jameskieley.repo.commandconsole" | "2.3.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "Enemy/Valuable Spawn Manager" | "soundedsquash.spawnmanager" | "[ip]"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 12th Gen Intel(R) Core(TM) i7-12700F (20 threads)
+Memory: 32581 MB
+Graphics: NVIDIA GeForce RTX 3070 Ti (8017 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 2392 ms
+Most memory this game: 4741 MB
+Most texture memory this game: 647 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (18):
+  EnemyDirector.Start: soundedsquash.spawnmanager (postfix), ricketywrecked.repo.fixes (finalizer)
+  EnemyHealth.Hurt: ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ItemUpgrade.PlayerUpgrade: com.deegamenchill.crewupgrades (prefix), Vippy.SharedUpgradesPlus (prefix), com.deegamenchill.crewupgrades (postfix), Vippy.SharedUpgradesPlus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: Vippy.ScalerCore (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Start: Vippy.ScalerCore (postfix), com.deegamenchill.crewupgrades (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerHealth.Hurt: Vippy.ScalerCore (prefix), ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  PlayerTumble.SetupDone: Vippy.ScalerCore (postfix), Vippy.SharedUpgradesPlus (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), Vippy.ScalerCore (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  RunManager.Awake: soundedsquash.spawnmanager (prefix), REPOLib (postfix)
+  RunManager.ChangeLevel: Vippy.ScalerCore (prefix), AngelcoMilk.ShrinkCart (prefix), ricketywrecked.repo.latejoinplus (prefix), soundedsquash.spawnmanager (prefix), Vippy.ScalerCore (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  StatsManager.ItemFetchName: Vippy.ScalerCore (prefix), ricketywrecked.repo.fixes (prefix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 20):
+  18:23:38 Level 'Level - Arctic'
+  18:24:53 Level 'Level - Shop Wasteland'
+  18:32:57 Level 'Level - Desert'
+  18:35:28 Level 'Level - Shop Dead Forest'
+  18:38:15 an error from Unity Log
+  18:44:23 Level 'Level - Manor'
+  18:44:32 Level built in 8 s. Slowest step: rooms, 5.5 s from the first player to the last, Player 2.
+  18:48:22 Level built in 10 s. Slowest step: rooms, 5.5 s from the first player to the last, Player 2.
+  18:58:43 Level 'Level - Wizard'
+  18:59:44 an error from Unity Log
+  19:02:17 Level 'Level - Shop Forest'
+  19:02:26 Level built in 8 s. Slowest step: rooms, 6 s from the first player to the last, Player 7.
+  19:03:29 Level built in 50 s. Slowest step: rooms, 30.8 s from the first player to the last, Player 7.
+  19:13:09 Level 'Level - Museum'
+  19:13:50 Level built in 41 s. Slowest step: rooms, 21.1 s from the first player to the last, Player 7.
+  19:15:58 Level built in 10 s. Slowest step: rooms, 7 s from the first player to the last, Player 7.
+  19:16:58 Level built in 43 s. Slowest step: rooms, 28.7 s from the first player to the last, Player 7.
+  19:29:38 an error from Unity Log
+  19:29:41 Level change waited 10 s for everyone's results screen; the last to finish: Player 13 (5 s after the others).
+  19:29:43 Level 'Level - Wizard'
+(end of settings)
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name LeaveLobby and parameters 
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static void CrewUpgrades.Patches.LobbyResetPatch::LeaveLobby_Postfix()
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+CrewUpgrades.Plugin.Awake () (at <f87c2721f7b04df4ac04c75d48192b4b>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1818 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 983 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2392 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1787 MB of 32581 MB, 72 MB of it from mods and scripts; textures 179 MB of 8017 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 11 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.6 ms (13 fonts).
+[Warning:CrewUpgrades] Late-join sync for [steamid]: host avatar not found.
+   (seen 2 times in total)
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-25T11:17:28] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Microphone (2- HyperX SoloCast)
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] TALKING & CHILLING'; as typed: 'talking & chilling'.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadController and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 22 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 19 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 19 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 19 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 19 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 19 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 15 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 13 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 13 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 10 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 16 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyAttackStuckPhysObject and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateRoaming and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 17 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseBegin and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSneak and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChase and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseSlow and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseEnd and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateLookUnder and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadHalloween and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyThinMan and name feetTransform
+[Info   :LateJoinPlus] Timing: game memory 2736 MB of 32581 MB, 86 MB of it from mods and scripts; textures 403 MB of 8017 MB video memory.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 10 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] Late joiner Player 11 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 11' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 11 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 11 finished loading in 7.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 11's map (55 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 11' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 159 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 15 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 15' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 15 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 15 finished loading in 7.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (2 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 7.5 s, slowest 7.5 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (7 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 15' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 33 messages (about 140 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 16 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 16' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 16 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 16 finished loading in 10.5 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 16' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 159 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "TumbleRequestRPC" for viewID 1037 but this PhotonView does not exist! View was/is ours. Remote called. By: #03 'Player 15'
+   (seen 16 times in total)
+[Warning: Unity Log] Received RPC "ResetPhysPusher" for viewID 3010 but this PhotonView does not exist! Was remote PV. Owner called. By: #03 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 11 times in total)
+[Warning: Unity Log] Received RPC "GrabEndedRPC" for viewID 105 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "PhysGrabBeamDeactivateRPC" for viewID 3010 but this PhotonView does not exist! Was remote PV. Owner called. By: #03 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 4 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Wasteland': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 10.5 s, slowest 10.5 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 204 messages/s (flood limit 500); most data from one player 11 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 4 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 11' peaked at 39 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyBombThrower and name feetTransform
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 1 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] Late joiner Player 10 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 10 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 10 finished loading in 11.6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 10's map (42 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 10' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 23 messages (about 112 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 200 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 16' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 200 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 16' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] Late joiner Player 6 connected (level Level - Desert). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 6 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 6 finished loading in 10.6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 10 explored room(s) on Player 6's map (76 messages).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 6' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 158 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 6 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 11.1 s, slowest 11.6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 2 (16 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 2 (slowest 23 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 47 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 3274 MB of 32581 MB, 104 MB of it from mods and scripts; textures 601 MB of 8017 MB video memory.
+[Info   :LateJoinPlus] Late joiner Player 18 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 18' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 18 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 18 finished loading in 12.1 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 18' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 33 messages (about 148 bytes each).
+[Info   :LateJoinPlus] Late joiner 8 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: '8' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to 8 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner 8 finished loading in 9.1 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (8 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 8 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Dead Forest': OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 10.6 s, slowest 12.1 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 7 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 37 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 294 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 294 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 11' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :Lobby Guard] [Lobby Guard] Joiner '8' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 11 put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for 8's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 11' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHunter and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyTumbler and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemySlowMouth and name feetTransform
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] Late joiner Player 13 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 13' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 13 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 13 finished loading in 10.7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 13's map (66 messages).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 423 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 18' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 423 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 18' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 13' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 168 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 2 (without LateJoinPlus).
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 11 messages (about 93 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 56.0 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 11 explored room(s) on Player 2's map (80 messages).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.0 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 20 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 20' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 20 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 20 finished loading in 7.6 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 11 explored room(s) on Player 20's map (82 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 20' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 34 messages (about 149 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 20 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.2 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.3 m away, 0.8 m above their feet).
+[Info   :R.E.P.O Fixes+] Pupil size messages: held back 14 in the last minute (at most 10 a second go out).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.2 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 8 player(s) to the truck.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (8 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 8 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Manor': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 24.8 s, slowest 56.0 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (31 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 3 (slowest 22 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 7 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 20's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 20' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: rooms, 5.5 s from the first player to the last, Player 2.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 11 put Item Grenade Duct Taped/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 11' peaked at 41 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyShadow and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyShadowHalloween and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOogly and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyDebugGUI and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyGnome and name feetTransform
+   (seen 4 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Run] Level built in 10 s. Slowest step: rooms, 5.5 s from the first player to the last, Player 2.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Tranq/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Duct Taped/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 5 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (2.0 m away, 1.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 14 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 14 finished loading in 9.1 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 13 explored room(s) on Player 14's map (93 messages).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (0.7 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Warning:LateJoinPlus] Making a new Steam lobby so everyone can invite friends: 'Player 13' couldn't get into it (their game already holds this lobby's ID).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #12' (player #12, Steam ID unknown), first 30 s: busiest second 4 KB in 32 messages (about 149 bytes each).
+[Info   :LateJoinPlus] New Steam lobby ready (109775241277768957); sent it to 6 player(s).
+[Info   :LateJoinPlus] 'Player 15' still isn't in your Steam lobby after a new one was made; they can play, but can't invite friends this session.
+[Info   :LateJoinPlus] 'Player 18' still isn't in your Steam lobby after a new one was made; they can play, but can't invite friends this session.
+[Info   :LateJoinPlus] 'Player 13' still isn't in your Steam lobby after a new one was made; they can play, but can't invite friends this session.
+[Info   :LateJoinPlus] 'Player 2' still isn't in your Steam lobby after a new one was made; they can play, but can't invite friends this session.
+[Info   :LateJoinPlus] Late joiner Player 9 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 9' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 9 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 9 finished loading in 8.2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 13 explored room(s) on Player 9's map (95 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 9' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] Late joiner Player 4 connected (level Level - Wizard). Catching them up.
+[Info   :LateJoinPlus] [Slots] Player 11 took Item Grenade Duct Taped/1 out of slot 2 (2.0 m away, 1.8 m above their feet).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 12 level piece(s) once to Player 4 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 18 put Item Grenade Duct Taped/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 11 took Item Grenade Stun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 11 put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 4 finished loading in 11.2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 18 took Item Grenade Duct Taped/1 out of slot 1 (1.7 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] Uncovered 13 explored room(s) on Player 4's map (94 messages).
+[Info   :LateJoinPlus] [Slots] Player 11 put Item Grenade Duct Taped/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (0.8 m away, 0.7 m above their feet).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 155 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (6 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 9.5 s, slowest 11.2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (39 rooms) | extraction: opened for joiner 2, already had it 1, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 1, re-sent to players 14 | slow catch-up steps 3 (slowest 27 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Late joiner Player 8 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 8 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 8 finished loading in 7.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 7 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 7 (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 163 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 7' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 26 messages (about 82 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 7 finished loading in 32.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Timing: game memory 3807 MB of 32581 MB, 129 MB of it from mods and scripts; textures 647 MB of 8017 MB video memory.
+[Info   :LateJoinPlus] Late joiner Player 19 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning:LateJoinPlus] Your lobby is full: 10 players, and LJ+ menu > Max Players is 10. Full lobbies don't show in the server list and refuse new players. Raise Max Players (up to 20) to let more in.
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 19 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 19 finished loading in 9.7 s (without LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 19' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 26 messages (about 157 bytes each).
+[Warning: Unity Log] [2026-11-25T12:01:27] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 16 not found when trying to remove
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (8 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 8 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Forest': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 16.7 s, slowest 32.9 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 2 (slowest 20 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 7 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 18' peaked at 38 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: rooms, 6 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Tranq/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Duct Taped/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (8 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 8 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 7 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 11' peaked at 41 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHidden and name feetTransform
+[Info   :LateJoinPlus] [Run] Level built in 50 s. Slowest step: rooms, 30.8 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Tranq/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Duct Taped/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 5 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] [Death drop] Player 16 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.2 m away, 0.9 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.0 m away, 0.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] Late joiner Player 12 connected (level Level - Museum). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 11 level piece(s) once to Player 12 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] Player 16 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 12 finished loading in 10.2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 12 explored room(s) on Player 12's map (88 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 12' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 156 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 was forced out of slot 1, as happens when someone dies (0.5 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Tranq/1 was forced out of slot 2, as happens when someone dies (0.5 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #834 0.0 m away, floor 0.08 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Tranq(Clone) #837 0.0 m away, floor 0.25 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #834 0.3 m away, floor 0.06 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Tranq(Clone) #837 0.3 m away, floor 0.05 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Handgun(Clone) #834 0.7 m away, floor 0.21 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Tranq(Clone) #837 0.3 m away, floor 0.24 m | state Idle owner 3087 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] Player 7 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (8 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 8 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Museum': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 10.2 s, slowest 10.2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (12 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 2 (slowest 33 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 8 player(s) (0 on the results screen, 7 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 18' peaked at 58 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 41 s. Slowest step: rooms, 21.1 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 16' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Duct Taped/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Run] Level built in 10 s. Slowest step: rooms, 7 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 11 took Item Grenade Stun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 11 put Item Grenade Stun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 11 tried to put Item Gun Handgun/1 in slot 2, but it's in Player 15's slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (7 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 7 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 7 player(s) (0 on the results screen, 6 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 11's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 11' peaked at 44 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeartHugger and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemySpinny and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableExplosion and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type ParticleScriptExplosion and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyTricycle and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPitCheck and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyTick and name feetTransform
+[Info   :LateJoinPlus] [Run] Level built in 43 s. Slowest step: rooms, 28.7 s from the first player to the last, Player 7.
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Stun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 15's Item Gun Tranq/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 11's Item Grenade Duct Taped/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 4 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Drone Indestructible/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Drone Indestructible/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] Late joiner Player 8 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 8' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 15 level piece(s) once to Player 8 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 8 finished loading in 7.8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 8's map (49 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 8' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 159 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.3 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Death drop] Player 7 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 217 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 217 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 18 put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 18 took Item Drone Indestructible/1 out of slot 1 (0.8 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 18 put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Death drop] Player 13 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.1 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.3 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.2 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 11's Item Grenade Duct Taped/1 from slot 3: they're no longer here.
+[Info   :LateJoinPlus] [Slots] LateJoinPlus dropped Player 11's Item Grenade Stun/1 from slot 1: they're no longer here.
+[Info   :LateJoinPlus] Dropped 2 item(s) left in the inventory of a player who is no longer here where they last stood.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Handgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 15 took Item Gun Tranq/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] Late joiner Player 17 connected (level Level - Wizard). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #20, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Tranq/1 in slot 2.
+[Info   :LateJoinPlus] Not waiting for Player 17 at the end of the level: they are still on the loading screen. The next level loads for them as well.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (5 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 10 s for everyone's results screen; the last to finish: Player 13 (5 s after the others).
+[Warning: Unity Log] Received RPC "OverrideDisableSpecialGrabPowersSetRPC" for viewID 20002 but this PhotonView does not exist! Was remote PV. Owner called. By: #20 'Player 17' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 6 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 2 (0 with LateJoinPlus), loaded 1 (avg 7.8 s, slowest 7.8 s), left while loading 0, still loading at level end 1, stuck 0 | map reveal 1 (7 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 2 (slowest 37 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 44 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 17's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 18's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 13's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 17' (player #20, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 39 messages (about 105 bytes each).
