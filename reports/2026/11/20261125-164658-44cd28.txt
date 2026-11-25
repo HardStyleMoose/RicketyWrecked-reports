@@ -1,0 +1,311 @@
+LateJoinPlus bug report 20261125-164658-44cd28
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on Player 41 loading screen."
+role: "client"
+level: "Level - Shop Wasteland"
+players: 5
+language: "en-US"
+test: false
+
+Mods (14):
+- "GodCommands" | "MechGaming.REPO.GodCommands" | "1.6.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "UnlockAllCosmetics" | "com.github.Alexsei.UnlockAllCosmetics" | "1.0.5"
+- "PingDisplay" | "com.peachh.pingdisplay" | "2.1.2"
+- "SharedUpgrades" | "com.sharedupgrades.mod" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "Repo Admin Menu" | "proferabg.REPO.RepoAdminMenu" | "1.0.17"
+- "SkinCopy" | "purtzel_hd.skincopy" | "1.3.1"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "Humanized Shop" | "upgame.REPO.HumanizedShop" | "1.1.0"
+- "HUD Plus" | "user.repo.hudplus" | "1.33.43"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 0
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26200)
+CPU: Intel(R) Core(TM) i5-14400F (16 threads)
+Memory: 32581 MB
+Graphics: NVIDIA GeForce RTX 4070 SUPER (11997 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 2100 ms
+Most memory this game: 3230 MB
+Most texture memory this game: 270 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: PunManager.UpgradePlayerHealth
+Who patches the methods in this log's errors:
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (75):
+  CosmeticWorldObject.Start: user.repo.hudplus.registry (prefix), Vippy.BigFriendlyButton (postfix)
+  Enemy.SetChaseTarget: MechGaming.REPO.GodCommands (prefix), proferabg.REPO.RepoAdminMenu (prefix)
+  EnemyAnimal.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBang.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBeamer.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBirthdayBoy.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBirthdayBoy.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBombThrower.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBowtie.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyCeilingEye.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyDirector.SetInvestigate: MechGaming.REPO.GodCommands (prefix), proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyDuck.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyDuck.UpdateState: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyElsa.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyFloater.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyGnome.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyGnome.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeadController.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeadGrabber.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHealth.Hurt: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), user.repo.hudplus.enemy (prefix)
+  EnemyHeartHugger.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeartHugger.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHidden.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHidden.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHunter.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyOnScreen.GetOnScreen: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.fixes (prefix)
+  EnemyOogly.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyOogly.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyRobe.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyRunner.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyShadow.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowMouth.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowMouth.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowWalker.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySnatcher.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySnatcher.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySpinny.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySpinny.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChase.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseBegin.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseEnd.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseSlow.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateInvestigate.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateLookUnder.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateRoaming.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateSneak.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateSpawn.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateStunned.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyThinMan.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyThinMan.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTick.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTricycle.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTricycle.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTumbler.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  EnemyUpscream.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyValuableThrower.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyValuableThrower.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyVision.VisionTrigger: MechGaming.REPO.GodCommands (prefix), proferabg.REPO.RepoAdminMenu (prefix)
+  ExtractionPoint.OnShopClick: Vippy.BigFriendlyButton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ExtractionPoint.Start: Vippy.BigFriendlyButton (prefix), user.repo.hudplus.registry (prefix), Vippy.BigFriendlyButton (postfix)
+  ItemBattery.Update: proferabg.REPO.RepoAdminMenu (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: proferabg.REPO.RepoAdminMenu (postfix), purtzel_hd.skincopy (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObjectImpactDetector.Break: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Awake: user.repo.hudplus.registry (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.Start: user.repo.hudplus.registry (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), com.peachh.pingdisplay (postfix)
+  PlayerHealth.Hurt: MechGaming.REPO.GodCommands (prefix), proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), proferabg.REPO.RepoAdminMenu (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RunManager.ChangeLevel: ricketywrecked.repo.latejoinplus (prefix), proferabg.REPO.RepoAdminMenu (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.OnTriggerEnterLogic: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.WakeUpOrSleepLogic: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 6):
+  19:45:22 an error from HarmonyX
+  19:46:19 an error from Unity Log
+  19:46:19 an error from Unity Log
+  19:46:19 an error from Unity Log
+  19:46:19 an error from Unity Log
+  19:46:19 an error from Unity Log
+(end of settings)
+[Error  :  HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+   (seen 2 times in total)
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-54233602(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+SharedUpgrades.Plugin.Awake () (at <31372448eba649c9acf0ac79bfeb08c2>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Warning:Repo Admin Menu] Language file not found: C:\Users\[user]\AppData\Roaming\Thunderstore Mod Manager\DataFolder\REPO\profiles\mods\BepInEx\plugins\proferabg-RepoAdminMenu\Languages\en.json
+   (seen 2 times in total)
+[Info   :R.E.P.O Fixes+] [Mod guards] Repo Admin Menu found; its per-player checks skip players whose Steam ID isn't known yet (they threw when someone joined).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1309 ms.
+[Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 3 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 716 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2100 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1469 MB of 32581 MB, 69 MB of it from mods and scripts; textures 89 MB of 11997 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 7 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: Player 41 3-second font scan took 1.2 ms (14 fonts).
+[Info   :LateJoinPlus] [Admin] RepoAdminMenu is installed too. LateJoinPlus has its own Admin page now (LJ+ menu > Admin), so RepoAdminMenu isn't needed.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning:LateJoinPlus] Key F8 is LateJoinPlus's Admin page key and also Repo Admin Menu's MenuHotkey: one press does both. Change one of them.
+[Warning:LateJoinPlus] Put back 12 missing patches from LateJoinPlus.dll. Player 41 remover is unknown. Loaded plugin assemblies: UnlockAllCosmetics.dll, PingDisplay.dll, SharedUpgrades.dll, GodCommands.dll, MenuLib.dll, REPOConfig.dll, REPOLib.dll, RepoAdminMenu.dll, SkinCopy.dll, LateJoinPlus.dll, REPOFixesPlus.dll, HumanizedShop.dll, RepoHudPlus.dll, BigFriendlyButton.dll.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-25T16:46:16] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #1, Steam ID not published by this lobby's host).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 23' (player #2, Steam ID not published by this lobby's host).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 22' (player #3, Steam ID not published by this lobby's host).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #4, Steam ID not published by this lobby's host).
+[Info   :LateJoinPlus] Waited 0.1 s for Player 17's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 22's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 23's Steam ID before loading their upgrades and name tag.
+[Error  : Unity Log] Failed to find a PhotonView with ID=292 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause Player 41 message queue.
+   (seen 5 times in total)
+[Warning: Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 292 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 17' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "StateSetRPC" for viewID 296 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 17' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] Timing: game memory 2338 MB of 32581 MB, 79 MB of it from mods and scripts; textures 269 MB of 11997 MB video memory.
+[Info   :LateJoinPlus] Player 41 host did not answer within 15 s: Player 41 host is not running LateJoinPlus, so joining mid-run relies on Player 41 host's own late-join mod or Player 41 game alone.
+=== Previous game session ===
+(earlier lines left out)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+[17:59:17.322] [Info   :R.E.P.O Fixes+] [Mod guards] Repo Admin Menu found; its per-player checks skip players whose Steam ID isn't known yet (they threw when someone joined).
+[17:59:17.569] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[17:59:20.091] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[17:59:20.168] [Error  :HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[17:59:20.278] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[17:59:20.885] [Warning:Repo Admin Menu] Language file not found: C:\Users\[user]\AppData\Roaming\Thunderstore Mod Manager\DataFolder\REPO\profiles\mods\BepInEx\plugins\proferabg-RepoAdminMenu\Languages\en.json
+[17:59:21.702] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[17:59:21.707] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[17:59:21.707] [Info   :LateJoinPlus] Timing: start-up took 961 ms.
+[17:59:21.707] [Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[17:59:21.708] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 3 Steam IDs, on).
+[17:59:21.708] [Info   :LateJoinPlus] Timing: late patches took 656 ms.
+[17:59:21.737] [Warning:Unity Log] Unable to load font face for [] font asset.
+[17:59:22.688] [Info   :LateJoinPlus] Timing: slowest frame so far 2040 ms, 2 s after start.
+[17:59:22.688] [Info   :LateJoinPlus] Timing: game memory 1481 MB of 32581 MB, 68 MB of it from mods and scripts; textures 89 MB of 11997 MB video memory.
+[17:59:22.688] [Info   :LateJoinPlus] Timing: Chinese font set-up took 7 ms and 1 MB.
+[17:59:22.688] [Info   :LateJoinPlus] Timing: Player 41 3-second font scan took 1.3 ms (14 fonts).
+[17:59:22.689] [Info   :LateJoinPlus] [Admin] RepoAdminMenu is installed too. LateJoinPlus has its own Admin page now (LJ+ menu > Admin), so RepoAdminMenu isn't needed.
+[17:59:30.636] [Warning:LateJoinPlus] Key F8 is LateJoinPlus's Admin page key and also Repo Admin Menu's MenuHotkey: one press does both. Change one of them.
+[17:59:33.273] [Info   :Unity Log] leaving photon
+[17:59:33.275] [Info   :Unity Log] Leave to Main Menu
+[17:59:35.814] [Warning:LateJoinPlus] Put back 12 missing patches from LateJoinPlus.dll. Player 41 remover is unknown. Loaded plugin assemblies: UnlockAllCosmetics.dll, PingDisplay.dll, SharedUpgrades.dll, GodCommands.dll, MenuLib.dll, REPOConfig.dll, REPOLib.dll, RepoAdminMenu.dll, SkinCopy.dll, LateJoinPlus.dll, REPOFixesPlus.dll, HumanizedShop.dll, RepoHudPlus.dll, BigFriendlyButton.dll.
+[17:59:51.003] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 8 times in total)
