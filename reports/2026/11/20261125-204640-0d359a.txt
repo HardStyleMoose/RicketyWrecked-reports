@@ -1,0 +1,1489 @@
+LateJoinPlus bug report 20261125-204640-0d359a
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: ""
+role: "host"
+level: "Level - Museum"
+players: 2
+language: "en-US"
+test: false
+
+Mods (14):
+- "Cosmetic Box Reward Limit Fix" | "BridgeGPT.CosmeticBoxRewardLimitFix" | "1.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Self Moving Cart" | "Syntaxe.SelfMovingCart" | "1.3.3"
+- "ScalerCore" | "Vippy.ScalerCore" | "1.1.1"
+- "ShrinkerGun" | "Vippy.ShrinkerGun" | "0.7.5"
+- "Void Cart" | "caspi.voidcart" | "0.4.2"
+- "Portal Render Spike" | "jonathan.portalrenderspike" | "0.0.2"
+- "loaforcsSoundAPI" | "me.loaforc.soundapi" | "2.0.13"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "Repo Admin Menu" | "proferabg.REPO.RepoAdminMenu" | "1.0.17"
+- "SkinCopy" | "purtzel_hd.skincopy" | "1.3.1"
+- "TokenManager" | "purtzel_hd.tokenmanager" | "1.0.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Joining
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 13th Gen Intel(R) Core(TM) i5-1335U (12 threads)
+Memory: 16068 MB
+Graphics: Intel(R) Iris(R) Xe Graphics (8034 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 3756 ms
+Most memory this game: 3872 MB
+Most texture memory this game: 453 MB
+BepInEx: [ip]
+Patchers: FixPluginTypesSerialization, LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  PlayerController.Update: proferabg.REPO.RepoAdminMenu (prefix), Syntaxe.SelfMovingCart (postfix)
+Game methods several mods patch (91):
+  CursorManager.Unlock: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  EnemyAnimal.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBang.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBeamer.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBirthdayBoy.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBirthdayBoy.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBombThrower.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyBowtie.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyCeilingEye.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyDirector.SetInvestigate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), jonathan.portalrenderspike (postfix)
+  EnemyDuck.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyDuck.UpdateState: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyElsa.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyFloater.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyGnome.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyGnome.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeadController.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeadGrabber.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHealth.Hurt: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (postfix)
+  EnemyHeartHugger.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHeartHugger.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHidden.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHidden.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyHunter.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyOnScreen.GetOnScreen: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.fixes (prefix)
+  EnemyOogly.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyOogly.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyRobe.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyRunner.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyShadow.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowMouth.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowMouth.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySlowWalker.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySnatcher.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySnatcher.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySpinny.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemySpinny.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChase.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseBegin.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseEnd.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateChaseSlow.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateInvestigate.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateLookUnder.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateRoaming.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateSneak.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateSpawn.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyStateStunned.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyThinMan.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyThinMan.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTick.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTricycle.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTricycle.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTumbler.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  EnemyUpscream.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyValuableThrower.FixedUpdate: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyValuableThrower.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ExtractionPoint.Update: proferabg.REPO.RepoAdminMenu (prefix), Syntaxe.SelfMovingCart (postfix)
+  InputManager.GetMouseX: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMouseY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMovement: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix), Syntaxe.SelfMovingCart (prefix)
+  InputManager.GetMovementX: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix), Syntaxe.SelfMovingCart (prefix)
+  InputManager.GetMovementY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix), Syntaxe.SelfMovingCart (prefix)
+  InputManager.GetRawMouseDelta: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetScrollY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyDown: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyHold: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyPullAndPush: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyPullAndPushAnalog: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyUp: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  ItemBattery.Update: proferabg.REPO.RepoAdminMenu (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  LevelGenerator.Start: ricketywrecked.repo.latejoinplus (prefix), caspi.voidcart (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  NetworkConnect.OnJoinedRoom: proferabg.REPO.RepoAdminMenu (postfix), purtzel_hd.skincopy (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabHinge.Awake: Syntaxe.SelfMovingCart (postfix), Vippy.ScalerCore (postfix)
+  PhysGrabObjectImpactDetector.Break: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.Footstep: proferabg.REPO.RepoAdminMenu (prefix), Vippy.ScalerCore (prefix), proferabg.REPO.RepoAdminMenu (postfix), Vippy.ScalerCore (postfix)
+  PlayerAvatar.PlayerDeathRPC: ricketywrecked.repo.latejoinplus (postfix), Vippy.ScalerCore (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), Vippy.ScalerCore (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), jonathan.portalrenderspike (postfix)
+  PlayerController.Update: proferabg.REPO.RepoAdminMenu (prefix), Syntaxe.SelfMovingCart (postfix)
+  PlayerHealth.Hurt: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (prefix), Vippy.ScalerCore (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix), Vippy.ScalerCore (postfix)
+  PlayerVoiceChat.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix), proferabg.REPO.RepoAdminMenu (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RunManager.ChangeLevel: caspi.voidcart (prefix), ricketywrecked.repo.latejoinplus (prefix), Vippy.ScalerCore (prefix), jonathan.portalrenderspike (postfix), proferabg.REPO.RepoAdminMenu (postfix), Vippy.ScalerCore (postfix)
+  RunManager.UpdateLevel: jonathan.portalrenderspike (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.OnTriggerEnterLogic: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.Update: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopKeeper.WakeUpOrSleepLogic: proferabg.REPO.RepoAdminMenu (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopManager.GetAllItemsFromStatsManager: caspi.voidcart (postfix), jonathan.portalrenderspike (postfix)
+  StatsManager.ItemFetchName: ricketywrecked.repo.fixes (prefix), Vippy.ScalerCore (prefix)
+Timeline (last 80):
+  14:37:59 an error from Unity Log
+  14:38:06 an error from Unity Log
+  14:38:19 an error from Unity Log
+  14:38:29 an error from Unity Log
+  14:38:42 an error from Unity Log
+  14:38:59 an error from Unity Log
+  14:39:28 an error from Unity Log
+  14:39:29 an error from Unity Log
+  14:39:39 an error from Unity Log
+  14:39:59 an error from Unity Log
+  14:40:29 an error from Unity Log
+  14:40:59 an error from Unity Log
+  14:41:29 an error from Unity Log
+  14:41:59 an error from Unity Log
+  14:42:29 an error from Unity Log
+  14:42:59 an error from Unity Log
+  14:43:29 an error from Unity Log
+  14:43:59 an error from Unity Log
+  14:44:14 an error from Unity Log
+  14:44:15 an error from Unity Log
+  14:44:15 Level 'Level - Shop Wasteland'
+  14:44:15 an error from Unity Log
+  14:44:15 an error from Unity Log
+  14:44:15 an error from Unity Log
+  14:44:16 an error from Unity Log
+  14:44:16 an error from Unity Log
+  14:44:18 an error from Unity Log
+  14:44:21 an error from Unity Log
+  14:44:24 an error from Unity Log
+  14:44:26 an error from Unity Log
+  14:44:29 an error from Unity Log
+  14:44:29 an error from Unity Log
+  14:44:31 an error from Unity Log
+  14:44:31 an error from Unity Log
+  14:44:31 an error from Unity Log
+  14:44:31 an error from Unity Log
+  14:44:31 an error from Unity Log
+  14:44:37 an error from Unity Log
+  14:44:38 an error from Unity Log
+  14:44:38 an error from Unity Log
+  14:44:38 an error from Unity Log
+  14:44:39 an error from Unity Log
+  14:44:39 an error from Unity Log
+  14:44:39 an error from Unity Log
+  14:44:39 an error from Unity Log
+  14:44:39 Level built in 8 s. Slowest step: loading, 0 s from the first player to the last, Player 14.
+  14:44:39 an error from Unity Log
+  14:44:53 an error from Unity Log
+  14:44:53 an error from Unity Log
+  14:44:53 an error from Unity Log
+  14:44:55 an error from Unity Log
+  14:44:56 an error from Unity Log
+  14:44:59 an error from Unity Log
+  14:45:00 an error from Unity Log
+  14:45:24 an error from Unity Log
+  14:45:26 an error from Unity Log
+  14:45:30 an error from Unity Log
+  14:45:44 an error from Unity Log
+  14:45:45 an error from Unity Log
+  14:45:45 an error from Unity Log
+  14:45:45 an error from Unity Log
+  14:45:46 an error from Unity Log
+  14:45:47 an error from Unity Log
+  14:45:48 an error from Unity Log
+  14:45:48 an error from Unity Log
+  14:45:48 an error from Unity Log
+  14:45:52 an error from Unity Log
+  14:46:00 an error from Unity Log
+  14:46:04 an error from Unity Log
+  14:46:05 an error from Unity Log
+  14:46:09 an error from Unity Log
+  14:46:12 an error from Unity Log
+  14:46:14 an error from Unity Log
+  14:46:15 an error from Unity Log
+  14:46:15 an error from Unity Log
+  14:46:17 an error from Unity Log
+  14:46:17 an error from Unity Log
+  14:46:19 an error from Unity Log
+  14:46:20 an error from Unity Log
+  14:46:30 an error from Unity Log
+(end of settings)
+[Error  : Unity Log] MissingMethodException: Method not found: void .PhysGrabObjectImpactDetector.DestroyObject(bool)
+Stack trace:
+PortalRenderSpike.Plugin.Update () (at <77841e0cbd25429eae398ad9c322c585>:0)
+   (seen 39114 times in total)
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 6 times in total)
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Enemies ignore them for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Admin] Host power You: done - No tumbling for You: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - God mode for Player 56: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - Endless stamina for Player 56: on.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Void Cart ×1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - No tumbling for Player 56: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Valuables don't break: on.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - The shopkeeper sleeps: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Endless batteries: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Enemies die in one hit: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - The duck stays friendly: on.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Free shopping: on.
+[Info   :LateJoinPlus] [Moderators] Status: host; moderators here: Player 14 [Kicking, Banning, Block List, Notes, Calls, Run control], Player 56 [Kicking, Banning, Block List, Notes, Calls, Run control, Admin]; with LateJoinPlus: 2.
+   (seen 23 times in total)
+[Warning:LateJoinPlus] [Admin] Health for Player 56: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Health set to 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Stamina set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 0 -> 12.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 12.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 12 -> 11.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 11.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 11 -> 10.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 10.
+[Warning:LateJoinPlus] [Admin] Range for Player 56: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Range set to 30.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: ExtraJump set to 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: MapPlayerCount set to 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: DeathHeadBattery set to 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 0 -> 12.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleClimb set to 12.
+[Info   :LateJoinPlus] [Admin] Host items: done - Removing 1 of C.O.M.P.R.E.S.S.O.R..
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 12 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleClimb set to 30.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 0 -> 19; throw strength on the host 0.00 -> 5.70 (expected 5.70)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 19.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 19 -> 11; throw strength on the host 5.70 -> 3.30 (expected 3.30)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 11.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 11 -> 9; throw strength on the host 3.30 -> 2.70 (expected 2.70)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 9.
+[Info   :LateJoinPlus] [Admin] Host items: done - Removing 1 of Sledge Hammer.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 9 -> 11; throw strength on the host 2.70 -> 3.30 (expected 3.30)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 11.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 11 -> 10; throw strength on the host 3.30 -> 3.00 (expected 3.00)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 10.
+[Info   :LateJoinPlus] [Admin] Strength for Player 56: 0 -> 20; grab strength on the host 1.00 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 20.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Warning: Unity Log] Item Gun Shrink/1 already exists in the dictionary
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[Error  : Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+   (seen 47 times in total)
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 10 -> 20.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 20 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 30.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Death drop] Player 14 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 14's Gun Shrink/1 was forced out of slot 1, as happens when someone dies (0.5 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Shrink(Clone) #121 0.0 m away, floor 0.06 m | state Idle owner 2010 | held by nobody | kinematic True collisions False colliders on 3/3 | active False deactivate -0.02 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Shrink(Clone) #121 10.8 m away, floor 0.02 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shrink(Clone) #121 10.4 m away, floor 0.02 m | state Idle owner 2010 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 8 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 3 player(s).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 2.
+[Warning:LateJoinPlus] [Admin] Strength for Player 56: 20 -> 30; grab strength on the host 3.00 -> 7.00 (expected 5.00, another mod changed it: ScalerCore)
+   (seen 6 times in total)
+[Warning:LateJoinPlus] [Admin] Throw for Player 56: 10 -> 30; throw strength on the host 1.20 -> 9.00 (expected 7.20, another mod changed it: ScalerCore)
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Admin] Launch for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 56: done - Player 56: every upgrade set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 30 -> 0.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 56: done - Player 56: Speed set to 0.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 0 -> 1.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 56: done - Player 56: Speed set to 1.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 1 -> 4.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 56: done - Player 56: Speed set to 4.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Warning:LateJoinPlus] [Admin] Health for Player 14: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 14: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Warning:LateJoinPlus] [Admin] Range for Player 14: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[Info   :LateJoinPlus] [Admin] Throw for Player 14: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 14: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 14: done - Player 14: every upgrade set to 30.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 2 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 4 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 30 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 14: done - Player 14: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 5 -> 3.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 14: done - Player 14: Speed set to 3.
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 56 (game id ok): Health 30, Stamina 30, Speed 30, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 30 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 56: done - Player 56: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 2, Speed 2, Strength 2, Range 1, Throw 0, ExtraJump 1, Launch 0, TumbleWings 2, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for You: 2 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for You: 2 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for You: 2 -> 30; grab strength on the host 1.40 -> 7.00 (expected 7.00)
+[Warning:LateJoinPlus] [Admin] Range for You: 1 -> 30; grab range on the host 3.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 1 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 2 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 1 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for You: 30 -> 9.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 9.
+[Info   :LateJoinPlus] [Admin] Speed for You: 9 -> 6.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 6.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 5 -> 22.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 22.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 22 -> 20.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 20.
+[Info   :LateJoinPlus] [Admin] Speed for You: 6 -> 3.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 3.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 30, Stamina 30, Speed 3, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 56 (game id ok): Health 30, Stamina 30, Speed 20, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 20 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Strength for Player 56: 30 -> 0 saved only; grab strength on the host left at 4.20 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Range for Player 56: 30 -> 0 saved only; grab range on the host left at 13.60 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 30 -> 0 saved only; throw strength on the host left at 3.60 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Launch for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 56: done - Player 56: every upgrade set to 0. Lowered ones fully apply from the next level: their character hadn't taken its upgrades yet.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Health set to 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Stamina set to 30.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 20.
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 0 -> 11; throw strength on the host 0.00 -> 3.30 (expected 3.30)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 11.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.4 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 10.
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Launch for Player 56: 0 -> 4.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Launch set to 4.
+[Info   :LateJoinPlus] [Admin] Launch for Player 56: 4 -> 1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Launch set to 1.
+[Info   :LateJoinPlus] [Admin] Launch for Player 56: 1 -> 0.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Launch set to 0.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 0 -> 29.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleClimb set to 29.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 29 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleClimb set to 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: DeathHeadBattery set to 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: MapPlayerCount set to 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: CrouchRest set to 30.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: ExtraJump set to 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Range set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Strength for Player 56: 20 -> 0 saved only; grab strength on the host left at 3.00 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Range for Player 56: 30 -> 0 saved only; grab range on the host left at 13.60 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 10 -> 0 saved only; throw strength on the host left at 1.20 (lowering it would go below zero) (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 30 -> 0 saved only (their character doesn't carry its upgrades: max health 700 with Health 0; their own game applies it from the next level).
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 56: done - Player 56: every upgrade set to 0. Lowered ones fully apply from the next level: their character hadn't taken its upgrades yet.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Health set to 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Stamina set to 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 20.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 26.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 23.
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 20.
+[Info   :LateJoinPlus] [Admin] Throw for Player 56: 0 -> 13; throw strength on the host 0.00 -> 3.90 (expected 3.90)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 13.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 9.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 10.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Speed for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 30.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleClimb set to 30.
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: DeathHeadBattery set to 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: MapPlayerCount set to 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: CrouchRest set to 30.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: ExtraJump set to 30.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Range set to 30.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.0 m away, 0.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×10.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Shotgun ×1.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Photon Blaster ×1.
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Revolver/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.0 m away, 0.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Laser/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Revolver/1 out of slot 2 (1.0 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Revolver/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Revolver/1 out of slot 2 (1.0 m away, 0.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Revolver/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.0 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.2 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 3 player(s) to the truck.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.1 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 14 put Gun Shrink/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Revolver/1 out of slot 2 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Gun Shrink/2 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Revolver/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[Info   :R.E.P.O Fixes+] Pupil size messages: held back 4 in the last minute (at most 10 a second go out).
+[Info   :LateJoinPlus] [Slots] You put Gun Shrink/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 14 took Gun Shrink/1 out of slot 1 (1.2 m away, 0.6 m above their feet).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 37 s for everyone's results screen; the last to finish: Player 56 (32 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 14' peaked at 85 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] PrefabRef failed to load "Level/Shop/Loading Graphics/Shop - Wasteland/level shop wasteland 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[Info   :LateJoinPlus] [Moderators] Status: host; moderators here: Player 56 [Kicking, Banning, Block List, Notes, Calls, Run control, Admin]; with LateJoinPlus: 1.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] Late joiner Player 14 connected (shop). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Player 14 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 14 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Admin] Player 14's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] Player 14 is here and proved their moderator access (Kicking, Banning, Block List, Notes, Calls, Run control).
+[Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 14 (has LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 14 finished loading in 7.1 s (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Status: host; moderators here: Player 56 [Kicking, Banning, Block List, Notes, Calls, Run control, Admin], Player 14 [Kicking, Banning, Block List, Notes, Calls, Run control]; with LateJoinPlus: 2.
+   (seen 14 times in total)
+[Info   :R.E.P.O Fixes+] Pupil size messages: held back 3 in the last minute (at most 10 a second go out).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 14' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 35 messages (about 149 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host bring Player 56: done - Moved Player 56 to You.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Shop Wasteland': OK | joins 1 (1 with LateJoinPlus), loaded 1 (avg 7.1 s, slowest 7.1 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 35 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 62 messages/s (flood limit 500); most data from one player 10 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] Player 56's Item Gun Laser/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 56's Item Gun Revolver/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Shotgun/1 out of slot 1 (0.9 m away, 0.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/4 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-25T20:44:36] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 4 not found when trying to remove
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadController and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 3 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyAttackStuckPhysObject and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateRoaming and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 2 times in total)
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseBegin and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSneak and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChase and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseSlow and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseEnd and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyStateLookUnder and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadHalloween and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type EnemyUpscream and name feetTransform
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+[Error  : Unity Log] PrefabRef failed to load "Level/Museum/Loading Graphics/level museum 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: loading, 0 s from the first player to the last, Player 14.
+[Info   :LateJoinPlus] [Slots] Player 56's Item Gun Revolver/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 56's Gun Shrink/4 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 56's Item Gun Laser/1 is back in slot 3 (the game restoring slots).
+[Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Museum). Catching them up.
+[Info   :LateJoinPlus] Player 14 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 14 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 14's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] Player 14 is here and proved their moderator access (Kicking, Banning, Block List, Notes, Calls, Run control).
+[Info   :LateJoinPlus] Late joiner Player 14 left before finishing loading, 2.8 s after connecting (has LateJoinPlus; character: yes; connection lost: no).
+[Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun.
+[Info   :LateJoinPlus] [Slots] You's slot 1 should hold an item from before, but there's no such item on this level.
+[Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #5' (player #5, Steam ID unknown), first 30 s: busiest second 2 KB in 32 messages (about 93 bytes each).
+[Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - No tumbling for Player 56: off.
+[Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Museum). Catching them up.
+[Info   :LateJoinPlus] Player 14 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 14 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/4 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 14's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] Player 14 is here and proved their moderator access (Kicking, Banning, Block List, Notes, Calls, Run control).
+[Info   :LateJoinPlus] Sent the setup of 7 level piece(s) once to Player 14 (has LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 14 left before finishing loading, 3.3 s after connecting (has LateJoinPlus; character: yes; connection lost: no).
+[Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun.
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/4 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/4 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/4 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Revolver/1 out of slot 2 (1.1 m away, 0.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/4 out of slot 1 (1.0 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/4 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Revolver/1 in slot 2.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #6' (player #6, Steam ID unknown), first 30 s: busiest second 2 KB in 29 messages (about 96 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 56 took Item Gun Laser/1 out of slot 3 (1.0 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/4 out of slot 1 (1.0 m away, 0.2 m above their feet).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/4 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 56 put Item Gun Laser/1 in slot 3.
+=== Previous game session ===
+[Warning:me.loaforc.soundapi] Native backend is not yet supported for unity version: 6000.3.28f1
+[Warning:me.loaforc.soundapi] Native backend failed, falling back to default harmony backend!
+[Warning:Repo Admin Menu] Language file not found: C:\Users\[user]\AppData\Roaming\r2modmanPlus-local\REPO\profiles\Default\BepInEx\plugins\proferabg-RepoAdminMenu\Languages\en.json
+   (seen 2 times in total)
+[11:42:09.279] [Info   :R.E.P.O Fixes+] [Mod guards] Repo Admin Menu found; its per-player checks skip players whose Steam ID isn't known yet (they threw when someone joined).
+[11:42:09.611] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[11:42:10.274] [Warning:me.loaforc.soundapi] No sound-packs were found to load! This can be ignorable if you're doing testing or using SoundAPI for another purpose, but if you expected sound-packs to load you may have set it up incorrectly.
+[11:42:12.402] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[11:42:12.623] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[11:42:12.956] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[11:42:12.957] [Warning:HarmonyX] AccessTools.Method: type is null
+[11:42:14.196] [Error  :Unity Log] MissingMethodException: Method not found: void .PhysGrabObjectImpactDetector.DestroyObject(bool)
+Stack trace:
+PortalRenderSpike.Plugin.Update () (at <77841e0cbd25429eae398ad9c322c585>:0)
+   (seen 236099 times in total)
+[11:42:14.348] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[11:42:14.360] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[11:42:14.362] [Info   :LateJoinPlus] Timing: start-up took 4142 ms.
+[11:42:14.363] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[11:42:14.364] [Info   :LateJoinPlus] Timing: late patches took 798 ms.
+[11:42:14.444] [Warning:Unity Log] Unable to load font face for [] font asset.
+[11:42:14.546] [Warning:me.loaforc.soundapi] The game will freeze for a moment!
+[11:42:14.762] [Info   :LateJoinPlus] Timing: slowest frame so far 2930 ms, 3 s after start.
+[11:42:14.762] [Info   :LateJoinPlus] Timing: game memory 1508 MB of 16068 MB, 82 MB of it from mods and scripts; textures 88 MB of 8034 MB video memory.
+[11:42:14.763] [Info   :LateJoinPlus] Timing: Chinese font set-up took 21 ms and 1 MB.
+[11:42:14.763] [Info   :LateJoinPlus] Timing: the 3-second font scan took 3.4 ms (13 fonts).
+[11:42:14.764] [Info   :LateJoinPlus] [Admin] RepoAdminMenu is installed too. LateJoinPlus has its own Admin page now (LJ+ menu > Admin), so RepoAdminMenu isn't needed.
+[11:42:22.840] [Warning:LateJoinPlus] Key F8 is LateJoinPlus's Admin page key and also Void Cart's OpenInventory: one press does both. Change one of them.
+[11:42:22.841] [Warning:LateJoinPlus] Key F8 is LateJoinPlus's Admin page key and also Repo Admin Menu's MenuHotkey: one press does both. Change one of them.
+[11:42:22.844] [Warning:LateJoinPlus] Key End is LateJoinPlus's Leave key and also ShrinkerGun's CollapseKey: one press does both. Change one of them.
+[11:42:24.681] [Info   :Unity Log] leaving photon
+[11:42:24.691] [Info   :Unity Log] Leave to Main Menu
+[11:43:14.261] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[11:43:14.285] [Warning:Unity Log] [2026-11-25T17:43:14] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[11:43:14.648] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 56' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[11:43:15.021] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[11:43:15.163] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[11:43:15.163] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 1 key proof(s).
+[11:43:15.635] [Info   :LateJoinPlus] [Moderators] The host says we're a moderator: Kicking, Banning, Block List, Notes, Calls, Run control, Admin; host has the Admin page: yes.
+[11:43:15.636] [Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 0 protected, 2 with LateJoinPlus.
+[11:43:18.368] [Info   :LateJoinPlus] [Run] START shown on the lobby screen: we're a moderator with Run control (the host carries it out).
+[11:43:43.838] [Info   :LateJoinPlus] [Moderators] Status: moderator (Kicking, Banning, Block List, Notes, Calls, Run control, Admin); moderators here: none; with LateJoinPlus: 2; Admin page: allowed.
+   (seen 101 times in total)
+[11:48:21.136] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 60' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[11:48:51.438] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 60' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 22 messages (about 121 bytes each).
+[11:49:31.819] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 64' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[11:49:36.191] [Info   :LateJoinPlus] [Moderators] Roles from the host: 2 moderator(s), 0 protected, 3 with LateJoinPlus.
+[11:49:43.571] [Info   :LateJoinPlus] [Run] START hidden on the lobby screen again (no Run control).
+[11:49:43.899] [Info   :LateJoinPlus] [Moderators] Status: moderator (Kicking, Banning, Block List, Notes, Calls, Run control, Admin); moderators here: Player 64; with LateJoinPlus: 3; Admin page: allowed.
+   (seen 75 times in total)
+[11:49:45.471] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[11:49:47.475] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[11:49:47.945] [Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 4 loading, 0 ready); the players panel is up.
+[11:49:48.004] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 58 messages/s (flood limit 500); most data from one player 15 KB/s (limit 100); 0 messages dropped.
+[11:49:48.065] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[11:49:48.111] [Info   :LateJoinPlus] Waited 0.1 s for Player 60's Steam ID before loading their upgrades and name tag.
+[11:49:48.248] [Info   :LateJoinPlus] Waited 0.1 s for Player 64's Steam ID before loading their upgrades and name tag.
+[11:50:02.143] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 64' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 10 KB in 111 messages (about 97 bytes each).
+[11:50:13.404] [Info   :LateJoinPlus] Timing: game memory 2314 MB of 16068 MB, 92 MB of it from mods and scripts; textures 322 MB of 8034 MB video memory.
+[11:50:16.922] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Photon.Pun.PhotonView and name feetTransform
+   (seen 23 times in total)
+[11:50:16.922] [Warning:HarmonyX] AccessTools.Field: Could not find field for type Enemy and name feetTransform
+   (seen 20 times in total)
+[11:50:16.923] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHealth and name feetTransform
+   (seen 20 times in total)
+[11:50:16.923] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSpawn and name feetTransform
+   (seen 20 times in total)
+[11:50:16.923] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateDespawn and name feetTransform
+   (seen 20 times in total)
+[11:50:16.924] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateStunned and name feetTransform
+   (seen 20 times in total)
+[11:50:16.924] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerDistance and name feetTransform
+   (seen 15 times in total)
+[11:50:16.925] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyOnScreen and name feetTransform
+   (seen 15 times in total)
+[11:50:16.925] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyPlayerRoom and name feetTransform
+   (seen 15 times in total)
+[11:50:16.925] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyVision and name feetTransform
+   (seen 20 times in total)
+[11:50:16.926] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyNavMeshAgent and name feetTransform
+   (seen 19 times in total)
+[11:50:16.927] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateInvestigate and name feetTransform
+   (seen 19 times in total)
+[11:50:16.927] [Warning:HarmonyX] AccessTools.Field: Could not find field for type GameEventObjectSwap and name feetTransform
+   (seen 7 times in total)
+[11:50:19.021] [Error  :Unity Log] PrefabRef failed to load "Level/Desert/Loading Graphics/level desert 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 9 times in total)
+[11:50:56.504] [Info   :LateJoinPlus] [Menu] Admin panel opened (as moderator).
+   (seen 12 times in total)
+[11:50:57.884] [Info   :LateJoinPlus] [Admin] Asked the host: power You god.
+[11:50:58.152] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[11:50:58.153] [Info   :LateJoinPlus] [Admin] Host answered 'power You god': done - God mode for You: on.
+[11:50:58.603] [Info   :LateJoinPlus] [Admin] Asked the host: power You ignored.
+[11:50:58.870] [Info   :LateJoinPlus] [Admin] Host answered 'power You ignored': done - Enemies ignore them for You: on.
+[11:50:59.368] [Info   :LateJoinPlus] [Admin] Asked the host: power You stamina.
+[11:50:59.550] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[11:50:59.551] [Info   :LateJoinPlus] [Admin] Host answered 'power You stamina': done - Endless stamina for You: on.
+[11:50:59.959] [Info   :LateJoinPlus] [Admin] Asked the host: power You notumble.
+[11:51:00.489] [Info   :LateJoinPlus] [Admin] Host answered 'power You notumble': done - No tumbling for You: on.
+[11:52:11.280] [Error  :Shrinkinator] [Shrinkinator] Ошибка локальной камеры/хитбокса игрока
+System.MissingMethodException: Method not found: void .PlayerController.OverrideSpeed(single,single)
+  at Shrinkinator.PlayerShrinkController.ApplyLocalFeel () [0x002fd] in <ff4901b37a8944999da120c5bb4fed30>:0 
+   (seen 4 times in total)
+[11:52:28.053] [Error  :Shrinkinator] [Shrinkinator] Ошибка уменьшения игрока
+System.MissingMethodException: Method not found: void .PlayerController.OverrideSpeed(single,single)
+  at Shrinkinator.PlayerShrinkController.RPC_ApplyShrink (System.Single scale, System.Single duration, System.Int32 effectId) [0x00031] in <ff4901b37a8944999da120c5bb4fed30>:0 
+   (seen 28 times in total)
+[11:52:31.246] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Item Staff Void.
+[11:52:31.619] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Item Staff Void': done - Spawned Void Staff ×1.
+[11:52:33.457] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Item Shrinkinator.
+[11:52:35.252] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Item Shrinkinator': done - Spawned Уменьшитель-инатор ×1.
+[11:52:49.189] [Error  :Shrinkinator] [Shrinkinator] Ошибка возврата размера игрока
+System.MissingMethodException: Method not found: void .PlayerController.OverrideSpeed(single,single)
+  at Shrinkinator.PlayerShrinkController.RevertLocal () [0x00000] in <ff4901b37a8944999da120c5bb4fed30>:0 
+   (seen 24 times in total)
+[11:52:50.030] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Gun Shrink.
+[11:52:50.198] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Gun Shrink': done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[11:53:39.196] [Info   :LateJoinPlus] [Admin] Asked the host: despawn.
+[11:53:39.378] [Info   :LateJoinPlus] [Admin] Host answered 'despawn': done - Removed 2 enemies.
+[11:53:55.290] [Info   :R.E.P.O Fixes+] Pupil size messages: held back 2 in the last minute (at most 10 a second go out).
+[11:54:28.812] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 82' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[11:54:59.254] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 82' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 37 messages (about 141 bytes each).
+[11:55:59.936] [Warning:Unity Log] [2026-11-25T17:55:59] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #10 of player 3 not found when trying to remove
+   (seen 21 times in total)
+[11:56:37.102] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Item Void Cart.
+[11:56:37.379] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Item Void Cart': done - Spawned Void Cart ×1.
+[11:57:23.015] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:24.449] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:27.603] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:27.900] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:28.152] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:28.347] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:28.703] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:28.983] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:29.257] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:29.576] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:29.826] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:30.033] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:30.261] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:30.460] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:30.654] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:30.860] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:31.077] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:31.331] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:33.905] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:34.119] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:34.308] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:34.524] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:34.738] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:35.132] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:35.346] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:35.563] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:35.796] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:36.023] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:36.242] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:36.483] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:36.747] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:37.047] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:37.365] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:37.741] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:38.188] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:38.745] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:39.308] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:40.303] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:40.626] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:40.839] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:41.068] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:41.323] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:41.662] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:41.961] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:42.200] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:42.526] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:42.776] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:43.028] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:43.235] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:43.522] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:43.819] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:44.002] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:44.248] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:44.558] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:44.769] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:44.989] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:45.210] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:57:45.414] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:58:02.327] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:ItemPortalGun.
+[11:58:02.487] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:ItemPortalGun': done - Spawned Portal Gun ×1.
+[11:59:28.384] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:59:28.722] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:59:29.016] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[11:59:40.781] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[12:00:00.026] [Info   :LateJoinPlus] [Admin] Asked the host: spawn enemy:Enemy - Duck.
+[12:00:00.378] [Info   :LateJoinPlus] [Admin] Host answered 'spawn enemy:Enemy - Duck': done - Spawned Duck ×1.
+[12:00:03.599] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyDuck and name feetTransform
+[12:00:20.176] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[12:00:20.689] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[12:00:21.121] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[12:00:21.951] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 11' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:00:37.105] [Info   :LateJoinPlus] [Admin] Asked the host: truck You.
+[12:00:37.285] [Info   :LateJoinPlus] [Admin] Host answered 'truck You': done - Sent You to the truck.
+[12:00:41.479] [Info   :LateJoinPlus] [Admin] Asked the host: goto Player 64.
+[12:00:41.669] [Info   :LateJoinPlus] [Admin] Host answered 'goto Player 64': done - Moved You to Player 64.
+[12:00:50.384] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 11' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:00:52.401] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #6' (player #6, Steam ID unknown), first 30 s: busiest second 3 KB in 36 messages (about 101 bytes each).
+[12:01:19.859] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #7' (player #7, Steam ID unknown), first 30 s: busiest second 3 KB in 34 messages (about 110 bytes each).
+[12:01:42.545] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Item Shrinkinator.
+[12:01:42.754] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Item Shrinkinator': done - Spawned Уменьшитель-инатор ×1.
+[12:02:28.751] [Info   :LateJoinPlus] [Moderators] Roles from the host: 2 moderator(s), 0 protected, 3 with LateJoinPlus.
+[12:02:37.185] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 11 times in total)
+[12:02:37.186] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:02:37.724] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:02:41.954] [Info   :LateJoinPlus] [Admin] Asked the host: truckall.
+[12:02:42.133] [Info   :LateJoinPlus] [Admin] Host answered 'truckall': done - Sent 1 player(s) to the truck.
+[12:02:44.471] [Info   :LateJoinPlus] [Admin] Asked the host: truckall.
+[12:02:44.776] [Info   :LateJoinPlus] [Admin] Host answered 'truckall': done - Sent 1 player(s) to the truck.
+[12:02:54.157] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:02:56.259] [Info   :LateJoinPlus] [Admin] Asked the host: reviveall.
+[12:02:56.366] [Info   :LateJoinPlus] [Admin] Host answered 'reviveall': refused - Nobody is dead.
+[12:02:56.776] [Info   :LateJoinPlus] [Admin] Asked the host: healall.
+[12:02:56.911] [Info   :LateJoinPlus] [Admin] Host answered 'healall': done - Sent a heal to 3 player(s).
+[12:02:59.635] [Info   :LateJoinPlus] [Admin] Asked the host: truckall.
+[12:02:59.916] [Info   :LateJoinPlus] [Admin] Host answered 'truckall': done - Sent 1 player(s) to the truck.
+[12:03:01.516] [Info   :LateJoinPlus] [Admin] Asked the host: truckall.
+[12:03:01.813] [Info   :LateJoinPlus] [Admin] Host answered 'truckall': done - Sent 1 player(s) to the truck.
+[12:03:46.065] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:03:48.036] [Info   :LateJoinPlus] [Admin] Asked the host: goto Player 64.
+[12:03:48.237] [Info   :LateJoinPlus] [Admin] Host answered 'goto Player 64': done - Moved You to Player 64.
+[12:03:58.326] [Info   :LateJoinPlus] [Admin] Asked the host: spawn item:Item Shrinkinator.
+[12:03:58.479] [Info   :LateJoinPlus] [Admin] Host answered 'spawn item:Item Shrinkinator': done - Spawned Уменьшитель-инатор ×1.
+[12:04:55.078] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:04:58.273] [Warning:Unity Log] Item ItemPortalGun/1 already exists in the dictionary
+   (seen 2 times in total)
+[12:05:01.867] [Info   :LateJoinPlus] [Admin] Asked the host: extract.open.
+[12:05:02.025] [Info   :LateJoinPlus] [Admin] Host answered 'extract.open': refused - An extraction point is already open.
+[12:05:05.889] [Info   :LateJoinPlus] [Admin] Asked the host: next.
+[12:05:06.680] [Info   :LateJoinPlus] [Admin] Host answered 'next': done - Going to the next level.
+[12:05:08.589] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:05:09.404] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:05:09.936] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[12:05:09.956] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[12:05:10.223] [Info   :LateJoinPlus] Waited 0.1 s for Player 64's Steam ID before loading their upgrades and name tag.
+[12:05:10.239] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 192 messages/s (flood limit 500); most data from one player 24 KB/s (limit 100); 0 messages dropped.
+[12:05:27.520] [Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 0 protected, 2 with LateJoinPlus.
+[12:05:29.362] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBombThrower and name feetTransform
+[12:05:38.423] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:05:40.862] [Info   :LateJoinPlus] [Admin] Asked the host: shop.
+[12:05:41.633] [Info   :LateJoinPlus] [Admin] Host answered 'shop': done - Going to the shop.
+[12:05:43.517] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[12:05:44.292] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[12:05:44.757] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 2 loading, 0 ready); the players panel is up.
+[12:05:44.950] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[12:05:45.696] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 150 messages/s (flood limit 500); most data from one player 23 KB/s (limit 100); 0 messages dropped.
+[12:05:52.057] [Error  :Unity Log] PrefabRef failed to load "Level/Shop/Loading Graphics/Shop - Harbor/level shop harbor 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 3 times in total)
+[12:06:00.004] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 64' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:06:10.588] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[12:06:13.691] [Info   :LateJoinPlus] Timing: game memory 3248 MB of 16068 MB, 112 MB of it from mods and scripts; textures 441 MB of 8034 MB video memory.
+[12:06:27.254] [Info   :LateJoinPlus] [Moderators] Roles from the host: 2 moderator(s), 0 protected, 3 with LateJoinPlus.
+[12:06:30.398] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 64' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 24 messages (about 107 bytes each).
+[12:07:19.308] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[12:08:14.170] [Info   :LateJoinPlus] [Admin] Asked the host: upgrade You Strength.
+[12:08:14.657] [Info   :LateJoinPlus] [Admin] Host answered 'upgrade You Strength': done - You: Strength set to 30.
+[12:08:15.144] [Info   :LateJoinPlus] [Admin] Asked the host: upgrade You Throw.
+[12:08:15.310] [Info   :LateJoinPlus] [Admin] Host answered 'upgrade You Throw': done - You: Throw set to 30.
+[12:08:16.857] [Info   :LateJoinPlus] [Admin] Asked the host: upgrade You Launch.
+[12:08:17.016] [Info   :LateJoinPlus] [Admin] Host answered 'upgrade You Launch': done - You: Launch set to 30.
+[12:08:24.002] [Info   :LateJoinPlus] [Admin] Asked the host: spawn cosmetic:ultrarare.
+[12:08:24.252] [Info   :LateJoinPlus] [Admin] Host answered 'spawn cosmetic:ultrarare': refused - This level has no cosmetic boxes.
+[12:09:17.136] [Error  :Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+   (seen 2 times in total)
+[12:16:49.933] [Info   :R.E.P.O Fixes+] Pupil size messages: held back 3 in the last minute (at most 10 a second go out).
+[12:19:02.045] [Info   :R.E.P.O Fixes+] Pupil size messages: held back 4 in the last minute (at most 10 a second go out).
+[12:27:26.154] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:27:27.539] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:27:27.858] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[12:27:28.023] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[12:27:28.163] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 146 messages/s (flood limit 500); most data from one player 28 KB/s (limit 100); 0 messages dropped.
+[12:27:28.217] [Info   :LateJoinPlus] Waited 0.1 s for Player 64's Steam ID before loading their upgrades and name tag.
+[12:27:35.154] [Error  :Unity Log] PrefabRef failed to load "Level/Shop/Loading Graphics/Shop - Dead Forest/level shop dead forest 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 6 times in total)
+[12:28:06.811] [Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 0 protected, 2 with LateJoinPlus.
+[12:29:47.847] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:30:18.265] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 31' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 158 bytes each).
+[12:36:22.610] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:36:23.418] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:36:24.534] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[12:36:24.654] [Info   :LateJoinPlus] Waited 0.1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[12:36:24.776] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[12:36:25.274] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 129 messages/s (flood limit 500); most data from one player 31 KB/s (limit 100); 0 messages dropped.
+[12:37:01.826] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 74' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:37:32.260] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 74' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 35 messages (about 151 bytes each).
+[12:37:33.295] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 382 but this PhotonView does not exist! Was remote PV. Remote called. By: #10 'Player 74' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 5 times in total)
+[12:37:33.297] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 382 but this PhotonView does not exist! Was remote PV. Remote called. By: #10 'Player 74' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 5 times in total)
+[12:39:48.545] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:39:49.307] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[12:39:49.661] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[12:39:49.777] [Info   :LateJoinPlus] Waited 0.1 s for Player 74's Steam ID before loading their upgrades and name tag.
+[12:39:49.813] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[12:39:50.065] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 106 messages/s (flood limit 500); most data from one player 22 KB/s (limit 100); 0 messages dropped.
+[12:40:06.817] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadController and name feetTransform
+[12:40:06.827] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyAttackStuckPhysObject and name feetTransform
+[12:40:06.828] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateRoaming and name feetTransform
+[12:40:06.830] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseBegin and name feetTransform
+[12:40:06.831] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateSneak and name feetTransform
+[12:40:06.837] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChase and name feetTransform
+[12:40:06.837] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseSlow and name feetTransform
+[12:40:06.838] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateChaseEnd and name feetTransform
+[12:40:06.839] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyStateLookUnder and name feetTransform
+[12:40:06.840] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyHeadHalloween and name feetTransform
+[12:40:07.011] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyRobe and name feetTransform
+   (seen 4 times in total)
+[12:40:07.351] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyBowtie and name feetTransform
+[12:40:07.423] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySpinny and name feetTransform
+   (seen 2 times in total)
+[12:40:07.436] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyValuableExplosion and name feetTransform
+   (seen 2 times in total)
+[12:40:07.438] [Warning:HarmonyX] AccessTools.Field: Could not find field for type ParticleScriptExplosion and name feetTransform
+   (seen 2 times in total)
+[12:40:07.590] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyAnimal and name feetTransform
+[12:40:08.012] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyGnome and name feetTransform
+   (seen 4 times in total)
+[12:40:08.664] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyTick and name feetTransform
+[12:40:09.209] [Error  :Unity Log] PrefabRef failed to load "Level/Wizard/Loading Graphics/level wizard 01" as GameObject. Make sure it's in a "Resources" folder.
+   (seen 6 times in total)
+[12:40:36.074] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:41:06.809] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #11' (player #11, Steam ID unknown), first 30 s: busiest second 1 KB in 23 messages (about 77 bytes each).
+[12:58:01.588] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 37' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[12:58:32.208] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #12' (player #12, Steam ID unknown), first 30 s: busiest second 2 KB in 18 messages (about 130 bytes each).
+[13:00:03.558] [Warning:Lobby Guard] [Lobby Guard] BLOCKED 'Player 27' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]):​ is on your block list (blocked on entry). Their messages and voice are now ignored on this machine.
+[13:00:03.944] [Warning:Unity Log] Received RPC "SpawnRPC" for viewID 13002 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 56' Maybe GO was destroyed but RPC not cleaned up.
+[13:00:04.202] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 27' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:00:06.289] [Warning:Unity Log] [2026-11-25T19:00:06] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 13008 found. Remote voice p#13 v#3 not linked.
+[13:00:33.630] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #13' (player #13, Steam ID unknown), first 30 s: busiest second 2 KB in 31 messages (about 82 bytes each).
+[13:08:08.983] [Warning:Void Cart] An inventory object did not spawn in time; requesting a fresh host snapshot.
+   (seen 15 times in total)
+[13:11:39.919] [Info   :Unity Log] Master client left...
+[13:11:40.117] [Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[13:11:40.118] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[13:11:40.491] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's ItemPortalGun/1 from a slot: they're no longer here.
+[13:11:40.492] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Shrinkinator/1 from a slot: they're no longer here.
+[13:11:40.492] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Gun Shrink/1 from a slot: they're no longer here.
+[13:11:40.494] [Info   :LateJoinPlus] Dropped 3 item(s) left in the inventory of a player who is no longer here in the truck.
+[13:11:40.982] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[13:11:41.541] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] (MODDED) I EAT BANANAS (ALL AGES)(NO MIC REQUIRED) !JELLY! -'; as typed: ''.
+[13:11:41.543] [Info   :Unity Log] leaving photon
+[13:11:41.747] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[13:11:41.758] [Info   :Unity Log] Leave to Main Menu
+[13:11:42.430] [Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 1, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 0
+[13:11:42.431] [Info   :LateJoinPlus] [Report] Session (1 level(s) with activity): OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 1, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 0
+[13:13:01.036] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[13:13:03.056] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[13:13:38.345] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[13:13:38.347] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[13:13:40.036] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] ANY AGE MIC REQ NO SOUNDBOARDS'; as typed: 'any age mic req no soundboards'.
+[13:14:03.047] [Info   :LateJoinPlus] Player 56 is running a compatible late-join mod (LJ+ 1.2.2).
+[13:14:03.049] [Info   :LateJoinPlus] [Moderators] Asked Player 56 (LateJoinPlus) whether they hold one of our moderator keys.
+[13:14:03.135] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 56' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:14:03.982] [Info   :LateJoinPlus] [Admin] Player 56's LateJoinPlus has the Admin page (1.2).
+[13:14:03.984] [Info   :LateJoinPlus] Player 56 is here and proved their moderator access (Kicking, Banning, Block List, Notes, Calls, Run control, Admin).
+[13:14:08.301] [Info   :LateJoinPlus] [Moderators] Status: host; moderators here: Player 56 [Kicking, Banning, Block List, Notes, Calls, Run control, Admin]; with LateJoinPlus: 1.
+   (seen 57 times in total)
+[13:14:33.651] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 56' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 100 bytes each).
+[13:15:45.825] [Info   :LateJoinPlus] Timing: game memory 3809 MB of 16068 MB, 138 MB of it from mods and scripts; textures 977 MB of 8034 MB video memory.
+[13:16:37.593] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[13:16:49.036] [Info   :LateJoinPlus] [Admin] Host kill Player 56: not done - Not now: wait until the level has loaded.
+[13:17:09.760] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[13:17:14.789] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[13:17:15.781] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[13:17:17.436] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[13:17:17.750] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[13:17:17.939] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[13:17:18.587] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 39 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[13:17:24.826] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemySlowMouth and name feetTransform
+[13:17:36.563] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 9 times in total)
+[13:17:37.666] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[13:17:37.667] [Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[13:17:38.572] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[13:17:38.574] [Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[13:17:39.152] [Info   :LateJoinPlus] [Admin] Host power You: done - No tumbling for You: on.
+[13:17:39.735] [Info   :LateJoinPlus] [Admin] Host power You: done - Enemies ignore them for You: on.
+[13:17:51.494] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - God mode for Player 56: on.
+[13:17:51.985] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - Endless stamina for Player 56: on.
+[13:17:52.580] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) power: done - No tumbling for Player 56: on.
+[13:17:54.763] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Photon Blaster ×1.
+[13:17:55.927] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Human Gun ×1.
+[13:18:00.249] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Shotgun ×1.
+[13:18:05.236] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[13:18:10.568] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×2.
+[13:18:12.030] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×2.
+[13:18:19.489] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Valuables don't break: on.
+[13:18:20.134] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - The shopkeeper sleeps: on.
+[13:18:20.821] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Endless batteries: on.
+[13:18:21.642] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Enemies die in one hit: on.
+[13:18:22.076] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - The duck stays friendly: on.
+[13:18:23.268] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) world: done - Free shopping: on.
+[13:18:25.618] [Warning:Lobby Guard] [Lobby Guard] 'Items/Item Gun Shrink' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[13:18:25.619] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×2.
+[13:18:30.329] [Warning:LateJoinPlus] [Admin] Health for Player 56: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[13:18:30.329] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Health set to 30.
+[13:18:31.344] [Info   :LateJoinPlus] [Admin] Stamina for Player 56: 0 -> 30.
+[13:18:31.346] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Stamina set to 30.
+[13:18:32.356] [Info   :LateJoinPlus] [Admin] Strength for Player 56: 0 -> 20; grab strength on the host 1.00 -> 5.00 (expected 5.00)
+[13:18:32.358] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Strength set to 20.
+[13:18:34.218] [Info   :LateJoinPlus] [Admin] Throw for Player 56: 0 -> 9; throw strength on the host 0.00 -> 2.70 (expected 2.70)
+[13:18:34.219] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 9.
+[13:18:34.873] [Info   :LateJoinPlus] [Admin] Throw for Player 56: 9 -> 10; throw strength on the host 2.70 -> 3.00 (expected 3.00)
+[13:18:34.874] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Throw set to 10.
+[13:18:36.864] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 56: 0 -> 30.
+[13:18:36.865] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: DeathHeadBattery set to 30.
+[13:18:38.638] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 56: 0 -> 30.
+[13:18:38.639] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: MapPlayerCount set to 30.
+[13:18:39.808] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 56: 0 -> 30.
+[13:18:39.810] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: CrouchRest set to 30.
+[13:18:41.636] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 56: 0 -> 17.
+[13:18:41.636] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleWings set to 17.
+[13:18:43.048] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 56: 17 -> 0.
+[13:18:43.049] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: TumbleWings set to 0.
+[13:18:43.949] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 56: 0 -> 30.
+[13:18:43.949] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: ExtraJump set to 30.
+[13:18:45.233] [Warning:LateJoinPlus] [Admin] Range for Player 56: 0 -> 14; grab range on the host 2.50 -> 18.00 (expected 16.50, another mod changed it: ScalerCore)
+[13:18:45.234] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Range set to 14.
+[13:18:46.596] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:18:47.362] [Info   :LateJoinPlus] [Admin] Range for Player 56: 14 -> 30; grab range on the host 18.00 -> 34.00 (expected 34.00)
+[13:18:47.364] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Range set to 30.
+[13:18:49.024] [Info   :LateJoinPlus] [Admin] Speed for Player 56: 0 -> 4.
+[13:18:49.025] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 4.
+[13:18:49.782] [Info   :LateJoinPlus] [Admin] Speed for Player 56: 4 -> 5.
+[13:18:49.783] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) upgrade: done - Player 56: Speed set to 5.
+[13:18:59.100] [Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Desert). Catching them up.
+[13:19:00.104] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:19:02.264] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 14 (without LateJoinPlus).
+[13:19:06.138] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Void Cart ×2.
+[13:19:07.048] [Info   :LateJoinPlus] Late joiner Player 14 finished loading in 8.0 s (without LateJoinPlus).
+[13:19:08.722] [Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 14's map (11 messages).
+[13:19:16.189] [Info   :LateJoinPlus] Player 14 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[13:19:16.189] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Revolver/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[13:19:17.957] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Shotgun/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[13:19:29.537] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 14' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 34 messages (about 153 bytes each).
+[13:19:30.812] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[13:19:32.732] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:19:36.931] [Info   :LateJoinPlus] Late joiner Player 72 connected (level Level - Desert). Catching them up.
+[13:19:37.744] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 72' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:19:39.960] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 72 (without LateJoinPlus).
+[13:19:40.387] [Info   :LateJoinPlus] Late joiner Player 72 left before finishing loading, 3.4 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:19:40.389] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink.
+[13:20:07.095] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #4' (player #4, Steam ID unknown), first 30 s: busiest second 3 KB in 37 messages (about 109 bytes each).
+[13:20:08.162] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[13:20:09.166] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:20:11.255] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[13:20:12.253] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:20:26.563] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[13:20:27.802] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:20:31.526] [Warning:Lobby Guard] [Lobby Guard] 'Items/Item Portal Gun' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[13:20:31.526] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Portal Gun ×1.
+[13:20:33.023] [Info   :LateJoinPlus] [Slots] Player 56 put ItemPortalGun/1 in slot 2.
+[13:20:36.346] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[13:20:39.472] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:20:42.736] [Warning:Lobby Guard] [Lobby Guard] 'Items/Item Shrinkinator' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[13:20:42.738] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Уменьшитель-инатор ×1.
+[13:20:44.209] [Info   :LateJoinPlus] [Slots] Player 56 put Item Shrinkinator/1 in slot 3.
+[13:20:50.000] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Portal Gun ×1.
+[13:20:53.058] [Info   :LateJoinPlus] Late joiner Player 58 connected (level Level - Desert). Catching them up.
+[13:20:53.951] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 58' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:20:55.834] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[13:20:56.095] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 58 (without LateJoinPlus).
+[13:20:56.961] [Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[13:21:00.497] [Info   :LateJoinPlus] Late joiner Player 58 left before finishing loading, 7.5 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:21:07.788] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 56 (game id ok): Health 30, Stamina 30, Speed 5, Strength 20, Range 30, Throw 10, ExtraJump 30, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[13:21:08.605] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[13:21:11.119] [Warning:LateJoinPlus] [Admin] Health for Player 14: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[13:21:11.120] [Info   :LateJoinPlus] [Admin] Stamina for Player 14: 0 -> 30.
+[13:21:11.120] [Info   :LateJoinPlus] [Admin] Speed for Player 14: 0 -> 30.
+[13:21:11.120] [Info   :LateJoinPlus] [Admin] Strength for Player 14: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[13:21:11.121] [Info   :LateJoinPlus] [Admin] Range for Player 14: 0 -> 30; grab range on the host 4.00 -> 34.00 (expected 34.00)
+[13:21:11.121] [Info   :LateJoinPlus] [Admin] Throw for Player 14: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[13:21:11.122] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 14: 0 -> 30.
+[13:21:11.122] [Info   :LateJoinPlus] [Admin] Launch for Player 14: 0 -> 30.
+[13:21:11.122] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 14: 0 -> 30.
+[13:21:11.123] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 14: 0 -> 30.
+[13:21:11.124] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 14: 0 -> 30.
+[13:21:11.124] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 14: 0 -> 30.
+[13:21:11.125] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 14: 0 -> 30.
+[13:21:11.125] [Info   :LateJoinPlus] [Admin] Host upgradeall Player 14: done - Player 14: every upgrade set to 30.
+[13:21:15.059] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 56 (game id ok): Health 30, Stamina 30, Speed 5, Strength 20, Range 30, Throw 10, ExtraJump 30, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[13:21:15.695] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[13:21:17.313] [Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[13:21:17.314] [Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 30.
+[13:21:17.315] [Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 30.
+[13:21:17.316] [Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[13:21:17.318] [Warning:LateJoinPlus] [Admin] Range for You: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[13:21:17.319] [Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[13:21:17.320] [Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 30.
+[13:21:17.321] [Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 30.
+[13:21:17.321] [Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 30.
+[13:21:17.321] [Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 30.
+[13:21:17.323] [Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 30.
+[13:21:17.323] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 30.
+[13:21:17.323] [Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 30.
+[13:21:17.323] [Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 30.
+[13:21:19.833] [Info   :LateJoinPlus] [Admin] Speed for You: 30 -> 4.
+[13:21:19.834] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 4.
+[13:21:23.490] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #5' (player #5, Steam ID unknown), first 30 s: busiest second 2 KB in 23 messages (about 96 bytes each).
+[13:21:27.538] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×2.
+[13:21:33.982] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:21:40.233] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Revolver/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[13:21:40.543] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Revolver/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[13:21:40.856] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Revolver/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[13:22:10.915] [Info   :LateJoinPlus] Late joiner Player 58 connected (level Level - Desert). Catching them up.
+[13:22:11.370] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 58' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:22:14.001] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 58 (without LateJoinPlus).
+[13:22:17.162] [Info   :LateJoinPlus] Late joiner Player 58 left before finishing loading, 6.3 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:22:35.708] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 56 (game id ok): Health 30, Stamina 30, Speed 5, Strength 20, Range 30, Throw 10, ExtraJump 30, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[13:22:35.891] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 14 (game id ok): Health 30, Stamina 30, Speed 30, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[13:22:41.719] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #6' (player #6, Steam ID unknown), first 30 s: busiest second 2 KB in 27 messages (about 102 bytes each).
+[13:22:54.423] [Info   :LateJoinPlus] [Slots] Player 56 took Item Shrinkinator/1 out of slot 3 (1.6 m away, 1.3 m above their feet).
+[13:22:55.661] [Info   :LateJoinPlus] [Slots] Player 56 put Item Shrinkinator/1 in slot 3.
+[13:22:58.813] [Info   :LateJoinPlus] [Slots] Player 56 took Item Shrinkinator/1 out of slot 3 (1.2 m away, 0.5 m above their feet).
+[13:22:59.961] [Info   :LateJoinPlus] [Slots] Player 56 put Item Shrinkinator/1 in slot 3.
+[13:23:00.621] [Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.1 m away, 0.5 m above their feet).
+[13:23:17.294] [Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[13:23:25.826] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Robe ×1.
+[13:23:27.557] [Info   :LateJoinPlus] Late joiner Player 29 connected (level Level - Desert). Catching them up.
+[13:23:27.714] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:23:30.614] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 29 (without LateJoinPlus).
+[13:23:35.385] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[13:23:36.112] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:23:36.652] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[13:23:37.528] [Info   :LateJoinPlus] Late joiner Player 29 left before finishing loading, 10.0 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:23:40.562] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:23:58.074] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #7' (player #7, Steam ID unknown), first 30 s: busiest second 1 KB in 19 messages (about 88 bytes each).
+[13:24:05.817] [Info   :LateJoinPlus] [Slots] Player 56 took Gun Shrink/3 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[13:24:08.816] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Revolver/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[13:24:33.917] [Info   :LateJoinPlus] Late joiner Player 29 connected (level Level - Desert). Catching them up.
+[13:24:34.695] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:24:37.032] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 29 (without LateJoinPlus).
+[13:24:38.824] [Info   :LateJoinPlus] Late joiner Player 29 left before finishing loading, 4.9 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:24:38.826] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:25:04.240] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #8' (player #8, Steam ID unknown), first 30 s: busiest second 2 KB in 20 messages (about 103 bytes each).
+[13:25:05.952] [Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/3 in slot 1.
+[13:25:24.391] [Info   :LateJoinPlus] Late joiner Player 7 connected (level Level - Desert). Catching them up.
+[13:25:24.576] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:25:27.478] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 7 (without LateJoinPlus).
+[13:25:28.898] [Info   :LateJoinPlus] Late joiner Player 7 left before finishing loading, 4.6 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:25:28.899] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:25:55.023] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #9' (player #9, Steam ID unknown), first 30 s: busiest second 3 KB in 36 messages (about 88 bytes each).
+[13:27:05.268] [Info   :LateJoinPlus] [Admin] Host items: done - Removing 1 of Void Cart.
+[13:28:07.785] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[13:28:09.968] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:28:13.385] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[13:28:14.013] [Info   :LateJoinPlus] [Slots] Player 56 took Item Shrinkinator/1 out of slot 3 (1.0 m away, 0.3 m above their feet).
+[13:28:15.347] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:28:17.717] [Info   :LateJoinPlus] [Slots] Player 56 put Item Shrinkinator/1 in slot 3.
+[13:28:32.311] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[13:28:37.714] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:28:38.822] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[13:28:41.705] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:29:12.031] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[13:29:12.887] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:29:32.070] [Info   :LateJoinPlus] Late joiner Player 50 connected (level Level - Desert). Catching them up.
+[13:29:32.604] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 50' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:29:35.183] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 50 (without LateJoinPlus).
+[13:29:35.987] [Info   :LateJoinPlus] Late joiner Player 50 left before finishing loading, 3.9 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:29:35.987] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:29:41.774] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. ×1.
+[13:29:51.894] [Info   :LateJoinPlus] Late joiner Player 29 connected (level Level - Desert). Catching them up.
+[13:29:51.982] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:29:55.009] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 29 (without LateJoinPlus).
+[13:29:56.699] [Info   :LateJoinPlus] Late joiner Player 29 left before finishing loading, 4.8 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:29:56.700] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:30:02.096] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #10' (player #10, Steam ID unknown), first 30 s: busiest second 3 KB in 38 messages (about 96 bytes each).
+[13:30:02.363] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object.
+Stack trace:
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.GetComponentFastPath (System.Type type, System.IntPtr oneFurtherThanResultValue) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.GetComponent[T] () (at <398789c008484afa80c3315b7c00257b>:0)
+SelfMovingCart.Patches.PhysGrabCartPatch.SwitchCartUI () (at <36a9ca58ae08464b805d68b30100ee29>:0)
+SelfMovingCart.Patches.PhysGrabCartPatch.SwitchCarts () (at <36a9ca58ae08464b805d68b30100ee29>:0)
+SelfMovingCart.Patches.PlayerControllerPatch.UpdatePatch (PlayerController __instance) (at <36a9ca58ae08464b805d68b30100ee29>:0)
+(wrapper dynamic-method) PlayerController.DMD<PlayerController::Update>(PlayerController)
+   (seen 4 times in total)
+[13:30:22.399] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #11' (player #11, Steam ID unknown), first 30 s: busiest second 2 KB in 17 messages (about 124 bytes each).
+[13:30:36.484] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[13:30:37.595] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:30:40.850] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[13:30:41.541] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:30:42.698] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.8 m away, 1.4 m above their feet).
+[13:30:44.549] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:30:48.112] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[13:30:50.284] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:30:58.145] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[13:30:59.098] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:31:01.644] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[13:31:03.122] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:31:04.858] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/3 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[13:31:06.298] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/3 in slot 2.
+[13:31:37.430] [Info   :LateJoinPlus] Late joiner Player 77 connected (level Level - Desert). Catching them up.
+[13:31:37.782] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 77' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:31:40.478] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 77 (without LateJoinPlus).
+[13:31:43.826] [Info   :LateJoinPlus] Late joiner Player 77 left before finishing loading, 6.4 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:32:07.412] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #12' (player #12, Steam ID unknown), first 30 s: busiest second 2 KB in 29 messages (about 98 bytes each).
+[13:33:45.510] [Info   :LateJoinPlus] Late joiner Player 80 connected (level Level - Desert). Catching them up.
+[13:33:46.348] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 80' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:33:48.581] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 80 (without LateJoinPlus).
+[13:33:50.985] [Info   :LateJoinPlus] Late joiner Player 80 left before finishing loading, 5.4 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:33:50.987] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:33:52.564] [Info   :LateJoinPlus] Late joiner Player 29 connected (level Level - Desert). Catching them up.
+[13:33:53.379] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:33:55.657] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 29 (without LateJoinPlus).
+[13:33:58.181] [Info   :LateJoinPlus] Late joiner Player 29 left before finishing loading, 5.6 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:33:58.183] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:34:15.817] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #13' (player #13, Steam ID unknown), first 30 s: busiest second 4 KB in 28 messages (about 158 bytes each).
+[13:34:22.977] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #14' (player #14, Steam ID unknown), first 30 s: busiest second 1 KB in 18 messages (about 93 bytes each).
+[13:34:52.668] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[13:34:53.777] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[13:34:53.999] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[13:34:54.185] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[13:35:00.236] [Info   :LateJoinPlus] [Admin] Host goto Player 14: done - Moved You to Player 14.
+[13:35:13.460] [Info   :LateJoinPlus] [Admin] Host truck Player 56: done - Sent Player 56 to the truck.
+[13:35:31.011] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (2 on the results screen, 0 loading, 1 ready); the players panel is up.
+[13:35:43.150] [Info   :LateJoinPlus] [Run] Level change waited 20 s for everyone's results screen; the last to finish: Player 56 (11 s after the others).
+[13:35:43.214] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[13:35:43.622] [Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 12 (0 with LateJoinPlus), loaded 1 (avg 8.0 s, slowest 8.0 s), left while loading 11, still loading at level end 0, stuck 0 | map reveal 1 (2 rooms) | extraction: opened for joiner 7, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 4 | slow catch-up steps 4 (slowest 52 ms)
+[13:35:43.641] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[13:35:43.808] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[13:35:43.874] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[13:35:44.486] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 56' peaked at 57 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[13:36:30.539] [Info   :LateJoinPlus] Late joiner Player 29 connected (shop). Catching them up.
+[13:36:30.955] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:36:33.635] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 29 (without LateJoinPlus).
+[13:36:39.851] [Info   :LateJoinPlus] Late joiner Player 29 finished loading in 9.3 s (without LateJoinPlus).
+[13:37:01.497] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 29' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 23 messages (about 161 bytes each).
+[13:37:07.414] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[13:37:18.815] [Info   :LateJoinPlus] Late joiner Player 84 connected (shop). Catching them up.
+[13:37:18.945] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 84' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:37:21.849] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 84 (without LateJoinPlus).
+[13:37:21.948] [Info   :LateJoinPlus] Late joiner Player 68 connected (shop). Catching them up.
+[13:37:23.026] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 68' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:37:24.996] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 68 (without LateJoinPlus).
+[13:37:26.592] [Info   :LateJoinPlus] Late joiner Player 84 finished loading in 7.7 s (without LateJoinPlus).
+[13:37:29.622] [Info   :LateJoinPlus] Late joiner Player 68 finished loading in 7.6 s (without LateJoinPlus).
+[13:37:49.498] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 84' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 43 messages (about 126 bytes each).
+[13:37:52.536] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 68' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 26 messages (about 163 bytes each).
+[13:37:56.909] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned Portal Gun ×1.
+[13:38:11.574] [Info   :LateJoinPlus] Late joiner Player 73 connected (shop). Catching them up.
+[13:38:12.176] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 73' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:38:14.641] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 73 (without LateJoinPlus).
+[13:38:21.065] [Info   :LateJoinPlus] Late joiner Player 73 finished loading in 9.5 s (without LateJoinPlus).
+[13:38:41.851] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 73' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 39 messages (about 140 bytes each).
+[13:38:46.784] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[13:38:46.844] [Info   :LateJoinPlus] Timing: game memory 4453 MB of 16068 MB, 150 MB of it from mods and scripts; textures 1200 MB of 8034 MB video memory.
+[13:38:52.051] [Info   :LateJoinPlus] [Admin] Speed for You: 4 -> 30.
+[13:38:52.052] [Info   :LateJoinPlus] [Admin] Speed for Player 56: 5 -> 30.
+[13:38:52.053] [Info   :LateJoinPlus] [Admin] Strength for Player 56: 20 -> 30; grab strength on the host 5.00 -> 7.00 (expected 7.00)
+[13:38:52.053] [Info   :LateJoinPlus] [Admin] Throw for Player 56: 10 -> 30; throw strength on the host 3.00 -> 9.00 (expected 9.00)
+[13:38:52.054] [Info   :LateJoinPlus] [Admin] Launch for Player 56: 0 -> 30.
+[13:38:52.055] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 56: 0 -> 30.
+[13:38:52.057] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 56: 0 -> 30.
+[13:38:52.060] [Warning:LateJoinPlus] [Admin] Health for Player 29: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[13:38:52.061] [Info   :LateJoinPlus] [Admin] Stamina for Player 29: 0 -> 30.
+[13:38:52.061] [Info   :LateJoinPlus] [Admin] Speed for Player 29: 0 -> 30.
+[13:38:52.062] [Info   :LateJoinPlus] [Admin] Strength for Player 29: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[13:38:52.062] [Warning:LateJoinPlus] [Admin] Range for Player 29: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[13:38:52.063] [Info   :LateJoinPlus] [Admin] Throw for Player 29: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[13:38:52.063] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 29: 0 -> 30.
+[13:38:52.063] [Info   :LateJoinPlus] [Admin] Launch for Player 29: 0 -> 30.
+[13:38:52.064] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 29: 0 -> 30.
+[13:38:52.064] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 29: 0 -> 30.
+[13:38:52.064] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 29: 0 -> 30.
+[13:38:52.065] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 29: 0 -> 30.
+[13:38:52.065] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 29: 0 -> 30.
+[13:38:52.066] [Warning:LateJoinPlus] [Admin] Health for Player 84: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[13:38:52.066] [Info   :LateJoinPlus] [Admin] Stamina for Player 84: 0 -> 30.
+[13:38:52.067] [Info   :LateJoinPlus] [Admin] Speed for Player 84: 0 -> 30.
+[13:38:52.067] [Info   :LateJoinPlus] [Admin] Strength for Player 84: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[13:38:52.067] [Warning:LateJoinPlus] [Admin] Range for Player 84: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[13:38:52.068] [Info   :LateJoinPlus] [Admin] Throw for Player 84: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[13:38:52.069] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 84: 0 -> 30.
+[13:38:52.070] [Info   :LateJoinPlus] [Admin] Launch for Player 84: 0 -> 30.
+[13:38:52.071] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 84: 0 -> 30.
+[13:38:52.072] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 84: 0 -> 30.
+[13:38:52.078] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 84: 0 -> 30.
+[13:38:52.079] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 84: 0 -> 30.
+[13:38:52.079] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 84: 0 -> 30.
+[13:38:52.079] [Warning:LateJoinPlus] [Admin] Health for Player 73: 0 -> 30; max health on the host 100.00 -> 100.00 (expected 700.00, another mod changed it: ScalerCore)
+[13:38:52.080] [Info   :LateJoinPlus] [Admin] Stamina for Player 73: 0 -> 30.
+[13:38:52.080] [Info   :LateJoinPlus] [Admin] Speed for Player 73: 0 -> 30.
+[13:38:52.080] [Info   :LateJoinPlus] [Admin] Strength for Player 73: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[13:38:52.081] [Warning:LateJoinPlus] [Admin] Range for Player 73: 0 -> 30; grab range on the host 2.50 -> 34.00 (expected 32.50, another mod changed it: ScalerCore)
+[13:38:52.081] [Info   :LateJoinPlus] [Admin] Throw for Player 73: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[13:38:52.081] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 73: 0 -> 30.
+[13:38:52.082] [Info   :LateJoinPlus] [Admin] Launch for Player 73: 0 -> 30.
+[13:38:52.082] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 73: 0 -> 30.
+[13:38:52.082] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 73: 0 -> 30.
+[13:38:52.082] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 73: 0 -> 30.
+[13:38:52.083] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 73: 0 -> 30.
+[13:38:52.083] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 73: 0 -> 30.
+[13:38:52.083] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 5 players to level 30.
+[13:39:36.864] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1087 but this PhotonView does not exist! View was/is ours. Remote called. By: #15 'Player 29'
+   (seen 6 times in total)
+[13:39:36.867] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1087 but this PhotonView does not exist! View was/is ours. Remote called. By: #18 'Player 73'
+   (seen 6 times in total)
+[13:39:36.899] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1087 but this PhotonView does not exist! View was/is ours. Remote called. By: #03 'Player 14'
+   (seen 6 times in total)
+[13:39:36.990] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1087 but this PhotonView does not exist! View was/is ours. Remote called. By: #16 'Player 84'
+   (seen 6 times in total)
+[13:39:37.177] [Warning:Unity Log] Received RPC "ToggleItemRPC" for viewID 1087 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 56'
+   (seen 6 times in total)
+[13:39:54.311] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[13:39:56.708] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 6 player(s) to the truck.
+[13:40:00.621] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[13:40:02.333] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 6 player(s) to the truck.
+[13:40:06.763] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[13:40:07.873] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[13:40:08.239] [Info   :LateJoinPlus] [Report] Level 'Level - Shop Dead Forest': OK | joins 4 (0 with LateJoinPlus), loaded 4 (avg 8.5 s, slowest 9.5 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 4, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 4 | slow catch-up steps 3 (slowest 64 ms)
+[13:40:08.298] [Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[13:40:08.488] [Info   :LateJoinPlus] Waited 0.1 s for Player 73's Steam ID before loading their upgrades and name tag.
+[13:40:08.593] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[13:40:08.628] [Info   :LateJoinPlus] Waited 0.1 s for Player 29's Steam ID before loading their upgrades and name tag.
+[13:40:08.677] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 84' peaked at 86 messages/s (flood limit 500); most data from one player 13 KB/s (limit 100); 0 messages dropped.
+[13:40:08.733] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[13:40:08.793] [Info   :LateJoinPlus] Waited 0.1 s for Player 84's Steam ID before loading their upgrades and name tag.
+[13:40:12.741] [Info   :LateJoinPlus] [Slots] Player 56's Item Shrinkinator/1 is back in slot 3 (the game restoring slots).
+[13:40:12.818] [Info   :LateJoinPlus] [Slots] Player 56's ItemPortalGun/1 is back in slot 2 (the game restoring slots).
+[13:40:12.819] [Info   :LateJoinPlus] [Slots] You's Gun Shrink/1 is back in slot 1 (the game restoring slots).
+[13:40:30.433] [Info   :LateJoinPlus] Late joiner Player 14 connected (truck). Catching them up.
+[13:40:30.977] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:40:33.554] [Info   :LateJoinPlus] Sent the setup of 0 level piece(s) once to Player 14 (without LateJoinPlus).
+[13:40:36.222] [Info   :LateJoinPlus] Late joiner Player 14 finished loading in 5.8 s (without LateJoinPlus).
+[13:40:40.572] [Info   :LateJoinPlus] Player 14 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[13:40:40.573] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Shotgun/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[13:40:42.756] [Info   :LateJoinPlus] [Admin] Player 56 (moderator) spawn: done - Spawned C.O.M.P.R.E.S.S.O.R. ×1.
+[13:40:43.025] [Info   :LateJoinPlus] [Slots] Player 14 tried to put Item Gun Laser/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[13:40:45.717] [Info   :LateJoinPlus] [Slots] Player 56 put Gun Shrink/2 in slot 1.
+[13:40:49.937] [Info   :LateJoinPlus] [Slots] You took Gun Shrink/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[13:40:51.154] [Info   :LateJoinPlus] [Slots] You put Gun Shrink/1 in slot 1.
+[13:41:00.706] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[13:41:01.330] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 14' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 39 messages (about 137 bytes each).
+[13:41:02.321] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[13:41:02.717] [Info   :LateJoinPlus] [Report] Level 'Level - Lobby': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 5.8 s, slowest 5.8 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 0
+[13:41:02.741] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[13:41:02.893] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[13:41:02.940] [Info   :LateJoinPlus] Waited 0.1 s for Player 56's Steam ID before loading their upgrades and name tag.
+[13:41:03.340] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[13:41:12.467] [Warning:HarmonyX] AccessTools.Field: Could not find field for type EnemyThinMan and name feetTransform
+[13:41:13.316] [Info   :LateJoinPlus] [Slots] Player 56's Item Shrinkinator/1 is back in slot 3 (the game restoring slots).
+[13:41:13.318] [Info   :LateJoinPlus] [Slots] Player 56's ItemPortalGun/1 is back in slot 2 (the game restoring slots).
+[13:41:13.319] [Info   :LateJoinPlus] [Slots] You's Gun Shrink/1 is back in slot 1 (the game restoring slots).
+[13:41:13.417] [Info   :LateJoinPlus] [Run] Level built in 10 s. Slowest step: loading, 0 s from the first player to the last, Player 14.
+[13:41:33.895] [Info   :LateJoinPlus] [Slots] You's slot 2 should hold an item from before, but there's no such item on this level.
+[13:41:33.896] [Info   :LateJoinPlus] [Slots] Player 56's slot 1 should hold an item from before, but there's no such item on this level.
+[13:41:33.898] [Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[13:41:34.288] [Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Wizard). Catching them up.
+[13:41:35.121] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #20, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:41:36.987] [Info   :LateJoinPlus] Late joiner Player 14 left before finishing loading, 2.7 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:41:36.988] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:41:49.402] [Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Wizard). Catching them up.
+[13:41:50.449] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:41:51.975] [Info   :LateJoinPlus] Late joiner Player 14 left before finishing loading, 2.6 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:41:51.976] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:42:04.256] [Info   :LateJoinPlus] Late joiner Player 14 connected (level Level - Wizard). Catching them up.
+[13:42:04.734] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #20' (player #20, Steam ID unknown), first 30 s: busiest second 2 KB in 30 messages (about 93 bytes each).
+[13:42:04.736] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 14' (player #22, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:42:06.831] [Info   :LateJoinPlus] Late joiner Player 14 left before finishing loading, 2.6 s after connecting (without LateJoinPlus; character: yes; connection lost: no).
+[13:42:06.832] [Info   :LateJoinPlus] They left very quickly. Objects only a mod has, spawned since this game started: Items/Item Gun Shrink, Items/Item Portal Gun, Items/Item Shrinkinator.
+[13:42:20.069] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #21' (player #21, Steam ID unknown), first 30 s: busiest second 2 KB in 23 messages (about 110 bytes each).
+[13:42:24.655] [Info   :LateJoinPlus] [Slots] Player 56 took Item Shrinkinator/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[13:42:34.291] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #22' (player #22, Steam ID unknown), first 30 s: busiest second 2 KB in 27 messages (about 108 bytes each).
+[13:42:34.895] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
