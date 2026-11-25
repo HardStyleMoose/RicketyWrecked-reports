@@ -1,0 +1,240 @@
+LateJoinPlus bug report 20261125-180432-3b4f76
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Museum"
+players: 3
+language: "pt-BR"
+test: false
+
+Mods (3):
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 6
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz (4 threads)
+Memory: 16339 MB
+Graphics: AMD Radeon RX 580 2048SP (8135 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 3684 ms
+Most memory this game: 3443 MB
+Most texture memory this game: 418 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (5):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+Timeline (last 7):
+  14:35:52 Level built in 8 s. Slowest step: none (no other players).
+  14:36:31 an error from Unity Log
+  14:44:10 Level 'Level - Museum'
+  14:44:58 Level built in 48 s. Slowest step: rooms, 29,7 s from the first player to the last, Player 16.
+  14:49:06 Level built in 36 s. Slowest step: rooms, 20,6 s from the first player to the last, Player 16.
+  14:59:27 Level built in 28 s. Slowest step: rooms, 18,6 s from the first player to the last, Player 16.
+  15:04:07 Level built in 47 s. Slowest step: rooms, 30,2 s from the first player to the last, Player 16.
+(end of settings)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Items
+[Info   :R.E.P.O Fixes+] [Spawned items] REPOLib not found; nothing to do.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 54 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2230 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1464 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 3684 ms, 4 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1378 MB of 16339 MB, 59 MB of it from mods and scripts; textures 88 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 32 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 2,0 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.NetworkPrefabs
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-25T17:33:46] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] SÓ BR +18 SEM TROLL'; as typed: 'SÓ BR +18 SEM TROLL'.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: none (no other players).
+[Info   :LateJoinPlus] Timing: game memory 2074 MB of 16339 MB, 71 MB of it from mods and scripts; textures 246 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] Late joiner Player 16 connected (level Level - Museum). Catching them up.
+[Info   :LateJoinPlus] Player 16 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 16' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 16 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 16 for their moderator key: moderation protocol not confirmed (1/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 16 for their moderator key: moderation protocol not confirmed (2/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 16 for their moderator key: moderation protocol not confirmed (3/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 16' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 10 messages (about 87 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 9 connected (level Level - Museum). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 9' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 16 for their moderator key: moderation protocol not confirmed (4/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 9 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 9 finished loading in 7,7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 9's map (16 messages).
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 16 for their moderator key: moderation protocol not confirmed (5/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 16 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Admin] Player 16's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 16 holds no moderator key of ours.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+[Info   :LateJoinPlus] [Moderators] Player 16 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] [Moderators] Player 16 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] [Moderators] Player 16 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] [Moderators] Player 16 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] [Moderators] Player 16 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] Late joiner Player 16 finished loading in 68,7 s (has LateJoinPlus).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 9' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 12 KB in 79 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] Lobby is now friends and invites only.
+[Info   :LateJoinPlus] Lobby is now invites only.
+[Info   :LateJoinPlus] Lobby is now closed to new players.
+[Info   :LateJoinPlus] [Death drop] Player 9 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (2 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Museum': OK | joins 2 (1 with LateJoinPlus), loaded 2 (avg 38,2 s, slowest 68,7 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (3 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 2 (slowest 25 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 9' peaked at 57 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 48 s. Slowest step: rooms, 29,7 s from the first player to the last, Player 16.
+[Info   :LateJoinPlus] Timing: game memory 2594 MB of 16339 MB, 77 MB of it from mods and scripts; textures 368 MB of 8135 MB video memory.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 9' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 114 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 9' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 114 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 9' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 9' peaked at 41 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level built in 36 s. Slowest step: rooms, 20,6 s from the first player to the last, Player 16.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 1 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 16' peaked at 44 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 28 s. Slowest step: rooms, 18,6 s from the first player to the last, Player 16.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 9' peaked at 52 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 9 put Item Grenade Duct Taped/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 9 put Item Grenade Duct Taped/2 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 9' peaked at 42 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 16's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 47 s. Slowest step: rooms, 30,2 s from the first player to the last, Player 16.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 9's Item Grenade Duct Taped/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] Player 9's Item Grenade Duct Taped/2 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
