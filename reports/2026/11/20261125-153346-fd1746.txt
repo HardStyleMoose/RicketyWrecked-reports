@@ -1,0 +1,252 @@
+LateJoinPlus bug report 20261125-153346-fd1746
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Desert"
+players: 7
+language: "en-US"
+test: false
+
+Mods (14):
+- "DarkSpider Map Tracker" | "DarkSpider90.MapTracker" | "1.1.1"
+- "NoItemSpawnLimit" | "HeroHanex.NoItemSpawnLimit" | "1.0.9"
+- "More Shop Items" | "Jettcodey.MoreShopItems" | "4.3.2"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "ShowEnemyHealth Fixed Edition" | "REPO_ShowEnemyHealth" | "1.0.0"
+- "Timer Plugin" | "TimerPlugin" | "1.4.5"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Repo Steam Networking" | "com.rune580.reposteamnetworking" | "0.1.3"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "Quota Control" | "sqyan.QuotaControl" | "0.3.2"
+- "CosmeticsTools" | "zichen.cosmeticstools" | "1.0.1"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz (4 threads)
+Memory: 12180 MB
+Graphics: Intel(R) HD Graphics Family (2048 MB, Direct3D11)
+Screen: 1366x745
+Slowest frame this game: 26312 ms
+Most memory this game: 2194 MB
+Most texture memory this game: 325 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  PlayerController.Start: zichen.cosmeticstools.patch (postfix)
+Game methods several mods patch (21):
+  EnemyHealth.DeathRPC: DarkSpider90.MapTracker (postfix), EnemyHealth (postfix)
+  EnemyHealth.Hurt: ricketywrecked.repo.latejoinplus (prefix), EnemyHealth (postfix)
+  EnemyParent.DespawnRPC: DarkSpider90.MapTracker (postfix), EnemyHealth (postfix)
+  EnemyParent.SpawnRPC: DarkSpider90.MapTracker (postfix), TimerPlugin (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  LevelGenerator.GenerateDone: HeroHanex.NoItemSpawnLimit (postfix), TimerPlugin (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.LateStart: DarkSpider90.MapTracker (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.PlayerDeathRPC: DarkSpider90.MapTracker (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), DarkSpider90.MapTracker (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  PunManager.TruckPopulateItemVolumes: HeroHanex.NoItemSpawnLimit (prefix), Jettcodey.MoreShopItems (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (postfix)
+  RunManager.Awake: Jettcodey.MoreShopItems (postfix), REPOLib (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopManager.GetAllItemsFromStatsManager: Jettcodey.MoreShopItems (prefix), sqyan.QuotaControl (prefix), Jettcodey.MoreShopItems (postfix)
+  ShopManager.ShopInitialize: Vippy.SharedUpgradesPlus (prefix), Jettcodey.MoreShopItems (prefix)
+  ShopManager.UpgradeValueGet: Vippy.SharedUpgradesPlus (postfix), sqyan.QuotaControl (postfix)
+  StatsManager.RunStartStats: Vippy.SharedUpgradesPlus (postfix), REPOLib (postfix), sqyan.QuotaControl (postfix)
+Timeline (last 27):
+  23:29:01 an error from Unity Log
+  23:29:03 an error from Unity Log
+  23:29:04 an error from Unity Log
+  23:29:28 an error from Unity Log
+  23:29:28 an error from Unity Log
+  23:29:28 an error from Unity Log
+  23:29:51 an error from Unity Log
+  23:29:54 an error from Unity Log
+  23:29:57 an error from Unity Log
+  23:30:00 an error from Unity Log
+  23:30:05 an error from Unity Log
+  23:30:06 an error from Unity Log
+  23:30:09 an error from Unity Log
+  23:30:23 an error from Unity Log
+  23:30:32 an error from Unity Log
+  23:30:32 an error from Unity Log
+  23:30:32 an error from Unity Log
+  23:30:33 an error from Unity Log
+  23:30:33 an error from Unity Log
+  23:30:33 an error from Unity Log
+  23:30:33 an error from Unity Log
+  23:31:00 an error from Unity Log
+  23:31:16 an error from Unity Log
+  23:31:29 an error from Unity Log
+  23:32:56 an error from Unity Log
+  23:33:03 an error from Unity Log
+  23:33:17 an error from Unity Log
+(end of settings)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+[Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Warning: Unity Log] DontDestroyOnLoad only works for root GameObjects or components on root GameObjects.
+   (seen 3 times in total)
+[Error  : Unity Log] MissingMethodException: Method not found: void .InputManager.Rebind(InputKey,string)
+Stack trace:
+Zichen_CosmeticsTools.Plugin.Post_Start () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+(wrapper dynamic-method) PlayerController.DMD<PlayerController::Start>(PlayerController)
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 6453 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 3612 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Error  : Unity Log] MissingMethodException: Method not found: void .InputManager.Rebind(InputKey,string)
+Stack trace:
+Zichen_CosmeticsTools.Plugin.EnsureInputReady () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+Zichen_CosmeticsTools.Plugin.Update () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+   (seen 1883 times in total)
+[Info   :LateJoinPlus] Timing: slowest frame so far 12964 ms, 13 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1344 MB of 12180 MB, 77 MB of it from mods and scripts; textures 89 MB of 2048 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 29 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 3.8 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning:Repo Steam Networking] RepoSteamNetworkManager already initialized!
+   (seen 2 times in total)
+[Warning:Repo Steam Networking] RepoNetworkingServer already initialized!
+   (seen 2 times in total)
+[Warning:Repo Steam Networking] RepoNetworkingClient already initialized!
+   (seen 2 times in total)
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] Timing: game memory 1859 MB of 12180 MB, 69 MB of it from mods and scripts; textures 144 MB of 2048 MB video memory.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type StatsManager and name playerUpgradeQuotaControl
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-25T15:30:32] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 132' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 123' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 179' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 169' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 119' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 56' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 132's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 169's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 123's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-25T15:30:33] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 21008 found. Remote voice p#21 v#2 not linked.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 179's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 119's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: slowest frame so far 26312 ms, 133 s after start.
+[Warning: Unity Log] [2026-11-25T15:32:56] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #3 of player 23 not found when trying to remove
+[Warning:More Shop Items] Host does NOT have the mod Enabled or is using a different Version, Mod is disabled! Client running on v4.3.2.
+[Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+=== Previous game session ===
+[23:40:42.497] [Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[23:40:42.498] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[23:40:50.694] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[23:40:50.696] [Warning:HarmonyX] AccessTools.Method: type is null
+[23:40:52.121] [Warning:Unity Log] DontDestroyOnLoad only works for root GameObjects or components on root GameObjects.
+   (seen 3 times in total)
+[23:40:54.359] [Error  :Unity Log] MissingMethodException: Method not found: void .InputManager.Rebind(InputKey,string)
+Stack trace:
+Zichen_CosmeticsTools.Plugin.Post_Start () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+(wrapper dynamic-method) PlayerController.DMD<PlayerController::Start>(PlayerController)
+   (seen 2 times in total)
+[23:40:55.546] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[23:40:55.560] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[23:40:55.561] [Info   :LateJoinPlus] Timing: start-up took 4595 ms.
+[23:40:55.562] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[23:40:55.563] [Info   :LateJoinPlus] Timing: late patches took 3495 ms.
+[23:40:55.662] [Warning:Unity Log] Unable to load font face for [] font asset.
+[23:40:55.724] [Error  :Unity Log] MissingMethodException: Method not found: void .InputManager.Rebind(InputKey,string)
+Stack trace:
+Zichen_CosmeticsTools.Plugin.EnsureInputReady () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+Zichen_CosmeticsTools.Plugin.Update () (at <58a0ac23fa9c497b92191ea7d6d7f4de>:0)
+   (seen 1070 times in total)
+[23:40:56.589] [Info   :LateJoinPlus] Timing: slowest frame so far 9008 ms, 9 s after start.
+[23:40:56.590] [Info   :LateJoinPlus] Timing: game memory 1330 MB of 12180 MB, 66 MB of it from mods and scripts; textures 89 MB of 2048 MB video memory.
+[23:40:56.591] [Info   :LateJoinPlus] Timing: Chinese font set-up took 28 ms and 1 MB.
+[23:40:56.593] [Info   :LateJoinPlus] Timing: the 3-second font scan took 3.9 ms (13 fonts).
+[23:41:08.545] [Info   :Unity Log] leaving photon
+[23:41:08.559] [Info   :Unity Log] Leave to Main Menu
+[23:41:08.842] [Warning:Repo Steam Networking] RepoSteamNetworkManager already initialized!
+[23:41:08.843] [Warning:Repo Steam Networking] RepoNetworkingServer already initialized!
+[23:41:08.844] [Warning:Repo Steam Networking] RepoNetworkingClient already initialized!
+[23:41:51.418] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
