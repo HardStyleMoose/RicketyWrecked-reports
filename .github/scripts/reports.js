@@ -141,6 +141,27 @@ const oldest = (a, b) => String(a.created_at).localeCompare(String(b.created_at)
 const excluded = issue => ['test', 'dashboard', 'manual', 'removal-request']
   .some(name => has(issue, name));
 const marker = (kind, key) => '<!-- ljp-bot:' + kind + ':' + key + ' -->';
+
+// Only structured, trusted triage markers select player-facing text.
+function gameUpdates(items) {
+  const result = [];
+  for (const comment of items) {
+    if (!trusted(comment)) continue;
+    const match = (comment.body || '').match(/^<!-- ljp-bot:(duplicate|released|fixed-already):([\d.]+) -->$/m);
+    if (!match) continue;
+    const [,kind,key] = match;
+    if (kind === 'duplicate' && /^[1-9]\d{0,9}$/.test(key))
+      result.push({kind,key,text:'This problem is already tracked in report #' + key + '. Thanks for helping us confirm it.'});
+    else if (kind !== 'duplicate' && validVersion(key))
+      result.push({kind:'released',key,text:'Fixed in LateJoinPlus ' + key + '. Please update in your mod manager.'});
+  }
+  return result;
+}
+
+function gameMessageId(issue,update) {
+  const hash = createHash('sha256').update(['game-reply-v1',issue,update.kind,update.key].join(':')).digest('hex');
+  return [hash.slice(0,8),hash.slice(8,12),'5'+hash.slice(13,16),'8'+hash.slice(17,20),hash.slice(20,32)].join('-');
+}
 const trusted = comment => comment.user?.login === BOT && comment.user?.type === 'Bot';
 const versionText = value => validVersion(value) ? value : 'unknown';
 const shortField = value => /^[a-zA-Z0-9 _-]{1,40}$/.test(value) ? value : 'unknown';
@@ -425,6 +446,41 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
       trusted(comment) && (comment.body || '').split('\n').includes(tag));
   }
 
+  async function sendGameUpdates(issue) {
+    if (!env.BOT_REPLY_SECRET || issue.user?.login !== repo.owner || has(issue,'test') ||
+        !/^mail-[a-f0-9]{32}$/.test(parseReport(issue.body)?.reportId || '') ||
+        !issue.created_at || now - new Date(issue.created_at) > 30*86400000) return;
+    const own = gameUpdates(await comments(issue));
+    const updates = own.filter(item => item.kind === 'duplicate' || !has(issue, 'regression'));
+    for (const related of own.filter(item => item.kind === 'duplicate')) {
+      const {data: original} = await api.get({...repo, issue_number: Number(related.key)});
+      if (original?.state !== 'closed' || has(original, 'regression')) continue;
+      const fixed = fixOf(original);
+      const notices = gameUpdates(await comments(original));
+      updates.push(...notices.filter(item => item.kind === 'released' && item.key === fixed));
+    }
+    const seen = new Set();
+    for (const update of updates) {
+      if (update.kind === 'released') {
+        const current = await latest();
+        if (!current || compareVersions(current, update.key) < 0) continue;
+      }
+      const id = gameMessageId(issue.number,update);
+      if (seen.has(id)) continue;
+      seen.add(id);
+      try {
+        const response = await fetch(RELAY + '/bot', {
+          method:'POST',redirect:'manual',signal:AbortSignal.timeout(RELAY_TIMEOUT_MS),
+          headers:{'Content-Type':'application/json',Authorization:'Bearer '+env.BOT_REPLY_SECRET},
+          body:JSON.stringify({issue:issue.number,action:'send',id,text:update.text})
+        });
+        if (!response.ok && response.status !== 404 && response.status !== 410) {
+          core.warning('Game reply for #' + issue.number + ' is pending (HTTP ' + response.status + ').');
+        }
+      } catch { core.warning('Game reply for #' + issue.number + ' is pending.'); }
+    }
+  }
+
   async function once(issue, kind, key, message) {
     if (await marked(issue, kind, key)) return;
     const response = await api.createComment({
@@ -438,7 +494,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
   async function storedLog(issue) {
     if (!logCache.has(issue.number)) {
       let text = '';
-      const link = String(issue.body || '').match(/\]\((?:https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/main\/)?(reports\/\d{4}\/\d{2}\/[0-9a-z-]+\.txt)\)/);
+      const link = String(issue.body || '').match(/\]\((?:https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/main\/)?(reports\/(?:\d{4}\/\d{2}|inbox)\/[0-9a-z-]+\.txt)\)/);
       if (link) {
         try {
           const response = await github.rest.repos.getContent({ ...repo, path: link[1] });
@@ -911,6 +967,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
         } finally {
           // Protect every triage exit, including partial failures and retries.
           if (outsider || parseReport(issue.body)) await lock(issue);
+          if (!outsider) await sendGameUpdates(issue);
         }
       }
     } else if (['schedule', 'workflow_dispatch'].includes(context.eventName)) {
@@ -942,6 +999,7 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
         }
       }
       await releaseCheck(all);
+      for (const issue of all) await sendGameUpdates(issue);
     }
   } finally {
     // Re-read after mutations; bot-generated events do not run another workflow.
@@ -949,4 +1007,4 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
   }
 }
 
-module.exports = { run, parseReport, signature, compareVersions, isTestReport };
+module.exports = { run, parseReport, signature, compareVersions, isTestReport, gameUpdates, gameMessageId };

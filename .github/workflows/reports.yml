@@ -25,6 +25,7 @@ jobs:
           persist-credentials: false
       - uses: actions/github-script@v9
         env:
+          BOT_REPLY_SECRET: ${{ secrets.BOT_REPLY_SECRET }}
           DISCORD_CONFLICTS_WEBHOOK: ${{ secrets.DISCORD_CONFLICTS_WEBHOOK }}
         with:
           github-token: ${{ github.token }}

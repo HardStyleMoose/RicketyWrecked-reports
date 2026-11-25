@@ -64,7 +64,7 @@ function fake(initial = [], latest = '1.2.0') {
   const state = {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
     fetchCount: 0, failAdd: null, failLock: 0,
-    now: new Date(NOW), relayCalls: [], relayGet: 'ok', relayPost: 'ok',
+    now: new Date(NOW), relayCalls: [], gameReplies: [], relayGet: 'ok', relayPost: 'ok',
     rules: { mods: [] }, env: {}, logs: new Map(), discordCalls: [], discordMode: 200,
     packages: {}, packageCalls: [],
   };
@@ -219,6 +219,13 @@ function fake(initial = [], latest = '1.2.0') {
                 if (state.discordMode === 'json') throw new Error('Bad JSON');
                 return { id: String(100 + state.discordCalls.length) };
               } };
+          }
+          if (url === RELAY + '/bot') {
+            assert.equal(options.method, 'POST');
+            assert.equal(options.redirect, 'manual');
+            assert.equal(options.headers.Authorization, 'Bearer ' + state.env.BOT_REPLY_SECRET);
+            state.gameReplies.push(JSON.parse(options.body));
+            return {ok: true, status: 200};
           }
           if (url.startsWith(RELAY)) {
             assert([RELAY + '/', RELAY + '/report'].includes(url));
@@ -1573,6 +1580,44 @@ test('past renewal dates use bold ended and expired wording', async () => {
   await env.fire('closed', null);
   assert(env.dashboard().body.includes('**Only-you limit on issues/comments ended 2027-04-28**'));
   assert(env.dashboard().body.includes("**The relay's GitHub token expired 2027-10-28**"));
+});
+
+test('enrolled duplicate receives a fix only after Thunderstore confirms release and the original remains fixed', async () => {
+  const original = issue(1, {labels:[sig,'fixed-in:1.3.0'],state:'closed'});
+  const enrolled = issue(2, {state:'closed', created_at:NOW.toISOString(),
+    body:report().replace('20261028-161430-818a5d','mail-' + 'a'.repeat(32))});
+  const env = fake([original,enrolled], '1.2.0');
+  env.state.env.BOT_REPLY_SECRET = 'test-only-bot';
+  env.comments.set(1,[{user:bot,body:tag('released','1.3.0')}]);
+  env.comments.set(2,[{user:bot,body:tag('duplicate','1')}]);
+  await env.fire('closed',2);
+  assert.equal(env.state.gameReplies.length,1);
+  assert.match(env.state.gameReplies[0].text, /#1/);
+  env.state.latest = '1.3.0';
+  await env.fire('closed',2);
+  assert.equal(env.state.gameReplies.length,3);
+  assert.equal(env.state.gameReplies[0].id,env.state.gameReplies[1].id);
+  assert.match(env.state.gameReplies[2].text, /Fixed in LateJoinPlus 1.3.0/);
+  env.issues.get(1).state = 'open';
+  env.issues.get(1).labels.push('regression');
+  await env.fire('closed',2);
+  assert.equal(env.state.gameReplies.length,4);
+  assert.equal(env.state.gameReplies[0].id,env.state.gameReplies[3].id);
+});
+
+test('game replies only translate trusted release/duplicate markers to bounded text', () => {
+  const {gameUpdates,gameMessageId}=require('./reports');
+  const bot = {login:'github-actions[bot]',type:'Bot'};
+  const updates=gameUpdates([
+    {user:bot,body:'arbitrary text\n<!-- ljp-bot:released:1.2.3 -->'},
+    {user:bot,body:'<!-- ljp-bot:duplicate:187 -->'},
+    {user:bot,body:'<!-- ljp-bot:fix-ready:9.9.9 -->'},
+    {user:{login:'outsider'},body:'<!-- ljp-bot:released:9.9.9 -->'}
+  ]);
+  assert.deepEqual(updates.map(u=>u.kind),['released','duplicate']);
+  assert(!updates[0].text.includes('arbitrary'));
+  assert.equal(gameMessageId(8,updates[0]),gameMessageId(8,{...updates[0]}));
+  assert.notEqual(gameMessageId(9,updates[0]),gameMessageId(8,updates[0]));
 });
 
 (async () => {
