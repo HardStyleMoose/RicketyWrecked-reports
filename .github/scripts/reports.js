@@ -7,6 +7,8 @@ const OUTSIDER_LIMIT_ENDS = '2027-04-28';
 const GITHUB_TOKEN_ENDS = '2027-10-28';
 const RELAY = 'https://ljp-reports.ricketywrecked.workers.dev';
 const RELAY_TIMEOUT_MS = 10000;
+const DAY_MS = 86400000;
+const MAILBOX_DAILY_LIMIT = 2;
 
 const ENDPOINT =
   'https://thunderstore.io/api/experimental/package/RicketyWrecked/LateJoinPlus/';
@@ -158,6 +160,14 @@ const issueReplies = {
   test: () => 'Test report received. We closed it.',
   'game-only': () => 'Please send reports from the LateJoinPlus menu in the game.',
 };
+const mailboxPriority = new Map([
+  ['fix-ready', 1], ['released', 1],
+  ['other-mod', 2],
+  ['suspect-mod', 3],
+  ['duplicate', 4],
+  ['old-version', 5],
+  ['related', 6], ['seen', 6], ['regression', 6], ['harmless', 6],
+]);
 
 function conflictKey(matches) {
   const guids = matches.map(({ mod }) => mod.guid.toLowerCase()).sort();
@@ -181,7 +191,7 @@ function conflictDetails(details, key, { mods = [], rules = [] }) {
 }
 
 // Only structured, trusted triage markers select player-facing text.
-function gameUpdates(items, legacy = {}) {
+function gameUpdates(items, options = {}) {
   const result = [];
   for (const comment of items) {
     if (!trusted(comment)) continue;
@@ -193,6 +203,9 @@ function gameUpdates(items, legacy = {}) {
     const details = lines.at(-2);
     // Both comments describe the same published fix and share the original relay ID.
     const kind = tag === 'fixed-already' ? 'released' : tag;
+    if (mailboxPriority.get(kind) === 6 && Date.parse(comment.created_at) < options.minLowPriorityTime) {
+      continue;
+    }
     let text;
     if (Object.hasOwn(versionReplies, kind) && validVersion(key)) {
       text = versionReplies[kind](key);
@@ -205,7 +218,7 @@ function gameUpdates(items, legacy = {}) {
       text = "You're on an older LateJoinPlus" + display + '. Please update in your mod manager.';
     } else if (kind === 'other-mod' || kind === 'suspect-mod') {
       text = conflicts.mailboxComment(kind, conflictDetails(
-        details?.startsWith('<!-- ljp-bot:mailbox:') ? details : null, key, legacy));
+        details?.startsWith('<!-- ljp-bot:mailbox:') ? details : null, key, options));
     }
     if (text && text.length < 600) result.push({ kind, key, text });
   }
@@ -349,7 +362,9 @@ function stateLine(kind, values) {
     Buffer.from(JSON.stringify(values)).toString('base64') + ' -->';
 }
 
-async function run({ github, context, core, fetch, now = new Date(), env = process.env, rules = null }) {
+async function run({ github, context, core, fetch, now: fixedTime, env = process.env, rules = null }) {
+  const clock = () => fixedTime ?? new Date();
+  const now = clock();
   const api = github.rest.issues;
   const repo = context.repo;
   const commentCache = new Map();
@@ -503,37 +518,76 @@ async function run({ github, context, core, fetch, now = new Date(), env = proce
 
   async function sendGameUpdates(issue) {
     if (!env.BOT_REPLY_SECRET || issue.user?.login !== repo.owner || has(issue, 'test') ||
-        !issue.created_at || now - new Date(issue.created_at) > 30 * 86400000) return;
+        !issue.created_at || now - new Date(issue.created_at) > 30 * DAY_MS) return;
     const report = parseReport(issue.body);
     if (!/^mail-[a-f0-9]{32}$/.test(report?.reportId || '') || isTestReport(report)) return;
-    const own = gameUpdates(await comments(issue), { mods: report.mods, rules: rules.mods });
-    const updates = own.filter(item => item.kind !== 'released' || !has(issue, 'regression'));
-    for (const related of own.filter(item => item.kind === 'duplicate')) {
+    const items = await comments(issue);
+    const checkpoint = items.find(comment =>
+      trusted(comment) && (comment.body || '').startsWith('<!-- ljp-bot:mailbox-delivery:'));
+    const [limitedOn = null, ...history] = storedState(checkpoint?.body, 'mailbox-delivery');
+    const delivered = new Map(history);
+    const atLimit = day => day === limitedOn ||
+      [...delivered.values()].filter(sentOn => sentOn === day).length >= MAILBOX_DAILY_LIMIT;
+    if (atLimit(clock().toISOString().slice(0, 10))) return;
+
+    const own = gameUpdates(items, {
+      mods: report.mods, rules: rules.mods, minLowPriorityTime: clock() - 7 * DAY_MS,
+    });
+    const updates = own.filter(item => mailboxPriority.has(item.kind) &&
+      (item.kind !== 'released' || !has(issue, 'regression')));
+    // A report marked as a regression never gets "fixed" through the report it duplicates (review 11-24).
+    for (const related of has(issue, 'regression') ? [] : own.filter(item => item.kind === 'duplicate')) {
       const {data: original} = await api.get({...repo, issue_number: Number(related.key)});
       if (original?.state !== 'closed' || has(original, 'regression')) continue;
       const fixed = fixOf(original);
       const notices = gameUpdates(await comments(original));
       updates.push(...notices.filter(item => item.kind === 'released' && item.key === fixed));
     }
-    const seen = new Set();
+    updates.sort((a, b) => mailboxPriority.get(a.kind) - mailboxPriority.get(b.kind));
+    const seen = new Set(delivered.keys());
+    let nextLimitedOn = null;
     for (const update of updates) {
+      const id = gameMessageId(issue.number, update);
+      if (seen.has(id)) continue;
+      seen.add(id);
       if (update.kind === 'released') {
         const current = await latest();
         if (!current || compareVersions(current, update.key) < 0) continue;
       }
-      const id = gameMessageId(issue.number, update);
-      if (seen.has(id)) continue;
-      seen.add(id);
+      const day = clock().toISOString().slice(0, 10);
+      if (atLimit(day)) break;
       try {
         const response = await fetch(RELAY + '/bot', {
           method:'POST',redirect:'manual',signal:AbortSignal.timeout(RELAY_TIMEOUT_MS),
           headers:{'Content-Type':'application/json',Authorization:'Bearer '+env.BOT_REPLY_SECRET},
           body:JSON.stringify({issue:issue.number,action:'send',id,text:update.text})
         });
-        if (!response.ok && response.status !== 404 && response.status !== 410) {
+        if (response.status === 200) {
+          delivered.set(id, day);
+        } else if (response.status === 429) {
+          // Any "slow down" stops this report's sends for now; only the relay's own daily cap waits a day
+          // (review 11-24: a Cloudflare 429 with another body kept sending).
+          if ((await response.json().catch(() => null))?.error === 'daily limit') nextLimitedOn = day;
+          else core.warning('Game reply for #' + issue.number + ' is pending (HTTP 429).');
+          break;
+        } else if (!response.ok && response.status !== 404 && response.status !== 410) {
           core.warning('Game reply for #' + issue.number + ' is pending (HTTP ' + response.status + ').');
         }
       } catch { core.warning('Game reply for #' + issue.number + ' is pending.'); }
+    }
+    if (delivered.size === history.length && !nextLimitedOn) return;
+    // These comments are already loaded for triage. Keep one delivery record on each report.
+    const body = stateLine('mailbox-delivery', [nextLimitedOn, ...delivered]).trim();
+    try {
+      if (checkpoint) {
+        await api.updateComment({ ...repo, comment_id: checkpoint.id, body });
+        checkpoint.body = body;
+      } else {
+        const response = await api.createComment({ ...repo, issue_number: issue.number, body });
+        items.push(response.data);
+      }
+    } catch {
+      core.warning('Game reply delivery record for #' + issue.number + ' could not be saved.');
     }
   }
 

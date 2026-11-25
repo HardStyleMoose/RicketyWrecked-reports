@@ -66,7 +66,8 @@ function fake(initial = [], latest = '1.2.0') {
   const state = {
     latest, fetchMode: 'ok', pinFails: false, failClose: 0, raceLabel: null,
     fetchCount: 0, failAdd: null, failLock: 0,
-    now: new Date(NOW), relayCalls: [], gameReplies: [], relayGet: 'ok', relayPost: 'ok',
+    now: new Date(NOW), relayCalls: [], gameReplies: [], gameReplyResponse: () => ({ ok: true, status: 200 }),
+    relayGet: 'ok', relayPost: 'ok',
     rules: { mods: [] }, env: {}, logs: new Map(), discordCalls: [], discordMode: 200,
     packages: {}, packageCalls: [],
   };
@@ -91,7 +92,7 @@ function fake(initial = [], latest = '1.2.0') {
     };
   }
   for (const name of ['get', 'getLabel', 'createLabel', 'addLabels', 'removeLabel',
-    'createComment', 'create', 'update', 'lock']) {
+    'createComment', 'updateComment', 'create', 'update', 'lock']) {
     api[name] = async params => {
       record(name, params);
       const item = issues.get(params.issue_number);
@@ -135,9 +136,14 @@ function fake(initial = [], latest = '1.2.0') {
         data = item.labels;
       }
       if (name === 'createComment') {
-        data = { id: calls.length, body: params.body, user: bot };
+        data = { id: calls.length, body: params.body, user: bot, created_at: state.now.toISOString() };
         if (!comments.has(item.number)) comments.set(item.number, []);
         comments.get(item.number).push(data);
+      }
+      if (name === 'updateComment') {
+        data = [...comments.values()].flat().find(comment => comment.id === params.comment_id);
+        assert(data, 'Comment to update must exist');
+        data.body = params.body;
       }
       if (name === 'create') {
         const number = Math.max(0, ...issues.keys()) + 1;
@@ -226,8 +232,9 @@ function fake(initial = [], latest = '1.2.0') {
             assert.equal(options.method, 'POST');
             assert.equal(options.redirect, 'manual');
             assert.equal(options.headers.Authorization, 'Bearer ' + state.env.BOT_REPLY_SECRET);
-            state.gameReplies.push(JSON.parse(options.body));
-            return {ok: true, status: 200};
+            const reply = JSON.parse(options.body);
+            state.gameReplies.push(reply);
+            return state.gameReplyResponse(reply);
           }
           if (url.startsWith(RELAY)) {
             assert([RELAY + '/', RELAY + '/report'].includes(url));
@@ -1597,15 +1604,17 @@ test('enrolled duplicate receives a fix only after Thunderstore confirms release
   assert.equal(env.state.gameReplies.length,1);
   assert.match(env.state.gameReplies[0].text, /#1/);
   env.state.latest = '1.3.0';
-  await env.fire('closed',2);
-  assert.equal(env.state.gameReplies.length,3);
-  assert.equal(env.state.gameReplies[0].id,env.state.gameReplies[1].id);
-  assert.match(env.state.gameReplies[2].text, /Fixed in LateJoinPlus 1.3.0/);
   env.issues.get(1).state = 'open';
   env.issues.get(1).labels.push('regression');
   await env.fire('closed',2);
-  assert.equal(env.state.gameReplies.length,4);
-  assert.equal(env.state.gameReplies[0].id,env.state.gameReplies[3].id);
+  assert.equal(env.state.gameReplies.length,1);
+  env.issues.get(1).state = 'closed';
+  env.issues.get(1).labels.pop();
+  await env.fire('closed',2);
+  assert.equal(env.state.gameReplies.length,2);
+  assert.match(env.state.gameReplies[1].text, /Fixed in LateJoinPlus 1.3.0/);
+  await env.fire('closed',2);
+  assert.equal(env.state.gameReplies.length,2);
 });
 
 function mailIssue(number, options = {}, reportOptions = {}) {
@@ -1638,7 +1647,7 @@ function mailboxReply(env, number, tagKind, key, text) {
   return replies.length;
 }
 
-test('fix-ready is delivered before release and both keep their IDs on retries', async () => {
+test('fix-ready is delivered before release and successful notices are skipped on later runs', async () => {
   const env = mailbox([mailIssue(1, { labels: ['fixed-in:1.2.4', 'regression'], locked: true })]);
   const waiting = 'A fix for this is coming in LateJoinPlus 1.2.4.';
   const released = 'Fixed in LateJoinPlus 1.2.4. Please update in your mod manager.';
@@ -1649,8 +1658,8 @@ test('fix-ready is delivered before release and both keep their IDs on retries',
   env.state.latest = '1.2.4';
   await env.fire(null, null, null, 'schedule');
   await env.fire('closed', 1);
-  assert.equal(mailboxReply(env, 1, 'fix-ready', '1.2.4', waiting), 3);
-  assert.equal(mailboxReply(env, 1, 'released', '1.2.4', released), 2);
+  assert.equal(mailboxReply(env, 1, 'fix-ready', '1.2.4', waiting), 1);
+  assert.equal(mailboxReply(env, 1, 'released', '1.2.4', released), 1);
 });
 
 test('fixed-already waits for Thunderstore and shares the published fix ID', async () => {
@@ -1667,7 +1676,7 @@ test('fixed-already waits for Thunderstore and shares the published fix ID', asy
   env.comments.get(2).push({ user: bot, body: tag('released', '1.2.4') });
   await env.fire('closed', 2);
   assert.equal(mailboxReply(env, 2, 'fixed-already', '1.2.4',
-    'Fixed in LateJoinPlus 1.2.4. Please update in your mod manager.'), 2);
+    'Fixed in LateJoinPlus 1.2.4. Please update in your mod manager.'), 1);
 });
 
 test('duplicate, old-version and seen are delivered to the issues that got the comments', async () => {
@@ -1676,23 +1685,23 @@ test('duplicate, old-version and seen are delivered to the issues that got the c
   await env.fire('closed', 2);
   await env.fire('closed', 1);
   assert.equal(mailboxReply(env, 2, 'duplicate', 1,
-    'This problem is already tracked in report #1. Thanks for helping us confirm it.'), 2);
+    'This problem is already tracked in report #1. Thanks for helping us confirm it.'), 1);
   assert.equal(mailboxReply(env, 2, 'old-version', '1.2.0',
-    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager."), 2);
-  assert.equal(mailboxReply(env, 1, 'seen', 2, 'Another player reported the same problem.'), 2);
+    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager."), 1);
+  assert.equal(mailboxReply(env, 1, 'seen', 2, 'Another player reported the same problem.'), 1);
 });
 
 test('related and regression comments reach the mailbox while regressed fixes stay suppressed', async () => {
   const env = mailbox([issue(1, { labels: [sig], state: 'closed' }), mailIssue(2)]);
   await env.fire('opened', 2);
   await env.fire('closed', 2);
-  assert.equal(mailboxReply(env, 2, 'related', 1, 'This might be related to report #1.'), 2);
+  assert.equal(mailboxReply(env, 2, 'related', 1, 'This might be related to report #1.'), 1);
 
   const regressed = mailbox([mailIssue(1, { labels: [sig, 'fixed-in:1.2.0'], state: 'closed' }), mailIssue(2)]);
   regressed.comments.set(1, [{ user: bot, body: tag('released', '1.2.0') }]);
   await regressed.fire('opened', 2);
   await regressed.fire('closed', 1);
-  assert.equal(mailboxReply(regressed, 1, 'regression', 2, 'This problem was reported again after the fix.'), 2);
+  assert.equal(mailboxReply(regressed, 1, 'regression', 2, 'This problem was reported again after the fix.'), 1);
   assert(!regressed.state.gameReplies.some(reply => reply.text.startsWith('Fixed in')));
 });
 
@@ -1706,7 +1715,7 @@ test('known-mod mailbox names come from the mod list and advice comes from known
   await env.fire('closed');
   assert.equal(mailboxReply(env, 1, 'other-mod', 'bulletbot.keybindlib',
     "Your mod list has a mod that doesn't work with LateJoinPlus: KeybindLib (Legacy)_v-1.0. " +
-    'Update it, or remove it and the mods that need it.'), 2);
+    'Update it, or remove it and the mods that need it.'), 1);
 });
 
 test('suspect mailbox only lists the first five matched names, sanitizes them and caps each at 60', async () => {
@@ -1721,7 +1730,7 @@ test('suspect mailbox only lists the first five matched names, sanitizes them an
   const key = installed.map((_, index) => 'test.mod' + index).join(',');
   assert.equal(mailboxReply(env, 1, 'suspect-mod', key,
     'These mods in your list might be causing it: Alpha (Beta)_-2.0, ' + 'B'.repeat(60) +
-    ', Third, Fourth, Fifth. Try without them and send a new report if it still happens.'), 2);
+    ', Third, Fourth, Fifth. Try without them and send a new report if it still happens.'), 1);
 });
 
 test('multiple known mods get individual plain instructions within the mailbox limit', async () => {
@@ -1737,7 +1746,7 @@ test('multiple known mods get individual plain instructions within the mailbox l
   const key = rules.map(rule => rule.guid).join(',');
   assert.equal(mailboxReply(env, 1, 'other-mod', key,
     "Your mod list has mods that don't work with LateJoinPlus:\n" + names[0] + ': Remove it.\n' +
-    names[1] + ': Update it.\n' + names.slice(2, 5).map(name => name + ': Remove or update it.').join('\n')), 2);
+    names[1] + ': Update it.\n' + names.slice(2, 5).map(name => name + ': Remove or update it.').join('\n')), 1);
 });
 
 test('harmless comments are delivered with plain text and stable IDs', async () => {
@@ -1746,7 +1755,7 @@ test('harmless comments are delivered with plain text and stable IDs', async () 
   await env.fire();
   await env.fire('closed');
   assert.equal(mailboxReply(env, 1, 'harmless', 1,
-    'The report showed only game messages. If the game misbehaved, send a new report describing what happened.'), 2);
+    'The report showed only game messages. If the game misbehaved, send a new report describing what happened.'), 1);
 });
 
 test('test, outsider and removal notices are marked but have no eligible mailbox', async () => {
@@ -1798,8 +1807,8 @@ test('legacy old-version and conflict markers use safe versions and matching mod
   ]);
   await env.fire('closed');
   assert.deepEqual(env.state.gameReplies.map(reply => reply.text), [
-    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager.",
     "Your mod list has a mod that doesn't work with LateJoinPlus: Real Name. Remove it.",
+    "You're on an older LateJoinPlus (1.1.0). Please update in your mod manager.",
   ]);
 });
 
@@ -1811,6 +1820,98 @@ test('legacy log rows outside a recognized mod list cannot supply mailbox names'
   await env.fire();
   assert.equal(mailboxReply(env, 1, 'other-mod', 'example.broken',
     "Your mod list has mods that don't work with LateJoinPlus. Remove or update the conflicting mods."), 1);
+});
+
+test('mailbox sends two per report per UTC day in priority order and drains the rest on later days', async () => {
+  const env = mailbox([
+    issue(1, { labels: ['fixed-in:1.2.0'], state: 'closed' }),
+    mailIssue(2, { state: 'closed', locked: true }),
+    mailIssue(3, { state: 'closed', locked: true }),
+  ]);
+  env.comments.set(1, [{ user: bot, body: tag('released', '1.2.0') }]);
+  const notices = [
+    ['fix-ready', '1.3.0'], ['released', '1.2.0'],
+    ['other-mod', 'example.known'], ['suspect-mod', 'example.suspect'],
+    ['duplicate', '1'], ['old-version', '1.2.0'], ['related', '1'],
+  ];
+  env.comments.set(2, notices.filter(([kind]) => kind !== 'released').reverse().map(([kind, key]) =>
+    ({ user: bot, body: tag(kind, key), created_at: NOW.toISOString() })));
+  env.comments.set(3, ['1.3.0', '1.4.0'].map(key => ({ user: bot, body: tag('fix-ready', key) })));
+  const ids = notices.map(([kind, key]) => gameMessageId(2, { kind, key }));
+  const replies = number => env.state.gameReplies.filter(reply => reply.issue === number);
+  const schedule = () => env.fire(null, null, null, 'schedule');
+
+  env.state.now = new Date('2026-10-28T23:59:00Z');
+  await schedule();
+  assert.deepEqual(replies(2).map(reply => reply.id), ids.slice(0, 2));
+  assert.equal(replies(3).length, 2);
+  await env.fire('closed', 2);
+  assert.equal(replies(2).length, 2);
+
+  for (const [day, total] of [[29, 4], [30, 6], [31, 7]]) {
+    env.state.now = new Date(Date.UTC(2026, 9, day));
+    await schedule();
+    assert.deepEqual(replies(2).map(reply => reply.id), ids.slice(0, total));
+    assert.equal(replies(3).length, 2);
+  }
+  assert.equal(env.count(2, 'mailbox-delivery'), 1);
+});
+
+test('only kind-6 notices older than seven days are dropped, using the comment creation time', async () => {
+  const week = 7 * 86400000;
+  const old = new Date(NOW.getTime() - week - 1).toISOString();
+  const boundary = new Date(NOW.getTime() - week).toISOString();
+  const env = mailbox([mailIssue(1, { state: 'closed', created_at: '2026-10-15T00:00:00Z' })]);
+  env.comments.set(1, [
+    ...['related', 'seen', 'regression', 'harmless'].map(kind =>
+      ({ user: bot, body: tag(kind, 2), created_at: old, updated_at: NOW.toISOString() })),
+    { user: bot, body: tag('seen', 3), created_at: boundary },
+    { user: bot, body: tag('fix-ready', '1.3.0'), created_at: old },
+  ]);
+  await env.fire('closed');
+  env.state.now = new Date(NOW.getTime() + 86400000);
+  await env.fire(null, null, null, 'schedule');
+  assert.deepEqual(env.state.gameReplies.map(reply => reply.id), [
+    gameMessageId(1, { kind: 'fix-ready', key: '1.3.0' }),
+    gameMessageId(1, { kind: 'seen', key: '3' }),
+  ]);
+});
+
+test('the relay daily limit defers remaining notices quietly until the next UTC day', async () => {
+  const env = mailbox([mailIssue(1, { state: 'closed' })]);
+  const versions = ['1.3.0', '1.4.0', '1.5.0'];
+  env.comments.set(1, versions.map(key => ({ user: bot, body: tag('fix-ready', key) })));
+  const success = env.state.gameReplyResponse;
+  env.state.gameReplyResponse = () => env.state.gameReplies.length === 1 ? success() :
+    { ok: false, status: 429, json: async () => ({ error: 'daily limit' }) };
+  const ids = versions.map(key => gameMessageId(1, { kind: 'fix-ready', key }));
+
+  await env.fire('closed');
+  await env.fire('closed');
+  assert.deepEqual(env.state.gameReplies.map(reply => reply.id), ids.slice(0, 2));
+  assert.deepEqual(env.warnings, []);
+
+  env.state.now = new Date('2026-10-29T00:00:00Z');
+  env.state.gameReplyResponse = success;
+  await env.fire(null, null, null, 'schedule');
+  assert.deepEqual(env.state.gameReplies.map(reply => reply.id), [ids[0], ids[1], ids[1], ids[2]]);
+  assert.deepEqual(env.warnings, []);
+});
+
+test('other relay 429 responses still warn and retry the same notice', async () => {
+  const env = mailbox([mailIssue(1, { state: 'closed' })]);
+  env.comments.set(1, [{ user: bot, body: tag('fix-ready', '1.3.0') }]);
+  const success = env.state.gameReplyResponse;
+  env.state.gameReplyResponse = () =>
+    ({ ok: false, status: 429, json: async () => ({ error: 'busy' }) });
+  await env.fire('closed');
+  assert.deepEqual(env.warnings, ['Game reply for #1 is pending (HTTP 429).']);
+  assert.equal(env.count(1, 'mailbox-delivery'), 0);
+
+  env.state.gameReplyResponse = success;
+  await env.fire('closed');
+  assert.equal(env.state.gameReplies.length, 2);
+  assert.equal(env.state.gameReplies[0].id, env.state.gameReplies[1].id);
 });
 
 (async () => {
