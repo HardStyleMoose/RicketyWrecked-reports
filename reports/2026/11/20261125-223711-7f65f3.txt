@@ -1,0 +1,153 @@
+LateJoinPlus bug report 20261125-223711-7f65f3
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "menu"
+level: "Level - Lobby Menu"
+players: 0
+language: "en-US"
+test: false
+
+Mods (4):
+- "REPOLib" | "REPOLib" | "1.5.0"
+- "RetrievePlayerUpgrades" | "com.github.zehsteam.RetrievePlayerUpgrades" | "1.3.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: Intel(R) Core(TM) i7-14700K (28 threads)
+Memory: 65240 MB
+Graphics: NVIDIA GeForce RTX 4060 (7956 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 4006 ms
+Most memory this game: 2276 MB
+Most texture memory this game: 116 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Didn't load: Plugin [Menu Lib 2.6.3] targets a wrong version of BepInEx ([ip]) and might not work until you update
+Didn't load: Plugin [LateJoinPlus 1.2.2] targets a wrong version of BepInEx ([ip]) and might not work until you update
+Known problem: REPOLib 1.5.0: This version is too old for this game: some of its patches fail. Update it.
+Who patches the methods in this log's errors:
+  EnemyDirector.Awake: REPOLib (postfix)
+  RunManager.Awake: REPOLib (postfix)
+Game methods several mods patch (0):
+Timeline (last 3):
+  07:35:16 an error from Unity Log
+  07:35:16 an error from Unity Log
+  07:35:28 an error from Unity Log
+(end of settings)
+[Error  :   BepInEx] Unable to start Unity log writer
+[Warning:   BepInEx] Plugin [Menu Lib 2.6.3] targets a wrong version of BepInEx ([ip]) and might not work until you update
+[Warning:   BepInEx] Plugin [LateJoinPlus 1.2.2] targets a wrong version of BepInEx ([ip]) and might not work until you update
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SemiFunc and name Command and parameters 
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static bool REPOLib.Patches.SemiFuncPatch::CommandPatch(string _command)
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+REPOLib.Plugin.Awake () (at D:/Documents/Visual Studio Projects/REPO Mods/REPOLib/REPOLib/Plugin.cs:26)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named REPOLib.Modules.Upgrades
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+REPOLib.Commands.CommandManager.BindConfigs () (at D:/Documents/Visual Studio Projects/REPO Mods/REPOLib/REPOLib/Commands/CommandManager.cs:123)
+REPOLib.Commands.CommandManager.Initialize () (at D:/Documents/Visual Studio Projects/REPO Mods/REPOLib/REPOLib/Commands/CommandManager.cs:54)
+REPOLib.Patches.RunManagerPatch.AwakePatch () (at D:/Documents/Visual Studio Projects/REPO Mods/REPOLib/REPOLib/Patches/RunManagerPatch.cs:24)
+(wrapper dynamic-method) RunManager.DMD<RunManager::Awake>(RunManager)
+[Error  : Unity Log] MissingFieldException: Field not found: System.Collections.Generic.List`1<UnityEngine.GameObject> .EnemySetup.spawnObjects Due to: Could not find field in class
+Stack trace:
+REPOLib.Patches.EnemyDirectorPatch.AwakePatch () (at D:/Documents/Visual Studio Projects/REPO Mods/REPOLib/REPOLib/Patches/EnemyDirectorPatch.cs:26)
+(wrapper dynamic-method) EnemyDirector.DMD<EnemyDirector::Awake>(EnemyDirector)
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1143 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 614 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 4006 ms, 4 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1585 MB of 65240 MB, 82 MB of it from mods and scripts; textures 89 MB of 7956 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 8 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.4 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
