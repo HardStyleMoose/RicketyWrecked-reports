@@ -1,0 +1,1407 @@
+LateJoinPlus bug report 20261126-140935-650af6
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Desert"
+players: 3
+language: "en-US"
+test: false
+
+Mods (17):
+- "GodMode" | "DaanDeReus.GodMode" | "2.2.0"
+- "RoboUnion" | "Linkoid.Repo.RoboUnion" | "0.6"
+- "AlwaysHalloween" | "REPOJP.AlwaysHalloween" | "5.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "UnlockAllCosmetics" | "com.github.Alexsei.UnlockAllCosmetics" | "1.0.5"
+- "InfiniteItemBatteryMod" | "com.yourname.infiniteitembatterymod" | "1.0.0"
+- "REPOFly" | "dev.coolchair.REPOFly" | "1.0.7"
+- "More Tax Tokens Simple" | "dyxc666.MoreTaxTokensSimple" | "1.8.1"
+- "InfiniteEnergyButGood" | "local.infiniteenergybutgood" | "1.0.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "SkinCopy" | "purtzel_hd.skincopy" | "1.3.1"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "CarryFriend" | "zichen.carryfriend" | "1.0.5"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = false
+Lobby Guard/BlockHostHijack = false
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 15
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: Intel(R) Core(TM) i3-9100F CPU @ 3.60GHz (4 threads)
+Memory: 24487 MB
+Graphics: NVIDIA GeForce GTX 1650 (3935 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 5376 ms
+Most memory this game: 4542 MB
+Most texture memory this game: 1177 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (18):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ExtractionPoint.OnShopClick: Vippy.BigFriendlyButton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  GameManager.Awake: Linkoid.Repo.RoboUnion (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  GameManager.SetMaxPlayers: ricketywrecked.repo.latejoinplus (prefix), Linkoid.Repo.RoboUnion (postfix)
+  ItemBattery.Update: com.yourname.infiniteitembatterymod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: purtzel_hd.skincopy (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), zichen.carryfriend (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), zichen.carryfriend (postfix)
+  PlayerController.Start: DaanDeReus.GodMode (postfix), dev.coolchair.REPOFly (postfix)
+  PlayerHealth.Hurt: DaanDeReus.GodMode (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PlayerHealth.Update: ricketywrecked.repo.fixes (prefix), DaanDeReus.GodMode (postfix), ricketywrecked.repo.fixes (finalizer)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  RunManager.ChangeLevel: dyxc666.MoreTaxTokensSimple (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 8):
+  16:37:57 an error from Unity Log
+  16:50:48 an error from Unity Log
+  16:58:54 Level 'Level - Arctic'
+  16:59:20 Level built in 26 s. Slowest step: rooms, 15.6 s from the first player to the last, Player 15.
+  17:00:05 an error from Unity Log
+  17:08:05 Level built in 19 s. Slowest step: rooms, 11.6 s from the first player to the last, Player 15.
+  17:09:23 Level building has made no progress for 45 s on step ModuleSpawnRemote, waiting for Player 15 (a slow PC, or their game has stopped answering). Where…
+  17:09:24 Level building moved again. Where everyone is: Player 15 14% (rooms, last message 0 s ago), Player 61 28% (valuables, last message 0 s ago), You 28% …
+(end of settings)
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Error  : Unity Log] OperationException : Failed to initialize localization, could not preload string tables.
+[Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (15) is used instead of its player limit; its other features are untouched.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 3202 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 2515 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 5376 ms, 5 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1484 MB of 24487 MB, 109 MB of it from mods and scripts; textures 89 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 31 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.7 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-26T13:38:39] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Microphone (Fantech Leviosa)
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] ARAB'; as typed: 'ARAB'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 61' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Player 19 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 19 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning:Lobby Guard] [Lobby Guard] Suspicious name: 'Player 19', player #3 (name shortened: 1 odd characters).
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Player 19's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 19 holds no moderator key of ours.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 61' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 34 messages (about 101 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 19' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 95 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Calls] Player 19 asks for a call.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 41 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 61's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 2408 MB of 24487 MB, 122 MB of it from mods and scripts; textures 241 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 20 times in total)
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 3; max health on the host 100.00 -> 160.00 (expected 160.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 3.
+[Info   :LateJoinPlus] [Admin] Health for You: 3 -> 5; max health on the host 160.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 5.
+[Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Range for You: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Range set to 5.
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: TumbleWings set to 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: CrouchRest set to 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: MapPlayerCount set to 5.
+[Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 4.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Stamina set to 4.
+[Info   :LateJoinPlus] [Admin] Stamina for You: 4 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Stamina set to 5.
+[Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 5.
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 5.
+[Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Launch set to 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: TumbleClimb set to 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: DeathHeadBattery set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for Player 61: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Strength for Player 61: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 61: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 61: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Launch for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 61: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 61: done - Player 61: every upgrade set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for Player 14: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Strength for Player 14: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 14: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 14: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Launch for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 14: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 19: done - Player 19: every upgrade set to 5.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] Timing: game memory 2943 MB of 24487 MB, 162 MB of it from mods and scripts; textures 552 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/2 out of slot 1 (1.8 m away, 1.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/2 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/2 out of slot 1 (0.9 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 2 (1.0 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/4 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Drone Indestructible/5 in slot 2.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/2 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 3 (1.0 m away, 0.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/2 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Drone Indestructible/5 out of slot 2 (1.0 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Drone Indestructible/5 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/12 in slot 3.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/2 out of slot 3 (1.3 m away, 0.9 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/5 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/12 out of slot 3 (1.1 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Admin] Throw for Player 14: 5 -> 0; throw strength on the host 1.50 -> 0.00 (expected 0.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 19: done - Player 14: Throw set to 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 5, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Throw for You: 5 -> 0; throw strength on the host 1.50 -> 0.00 (expected 0.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 0, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 0, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] Late joiner Player 61 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 61' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Player 61 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 61 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 61 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Player 61's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 61 holds no moderator key of ours.
+[Info   :LateJoinPlus] Late joiner Player 61 finished loading in 10.7 s (has LateJoinPlus).
+[Info   :LateJoinPlus] [Calls] Player 61 asks for a call.
+[Info   :LateJoinPlus] [Calls] Declined Player 61's call request.
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Drone Indestructible/9 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Gun Revolver/4 in slot 2.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 61' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 6 KB in 121 messages (about 58 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 15 connected (level Level - Arctic). Catching them up.
+[Info   :LateJoinPlus] Player 15 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 15 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 15' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 15 (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 15 for their moderator key: moderation protocol not confirmed (1/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 15 (LateJoinPlus) whether they hold one of our moderator keys.
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 15 for their moderator key: moderation protocol not confirmed (2/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 15 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/7 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Admin] Player 15's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 15 holds no moderator key of ours.
+[Info   :LateJoinPlus] [Moderators] Player 15 sent moderator key proofs with no open challenge; ignored.
+[Info   :LateJoinPlus] [Moderators] Player 15 sent moderator key proofs with no open challenge; ignored.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 15' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 45 messages (about 59 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 15 finished loading in 33.4 s (has LateJoinPlus).
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.9 m away, 1.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/7 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/7 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Revolver/6 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 61 took Item Gun Revolver/4 out of slot 2 (1.1 m away, -0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Gun Revolver/4 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/7 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.8 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.6 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] Timing: game memory 3606 MB of 24487 MB, 144 MB of it from mods and scripts; textures 1064 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Tranq/6 in slot 3.
+[Info   :LateJoinPlus] [Slots] Player 61 took Item Drone Indestructible/9 out of slot 1 (1.3 m away, 0.8 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Drone Indestructible/9 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 61 took Item Gun Revolver/4 out of slot 2 (1.4 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Revolver/7 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Gun Revolver/4 in slot 2.
+[Info   :LateJoinPlus] [Slots] Player 19 put Item Gun Revolver/7 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 61 took Item Gun Revolver/4 out of slot 2 (1.3 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19 took Item Gun Tranq/6 out of slot 3 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Death drop] Player 19 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 19 when they died: Item Gun Tranq(Clone) #123 1.4 m away, floor 0.10 m | state Idle owner 3010 | held by Player 19 | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 19's Item Gun Revolver/7 was forced out of slot 1, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 19's Item Drone Indestructible/5 was forced out of slot 2, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 19 when they died: Item Gun Tranq(Clone) #123 1.4 m away, floor 0.06 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #100 0.0 m away, floor 0.12 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #96 0.0 m away, floor 0.00 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Gun Revolver/4 in slot 2.
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #100 3.8 m away, floor 0.19 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #96 2.2 m away, floor 3.21 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 19 when they died: Item Gun Tranq(Clone) #123 3.8 m away, floor 0.08 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin -0.01 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Revolver(Clone) #100 2.6 m away, floor 0.10 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Drone Indestructible(Clone) #96 4.6 m away, floor 0.12 m | state Idle owner 3010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[Warning: Unity Log] [2026-11-26T13:55:51] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 3 not found when trying to remove
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Slots] Player 61 took Item Drone Indestructible/9 out of slot 1 (1.1 m away, -0.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Drone Indestructible/9 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Drone Indestructible/8 in slot 3.
+[Info   :LateJoinPlus] [Calls] Player 61 asks for a call.
+[Info   :LateJoinPlus] [Calls] Accepted Player 61's call request.
+[Info   :LateJoinPlus] [Calls] On call #4 with Player 61.
+[Info   :LateJoinPlus] [Calls] Call #4 started: You, Player 61.
+[Info   :LateJoinPlus] [Calls] Voice now private: listening to and sending on call #4's voice group.
+[Info   :LateJoinPlus] [Calls] Microphone on the call's voice group; told the host we're connected.
+[Info   :LateJoinPlus] [Calls] Player 61 is connected to call #4.
+[Info   :LateJoinPlus] [Moderators] Status: host; moderators here: none; with LateJoinPlus: 2; call #4: You, Player 61.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[Info   :LateJoinPlus] [Calls] Leaving the call.
+[Info   :LateJoinPlus] [Calls] You left (call #4, 1 left on it).
+[Info   :LateJoinPlus] [Calls] Call #4 ended after 0:29 (everyone else left).
+[Info   :LateJoinPlus] [Calls] Voice back to everyone (left the call's voice group).
+[Info   :LateJoinPlus] Late joiner Player 16 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 16' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 16 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 16 finished loading in 11.0 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 16's map (50 messages).
+[Info   :LateJoinPlus] Player 16 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[Info   :LateJoinPlus] [Slots] Player 16 tried to put Item Gun Revolver/5 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 16' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 27 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 16 tried to put Item Gun Revolver/5 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] Late joiner Player 19 connected (level Level - Arctic). Catching them up.
+[Info   :LateJoinPlus] Player 19 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 19 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 19's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 19 holds no moderator key of ours.
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 19 (has LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 19 finished loading in 6.4 s (has LateJoinPlus).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 4 (3 with LateJoinPlus), loaded 4 (avg 15.4 s, slowest 33.4 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (7 rooms) | extraction: opened for joiner 4, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 4 (slowest 42 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 61' peaked at 65 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 61's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 19' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Calls] You rings Player 19.
+[Info   :LateJoinPlus] [Calls] Ringing Player 19.
+[Info   :LateJoinPlus] [Run] Level built in 26 s. Slowest step: rooms, 15.6 s from the first player to the last, Player 15.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $184K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $263K.
+[Error  : Unity Log] RPC method 'WinkRPC(Int32, Int32)' not found on object with PhotonView 11. Implement as non-static. Apply [PunRPC]. Components on children are not found. Return type must be void or IEnumerator (if you enable RunRpcCoroutines). RPCs are a one-way message.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 5, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 0, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Health for Player 14: 5 -> 20; max health on the host 200.00 -> 500.00 (expected 500.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Strength for Player 14: 5 -> 20; grab strength on the host 2.00 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 14: 5 -> 20; grab range on the host 7.50 -> 22.50 (expected 22.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 14: 0 -> 20; throw strength on the host 0.00 -> 6.00 (expected 6.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Launch for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 14: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 19: done - Player 19: every upgrade set to 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for Player 15: 0 -> 20; max health on the host 100.00 -> 500.00 (expected 500.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] Strength for Player 15: 0 -> 20; grab strength on the host 1.00 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 15: 0 -> 20; grab range on the host 2.50 -> 22.50 (expected 22.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 15: 0 -> 20; throw strength on the host 0.00 -> 6.00 (expected 6.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] Launch for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 15: 0 -> 20.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 15: done - Player 15: every upgrade set to 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 0, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Health for You: 5 -> 20; max health on the host 200.00 -> 500.00 (expected 500.00)
+[Info   :LateJoinPlus] [Admin] Stamina for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Speed for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Strength for You: 5 -> 20; grab strength on the host 2.00 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Range for You: 5 -> 20; grab range on the host 7.50 -> 22.50 (expected 22.50)
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 20; throw strength on the host 0.00 -> 6.00 (expected 6.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Launch for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 5, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 5, Stamina 5, Speed 5, Strength 5, Range 5, Throw 5, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Health for Player 61: 5 -> 20; max health on the host 200.00 -> 500.00 (expected 500.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Strength for Player 61: 5 -> 20; grab strength on the host 2.00 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 61: 5 -> 20; grab range on the host 7.50 -> 22.50 (expected 22.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 61: 5 -> 20; throw strength on the host 1.50 -> 6.00 (expected 6.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Launch for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 61: 5 -> 20.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 61: done - Player 61: every upgrade set to 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 20 -> 9.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 61: done - Player 61: Speed set to 9.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 9 -> 8.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 61: done - Player 61: Speed set to 8.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 8 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 61: done - Player 61: Speed set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for You: 20 -> 8.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 8.
+[Info   :LateJoinPlus] [Admin] Speed for You: 8 -> 9.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 9.
+[Info   :LateJoinPlus] [Admin] Speed for You: 9 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 15: 20 -> 11.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 15: done - Player 15: Speed set to 11.
+[Info   :LateJoinPlus] [Admin] Speed for Player 15: 11 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 15: done - Player 15: Speed set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 20, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 20 -> 6.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 19: done - Player 14: Speed set to 6.
+[Info   :LateJoinPlus] [Admin] Speed for Player 14: 6 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 19: done - Player 14: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for You: 10 -> 6.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 6.
+[Info   :LateJoinPlus] [Admin] Speed for You: 6 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 61 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 61: 10 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 61: done - Player 61: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 20, Stamina 20, Speed 10, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Speed for Player 15: 10 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 15: done - Player 15: Speed set to 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 19 (game id ok): Health 20, Stamina 20, Speed 5, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 20, Stamina 20, Speed 5, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1060 but this PhotonView does not exist! View was/is ours. Remote called. By: #07 'Player 14'
+   (seen 6 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1060 but this PhotonView does not exist! View was/is ours. Remote called. By: #04 'Player 61'
+   (seen 6 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1060 but this PhotonView does not exist! View was/is ours. Remote called. By: #05 'Player 15'
+   (seen 6 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Quietly ignoring 'WinkRPC' messages from 'Player 61' (player #4) (to object 11): they're for a mod your game doesn't have, so the game can't run them and would only log an error each time.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Death drop] Player 19 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 133 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 14' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 133 but this PhotonView does not exist! Was remote PV. Remote called. By: #07 'Player 14' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Ignored 1 ReviveRPC message(s) from 'Player 15' (player #5): the game doesn't accept these from them, so it ignores them anyway (usually another mod, like GameTools' auto revive, not a cheat). Dropped before other mods react to them.
+[Info   :LateJoinPlus] [Death drop] Player 61 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Ignored 1 ReviveRPC message(s) from 'Player 61' (player #4): the game doesn't accept these from them, so it ignores them anyway (usually another mod, like GameTools' auto revive, not a cheat). Dropped before other mods react to them.
+[Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 61 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 61: done - Revived Player 61.
+[Info   :LateJoinPlus] [Admin] Host revive Player 15: done - Revived Player 15.
+[Info   :LateJoinPlus] [Death drop] Player 19 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 20, Stamina 20, Speed 5, Strength 20, Range 20, Throw 20, ExtraJump 20, Launch 20, TumbleWings 20, TumbleClimb 20, CrouchRest 20, DeathHeadBattery 20, MapPlayerCount 20.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "TumbleOverrideTimeRPC" for viewID 1055 but this PhotonView does not exist! View was/is ours. Remote called. By: #04 'Player 61'
+   (seen 3 times in total)
+[Warning: Unity Log] Received RPC "OverrideDisableSpecialGrabPowersSetRPC" for viewID 5010 but this PhotonView does not exist! Was remote PV. Owner called. By: #05 'Player 15' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 61's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 69 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Calls] Player 19 asks for a call.
+[Info   :LateJoinPlus] [Calls] Declined Player 19's call request.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:58.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:50.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:49.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:48.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:48.
+[Info   :LateJoinPlus] [Run] Level built in 19 s. Slowest step: rooms, 11.6 s from the first player to the last, Player 15.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:47.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:46.
+[Info   :LateJoinPlus] [Admin] You's Speed went from 5 to 6: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] Player 14's Speed went from 5 to 6: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 61's Speed went from 5 to 6: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 15's Speed went from 5 to 6: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:45.
+[Info   :LateJoinPlus] [Admin] You's Speed went from 6 to 7: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] Player 14's Speed went from 6 to 7: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 61's Speed went from 6 to 7: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 15's Speed went from 6 to 7: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:44.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:43.
+[Info   :LateJoinPlus] [Admin] You's Speed went from 7 to 8: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] Player 14's Speed went from 7 to 8: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 61's Speed went from 7 to 8: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Admin] Player 15's Speed went from 7 to 8: SharedUpgradesPlus shared a teammate's purchase.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:42.
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Drone Indestructible/1 in slot 1.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:41.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:40.
+[Info   :LateJoinPlus] [Slots] Player 15 put Item WalkieTalkie/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[Info   :LateJoinPlus] [Calls] Player 19 asked for a call; refused: You can ask again in 0:39.
+[Info   :LateJoinPlus] [Slots] Player 61 put Item Gun Revolver/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] You put Item Orb Battery/1 in slot 2.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[Info   :LateJoinPlus] [Slots] Player 19 put Item WalkieTalkie/2 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 40 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 61's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level building has made no progress for 45 s on step ModuleSpawnRemote, waiting for Player 15 (a slow PC, or their game has stopped answering). Where everyone is: Player 15 14% (rooms, last message 0 s ago), Player 61 28% (valuables, last message 0 s ago), Player 19 28% (valuables, last message 0 s ago), You 28% (valuables).
+[Info   :LateJoinPlus] [Run] Level building moved again. Where everyone is: Player 15 14% (rooms, last message 0 s ago), Player 61 28% (valuables, last message 0 s ago), You 28% (valuables).
+=== Previous game session ===
+[13:51:29.826] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[13:51:40.298] [Error  :Unity Log] OperationException : Failed to initialize localization, could not preload string tables.
+[13:51:42.329] [Info   :LateJoinPlus] RoboUnion is installed: LateJoinPlus Max Players (15) is used instead of its player limit; its other features are untouched.
+[13:51:42.330] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[13:51:42.337] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[13:51:42.337] [Info   :LateJoinPlus] Timing: start-up took 5190 ms.
+[13:51:42.339] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[13:51:42.340] [Info   :LateJoinPlus] Timing: late patches took 3016 ms.
+[13:51:42.412] [Warning:Unity Log] Unable to load font face for [] font asset.
+[13:51:46.093] [Info   :LateJoinPlus] Timing: slowest frame so far 6350 ms, 6 s after start.
+[13:51:46.096] [Info   :LateJoinPlus] Timing: game memory 1485 MB of 24487 MB, 67 MB of it from mods and scripts; textures 89 MB of 3935 MB video memory.
+[13:51:46.096] [Info   :LateJoinPlus] Timing: Chinese font set-up took 26 ms and 1 MB.
+[13:51:46.096] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.8 ms (13 fonts).
+[13:51:53.102] [Info   :Unity Log] leaving photon
+[13:51:53.356] [Info   :Unity Log] Leave to Main Menu
+[13:52:02.831] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[13:53:01.532] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:53:01.532] [Warning:Lobby Guard] [Lobby Guard] Suspicious name: 'Player 19', player #1 (name shortened: 1 odd characters).
+   (seen 2 times in total)
+[13:53:01.533] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 60' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:53:01.533] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:53:01.534] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 39' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:53:01.534] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:53:01.803] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[13:53:01.841] [Warning:Unity Log] [2026-11-26T10:53:01] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[13:53:07.234] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 2 messages/s (flood limit 500); most data from one player 0 KB/s (limit 100); 0 messages dropped.
+[13:53:07.236] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[13:53:07.237] [Info   :LateJoinPlus] Waited 0.1 s for Player 60's Steam ID before loading their upgrades and name tag.
+[13:53:10.304] [Info   :LateJoinPlus] Timing: game memory 2099 MB of 24487 MB, 69 MB of it from mods and scripts; textures 208 MB of 3935 MB video memory.
+[13:53:11.927] [Warning:Unity Log] [2026-11-26T10:53:11] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 11008 found. Remote voice p#10 v#3 not linked.
+   (seen 3 times in total)
+[13:53:13.278] [Info   :LateJoinPlus] The host has not sent 14 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[13:53:13.702] [Info   :LateJoinPlus] Waited 0.1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[13:53:13.903] [Info   :LateJoinPlus] Waited 0.1 s for Player 39's Steam ID before loading their upgrades and name tag.
+[13:53:14.492] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[13:53:14.492] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 2 times in total)
+[13:53:14.492] [Info   :LateJoinPlus] Host room connections received: 14 matched our estimate, 0 corrected to the host's.
+[13:53:14.600] [Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[13:53:14.850] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[13:53:16.976] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 3 times in total)
+[13:53:16.976] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[13:53:23.201] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls.
+   (seen 5 times in total)
+[13:53:28.756] [Info   :LateJoinPlus] [Calls] Asked the host (Player 19) for a call.
+[13:53:33.108] [Info   :LateJoinPlus] [Calls] Player 19 is ringing us (a call).
+[13:53:38.777] [Info   :LateJoinPlus] [Calls] Answered the call from Player 19.
+[13:53:39.081] [Info   :LateJoinPlus] [Calls] On call #3 with Player 19.
+[13:53:39.256] [Info   :LateJoinPlus] [Calls] Voice now private: listening to and sending on call #3's voice group.
+[13:53:39.256] [Info   :LateJoinPlus] [Calls] Microphone on the call's voice group; told the host we're connected.
+[13:53:44.887] [Info   :LateJoinPlus] [Calls] Leaving the call.
+[13:53:45.066] [Info   :LateJoinPlus] [Calls] Voice back to everyone (left the call's voice group).
+[13:55:31.308] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 48' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:56:01.521] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #15' (player #15, Steam ID unknown), first 30 s: busiest second 0 KB in 2 messages (about 47 bytes each).
+[13:57:26.311] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[13:58:19.121] [Info   :LateJoinPlus] [Calls] Asked the host (Player 19) for a call.
+[13:58:21.721] [Info   :LateJoinPlus] [Calls] On call #5 with Player 19.
+[13:58:21.877] [Info   :LateJoinPlus] [Calls] Voice now private: listening to and sending on call #5's voice group.
+[13:58:21.877] [Info   :LateJoinPlus] [Calls] Microphone on the call's voice group; told the host we're connected.
+[13:58:30.995] [Info   :LateJoinPlus] [Calls] Leaving the call.
+[13:58:31.165] [Info   :LateJoinPlus] [Calls] Voice back to everyone (left the call's voice group).
+[13:58:46.856] [Info   :Unity Log] You were kicked by the server.
+[13:58:46.859] [Info   :LateJoinPlus] [Moderators] Removed from the lobby: You were banned from Player 19's lobby.
+[13:58:47.099] [Error  :Unity Log] Got DisconnectMessage. Code: 104 Msg: "Ban". Debug Info: {}
+[13:58:47.125] [Info   :Unity Log] Disconnected from server for reason DisconnectByDisconnectMessage
+[13:58:47.127] [Error  :Unity Log] network disconnect report: cause=DisconnectByDisconnectMessage, summary=none, build=0.5.4, scene=Main, game=Outro, loading=0.0s, receiveGap=61ms, rtt=119ms, rttVariance=19ms, resends=72
+[13:58:47.128] [Info   :Unity Log] leaving photon
+[13:58:47.129] [Info   :Unity Log] Leave to Main Menu
+[13:58:54.610] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[13:59:16.219] [Warning:Unity Log] [2026-11-26T10:59:16] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Microphone (Fantech Leviosa)
+   (seen 2 times in total)
+[13:59:16.660] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[13:59:16.661] [Info   :LateJoinPlus] Waited 0.1 s for Player 17's Steam ID before loading their upgrades and name tag.
+[13:59:31.000] [Info   :LateJoinPlus] The host did not answer within 15 s: the host is not running LateJoinPlus, so joining mid-run relies on the host's own late-join mod or the game alone.
+[13:59:53.162] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 9 times in total)
+[14:07:05.976] [Info   :Unity Log] leaving photon
+[14:07:06.404] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[14:07:06.410] [Info   :Unity Log] Leave to Main Menu
+[14:07:25.638] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[14:07:36.484] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[14:07:36.484] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[14:08:01.040] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[14:08:08.194] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 2 times in total)
+[14:08:27.841] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[14:08:31.146] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 17' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 38 messages (about 97 bytes each).
+[14:08:32.875] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[14:08:33.953] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[14:08:34.806] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[14:08:35.130] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[14:08:35.152] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 17' peaked at 37 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[14:08:35.473] [Info   :LateJoinPlus] Waited 0.1 s for Player 17's Steam ID before loading their upgrades and name tag.
+[14:08:49.335] [Info   :LateJoinPlus] [Run] Level built in 14 s. Slowest step: loading, 0 s from the first player to the last, Player 17.
+[14:09:09.953] [Info   :LateJoinPlus] Timing: game memory 2771 MB of 24487 MB, 99 MB of it from mods and scripts; textures 400 MB of 3935 MB video memory.
+[14:09:10.091] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:09:16.140] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[14:09:18.153] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[14:09:19.155] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:09:19.831] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:09:21.850] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:09:26.797] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 84 times in total)
+[14:09:30.255] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 3, Stamina 5, Speed 4, Strength 3, Range 2, Throw 0, ExtraJump 1, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[14:09:32.522] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 17 (game id ok): Health 3, Stamina 5, Speed 4, Strength 3, Range 2, Throw 0, ExtraJump 1, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[14:09:35.281] [Info   :LateJoinPlus] [Slots] Player 17 put Item Staff Void/1 in slot 1.
+[14:09:37.722] [Info   :LateJoinPlus] [Slots] Player 17 took Item Staff Void/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[14:09:51.484] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:09:53.484] [Info   :LateJoinPlus] [Slots] Player 17 put Item Melee Frying Pan/1 in slot 2.
+[14:09:59.726] [Info   :LateJoinPlus] [Slots] Player 17 put Item Orb Zero Gravity/1 in slot 3.
+[14:10:04.581] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 3 times in total)
+[14:11:10.300] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.6 m away, 1.6 m above their feet).
+[14:11:11.495] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:11:11.840] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[14:11:13.185] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:11:15.445] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:11:17.152] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:11:18.291] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[14:11:19.380] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:11:37.600] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 4 times in total)
+[14:12:34.060] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:12:36.049] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[14:12:38.988] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:12:44.663] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:12:48.427] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:12:49.376] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:12:52.466] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:12:56.428] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 3 times in total)
+[14:13:11.671] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[14:13:12.228] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:13:12.473] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[14:13:12.787] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:13:14.281] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.4 m away, 1.0 m above their feet).
+[14:13:16.544] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:13:25.755] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:13:35.705] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[14:13:36.322] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[14:13:37.085] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+[14:13:37.473] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+[14:13:55.171] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:13:56.592] [Info   :LateJoinPlus] Late joiner Player 41 connected (level Level - Desert). Catching them up.
+[14:13:57.506] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 41' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[14:13:59.634] [Info   :LateJoinPlus] Sent the setup of 14 level piece(s) once to Player 41 (without LateJoinPlus).
+[14:14:08.363] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 2 times in total)
+[14:14:11.570] [Info   :LateJoinPlus] Late joiner Player 41 finished loading in 14.7 s (without LateJoinPlus).
+[14:14:13.014] [Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 41's map (12 messages).
+[14:14:15.389] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:14:23.152] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:14:26.828] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 41' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 31 messages (about 168 bytes each).
+[14:14:29.481] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:15:06.476] [Warning:Unity Log] BoxCollider does not support negative scale or size.
+   (seen 3 times in total)
+[14:15:26.839] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.6 m above their feet).
+[14:15:30.193] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:15:30.375] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:17:09.063] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:17:13.413] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[14:17:14.286] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:17:17.445] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.7 m above their feet).
+[14:17:19.457] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:17:19.798] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (2.0 m away, 1.8 m above their feet).
+[14:17:20.635] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:17:24.464] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 3.
+[14:17:25.169] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 3 (1.3 m away, 1.0 m above their feet).
+[14:17:27.698] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:17:29.814] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:17:33.375] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[14:17:46.688] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:17:56.615] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Photon Blaster ×1.
+[14:17:56.766] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Pulse Pistol ×1.
+[14:17:56.893] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[14:17:57.300] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. Laser ×1.
+[14:17:57.437] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. Cannon ×1.
+[14:17:58.229] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+   (seen 2 times in total)
+[14:17:58.757] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[14:17:59.212] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+   (seen 3 times in total)
+[14:17:59.721] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Pulse Pistol ×1.
+   (seen 2 times in total)
+[14:18:00.465] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+   (seen 2 times in total)
+[14:18:00.703] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Pulse Pistol ×1.
+[14:18:00.888] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Photon Blaster ×1.
+[14:18:01.171] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+   (seen 2 times in total)
+[14:18:02.070] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+   (seen 5 times in total)
+[14:18:07.183] [Info   :LateJoinPlus] Player 41 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[14:18:07.189] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Revolver/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 3 times in total)
+[14:18:09.424] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Revolver/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:18:09.938] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Revolver/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:18:13.337] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[14:18:20.433] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[14:18:21.282] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:18:28.225] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.1 m away, 0.4 m above their feet).
+[14:18:28.283] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:18:29.414] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:18:34.789] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:18:38.934] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:18:39.917] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:19:25.395] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:19:26.394] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:19:33.762] [Info   :LateJoinPlus] [Slots] Player 17 took Item Orb Zero Gravity/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[14:19:37.312] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:19:39.151] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[14:19:39.894] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:40.097] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:40.195] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:40.195] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:40.467] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:40.540] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:40.567] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:40.825] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:40.827] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:40.827] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:45.585] [Info   :LateJoinPlus] [Slots] Player 17 put Item Orb Zero Gravity/1 in slot 3.
+[14:19:46.342] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 6 times in total)
+[14:19:48.335] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:48.449] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:48.616] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:48.639] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:48.731] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:48.795] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:49.013] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:49.069] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:49.253] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:49.395] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:49.478] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:49.568] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:49.691] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:49.843] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 3: it stays in their hand, as their slots aren't working yet.
+[14:19:49.911] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:19:49.912] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:19:58.408] [Info   :LateJoinPlus] [Slots] Player 17 took Item Melee Frying Pan/1 out of slot 2 (1.7 m away, 1.4 m above their feet).
+[14:20:25.247] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:20:30.813] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[14:20:31.643] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:20:44.621] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 2 times in total)
+[14:21:12.943] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:21:16.282] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:21:18.756] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (2.0 m away, 1.7 m above their feet).
+[14:21:23.817] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:21:24.547] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[14:21:33.060] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[14:21:33.172] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:21:33.872] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[14:21:33.898] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:21:34.256] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.6 m above their feet).
+[14:21:36.547] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:21:37.095] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:21:37.828] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:21:38.817] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:21:48.907] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.7 m away, 1.4 m above their feet).
+[14:21:49.379] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Shotgun/5 in slot 2.
+[14:21:50.238] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Shotgun/5 out of slot 2 (1.5 m away, 1.1 m above their feet).
+[14:21:51.827] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:21:52.650] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.2 m away, 0.9 m above their feet).
+[14:21:53.778] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:21:54.892] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Shotgun/5 in slot 2.
+[14:22:14.028] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:22:36.272] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.7 m away, 1.5 m above their feet).
+[14:22:36.756] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:22:37.129] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:22:38.268] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.8 m away, 1.5 m above their feet).
+[14:22:39.187] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Shotgun/5 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[14:22:39.464] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:22:40.456] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[14:22:42.712] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:22:43.334] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.0 m away, 0.3 m above their feet).
+[14:22:44.462] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:22:55.732] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.7 m away, 1.3 m above their feet).
+[14:22:58.102] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:23:56.225] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Revolver/1 in slot 1.
+[14:23:58.115] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Revolver/1 out of slot 1 (1.9 m away, 1.4 m above their feet).
+[14:24:02.961] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:24:05.682] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 2 times in total)
+[14:24:25.110] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Shotgun/7 in slot 1.
+[14:24:26.598] [Info   :LateJoinPlus] [Slots] Player 17 put Item Gun Shockwave/3 in slot 2.
+[14:24:38.248] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Shotgun/7 out of slot 1 (2.0 m away, 1.7 m above their feet).
+[14:24:50.429] [Info   :LateJoinPlus] [Slots] Player 17 took Item Gun Shockwave/3 out of slot 2 (1.3 m away, 0.4 m above their feet).
+[14:24:57.388] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Cube of Knowledge ×1.
+   (seen 5 times in total)
+[14:25:25.012] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 3, Stamina 5, Speed 4, Strength 3, Range 2, Throw 0, ExtraJump 1, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[14:25:25.889] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 41 (game id ok): Health 3, Stamina 5, Speed 4, Strength 3, Range 2, Throw 0, ExtraJump 1, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[14:25:26.936] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 3, Stamina 5, Speed 4, Strength 3, Range 2, Throw 0, ExtraJump 1, Launch 1, TumbleWings 1, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[14:25:28.413] [Info   :LateJoinPlus] [Admin] Strength for You: 3 -> 7; grab strength on the host 1.60 -> 2.40 (expected 2.40)
+[14:25:28.413] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 7.
+[14:25:28.463] [Info   :LateJoinPlus] [Slots] Player 17 took Item Orb Zero Gravity/1 out of slot 3 (1.7 m away, 0.2 m above their feet).
+[14:25:29.021] [Info   :LateJoinPlus] [Admin] Strength for You: 7 -> 8; grab strength on the host 2.40 -> 2.60 (expected 2.60)
+[14:25:29.023] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 8.
+[14:25:55.748] [Info   :LateJoinPlus] [Death drop] Player 17 died; the host shows them holding 0 item(s).
+[14:25:58.615] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Broom ×1.
+[14:26:27.819] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[14:26:29.343] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:26:44.053] [Info   :LateJoinPlus] [Admin] Host extract.open: not done - An extraction point is already open.
+[14:26:47.061] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.0 m away, 0.1 m above their feet).
+[14:26:47.498] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:26:59.954] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.0 m away, 0.1 m above their feet).
+[14:27:02.160] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:27:03.397] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.8 m away, 1.7 m above their feet).
+[14:27:05.133] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:27:20.090] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:27:21.394] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:27:22.689] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[14:27:23.582] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:28:01.051] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/4 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[14:28:02.239] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/4 in slot 2: it stays in their hand, as their slots aren't working yet.
+[14:28:33.863] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[14:28:35.695] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:28:48.648] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.2 m above their feet).
+[14:28:49.810] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:28:50.976] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:28:52.017] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:28:52.675] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[14:28:54.019] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:28:58.136] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:28:59.408] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:29:00.156] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Gun Shockwave/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[14:29:23.993] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:29:56.308] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[14:30:01.192] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:30:39.435] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:31:27.056] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/1 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[14:31:28.181] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:31:40.873] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:31:41.468] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:32:46.134] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.9 m away, 1.7 m above their feet).
+[14:33:39.911] [Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[14:33:40.384] [Info   :LateJoinPlus] [Slots] You's Item Gun Shotgun/1 was forced out of slot 1, as happens when someone dies (0.6 m away, 0.5 m above their feet).
+[14:33:40.385] [Info   :LateJoinPlus] [Slots] You's Item Gun Tranq/1 was forced out of slot 3, as happens when someone dies (0.5 m away, 0.5 m above their feet).
+[14:33:40.545] [Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+   (seen 2 times in total)
+[14:34:26.062] [Info   :LateJoinPlus] [Slots] Player 41 tried to put Item Drone Indestructible/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[14:34:53.421] [Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[14:34:58.387] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+   (seen 3 times in total)
+[14:35:00.014] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 1.
+[14:35:02.355] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[14:35:02.591] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:35:14.650] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[14:35:17.327] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[14:35:18.051] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[14:35:19.460] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:35:20.639] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/5 in slot 3.
+[14:35:21.130] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/5 out of slot 3 (1.0 m away, 0.7 m above their feet).
+[14:35:23.622] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/3 in slot 3.
+[14:35:35.910] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+   (seen 4 times in total)
+[14:35:43.544] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[14:36:13.618] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Arctic Server Rack ×1.
+[14:36:40.243] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.8 m away, 1.6 m above their feet).
+[14:36:40.689] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:36:53.740] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[14:37:36.979] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.8 m away, 1.7 m above their feet).
+[14:37:38.703] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:37:39.392] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[14:37:41.424] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:37:52.159] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[14:37:53.031] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:37:53.544] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[14:37:54.710] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:37:55.621] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[14:37:56.008] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:38:25.633] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[14:39:27.106] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[14:39:28.106] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:39:32.090] [Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/8 out of slot 1 (0.6 m away, 0.4 m above their feet).
+[14:39:35.194] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/8 in slot 1.
+[14:39:35.634] [Info   :LateJoinPlus] [Slots] You took Item Gun Tranq/3 out of slot 3 (1.1 m away, 1.0 m above their feet).
+[14:39:37.129] [Info   :LateJoinPlus] [Slots] Too many slot actions in this level: the rest aren't logged.
+[14:41:11.776] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[14:41:26.231] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+[14:41:26.621] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+[14:42:30.355] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[14:44:15.655] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Broom ×1.
+   (seen 2 times in total)
+[14:45:30.583] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+   (seen 2 times in total)
+[14:45:44.096] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[14:46:47.843] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Cube of Knowledge ×1.
+   (seen 6 times in total)
+[14:48:13.633] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:48:35.452] [Info   :LateJoinPlus] [Admin] Host truck You: done - Sent You to the truck.
+   (seen 5 times in total)
+[14:48:38.775] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 2 player(s) to the truck.
+   (seen 3 times in total)
+[14:49:04.296] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (1 on the results screen, 0 loading, 1 ready); the players panel is up.
+[14:49:04.820] [Info   :LateJoinPlus] [Run] Level change waited 15 s for everyone's results screen; the last to finish: You (11 s after the others).
+[14:49:05.008] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[14:49:05.351] [Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 14.7 s, slowest 14.7 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (2 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 3 (slowest 110 ms)
+[14:49:05.372] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[14:49:05.470] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 74 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[14:49:05.653] [Info   :LateJoinPlus] Waited 0.1 s for Player 41's Steam ID before loading their upgrades and name tag.
+[14:49:10.459] [Info   :LateJoinPlus] Timing: game memory 3379 MB of 24487 MB, 121 MB of it from mods and scripts; textures 502 MB of 3935 MB video memory.
+[14:49:22.100] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9979K.
+[14:49:32.631] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9809K.
+[14:49:34.349] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9749K.
+[14:49:45.347] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9739K.
+[14:49:50.154] [Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[14:49:51.534] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+   (seen 2 times in total)
+[14:49:52.615] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 2 player(s).
+   (seen 7 times in total)
+[14:50:02.973] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9389K.
+[14:50:07.909] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9109K.
+[14:50:17.882] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $8859K.
+[14:50:27.023] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $8349K.
+[14:50:31.188] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $0K.
+[14:50:39.541] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $211K.
+[14:50:40.358] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $158K.
+[14:50:41.030] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $132K.
+[14:50:42.838] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $53K.
+[14:50:44.706] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $105K.
+[14:51:36.708] [Info   :LateJoinPlus] Late joiner Player 29 connected (shop). Catching them up.
+[14:51:36.845] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[14:51:37.298] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 13 -> 8 (levels given in the Admin panel stay with that player).
+[14:51:39.758] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 29 (without LateJoinPlus).
+[14:51:45.271] [Info   :LateJoinPlus] Late joiner Player 29 finished loading in 8.6 s (without LateJoinPlus).
+[14:52:07.120] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 29' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 154 bytes each).
+[14:52:11.788] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:52:39.011] [Warning:Unity Log] [2026-11-26T11:52:39] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #2 of player 3 not found when trying to remove
+[14:52:52.456] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 7 times in total)
+[14:58:21.750] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[14:58:22.818] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[14:58:23.358] [Info   :LateJoinPlus] [Report] Level 'Level - Shop Wasteland': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 8.6 s, slowest 8.6 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 1 (slowest 47 ms)
+[14:58:23.387] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[14:58:23.622] [Info   :LateJoinPlus] Waited 0.1 s for Player 29's Steam ID before loading their upgrades and name tag.
+[14:58:24.199] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 29' peaked at 54 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[14:58:47.777] [Info   :LateJoinPlus] [Slots] Player 29 put Item Gun Revolver/1 in slot 1.
+[14:58:57.444] [Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[14:58:58.206] [Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[14:58:58.512] [Info   :LateJoinPlus] [Slots] Player 29 put Item Gun Shockwave/1 in slot 2.
+[14:59:00.856] [Info   :LateJoinPlus] [Slots] Player 29 put Item Gun Handgun/1 in slot 3.
+[14:59:01.909] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[14:59:11.017] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[14:59:12.346] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[14:59:12.793] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[14:59:13.102] [Info   :LateJoinPlus] Waited 0.1 s for Player 29's Steam ID before loading their upgrades and name tag.
+[14:59:13.563] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 29' peaked at 36 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[14:59:28.417] [Info   :LateJoinPlus] [Run] Level built in 15 s. Slowest step: loading, 0 s from the first player to the last, Player 29.
+[14:59:28.552] [Info   :LateJoinPlus] [Slots] You's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[14:59:28.558] [Info   :LateJoinPlus] [Slots] Player 29's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[14:59:28.558] [Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[14:59:28.560] [Info   :LateJoinPlus] [Slots] You's Item Gun Tranq/1 is back in slot 3 (the game restoring slots).
+[14:59:28.561] [Info   :LateJoinPlus] [Slots] Player 29's Item Gun Handgun/1 is back in slot 3 (the game restoring slots).
+[14:59:28.561] [Info   :LateJoinPlus] [Slots] Player 29's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[14:59:44.233] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[14:59:49.068] [Info   :LateJoinPlus] [Slots] 6 remembered item(s) are in their slots, 20 s into this level.
+[14:59:54.954] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Photon Blaster ×1.
+[14:59:55.118] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tranq Gun ×1.
+[14:59:55.298] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+   (seen 2 times in total)
+[14:59:55.786] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[14:59:55.984] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. Laser ×1.
+[14:59:56.307] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. Cannon ×1.
+[15:00:40.650] [Info   :LateJoinPlus] Timing: game memory 3852 MB of 24487 MB, 148 MB of it from mods and scripts; textures 1022 MB of 3935 MB video memory.
+[15:01:10.589] [Info   :LateJoinPlus] [Slots] Player 29 took Item Gun Revolver/1 out of slot 1 (1.4 m away, 1.1 m above their feet).
+[15:01:18.444] [Info   :LateJoinPlus] [Slots] Player 29 put Item Gun Revolver/1 in slot 1.
+[15:01:55.212] [Info   :LateJoinPlus] [Slots] Player 29 took Item Gun Handgun/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[15:02:40.145] [Info   :LateJoinPlus] [Slots] Player 29 put Item Gun Handgun/1 in slot 3.
+[15:02:58.456] [Error  :Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: Joined. SCS v0 UDP SocketError: 0 
+[15:02:58.507] [Info   :Unity Log] Disconnected from server for reason ClientTimeout
+[15:02:58.508] [Error  :Unity Log] network disconnect report: cause=ClientTimeout, summary=SCS v0 UDP SocketError: 0  (458752), build=0.5.4, scene=Main, game=Main, loading=0.0s, receiveGap=7982ms, rtt=250ms, rttVariance=77ms, resends=2622
+[15:02:58.508] [Info   :Unity Log] leaving photon
+[15:02:58.513] [Info   :Unity Log] Leave to Main Menu
+[15:02:59.290] [Info   :LateJoinPlus] [Report] Session (2 level(s) with activity): OK | joins 2 (0 with LateJoinPlus), loaded 2 (avg 11.7 s, slowest 14.7 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (2 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 0 | slow catch-up steps 4 (slowest 110 ms)
+[15:27:06.853] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 6 times in total)
+[15:27:44.284] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[15:27:44.284] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:27:45.621] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] ARAB'; as typed: 'ARAB'.
+[15:27:52.623] [Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: none (no other players).
+[15:30:26.625] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[15:30:28.351] [Info   :LateJoinPlus] [Run] Run start called off by the host.
+[15:31:15.280] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[15:31:18.778] [Info   :LateJoinPlus] [Run] Run start called off by the host.
+[15:32:11.377] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[15:32:14.726] [Info   :LateJoinPlus] [Moderators] Status: host; moderators here: none; with LateJoinPlus: 0; run starts in 0:02.
+[15:32:16.430] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[15:32:18.031] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:32:18.409] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:32:21.755] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:32:39.764] [Info   :LateJoinPlus] [Run] Level built in 19 s. Slowest step: none (no other players).
+[15:33:25.315] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[15:33:44.796] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+   (seen 3 times in total)
+[15:33:46.577] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+   (seen 3 times in total)
+[15:33:48.083] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+   (seen 4 times in total)
+[15:34:44.303] [Info   :LateJoinPlus] Late joiner Player 52 connected (level Level - Wizard). Catching them up.
+[15:34:44.924] [Info   :LateJoinPlus] Late joiner Player 55 connected (level Level - Wizard). Catching them up.
+[15:34:45.191] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 52' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:34:45.191] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 55' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:34:47.622] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 52 (without LateJoinPlus).
+[15:34:47.926] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 55 (without LateJoinPlus).
+[15:34:54.065] [Info   :LateJoinPlus] Late joiner Player 52 finished loading in 9.8 s (without LateJoinPlus).
+[15:34:56.156] [Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 52's map (20 messages).
+[15:34:56.226] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[15:34:57.486] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 2 times in total)
+[15:35:14.458] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 52' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 41 messages (about 85 bytes each).
+[15:35:15.417] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 55' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 7 messages (about 87 bytes each).
+[15:35:43.486] [Info   :LateJoinPlus] Not waiting for Player 55 at the end of the level: they are still on the loading screen. The next level loads for them as well.
+[15:35:51.928] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (1 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:35:52.450] [Info   :LateJoinPlus] [Run] Level change waited 9 s for everyone's results screen; the last to finish: You (8 s after the others).
+[15:35:52.552] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[15:35:57.621] [Info   :LateJoinPlus] [Report] Level 'Level - Wizard': OK | joins 2 (0 with LateJoinPlus), loaded 1 (avg 9.8 s, slowest 9.8 s), left while loading 0, still loading at level end 1, stuck 0 | map reveal 1 (3 rooms) | extraction: opened for joiner 2, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 2 | slow catch-up steps 2 (slowest 36 ms)
+[15:35:57.683] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:35:57.776] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 40 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[15:36:08.648] [Info   :LateJoinPlus] [Run] Level built in 11 s. Slowest step: none (no other players).
+[15:36:29.484] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $0K.
+[15:36:32.427] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $26K.
+[15:36:32.999] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $79K.
+[15:36:33.884] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $105K.
+[15:36:45.279] [Info   :LateJoinPlus] [Admin] Host spawn: not done - This level has no cosmetic boxes.
+[15:37:16.647] [Info   :LateJoinPlus] [Admin] Host spawn: not done - Enemies can only be spawned in a level that has enemies.
+   (seen 3 times in total)
+[15:39:22.372] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:39:22.950] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:39:23.298] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:39:28.672] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[15:39:29.495] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 2.
+[15:39:41.751] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:39:42.338] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:39:42.663] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:39:47.552] [Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 1 (the game restoring slots).
+[15:39:47.553] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[15:40:07.957] [Info   :LateJoinPlus] [Slots] 2 remembered item(s) are in their slots, 20 s into this level.
+[15:40:09.817] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[15:40:10.652] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[15:40:12.074] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.1 m away, 0.8 m above their feet).
+[15:40:12.924] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[15:40:13.358] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (0.8 m away, 0.2 m above their feet).
+[15:40:14.358] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[15:40:15.048] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 3.
+[15:40:16.585] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 3 (1.6 m away, 1.2 m above their feet).
+[15:40:25.225] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 3.
+[15:41:44.795] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 3 (2.0 m away, 1.7 m above their feet).
+[15:42:34.107] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 3.
+[15:42:38.546] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[15:42:38.882] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 3.
+[15:42:53.417] [Info   :LateJoinPlus] [Slots] You took Item Gun Shockwave/1 out of slot 2 (1.7 m away, 1.3 m above their feet).
+[15:42:54.377] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 2.
+[15:43:17.092] [Info   :LateJoinPlus] [Slots] You took Item Gun Shockwave/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[15:43:19.197] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 2.
+[15:43:19.512] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.5 m above their feet).
+[15:43:21.528] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[15:45:10.706] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[15:45:11.989] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+[15:45:13.161] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+[15:46:21.007] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. ×1.
+[15:46:30.523] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[15:46:35.332] [Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 3 (1.8 m away, 1.5 m above their feet).
+[15:47:19.750] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Thin Man ×1.
+[15:47:28.750] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Thin Man ×1.
+[15:47:30.615] [Info   :LateJoinPlus] Late joiner Player 25 connected (level Level - Museum). Catching them up.
+[15:47:31.309] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 25' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:47:33.626] [Info   :LateJoinPlus] Sent the setup of 9 level piece(s) once to Player 25 (without LateJoinPlus).
+[15:47:38.570] [Info   :LateJoinPlus] Late joiner Player 25 finished loading in 8.0 s (without LateJoinPlus).
+[15:47:42.711] [Info   :LateJoinPlus] Uncovered 10 explored room(s) on Player 25's map (70 messages).
+[15:47:49.173] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[15:47:49.698] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+[15:47:50.926] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Thin Man ×1.
+[15:48:01.412] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #4' (player #4, Steam ID unknown), first 30 s: busiest second 4 KB in 26 messages (about 162 bytes each).
+[15:48:08.012] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+[15:48:13.666] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[15:48:20.261] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Rare box ×1.
+[15:48:25.212] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Uncommon box ×1.
+[15:48:52.480] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Cube of Knowledge ×1.
+[15:49:11.334] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:49:11.913] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:49:12.184] [Info   :LateJoinPlus] [Report] Level 'Level - Museum': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 8.0 s, slowest 8.0 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (10 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 2 (slowest 38 ms)
+[15:49:12.207] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:49:12.816] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 34 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[15:49:33.616] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $0K.
+[15:49:35.655] [Info   :LateJoinPlus] [Admin] Host money: not done - The money is already that.
+[15:49:44.244] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $100K.
+[15:49:46.070] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $140K.
+[15:49:47.097] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $130K.
+[15:49:50.948] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $26K.
+[15:49:51.971] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $316K.
+[15:49:52.997] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $53K.
+[15:49:54.012] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $132K.
+[15:51:11.298] [Info   :LateJoinPlus] Timing: game memory 4372 MB of 24487 MB, 132 MB of it from mods and scripts; textures 1156 MB of 3935 MB video memory.
+[15:53:27.155] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $1079K.
+[15:53:28.846] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $500K.
+[15:57:52.180] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $974K.
+[15:57:53.127] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $1000K.
+[16:08:34.611] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $1210K.
+[16:08:35.619] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $1474K.
+[16:15:41.259] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[16:24:22.823] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $209K.
+[16:24:24.319] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $229K.
+[16:24:25.114] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $219K.
+[16:24:26.682] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $179K.
+[16:25:10.385] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:25:11.067] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:25:11.537] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[16:25:12.944] [Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[16:25:13.032] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 2 (the game restoring slots).
+[16:25:23.553] [Info   :LateJoinPlus] [Slots] You took Item Gun Shockwave/1 out of slot 2 (0.9 m away, 0.7 m above their feet).
+[16:25:24.585] [Info   :LateJoinPlus] [Slots] You put Item Gun Shockwave/1 in slot 3.
+[16:25:28.594] [Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[16:25:35.494] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:25:36.150] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:25:46.036] [Info   :LateJoinPlus] Timing: slowest frame so far 7404 ms, 9253 s after start.
+[16:25:46.042] [Info   :LateJoinPlus] Timing: game memory 3590 MB of 24487 MB, 128 MB of it from mods and scripts; textures 965 MB of 3935 MB video memory.
+[16:25:46.103] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[16:26:10.203] [Info   :LateJoinPlus] [Run] Level built in 24 s. Slowest step: none (no other players).
+[16:26:10.263] [Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[16:26:10.263] [Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[16:26:10.264] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 3 (the game restoring slots).
+[16:26:30.642] [Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[16:26:31.699] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Common box ×1.
+   (seen 3 times in total)
+[16:26:46.541] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Museum Cool brain ×1.
+[16:26:46.842] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Snow globe ×1.
+[16:26:50.732] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Manor Golden Statue ×1.
+[16:26:50.981] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[16:26:51.333] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Manor Grandfather Clock ×1.
+[16:26:51.562] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Broom ×1.
+[16:26:52.238] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Desert Explosive Tower ×1.
+[16:27:38.066] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[16:28:01.701] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Broom ×1.
+[16:28:02.060] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[16:28:02.576] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Manor Grandfather Clock ×1.
+[16:28:03.015] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Manor Golden Statue ×1.
+[16:28:03.552] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Manor Coffin ×1.
+[16:28:19.703] [Info   :LateJoinPlus] Late joiner Player 19 connected (level Level - Desert). Catching them up.
+[16:28:20.139] [Info   :LateJoinPlus] Player 19 is running a compatible late-join mod (LJ+ 1.2.2).
+[16:28:20.140] [Info   :LateJoinPlus] [Moderators] Asked Player 19 (LateJoinPlus) whether they hold one of our moderator keys.
+[16:28:20.179] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:28:21.746] [Info   :LateJoinPlus] [Admin] Player 19's LateJoinPlus has the Admin page (1.2).
+[16:28:21.749] [Info   :LateJoinPlus] [Moderators] Player 19 holds no moderator key of ours.
+[16:28:22.725] [Info   :LateJoinPlus] Sent the setup of 10 level piece(s) once to Player 19 (has LateJoinPlus).
+[16:28:25.974] [Info   :LateJoinPlus] Late joiner Player 19 finished loading in 6.2 s (has LateJoinPlus).
+[16:28:50.313] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 19' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 36 messages (about 150 bytes each).
+[16:29:15.670] [Info   :LateJoinPlus] Timing: game memory 4114 MB of 24487 MB, 128 MB of it from mods and scripts; textures 1128 MB of 3935 MB video memory.
+[16:29:19.601] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[16:29:26.068] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (1 on the results screen, 0 loading, 1 ready); the players panel is up.
+[16:29:26.650] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[16:29:26.920] [Info   :LateJoinPlus] [Report] Level 'Level - Desert': OK | joins 1 (1 with LateJoinPlus), loaded 1 (avg 6.2 s, slowest 6.2 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 1 (slowest 38 ms)
+[16:29:26.942] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[16:29:27.180] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[16:29:27.469] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 38 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[16:29:58.348] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $289K.
+[16:30:05.297] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 3 times in total)
+[16:32:55.459] [Info   :LateJoinPlus] Late joiner Player 28 connected (shop). Catching them up.
+[16:32:56.172] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 28' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[16:32:58.487] [Info   :LateJoinPlus] Sent the setup of 3 level piece(s) once to Player 28 (without LateJoinPlus).
+[16:33:03.411] [Info   :LateJoinPlus] Late joiner Player 28 finished loading in 8.0 s (without LateJoinPlus).
+[16:33:16.639] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+   (seen 3 times in total)
+[16:33:26.376] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 28' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 163 bytes each).
+[16:33:38.242] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+   (seen 2 times in total)
+[16:34:55.019] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $9999K.
+[16:34:59.552] [Info   :LateJoinPlus] [Admin] Host money: done - Money set to $974K.
+[16:35:34.838] [Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=True).
+[16:36:06.794] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[16:36:07.860] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[16:36:08.266] [Info   :LateJoinPlus] [Report] Level 'Level - Shop Forest': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 8.0 s, slowest 8.0 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 1 (slowest 32 ms)
+[16:36:08.288] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[16:36:08.532] [Info   :LateJoinPlus] Waited 0.1 s for Player 28's Steam ID before loading their upgrades and name tag.
+[16:36:08.556] [Info   :LateJoinPlus] Waited 0.1 s for Player 14's Steam ID before loading their upgrades and name tag.
+[16:36:08.816] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 19' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[16:36:10.998] [Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[16:36:11.019] [Info   :LateJoinPlus] [Slots] You's Item Drone Indestructible/1 is back in slot 2 (the game restoring slots).
+[16:36:11.055] [Info   :LateJoinPlus] [Slots] You's Item Gun Shockwave/1 is back in slot 3 (the game restoring slots).
+[16:36:12.960] [Info   :LateJoinPlus] [Slots] Player 28 put Item Melee Inflatable Hammer/1 in slot 1.
+[16:36:14.210] [Info   :LateJoinPlus] [Slots] Player 28 put Item Drone Feather/1 in slot 2.
+[16:36:15.978] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 561 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 28' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 8 times in total)
+[16:36:15.979] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 561 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 28' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 8 times in total)
+[16:36:22.318] [Info   :LateJoinPlus] [Slots] Player 28 took Item Drone Feather/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[16:36:22.939] [Info   :LateJoinPlus] [Slots] Player 19 put Item Melee Frying Pan/1 in slot 2.
+[16:36:24.454] [Info   :LateJoinPlus] [Slots] Player 28 put Item Drone Feather/1 in slot 2.
+[16:36:36.507] [Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[16:36:37.176] [Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[16:36:37.416] [Info   :LateJoinPlus] [Death drop] Player 28 died; the host shows them holding 0 item(s).
+[16:36:37.878] [Info   :LateJoinPlus] [Slots] Player 28's Item Melee Inflatable Hammer/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[16:36:37.878] [Info   :LateJoinPlus] [Slots] Player 28's Item Drone Feather/1 was forced out of slot 2, as happens when someone dies (1.3 m away, 1.3 m above their feet).
+[16:36:38.034] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Melee Inflatable Hammer(Clone) #566 0.3 m away, floor 1.34 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[16:36:38.035] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Drone Feather(Clone) #567 1.6 m away, floor 2.62 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[16:36:38.384] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Melee Inflatable Hammer(Clone) #566 1.1 m away, floor 2.18 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[16:36:38.384] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Drone Feather(Clone) #567 4.6 m away, floor 1.31 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[16:36:40.878] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Melee Inflatable Hammer(Clone) #566 5.5 m away, floor 0.15 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin 0 | view owner 1
+[16:36:40.879] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Drone Feather(Clone) #567 6.5 m away, floor 0.12 m | state Idle owner 6010 | held by nobody | kinematic False collisions True colliders on 1/1 | active True deactivate -123 pin 0 | view owner 1
+[16:36:52.746] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
