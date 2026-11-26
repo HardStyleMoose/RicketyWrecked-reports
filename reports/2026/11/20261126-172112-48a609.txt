@@ -1,0 +1,338 @@
+LateJoinPlus bug report 20261126-172112-48a609
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Shop Wasteland"
+players: 3
+language: "en-US"
+test: false
+
+Mods (15):
+- "BetterMap" | "BetterMap" | "1.0.5"
+- "BetterMap Fixer" | "BetterMap.Fixer" | "1.1.5"
+- "NoItemSpawnLimit" | "HeroHanex.NoItemSpawnLimit" | "1.0.9"
+- "More Shop Items" | "Jettcodey.MoreShopItems" | "4.3.2"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "RepoMapBanMod" | "Yukisuna777.RepoMapBanMod" | "1.1.0"
+- "NoSaveDelete" | "com.PxntxrezStudio.nosavedelete" | "2.0.0"
+- "TrashBox" | "com.REPO.XiaoHai.TrashBox" | "1.3"
+- "Extraction Button Confirm" | "com.user.repo.extractionbutton" | "1.0.1"
+- "Always Map 常驻地图" | "com.yanyan.repo.alwaysmap" | "1.5.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.4"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: AMD Athlon Gold 3150U with Radeon Graphics  (4 threads)
+Memory: 6064 MB
+Graphics: AMD Radeon(TM) Graphics (3032 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 7395 ms
+Most memory this game: 4667 MB
+Most texture memory this game: 871 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (14):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ExtractionPoint.OnShopClick: com.user.repo.extractionbutton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  LevelGenerator.GenerateDone: BetterMap.Fixer (postfix), com.REPO.XiaoHai.TrashBox (postfix), HeroHanex.NoItemSpawnLimit (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  MenuPageEsc.Start: ricketywrecked.repo.adminmenubuttonfix (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: BetterMap.Fixer (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), BetterMap.Fixer (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TruckPopulateItemVolumes: HeroHanex.NoItemSpawnLimit (prefix), Jettcodey.MoreShopItems (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (postfix)
+  RunManager.Awake: Jettcodey.MoreShopItems (postfix), REPOLib (postfix), Yukisuna777.RepoMapBanMod (postfix)
+  RunManager.ChangeLevel: com.PxntxrezStudio.nosavedelete (prefix), ricketywrecked.repo.latejoinplus (prefix), Yukisuna777.RepoMapBanMod (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+(end of settings)
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BetterMapPatch.Manager
+[Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2775 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 2828 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 7395 ms, 7 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1427 MB of 6064 MB, 74 MB of it from mods and scripts; textures 106 MB of 3032 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 119 ms and 0 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 3,2 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] Timing: game memory 2037 MB of 6064 MB, 80 MB of it from mods and scripts; textures 316 MB of 3032 MB video memory.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-26T16:40:51] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Calls] Asked the host (Player 2) for a call.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 37 messages (about 106 bytes each).
+[Info   :LateJoinPlus] [Calls] On call #2 with Player 2.
+[Info   :LateJoinPlus] [Calls] Voice now private: listening to and sending on call #2's voice group.
+[Info   :LateJoinPlus] [Calls] Microphone on the call's voice group; told the host we're connected.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 61 messages/s (flood limit 500); most data from one player 11 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Moderators] Status: player; moderators here: none; with LateJoinPlus: 2; call #2: Player 2, You.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Timing: game memory 3073 MB of 6064 MB, 102 MB of it from mods and scripts; textures 753 MB of 3032 MB video memory.
+[Info   :LateJoinPlus] [Calls] Leaving the call.
+[Info   :LateJoinPlus] [Calls] Voice back to everyone (left the call's voice group).
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 492 messages/s (flood limit 500); most data from one player 81 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 3732 MB of 6064 MB, 125 MB of it from mods and scripts; textures 871 MB of 3032 MB video memory.
+=== Previous game session ===
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[20:14:18.716] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BetterMapPatch.Manager
+[20:14:19.867] [Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[20:14:19.868] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[20:14:23.783] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[20:14:25.119] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[20:14:28.903] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[20:14:29.373] [Warning:HarmonyX] AccessTools.Method: type is null
+[20:14:32.449] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[20:14:32.455] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[20:14:32.455] [Info   :LateJoinPlus] Timing: start-up took 2789 ms.
+[20:14:32.455] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[20:14:32.456] [Info   :LateJoinPlus] Timing: late patches took 6275 ms.
+[20:14:32.531] [Warning:Unity Log] Unable to load font face for [] font asset.
+[20:14:33.166] [Info   :LateJoinPlus] Timing: slowest frame so far 10106 ms, 10 s after start.
+[20:14:33.166] [Info   :LateJoinPlus] Timing: game memory 1392 MB of 6064 MB, 65 MB of it from mods and scripts; textures 106 MB of 3032 MB video memory.
+[20:14:33.167] [Info   :LateJoinPlus] Timing: Chinese font set-up took 26 ms and 1 MB.
+[20:14:33.167] [Info   :LateJoinPlus] Timing: the 3-second font scan took 3,1 ms (13 fonts).
+[20:14:39.428] [Info   :Unity Log] leaving photon
+[20:14:39.434] [Info   :Unity Log] Leave to Main Menu
+[20:14:50.767] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:14:50.770] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:14:51.252] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[20:14:51.295] [Warning:Unity Log] [2026-11-24T17:14:51] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 6 times in total)
+[20:14:51.947] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:14:53.044] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[20:14:53.044] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 6 times in total)
+[20:14:53.554] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[20:15:03.998] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:15:04.099] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:15:04.592] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 70 messages/s (flood limit 500); most data from one player 13 KB/s (limit 100); 0 messages dropped.
+[20:15:30.344] [Info   :LateJoinPlus] Timing: game memory 2762 MB of 6064 MB, 77 MB of it from mods and scripts; textures 367 MB of 3032 MB video memory.
+[20:17:31.894] [Info   :Unity Log] Master client left...
+[20:17:33.472] [Info   :Unity Log] leaving photon
+[20:17:33.665] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[20:17:33.672] [Info   :Unity Log] Leave to Main Menu
+[20:18:00.465] [Info   :LateJoinPlus] Timing: game memory 2220 MB of 6064 MB, 71 MB of it from mods and scripts; textures 158 MB of 3032 MB video memory.
+[20:18:12.460] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:18:12.461] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:18:13.142] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:18:13.539] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[20:18:13.651] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:18:13.919] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[20:18:26.629] [Error  :Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: ConnectingToGameServer. SCS v0 UDP SocketError: 0 
+[20:18:26.630] [Warning:Unity Log] Voice Disconnected and will attempt to reconnect. Cause: ClientTimeout
+[20:18:27.728] [Error  :Unity Log] [2026-11-24T17:18:27] [Error] [PunVoiceClient] [PunVoiceClient(Clone)] Failed to join room. RoomName: '109775241220131043_voice_' Region: eu Error: 32748. Message: User does not exist in this game.
+[20:18:37.615] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls.
+[20:18:37.705] [Info   :R.E.P.O Fixes+] [Voice fix] Your voice chat dropped (ClientTimeout) and reconnected; restarted your microphone so the others hear you again.
+[20:19:02.191] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:19:02.229] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:19:02.881] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 56 messages/s (flood limit 500); most data from one player 13 KB/s (limit 100); 0 messages dropped.
+[20:19:30.590] [Info   :LateJoinPlus] Timing: game memory 2950 MB of 6064 MB, 92 MB of it from mods and scripts; textures 408 MB of 3032 MB video memory.
+[20:19:40.013] [Info   :Unity Log] Master client left...
+   (seen 2 times in total)
+[20:19:41.958] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[20:19:41.959] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[20:19:43.307] [Info   :Unity Log] leaving photon
+[20:19:43.547] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[20:19:43.556] [Info   :Unity Log] Leave to Main Menu
+[20:20:00.582] [Info   :LateJoinPlus] Timing: game memory 2283 MB of 6064 MB, 80 MB of it from mods and scripts; textures 162 MB of 3032 MB video memory.
+[20:21:23.450] [Error  :Unity Log] Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: ConnectingToMasterServer. SCS v0 UDP SocketError: 0 
+[20:21:23.453] [Info   :Unity Log] Disconnected from server for reason ClientTimeout
+[20:21:23.457] [Info   :Unity Log] Leave to Main Menu
+[20:22:14.882] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:22:15.413] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:22:15.432] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[20:22:15.788] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[20:22:16.000] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:22:16.001] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:22:45.476] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 41 messages (about 124 bytes each).
+[20:22:45.477] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 59 messages/s (flood limit 500); most data from one player 12 KB/s (limit 100); 0 messages dropped.
+[20:22:45.510] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:22:45.541] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:35:01.452] [Info   :LateJoinPlus] Timing: game memory 2799 MB of 6064 MB, 96 MB of it from mods and scripts; textures 380 MB of 3032 MB video memory.
+[20:47:41.447] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:47:41.520] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:47:41.552] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 260 messages/s (flood limit 500); most data from one player 47 KB/s (limit 100); 0 messages dropped.
+[20:48:02.561] [Info   :LateJoinPlus] Timing: game memory 3447 MB of 6064 MB, 100 MB of it from mods and scripts; textures 478 MB of 3032 MB video memory.
+[20:56:31.632] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 331 messages/s (flood limit 500); most data from one player 39 KB/s (limit 100); 0 messages dropped.
+[20:56:31.668] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:56:31.740] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:56:44.644] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 398 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[20:56:44.646] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 398 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[20:57:03.113] [Info   :LateJoinPlus] Timing: game memory 2888 MB of 6064 MB, 96 MB of it from mods and scripts; textures 350 MB of 3032 MB video memory.
+[20:57:11.647] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:57:11.731] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:57:11.923] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 150 messages/s (flood limit 500); most data from one player 17 KB/s (limit 100); 0 messages dropped.
+[20:57:43.431] [Info   :Unity Log] Master client left...
+[20:57:43.562] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[20:57:44.044] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Gun Shotgun/2 from a slot: they're no longer here.
+[20:57:44.045] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Gun Handgun/2 from a slot: they're no longer here.
+[20:57:44.046] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Drone Indestructible/5 from a slot: they're no longer here.
+[20:57:44.048] [Info   :LateJoinPlus] Dropped 3 item(s) left in the inventory of a player who is no longer here in the truck.
+[20:57:44.779] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[20:57:45.073] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object.
+Stack trace:
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.GetComponentFastPath (System.Type type, System.IntPtr oneFurtherThanResultValue) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.GetComponent[T] () (at <398789c008484afa80c3315b7c00257b>:0)
+ItemMelee.TurnWeapon () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+ItemMelee.StateIdle () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+ItemMelee.StateMachine () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+ItemMelee.FixedUpdate () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+[20:57:45.083] [Info   :Unity Log] leaving photon
+[20:57:45.331] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[20:57:45.338] [Info   :Unity Log] Leave to Main Menu
+[20:58:25.141] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:58:25.142] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[20:58:25.467] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:58:25.704] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[20:58:25.779] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:58:26.046] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[20:58:35.996] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[20:58:36.098] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[20:58:36.225] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 61 messages/s (flood limit 500); most data from one player 12 KB/s (limit 100); 0 messages dropped.
+[21:27:50.737] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[21:27:51.438] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 447 messages/s (flood limit 500); most data from one player 76 KB/s (limit 100); 0 messages dropped.
+[21:28:04.714] [Info   :LateJoinPlus] Timing: game memory 3518 MB of 6064 MB, 108 MB of it from mods and scripts; textures 465 MB of 3032 MB video memory.
+[21:34:13.353] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 368 messages/s (flood limit 500); most data from one player 49 KB/s (limit 100); 0 messages dropped.
+[21:34:13.354] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[21:34:26.079] [Info   :Unity Log] Master client left...
+[21:34:26.151] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[21:34:26.704] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Gun Shotgun/2 from a slot: they're no longer here.
+[21:34:26.705] [Info   :LateJoinPlus] [Slots] LateJoinPlus dropped a player's Item Gun Handgun/1 from a slot: they're no longer here.
+[21:34:26.706] [Info   :LateJoinPlus] Dropped 2 item(s) left in the inventory of a player who is no longer here in the truck.
+[21:34:27.255] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[21:34:27.747] [Info   :Unity Log] leaving photon
+[21:34:27.820] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[21:34:27.823] [Info   :Unity Log] Leave to Main Menu
+[21:34:35.178] [Info   :LateJoinPlus] Timing: game memory 2704 MB of 6064 MB, 92 MB of it from mods and scripts; textures 247 MB of 3032 MB video memory.
+[21:35:28.976] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[21:35:29.438] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[21:35:29.456] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[21:35:29.771] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[21:35:51.385] [Info   :Unity Log] Master client left...
+[21:35:51.439] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[21:35:52.505] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[21:35:52.969] [Info   :Unity Log] leaving photon
+[21:35:53.031] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[21:35:53.034] [Info   :Unity Log] Leave to Main Menu
+[21:37:30.041] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[21:37:30.129] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[21:37:30.130] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[21:37:30.544] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[21:44:03.559] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[21:44:05.598] [Info   :LateJoinPlus] Timing: game memory 3416 MB of 6064 MB, 92 MB of it from mods and scripts; textures 588 MB of 3032 MB video memory.
+[21:44:33.368] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 134 bytes each).
+[22:04:05.125] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[22:04:34.999] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 35 messages (about 121 bytes each).
+[22:04:51.740] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:04:51.779] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[22:04:52.533] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 59 messages/s (flood limit 500); most data from one player 12 KB/s (limit 100); 0 messages dropped.
+[22:06:20.279] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:06:20.316] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[22:06:20.519] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 158 messages/s (flood limit 500); most data from one player 24 KB/s (limit 100); 0 messages dropped.
+[22:36:04.962] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:36:05.029] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[22:36:05.194] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 393 messages/s (flood limit 500); most data from one player 58 KB/s (limit 100); 0 messages dropped.
+[22:39:18.795] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:39:18.834] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[22:39:19.522] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 377 messages/s (flood limit 500); most data from one player 65 KB/s (limit 100); 0 messages dropped.
+[22:39:59.091] [Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[22:39:59.166] [Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[22:39:59.858] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 154 messages/s (flood limit 500); most data from one player 21 KB/s (limit 100); 0 messages dropped.
