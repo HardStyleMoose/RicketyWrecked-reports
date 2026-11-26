@@ -1,0 +1,527 @@
+LateJoinPlus bug report 20261126-074047-162e92
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Desert"
+players: 4
+language: "en-US"
+test: false
+
+Mods (15):
+- "TheEverythingMap" | "Nubez.TheEverythingMap" | "1.0.8"
+- "EnemyOrbMerge" | "REPOJP.EnemyOrbMerge" | "4.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Remove Monster Orb Cap" | "RavenMother.OrbCap" | "1.0.2"
+- "HostHealthRegen" | "Xuaun.HostHealthRegen" | "1.0.1"
+- "Retry Fix" | "cody.retryfix" | "1.0.0"
+- "SteadyHand" | "com.peachh.SteadyHand" | "0.1.3"
+- "SharedUpgrades" | "com.sharedupgrades.mod" | "1.0.0"
+- "InfiniteEnergy" | "darkharasho.InfiniteEnergy" | "0.1.0"
+- "EnemyTracker" | "lakerok.repo.enemytracker" | "2.6.2"
+- "ManualExtract" | "manualextract.repo" | "1.2.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "CarryFriend" | "zichen.carryfriend" | "1.0.5"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = true
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: 13th Gen Intel(R) Core(TM) i5-13420H (12 threads)
+Memory: 16105 MB
+Graphics: Intel(R) UHD Graphics (8052 MB, Direct3D11)
+Screen: 1632x918
+Slowest frame this game: 2514 ms
+Most memory this game: 3005 MB
+Most texture memory this game: 394 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: PunManager.UpgradePlayerHealth
+Who patches the methods in this log's errors:
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (16):
+  EnemyHealth.Hurt: manualextract.repo (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ItemBattery.Update: manualextract.repo (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  LevelGenerator.GenerateDone: Nubez.TheEverythingMap (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObjectImpactDetector.Break: manualextract.repo (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  PhysGrabObjectImpactDetector.OnCollisionStay: REPOJP.EnemyOrbMerge (prefix), zichen.carryfriend (prefix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.PlayerDeathRPC: Nubez.TheEverythingMap (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Nubez.TheEverythingMap (postfix), zichen.carryfriend (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), zichen.carryfriend (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.UpgradePlayerHealth: com.sharedupgrades.mod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  RunManager.ChangeLevel: cody.retryfix (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 8):
+  15:20:22 an error from HarmonyX
+  15:23:14 an error from Unity Log
+  15:23:42 Level change waited 14 s for everyone's results screen; the last to finish: Player 53 (12 s after the others).
+  15:23:42 Level 'Level - Lobby Menu'
+  15:24:44 Level built in 62 s. Slowest step: rooms, 26.6 s from the first player to the last, Player 53.
+  15:34:22 Level 'Level - Manor'
+  15:34:52 Level built in 29 s. Slowest step: rooms, 18.5 s from the first player to the last, Player 53.
+  15:39:40 Level built in 8 s. Slowest step: rooms, 4 s from the first player to the last, Player 53.
+(end of settings)
+[Warning:  HarmonyX] com.peachh.SteadyHand: You should only patch implemented methods/constructors to avoid issues. Patch the declared method virtual void TMPro.TMP_Text::set_text(string value) instead of virtual void TMPro.TMP_Text::set_text(string value).
+   (seen 2 times in total)
+[Warning:  HarmonyX] com.peachh.SteadyHand: You should only patch implemented methods/constructors to avoid issues. Patch the declared method void TMPro.TMP_Text::SetText(string sourceText) instead of void TMPro.TMP_Text::SetText(string sourceText).
+   (seen 2 times in total)
+[Error  :  HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+   (seen 2 times in total)
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-887511350(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+SharedUpgrades.Plugin.Awake () (at <31372448eba649c9acf0ac79bfeb08c2>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2682 ms.
+[Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 723 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Timing: slowest frame so far 2514 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1471 MB of 16105 MB, 76 MB of it from mods and scripts; textures 97 MB of 8052 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 19 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.8 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Warning:LateJoinPlus] Put back 12 missing patches from LateJoinPlus.dll. The remover is unknown. Loaded plugin assemblies: RetryMod.dll, SteadyHand.dll, SharedUpgrades.dll, InfiniteEnergy.dll, EnemyTracker.dll, ManualExtract.dll, MenuLib.dll, TheEverythingMap.dll, UnlimitedOrbCap.dll, EnemyOrbMerge.dll, REPOLib.dll, LateJoinPlus.dll, REPOFixesPlus.dll, HostHealthRegen.dll, Zichen-CarryFriend-1.0.5.dll.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-26T07:21:21] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] [MOD]INDESTRUCTABLE ITEMS, SINCE THEM TROLLS WANNA TEST ME'; as typed: '[mod]INDESTRUCTABLE ITEMS, since them trolls wanna test me'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 53' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 34' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 53' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 4 messages (about 168 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 34' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 37 messages (about 121 bytes each).
+[Info   :LateJoinPlus] [Run] Level change waited 14 s for everyone's results screen; the last to finish: Player 53 (12 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 53's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 34' peaked at 36 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Timing: game memory 1992 MB of 16105 MB, 85 MB of it from mods and scripts; textures 212 MB of 8052 MB video memory.
+[Info   :LateJoinPlus] [Run] Level built in 62 s. Slowest step: rooms, 26.6 s from the first player to the last, Player 53.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 10 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. ×1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 53 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for Player 53: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Strength for Player 53: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 53: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 53: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Launch for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 53: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 53: done - Player 53: every upgrade set to 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 53: 5 -> 2.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 53: done - Player 53: Speed set to 2.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Range for You: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 5.
+[Info   :LateJoinPlus] [Admin] Speed for You: 5 -> 2.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 2.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 53 (game id ok): Health 5, Stamina 5, Speed 2, Strength 5, Range 5, Throw 5, ExtraJump 5, Launch 5, TumbleWings 5, TumbleClimb 5, CrouchRest 5, DeathHeadBattery 5, MapPlayerCount 5.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 34 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] Health for Player 34: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Strength for Player 34: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 34: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 34: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Launch for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 34: 0 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgradeall Player 34: done - Player 34: every upgrade set to 5.
+[Info   :LateJoinPlus] [Admin] Speed for Player 34: 5 -> 2.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 34: done - Player 34: Speed set to 2.
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 8.3 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 2's map (12 messages).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 164 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 53 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] Late joiner Player 13 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 13' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 13 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 13 finished loading in 7.7 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 13's map (12 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 13' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 47 messages (about 123 bytes each).
+[Warning: Unity Log] [2026-11-26T07:27:36] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 5 not found when trying to remove
+[Info   :LateJoinPlus] [Slots] Player 53 took Item Gun Shotgun/1 out of slot 1 (1.3 m away, 0.9 m above their feet).
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 53 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host revive You: done - Revived You.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[Info   :LateJoinPlus] Late joiner Player 3 connected (level Level - Manor). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 3 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 3 finished loading in 7.9 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 4 explored room(s) on Player 3's map (25 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Slots] Player 53 took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 53 put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 5 player(s) to the truck.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :Lobby Guard] [Lobby Guard] You kicked 'Player 2' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Manor': OK | joins 3 (0 with LateJoinPlus), loaded 3 (avg 7.9 s, slowest 8.3 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 3 (8 rooms) | extraction: opened for joiner 3, already had it 0, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 3 (slowest 27 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 53's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'player #0' peaked at 63 messages/s (flood limit 500); most data from one player 6 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Run] Level built in 29 s. Slowest step: rooms, 18.5 s from the first player to the last, Player 53.
+[Info   :LateJoinPlus] Timing: game memory 2842 MB of 16105 MB, 99 MB of it from mods and scripts; textures 391 MB of 8052 MB video memory.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $26K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $36K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $46K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $56K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $66K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $76K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $86K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $96K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $106K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $116K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $126K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $136K.
+[Info   :LateJoinPlus] [Admin] Host money.delta: done - Money set to $146K.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host heal Player 3: done - Healed Player 3.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "LandRPC" for viewID 2017 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 53' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 34' peaked at 43 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 53's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: rooms, 4 s from the first player to the last, Player 53.
+[Info   :LateJoinPlus] [Slots] Player 53's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 173 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 34' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 173 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 34' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Slots] Player 3 put Item Staff Void/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 1 (1.7 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (4 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 4 player(s) (0 on the results screen, 3 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 53's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 34' peaked at 46 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+=== Previous game session ===
+[Warning:  HarmonyX] com.peachh.SteadyHand: You should only patch implemented methods/constructors to avoid issues. Patch the declared method virtual void TMPro.TMP_Text::set_text(string value) instead of virtual void TMPro.TMP_Text::set_text(string value).
+   (seen 2 times in total)
+[Warning:  HarmonyX] com.peachh.SteadyHand: You should only patch implemented methods/constructors to avoid issues. Patch the declared method void TMPro.TMP_Text::SetText(string sourceText) instead of void TMPro.TMP_Text::SetText(string sourceText).
+   (seen 2 times in total)
+[Error  :  HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[Error  : Unity Log] Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+Stack trace:
+HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-2097060150(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+SharedUpgrades.Plugin.Awake () (at <31372448eba649c9acf0ac79bfeb08c2>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[15:04:51.467] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[15:04:53.818] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[15:04:53.903] [Error  :HarmonyX] Failed to patch int PunManager::UpgradePlayerHealth(string _steamID, int value): System.Exception: Parameter "steamID" not found in method int PunManager::UpgradePlayerHealth(string _steamID, int value)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.EmitCallParameter (System.Reflection.MethodInfo patch, System.Boolean allowFirsParamPassthrough, Mono.Cecil.Cil.VariableDefinition& tmpObjectVar, System.Collections.Generic.List`1[HarmonyLib.Public.Patching.HarmonyManipulator+ArgumentBoxInfo]& tmpBoxVars) [0x007ae] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WritePostfixes (HarmonyLib.Internal.Util.ILEmitter+Label returnLabel) [0x001a5] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00234] in <474744d65d8e460fa08cd5fd82b5d65f>:0 
+[15:04:54.013] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[15:04:54.354] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[15:04:54.355] [Warning:HarmonyX] AccessTools.Method: type is null
+[15:04:55.659] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[15:04:55.664] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[15:04:55.664] [Info   :LateJoinPlus] Timing: start-up took 2573 ms.
+[15:04:55.665] [Warning:LateJoinPlus] Patch group AdminUpgradeBoughtWatch could not be applied (HarmonyException: IL Compile Error (unknown location)). That feature is disabled; everything else still works.
+[15:04:55.666] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[15:04:55.666] [Info   :LateJoinPlus] Timing: late patches took 755 ms.
+[15:04:55.698] [Warning:Unity Log] Unable to load font face for [] font asset.
+   (seen 2 times in total)
+[15:04:56.198] [Info   :LateJoinPlus] Timing: slowest frame so far 2648 ms, 3 s after start.
+[15:04:56.224] [Info   :LateJoinPlus] Timing: game memory 1456 MB of 16105 MB, 70 MB of it from mods and scripts; textures 97 MB of 8052 MB video memory.
+[15:04:56.229] [Info   :LateJoinPlus] Timing: Chinese font set-up took 9 ms and 2 MB.
+[15:04:56.233] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.5 ms (13 fonts).
+[15:05:01.295] [Info   :Unity Log] leaving photon
+[15:05:01.301] [Info   :Unity Log] Leave to Main Menu
+[15:05:12.305] [Warning:LateJoinPlus] Put back 12 missing patches from LateJoinPlus.dll. The remover is unknown. Loaded plugin assemblies: RetryMod.dll, REPOLib.dll, com.github.zehsteam.ExtractionPointConfirmButton.dll, SteadyHand.dll, SharedUpgrades.dll, InfiniteEnergy.dll, EnemyTracker.dll, MenuLib.dll, TheEverythingMap.dll, UnlimitedOrbCap.dll, EnemyOrbMerge.dll, LateJoinPlus.dll, REPOFixesPlus.dll, HostHealthRegen.dll, Zichen-CarryFriend-1.0.5.dll.
+[15:05:16.773] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[15:05:55.048] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[15:05:55.049] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[15:05:55.466] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[15:05:55.482] [Warning:Unity Log] [2026-11-26T07:05:55] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[15:05:55.531] [Warning:Unity Log] [2026-11-26T07:05:55] [Warning] [Recorder] [Voice(Clone)] [PV] MicWrapper: microphone does not support suggested frequency 48000 (min: 16000, max: 16000). Setting to 16000
+[15:05:55.595] [Warning:Unity Log] [2026-11-26T07:05:55] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Local voice #1 audio source frequency 16000 and encoder sampling rate 48000 do not match. Resampling will occur before encoding (FramerResampler, interp).
+[15:05:55.771] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] [MOD]INDESTRUCTABLE ITEMS, SINCE THEM TROLLS WANNA TEST ME'; as typed: '[mod]INDESTRUCTABLE ITEMS, since them trolls wanna test me'.
+[15:06:41.328] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 3 times in total)
+[15:06:41.330] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[15:08:25.284] [Info   :LateJoinPlus] Timing: game memory 2342 MB of 16105 MB, 90 MB of it from mods and scripts; textures 509 MB of 8052 MB video memory.
+[15:09:22.605] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[15:09:30.713] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+[15:09:32.253] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators (as host).
+[15:09:44.383] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls (as host).
+[15:09:51.122] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: History (as host).
+[15:09:57.613] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Block List (as host).
+[15:10:01.670] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Settings (as host).
+   (seen 2 times in total)
+[15:12:31.252] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:12:31.252] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 34' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:12:55.316] [Info   :LateJoinPlus] Timing: game memory 2870 MB of 16105 MB, 111 MB of it from mods and scripts; textures 892 MB of 8052 MB video memory.
+[15:13:00.763] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 45' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 34 messages (about 102 bytes each).
+[15:13:01.779] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 34' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 42 messages (about 121 bytes each).
+[15:14:22.177] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:14:52.773] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #4' (player #4, Steam ID unknown), first 30 s: busiest second 3 KB in 33 messages (about 104 bytes each).
+[15:15:32.028] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[15:15:37.049] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[15:15:38.093] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:15:39.169] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[15:15:39.577] [Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 0
+[15:15:39.601] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[15:15:39.620] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 34' peaked at 41 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[15:15:39.906] [Info   :LateJoinPlus] Waited 0.1 s for Player 34's Steam ID before loading their upgrades and name tag.
+[15:15:39.970] [Info   :LateJoinPlus] Waited 0.1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[15:15:41.439] [Info   :LateJoinPlus] [Menu] Volume for Player 45 set to 0%.
+   (seen 3 times in total)
+[15:15:42.803] [Fatal  :com.github.zehsteam.ExtractionPointConfirmButton] ExtractionPointPatch: Failed to spawn confirm button. GameObject is null.
+[15:15:42.847] [Warning:Lobby Guard] [Lobby Guard] Held back 'ConfirmButton': it's from another mod, and the game sends anyone without that mod back to the menu while a level loads. If everyone in your lobby has the same mods, turn off Lobby Guard > Hold Back Mod Only Objects.
+[15:15:49.302] [Info   :LateJoinPlus] [Run] Level built in 9 s. Slowest step: valuables, 0.5 s from the first player to the last, Player 45.
+[15:16:04.656] [Warning:Unity Log] [2026-11-26T07:16:04] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #5 of player 3 not found when trying to remove
+[15:16:39.869] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[15:16:46.802] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 2 times in total)
+[15:16:49.405] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[15:16:51.355] [Info   :LateJoinPlus] [Admin] Health for You: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[15:16:51.355] [Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 5.
+[15:16:51.355] [Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 5.
+[15:16:51.357] [Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[15:16:51.357] [Info   :LateJoinPlus] [Admin] Range for You: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[15:16:51.357] [Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[15:16:51.359] [Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 5.
+[15:16:51.359] [Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 5.
+[15:16:51.360] [Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 5.
+[15:16:51.360] [Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 5.
+[15:16:51.360] [Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 5.
+[15:16:51.361] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 5.
+[15:16:51.361] [Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 5.
+[15:16:51.362] [Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 5.
+[15:16:53.081] [Info   :LateJoinPlus] [Admin] Speed for You: 5 -> 2.
+[15:16:53.084] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 2.
+[15:17:00.398] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 34 (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[15:17:02.706] [Info   :LateJoinPlus] [Admin] Health for Player 34: 0 -> 5; max health on the host 100.00 -> 200.00 (expected 200.00)
+[15:17:02.706] [Info   :LateJoinPlus] [Admin] Stamina for Player 34: 0 -> 5.
+[15:17:02.707] [Info   :LateJoinPlus] [Admin] Speed for Player 34: 0 -> 5.
+[15:17:02.708] [Info   :LateJoinPlus] [Admin] Strength for Player 34: 0 -> 5; grab strength on the host 1.00 -> 2.00 (expected 2.00)
+[15:17:02.708] [Info   :LateJoinPlus] [Admin] Range for Player 34: 0 -> 5; grab range on the host 2.50 -> 7.50 (expected 7.50)
+[15:17:02.710] [Info   :LateJoinPlus] [Admin] Throw for Player 34: 0 -> 5; throw strength on the host 0.00 -> 1.50 (expected 1.50)
+[15:17:02.710] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 34: 0 -> 5.
+[15:17:02.711] [Info   :LateJoinPlus] [Admin] Launch for Player 34: 0 -> 5.
+[15:17:02.711] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 34: 0 -> 5.
+[15:17:02.711] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 34: 0 -> 5.
+[15:17:02.713] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 34: 0 -> 5.
+[15:17:02.714] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 34: 0 -> 5.
+[15:17:02.714] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 34: 0 -> 5.
+[15:17:02.714] [Info   :LateJoinPlus] [Admin] Host upgradeall Player 34: done - Player 34: every upgrade set to 5.
+[15:17:04.266] [Info   :LateJoinPlus] [Admin] Speed for Player 34: 5 -> 2.
+[15:17:04.267] [Info   :LateJoinPlus] [Admin] Host upgrade Player 34: done - Player 34: Speed set to 2.
+[15:17:38.937] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[15:17:46.275] [Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[15:18:41.647] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[15:18:42.131] [Info   :Unity Log] leaving photon
+[15:18:42.180] [Warning:Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+[15:18:42.190] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[15:18:42.198] [Info   :Unity Log] Leave to Main Menu
+[15:18:42.199] [Warning:Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_26_15_05_49
+   (seen 2 times in total)
