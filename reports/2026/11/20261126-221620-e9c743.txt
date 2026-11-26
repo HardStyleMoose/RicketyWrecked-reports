@@ -1,0 +1,591 @@
+LateJoinPlus bug report 20261126-221620-e9c743
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Military"
+players: 3
+language: "en-US"
+test: false
+
+Mods (11):
+- "DeathHeadHopper" | "Cronchy.DeathHeadHopper" | "2.1.8"
+- "MoreHead" | "Mhz.REPOMoreHead" | "1.4.6"
+- "MinecraftStrongholdLevel" | "MinecraftStrongholdLevel" | "1.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "WesleysEnemies" | "WesleysEnemies" | "2.0.0"
+- "LethalCompanyValuables" | "com.github.zehsteam.LethalCompanyValuables" | "1.3.0"
+- "DeadTTS" | "flipf17.DeadTTS" | "1.1.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26200)
+CPU: AMD Ryzen 9 3900XT 12-Core Processor  (24 threads)
+Memory: 65453 MB
+Graphics: NVIDIA GeForce GTX 1080 Ti (11107 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 26525 ms
+Most memory this game: 7116 MB
+Most texture memory this game: 1620 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: PunManager.ShopPopulateItemVolumes
+Who patches the methods in this log's errors:
+  EnemyDirector.SetInvestigate: ricketywrecked.repo.latejoinplus (prefix)
+  GameDirector.Update: Mhz.REPOMoreHead (postfix)
+  GameDirector.gameStateStart: Cronchy.DeathHeadHopper (postfix)
+  PhotonNetwork.RPC: ricketywrecked.repo.latejoinplus (prefix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.ShopPopulateItemVolumes: no patch on it now
+Game methods several mods patch (8):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: DeadTTS (postfix), Mhz.REPOMoreHead (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 23):
+  15:52:03 an error from Unity Log
+  15:53:27 Level built in 8 s. Slowest step: rooms, 1 s from the first player to the last, Player 3.
+  15:53:32 an error from Unity Log
+  15:53:32 an error from Unity Log
+  15:53:32 an error from Unity Log
+  15:53:32 an error from Unity Log
+  15:53:32 an error from Unity Log
+  15:53:33 an error from Unity Log
+  15:53:33 an error from Unity Log
+  16:07:29 an error from Unity Log
+  16:07:41 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:07:53 an error from Unity Log
+  16:15:18 an error from Unity Log
+  16:15:18 an error from Unity Log
+  16:15:18 an error from Unity Log
+  16:15:18 an error from Unity Log
+  16:15:18 an error from Unity Log
+(end of settings)
+[Error  : Unity Log] AmbiguousMatchException: Ambiguous match found.
+Stack trace:
+System.RuntimeType.GetMethodImplCommon (System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetMethodImpl (System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Type.GetMethod (System.String name, System.Reflection.BindingFlags bindingAttr) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.AccessTools.DeclaredMethod (System.Type type, System.String name, System.Type[] parameters, System.Type[] generics) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchTools.GetOriginalMethod (HarmonyLib.HarmonyMethod attr) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Ambiguous match for HarmonyMethod[(class=PunManager, methodname=ShopPopulateItemVolumes, type=Normal, args=undefined)]
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+DeathHeadHopper.DeathHeadHopper.Patch () (at DeathHeadHopper/DeathHeadHopper.cs:41)
+DeathHeadHopper.DeathHeadHopper.Awake () (at DeathHeadHopper/DeathHeadHopper.cs:30)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1554 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1000 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Error  : Unity Log] MissingFieldException: Field not found: System.Collections.Generic.Dictionary`2<string, System.Collections.Generic.Dictionary`2<string, int>> .StatsManager.dictionaryOfDictionaries Due to: Could not find field in class
+Stack trace:
+[Info   :LateJoinPlus] Timing: slowest frame so far 2593 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1944 MB of 65453 MB, 80 MB of it from mods and scripts; textures 116 MB of 11107 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 13 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.9 ms (13 fonts).
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox 13/Audio". No AudioMixerGroup is assigned.
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox Cat/Audio". No AudioMixerGroup is assigned.
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox OS/Audio". No AudioMixerGroup is assigned.
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Module - Military - P - 2 - Lambda Elevator Labs/Audio Loop Distance". No AudioMixerGroup is assigned.
+   (seen 8 times in total)
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-26T21:52:30] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Warning: Unity Log] [2026-11-26T21:52:30] [Warning] [Recorder] [Voice(Clone)] [PV] MicWrapper: microphone does not support suggested frequency 48000 (min: 16000, max: 16000). Setting to 16000
+[Warning: Unity Log] [2026-11-26T21:52:30] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Local voice #1 audio source frequency 16000 and encoder sampling rate 48000 do not match. Resampling will occur before encoding (FramerResampler, interp).
+[Info   :LateJoinPlus] Timing: game memory 3921 MB of 65453 MB, 89 MB of it from mods and scripts; textures 582 MB of 11107 MB video memory.
+[Info   :LateJoinPlus] Player 2 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 2 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 2's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 2 holds no moderator key of ours.
+[Info   :LateJoinPlus] Player 3 is running a compatible late-join mod (LJ+ 1.2.2).
+[Info   :LateJoinPlus] [Moderators] Asked Player 3 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Player 3's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 3 holds no moderator key of ours.
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 38 messages (about 120 bytes each).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 37 messages/s (flood limit 500); most data from one player 4 KB/s (limit 100); 0 messages dropped.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Brass Bell' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Master Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/SmallVoodooDoll' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Perfume Bottl' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Toy Cube' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Net Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Great Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Gift Box' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Nest Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Quick Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Valuables/Valuable Heal Ball' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: rooms, 1 s from the first player to the last, Player 3.
+[Error  : Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+UnityEngine.Object.Instantiate (UnityEngine.Object original, UnityEngine.Transform parent, System.Boolean instantiateInWorldSpace) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent, System.Boolean worldPositionStays) (at <398789c008484afa80c3315b7c00257b>:0)
+DeathHeadHopper.Managers.DHHUIManager.Awake () (at DeathHeadHopper/Managers/DHHUIManager.cs:25)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.Patches.GameDirectorPatch:GameStateStart_Postfix() (at DeathHeadHopper/Patches/GameDirectorPatch.cs:54)
+GameDirector:DMD<GameDirector::gameStateStart>(GameDirector)
+GameDirector:DMD<GameDirector::Update>(GameDirector)
+   (seen 2 times in total)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+DeathHeadHopper.DeathHead.Handlers.AudioHandler.Awake () (at DeathHeadHopper/DeathHead/Handlers/AudioHandler.cs:93)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.DeathHead.DeathHeadController:Start() (at DeathHeadHopper/DeathHead/DeathHeadController.cs:54)
+   (seen 6 times in total)
+[Error  : Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+UnityEngine.Object.Instantiate (UnityEngine.Object original, UnityEngine.Transform parent, System.Boolean instantiateInWorldSpace) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent, System.Boolean worldPositionStays) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent) (at <398789c008484afa80c3315b7c00257b>:0)
+DeathHeadHopper.DeathHead.Handlers.ChargeHandler.Awake () (at DeathHeadHopper/DeathHead/Handlers/ChargeHandler.cs:62)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.DeathHead.DeathHeadController:Start() (at DeathHeadHopper/DeathHead/DeathHeadController.cs:61)
+   (seen 6 times in total)
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 31 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 25 messages (about 141 bytes each).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 135 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 37 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 135 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 37 times in total)
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 145 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 25 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 145 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 25 times in total)
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Stamina Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Health Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Crouch Rest Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Range Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Death Head Battery Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Stamina Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Health Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Crouch Rest Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Range Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tumble Climb Upgrade ×10.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Map Player Count Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Map Player Count Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Map Player Count Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Health Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Stamina Upgrade ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Health Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Stamina Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Strength Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Crouch Rest Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Death Head Battery Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Range Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tumble Climb Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Extra Jump Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Sprint Speed Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Tumble Launch Upgrade ×10.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. Laser ×1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned C.A.R.T. ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Energy Crystal ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn Player 3: done - Spawned Ceiling Eye ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn Player 3: done - Spawned Group - 10 Gnomes ×10.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object.
+Stack trace:
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.get_transform () (at <398789c008484afa80c3315b7c00257b>:0)
+EnemyGnomeDirector.SetPosition (UnityEngine.Vector3 _initialPosition) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+EnemyGnomeDirector.Investigate (UnityEngine.Vector3 _position) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+EnemyGnome.OnInvestigate () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+UnityEngine.Events.InvokableCall.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+EnemyStateInvestigate.SetRPC (UnityEngine.Vector3 position, System.Boolean _pathfindOnly, Photon.Pun.PhotonMessageInfo _info) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Pun.PhotonNetwork.DMD<Photon.Pun.PhotonNetwork::RPC>(Photon.Pun.PhotonView,string,Photon.Pun.RpcTarget,Photon.Realtime.Player,bool,object[])
+Photon.Pun.PhotonNetwork.RPC (Photon.Pun.PhotonView view, System.String methodName, Photon.Pun.RpcTarget target, System.Boolean encrypt, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonView.RPC (System.String methodName, Photon.Pun.RpcTarget target, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+EnemyStateInvestigate.Set (UnityEngine.Vector3 position, System.Boolean _pathFindOnly) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+(wrapper dynamic-method) EnemyDirector.DMD<EnemyDirector::SetInvestigate>(EnemyDirector,UnityEngine.Vector3,single,bool)
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.9 m away, 1.7 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Shotgun/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object.
+Stack trace:
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Component.get_transform () (at <398789c008484afa80c3315b7c00257b>:0)
+EnemyGnomeDirector.SetPosition (UnityEngine.Vector3 _initialPosition) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+EnemyGnomeDirector.Investigate (UnityEngine.Vector3 _position) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+EnemyGnome.OnInvestigate () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+UnityEngine.Events.InvokableCall.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <398789c008484afa80c3315b7c00257b>:0)
+EnemyStateInvestigate.SetRPC (UnityEngine.Vector3 position, System.Boolean _pathfindOnly, Photon.Pun.PhotonMessageInfo _info) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Pun.PhotonNetwork.DMD<Photon.Pun.PhotonNetwork::RPC>(Photon.Pun.PhotonView,string,Photon.Pun.RpcTarget,Photon.Realtime.Player,bool,object[])
+Photon.Pun.PhotonNetwork.RPC (Photon.Pun.PhotonView view, System.String methodName, Photon.Pun.RpcTarget target, System.Boolean encrypt, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonView.RPC (System.String methodName, Photon.Pun.RpcTarget target, System.Object[] parameters) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+EnemyStateInvestigate.Set (UnityEngine.Vector3 position, System.Boolean _pathFindOnly) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+(wrapper dynamic-method) EnemyDirector.DMD<EnemyDirector::SetInvestigate>(EnemyDirector,UnityEngine.Vector3,single,bool)
+SemiFunc.EnemyInvestigate (UnityEngine.Vector3 position, System.Single range, System.Boolean pathfindOnly) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+EnemyDirector.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 49 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 4501 MB of 65453 MB, 125 MB of it from mods and scripts; textures 852 MB of 11107 MB video memory.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Energy Crystal ×10.
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1043 but this PhotonView does not exist! View was/is ours. Remote called. By: #02 'Player 2'
+   (seen 9 times in total)
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1043 but this PhotonView does not exist! View was/is ours. Remote called. By: #03 'Player 3'
+   (seen 9 times in total)
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 10, Stamina 10, Speed 10, Strength 21, Range 10, Throw 0, ExtraJump 10, Launch 10, TumbleWings 0, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] Strength for You: 21 -> 22; grab strength on the host 5.20 -> 5.40 (expected 5.40)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 22.
+[Info   :LateJoinPlus] [Admin] Strength for You: 22 -> 21; grab strength on the host 5.40 -> 5.20 (expected 5.20)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 21.
+[Info   :LateJoinPlus] [Admin] Strength for You: 21 -> 20; grab strength on the host 5.20 -> 5.00 (expected 5.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 20.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: TumbleWings set to 10.
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 10; throw strength on the host 0.00 -> 3.00 (expected 3.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 2 (game id ok): Health 10, Stamina 10, Speed 0, Strength 10, Range 10, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 0, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 2: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: TumbleWings set to 10.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 2: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: ExtraJump set to 10.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 2: 0 -> 11.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: DeathHeadBattery set to 11.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 2: 11 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: DeathHeadBattery set to 10.
+[Info   :LateJoinPlus] [Admin] Launch for Player 2: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: Launch set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 3 (game id ok): Health 10, Stamina 10, Speed 0, Strength 11, Range 10, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 3: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 3: done - Player 3: ExtraJump set to 10.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 3: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 3: done - Player 3: TumbleWings set to 10.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 3: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 3: done - Player 3: TumbleClimb set to 10.
+[Info   :LateJoinPlus] [Admin] Launch for Player 3: 0 -> 9.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 3: done - Player 3: Launch set to 9.
+[Info   :LateJoinPlus] [Admin] Strength for Player 3: 11 -> 10; grab strength on the host 3.20 -> 3.00 (expected 3.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 3: done - Player 3: Strength set to 10.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 10, Stamina 10, Speed 10, Strength 20, Range 10, Throw 10, ExtraJump 10, Launch 10, TumbleWings 10, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 2 (game id ok): Health 10, Stamina 10, Speed 0, Strength 10, Range 10, Throw 0, ExtraJump 10, Launch 10, TumbleWings 10, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 2: 1 -> 11.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: MapPlayerCount set to 11.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 2: 11 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: MapPlayerCount set to 10.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 2: 10 -> 2.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: MapPlayerCount set to 2.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 2: 2 -> 1.
+[Info   :LateJoinPlus] [Admin] Host upgrade Player 2: done - Player 2: MapPlayerCount set to 1.
+[Info   :LateJoinPlus] [Admin] Host world: done - Free shopping: on.
+[Info   :LateJoinPlus] [Admin] Host world: done - Free shopping: off.
+[Info   :LateJoinPlus] [Admin] Host world: done - Free shopping: on.
+[Info   :LateJoinPlus] [Admin] Host world: done - Free shopping: off.
+[Info   :LateJoinPlus] [Death drop] Player 2 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 3 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host heal Player 2: done - Healed Player 2.
+[Info   :LateJoinPlus] [Admin] Host heal You: done - Healed You.
+[Info   :LateJoinPlus] [Admin] Host heal Player 3: done - Healed Player 3.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 3: not done - Player 3 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host crown Player 2: done - Player 2 has the crown.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 3: done - Knocked Player 3 over.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 3: done - Knocked Player 3 over.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 54 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 2 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You's Item Gun Shotgun/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Admin] Host heal Player 2: done - Healed Player 2.
+[Info   :LateJoinPlus] [Slots] Player 3 put Item Melee Frying Pan/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for Player 3 (game id ok): Health 10, Stamina 10, Speed 0, Strength 10, Range 10, Throw 0, ExtraJump 10, Launch 9, TumbleWings 10, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 10, Stamina 10, Speed 10, Strength 20, Range 10, Throw 10, ExtraJump 10, Launch 10, TumbleWings 10, TumbleClimb 10, CrouchRest 10, DeathHeadBattery 10, MapPlayerCount 1.
+[Info   :LateJoinPlus] [Admin] Speed for You: 10 -> 3.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 3.
+[Info   :LateJoinPlus] [Slots] Player 3 took Item Melee Frying Pan/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] Player 2 put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Admin] Speed for You: 3 -> 4.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 4.
+[Info   :LateJoinPlus] [Admin] Speed for You: 4 -> 5.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 5.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 3 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 2' peaked at 42 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.HotReloadSettingsObject) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object '<null>') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.HotReloadSettingsObject?) has a different serialization layout when loading. (Read 56 bytes but expected 76 bytes)
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.Prompts) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.ConnectionDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.RetryDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.QuestionDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'Prompts') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.Prompts?) has a different serialization layout when loading. (Read 32 bytes but expected 80 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'ReusedQuestionDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.QuestionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 92 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'RetryDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.RetryDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 120 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'ConnectionDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.ConnectionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 76 bytes)
+[Warning:   REPOLib] Could not find a game TMP_SpriteAsset matching legacy "emojis Extraction Point".
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/StartRoom' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Info   :LateJoinPlus] Timing: slowest frame so far 26525 ms, 1423 s after start.
+[Info   :LateJoinPlus] Timing: game memory 6929 MB of 65453 MB, 166 MB of it from mods and scripts; textures 1620 MB of 11107 MB video memory.
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/DeadEnd/M' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+   (seen 2 times in total)
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/Normal/Mo' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+   (seen 5 times in total)
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/Passage/M' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/Extractio' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Warning:Lobby Guard] [Lobby Guard] 'Level/Level - Military/Other/Mil' was spawned, and only another mod has it: anyone without that mod who's loading right now gets sent back to the menu. Later joiners won't get it, so they can still join.
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: blocked (room=True, moderation=True, admin=False, menu=True, level menu=True, typing=False).
+=== Previous game session: closed unexpectedly ===
+[Error  : Unity Log] AmbiguousMatchException: Ambiguous match found.
+Stack trace:
+System.RuntimeType.GetMethodImplCommon (System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetMethodImpl (System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Type.GetMethod (System.String name, System.Reflection.BindingFlags bindingAttr) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.AccessTools.DeclaredMethod (System.Type type, System.String name, System.Type[] parameters, System.Type[] generics) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchTools.GetOriginalMethod (HarmonyLib.HarmonyMethod attr) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Ambiguous match for HarmonyMethod[(class=PunManager, methodname=ShopPopulateItemVolumes, type=Normal, args=undefined)]
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+[15:48:55.700] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[15:48:58.767] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[15:48:59.097] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[15:48:59.503] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[15:48:59.503] [Warning:HarmonyX] AccessTools.Method: type is null
+[15:49:00.137] [Warning:REPOLib] [MetaSaveModded] MetaSaveModded.es3 not found - creating new
+[15:49:00.966] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[15:49:00.970] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[15:49:00.970] [Info   :LateJoinPlus] Timing: start-up took 1810 ms.
+[15:49:00.971] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[15:49:00.971] [Info   :LateJoinPlus] Timing: late patches took 1024 ms.
+[15:49:01.004] [Warning:Unity Log] Unable to load font face for [] font asset.
+[15:49:01.104] [Error  :Unity Log] MissingFieldException: Field not found: System.Collections.Generic.Dictionary`2<string, System.Collections.Generic.Dictionary`2<string, int>> .StatsManager.dictionaryOfDictionaries Due to: Could not find field in class
+Stack trace:
+[15:49:01.410] [Info   :LateJoinPlus] Timing: slowest frame so far 3178 ms, 3 s after start.
+[15:49:01.411] [Info   :LateJoinPlus] Timing: game memory 1940 MB of 65453 MB, 69 MB of it from mods and scripts; textures 116 MB of 11107 MB video memory.
+[15:49:01.411] [Info   :LateJoinPlus] Timing: Chinese font set-up took 11 ms and 1 MB.
+[15:49:01.411] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.7 ms (13 fonts).
+[15:49:09.326] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Module - Military - P - 2 - Lambda Elevator Labs/Audio Loop Distance". No AudioMixerGroup is assigned.
+   (seen 8 times in total)
+[15:49:09.393] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox 13/Audio". No AudioMixerGroup is assigned.
+[15:49:09.393] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox Cat/Audio". No AudioMixerGroup is assigned.
+[15:49:09.393] [Warning:REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox OS/Audio". No AudioMixerGroup is assigned.
+[15:49:12.944] [Info   :Unity Log] leaving photon
+[15:49:12.946] [Info   :Unity Log] Leave to Main Menu
+[15:49:29.859] [Info   :LateJoinPlus] Timing: game memory 3677 MB of 65453 MB, 106 MB of it from mods and scripts; textures 611 MB of 11107 MB video memory.
+[15:49:39.448] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[15:49:48.086] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[15:49:48.086] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[15:49:48.528] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[15:49:48.537] [Warning:Unity Log] [2026-11-26T21:49:48] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[15:49:48.559] [Warning:Unity Log] [2026-11-26T21:49:48] [Warning] [Recorder] [Voice(Clone)] [PV] MicWrapper: microphone does not support suggested frequency 48000 (min: 16000, max: 16000). Setting to 16000
+[15:49:48.606] [Warning:Unity Log] [2026-11-26T21:49:48] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Local voice #1 audio source frequency 16000 and encoder sampling rate 48000 do not match. Resampling will occur before encoding (FramerResampler, interp).
+[15:50:19.057] [Info   :LateJoinPlus] Player 2 is running a compatible late-join mod (LJ+ 1.2.2).
+[15:50:19.058] [Info   :LateJoinPlus] [Moderators] Asked Player 2 (LateJoinPlus) whether they hold one of our moderator keys.
+[15:50:19.828] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:50:22.795] [Info   :LateJoinPlus] [Admin] Player 2's LateJoinPlus has the Admin page (1.2).
+[15:50:22.796] [Info   :LateJoinPlus] [Moderators] Player 2 holds no moderator key of ours.
+[15:50:44.945] [Info   :LateJoinPlus] Player 3 is running a compatible late-join mod (LJ+ 1.2.2).
+[15:50:44.945] [Info   :LateJoinPlus] [Moderators] Asked Player 3 (LateJoinPlus) whether they hold one of our moderator keys.
+[15:50:45.065] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[15:50:48.040] [Info   :LateJoinPlus] [Admin] Player 3's LateJoinPlus has the Admin page (1.2).
+[15:50:48.040] [Info   :LateJoinPlus] [Moderators] Player 3 holds no moderator key of ours.
+[15:50:49.100] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 34 messages (about 96 bytes each).
+[15:50:59.846] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[15:51:04.867] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[15:51:05.866] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[15:51:07.510] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[15:51:08.488] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[15:51:08.727] [Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[15:51:08.928] [Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[15:51:13.505] [Warning:Unity Log] The referenced script (SingularityGroup.HotReload.HotReloadSettingsObject) on this Behaviour is missing!
+[15:51:13.506] [Warning:Unity Log] The referenced script on this Behaviour (Game Object '<null>') is missing!
+[15:51:13.506] [Error  :Unity Log] A scripted object (probably SingularityGroup.HotReload.HotReloadSettingsObject?) has a different serialization layout when loading. (Read 56 bytes but expected 76 bytes)
+[15:51:13.507] [Warning:Unity Log] The referenced script (SingularityGroup.HotReload.Prompts) on this Behaviour is missing!
+[15:51:13.507] [Warning:Unity Log] The referenced script (SingularityGroup.HotReload.ConnectionDialog) on this Behaviour is missing!
+[15:51:13.507] [Warning:Unity Log] The referenced script (SingularityGroup.HotReload.RetryDialog) on this Behaviour is missing!
+[15:51:13.507] [Warning:Unity Log] The referenced script (SingularityGroup.HotReload.QuestionDialog) on this Behaviour is missing!
+[15:51:13.508] [Warning:Unity Log] The referenced script on this Behaviour (Game Object 'Prompts') is missing!
+[15:51:13.508] [Error  :Unity Log] A scripted object (probably SingularityGroup.HotReload.Prompts?) has a different serialization layout when loading. (Read 32 bytes but expected 80 bytes)
+[15:51:13.510] [Warning:Unity Log] The referenced script on this Behaviour (Game Object 'ReusedQuestionDialog') is missing!
+[15:51:13.510] [Error  :Unity Log] A scripted object (probably SingularityGroup.HotReload.QuestionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 92 bytes)
+[15:51:13.511] [Warning:Unity Log] The referenced script on this Behaviour (Game Object 'RetryDialog') is missing!
+[15:51:13.511] [Error  :Unity Log] A scripted object (probably SingularityGroup.HotReload.RetryDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 120 bytes)
+[15:51:13.511] [Warning:Unity Log] The referenced script on this Behaviour (Game Object 'ConnectionDialog') is missing!
+[15:51:13.511] [Error  :Unity Log] A scripted object (probably SingularityGroup.HotReload.ConnectionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 76 bytes)
+[Info   :Player.log] GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
