@@ -1,0 +1,407 @@
+LateJoinPlus bug report 20261126-221800-36bf2a
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Military"
+players: 3
+language: "en-US"
+test: false
+
+Mods (11):
+- "DeathHeadHopper" | "Cronchy.DeathHeadHopper" | "2.1.8"
+- "MoreHead" | "Mhz.REPOMoreHead" | "1.4.6"
+- "MinecraftStrongholdLevel" | "MinecraftStrongholdLevel" | "1.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "WesleysEnemies" | "WesleysEnemies" | "2.0.0"
+- "LethalCompanyValuables" | "com.github.zehsteam.LethalCompanyValuables" | "1.3.0"
+- "DeadTTS" | "flipf17.DeadTTS" | "1.1.1"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26200)
+CPU: Intel(R) Xeon(R) E-2176M CPU @ 2.70GHz (12 threads)
+Memory: 65311 MB
+Graphics: NVIDIA Quadro P2000 (4004 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 37268 ms
+Most memory this game: 7778 MB
+Most texture memory this game: 1795 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: PunManager.ShopPopulateItemVolumes
+Who patches the methods in this log's errors:
+  GameDirector.Update: Mhz.REPOMoreHead (postfix)
+  GameDirector.gameStateStart: Cronchy.DeathHeadHopper (postfix)
+  PunManager.ShopPopulateItemVolumes: no patch on it now
+Game methods several mods patch (8):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: DeadTTS (postfix), Mhz.REPOMoreHead (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerAvatar.Update: ricketywrecked.repo.fixes (prefix), Mhz.REPOMoreHead (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+Timeline (last 80):
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+  16:17:05 an error from Unity Log
+(end of settings)
+[Error  : Unity Log] AmbiguousMatchException: Ambiguous match found.
+Stack trace:
+System.RuntimeType.GetMethodImplCommon (System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetMethodImpl (System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConv, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Type.GetMethod (System.String name, System.Reflection.BindingFlags bindingAttr) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.AccessTools.DeclaredMethod (System.Type type, System.String name, System.Type[] parameters, System.Type[] generics) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchTools.GetOriginalMethod (HarmonyLib.HarmonyMethod attr) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Ambiguous match for HarmonyMethod[(class=PunManager, methodname=ShopPopulateItemVolumes, type=Normal, args=undefined)]
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+DeathHeadHopper.DeathHeadHopper.Patch () (at DeathHeadHopper/DeathHeadHopper.cs:41)
+DeathHeadHopper.DeathHeadHopper.Awake () (at DeathHeadHopper/DeathHeadHopper.cs:30)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Warning:   REPOLib] [MetaSaveModded] MetaSaveModded.es3 not found - creating new
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 2340 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1386 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Error  : Unity Log] MissingFieldException: Field not found: System.Collections.Generic.Dictionary`2<string, System.Collections.Generic.Dictionary`2<string, int>> .StatsManager.dictionaryOfDictionaries Due to: Could not find field in class
+Stack trace:
+[Info   :LateJoinPlus] Timing: slowest frame so far 3818 ms, 4 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1894 MB of 65311 MB, 78 MB of it from mods and scripts; textures 116 MB of 4004 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 18 ms and 17 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.9 ms (13 fonts).
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Module - Military - P - 2 - Lambda Elevator Labs/Audio Loop Distance". No AudioMixerGroup is assigned.
+   (seen 8 times in total)
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox 13/Audio". No AudioMixerGroup is assigned.
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox Cat/Audio". No AudioMixerGroup is assigned.
+[Warning:   REPOLib] Failed to fix AudioMixerGroup on GameObject "Valuable Jukebox OS/Audio". No AudioMixerGroup is assigned.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] Timing: game memory 3522 MB of 65311 MB, 101 MB of it from mods and scripts; textures 598 MB of 4004 MB video memory.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-26T21:50:19] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Warning: Unity Log] [2026-11-26T21:50:19] [Warning] [Recorder] [Voice(Clone)] [PV] MicWrapper: microphone does not support suggested frequency 48000 (min: 16000, max: 16000). Setting to 16000
+   (seen 3 times in total)
+[Warning: Unity Log] [2026-11-26T21:50:20] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Local voice #1 audio source frequency 16000 and encoder sampling rate 48000 do not match. Resampling will occur before encoding (FramerResampler, interp).
+   (seen 3 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 3 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 123 messages/s (flood limit 500); most data from one player 11 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 33 messages (about 97 bytes each).
+[Info   : Unity Log] Master client left...
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Re-asking Player 2 for their moderator key: moderation protocol not confirmed (1/5).
+[Info   :LateJoinPlus] [Moderators] Asked Player 2 (LateJoinPlus) whether they hold one of our moderator keys.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 2 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Admin] Player 2's LateJoinPlus has the Admin page (1.2).
+[Info   :LateJoinPlus] [Moderators] Player 2 holds no moderator key of ours.
+[Info   : Unity Log] leaving photon
+[Warning: Unity Log] RaiseEvent(201) failed. Your event is not being sent! Check if your are in a Room
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Warning: Unity Log] [2026-11-26T21:52:46] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for 
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 3 with LateJoinPlus.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 111 messages/s (flood limit 500); most data from one player 9 KB/s (limit 100); 0 messages dropped.
+[Error  : Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+UnityEngine.Object.Instantiate (UnityEngine.Object original, UnityEngine.Transform parent, System.Boolean instantiateInWorldSpace) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent, System.Boolean worldPositionStays) (at <398789c008484afa80c3315b7c00257b>:0)
+DeathHeadHopper.Managers.DHHUIManager.Awake () (at DeathHeadHopper/Managers/DHHUIManager.cs:25)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.Patches.GameDirectorPatch:GameStateStart_Postfix() (at DeathHeadHopper/Patches/GameDirectorPatch.cs:54)
+GameDirector:DMD<GameDirector::gameStateStart>(GameDirector)
+GameDirector:DMD<GameDirector::Update>(GameDirector)
+   (seen 2 times in total)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+DeathHeadHopper.DeathHead.Handlers.AudioHandler.Awake () (at DeathHeadHopper/DeathHead/Handlers/AudioHandler.cs:93)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.DeathHead.DeathHeadController:Start() (at DeathHeadHopper/DeathHead/DeathHeadController.cs:54)
+   (seen 6 times in total)
+[Error  : Unity Log] ArgumentException: The Object you want to instantiate is null.
+Stack trace:
+UnityEngine.Object.Instantiate (UnityEngine.Object original, UnityEngine.Transform parent, System.Boolean instantiateInWorldSpace) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent, System.Boolean worldPositionStays) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.Object.Instantiate[T] (T original, UnityEngine.Transform parent) (at <398789c008484afa80c3315b7c00257b>:0)
+DeathHeadHopper.DeathHead.Handlers.ChargeHandler.Awake () (at DeathHeadHopper/DeathHead/Handlers/ChargeHandler.cs:62)
+UnityEngine.GameObject:AddComponent()
+DeathHeadHopper.DeathHead.DeathHeadController:Start() (at DeathHeadHopper/DeathHead/DeathHeadController.cs:61)
+   (seen 6 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 64 messages (about 90 bytes each).
+[Info   :LateJoinPlus] Timing: game memory 4199 MB of 65311 MB, 117 MB of it from mods and scripts; textures 918 MB of 4004 MB video memory.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 135 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 37 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 135 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 37 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 362 messages/s (flood limit 500); most data from one player 95 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 4885 MB of 65311 MB, 141 MB of it from mods and scripts; textures 1024 MB of 4004 MB video memory.
+[Warning: Unity Log] Received RPC "ToggleItemRPC" for viewID 1043 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 9 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 100 messages/s (flood limit 500); most data from one player 19 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Received RPC "ImpactLightRPC" for viewID 475 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 3' peaked at 107 messages/s (flood limit 500); most data from one player 18 KB/s (limit 100); 0 messages dropped.
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.HotReloadSettingsObject) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object '<null>') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.HotReloadSettingsObject?) has a different serialization layout when loading. (Read 56 bytes but expected 76 bytes)
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.Prompts) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.ConnectionDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.RetryDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script (SingularityGroup.HotReload.QuestionDialog) on this Behaviour is missing!
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'Prompts') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.Prompts?) has a different serialization layout when loading. (Read 32 bytes but expected 80 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'ReusedQuestionDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.QuestionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 92 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'RetryDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.RetryDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 120 bytes)
+[Warning: Unity Log] The referenced script on this Behaviour (Game Object 'ConnectionDialog') is missing!
+[Error  : Unity Log] A scripted object (probably SingularityGroup.HotReload.ConnectionDialog?) has a different serialization layout when loading. (Read 32 bytes but expected 76 bytes)
+[Warning:   REPOLib] Could not find a game TMP_SpriteAsset matching legacy "emojis Extraction Point".
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/DeadEnd/Module - Military - DE - 2 - Hall 9000
+[Warning: Unity Log] Received RPC "ModuleConnectionSetRPC" for viewID 520 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 18 times in total)
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Normal/Module - Military - N - 2 - Floor Vent
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Normal/Module - Military - N - 1 - Mess Hall
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Normal/Module - Military - N - 1 - Vivarium
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Normal/Module - Military - N - 1 - Apperture Ratman
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Passage/Module - Military - P - 1 - Nerv
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Normal/Module - Military - N - 1 - Colapsed Road
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Extraction/Module - Military - E - 1 - Stalls
+[Warning: Unity Log] Received RPC "StateSetRPC" for viewID 567 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/DeadEnd/Module - Military - DE - 1 - N64 Tank Room
+[Error  : Unity Log] Failed to network-Instantiate: Level/Level - Military/Other/Military door V3
+   (seen 10 times in total)
+[Info   :LateJoinPlus] Timing: slowest frame so far 37268 ms, 2016 s after start.
+[Info   :LateJoinPlus] Timing: game memory 7128 MB of 65311 MB, 196 MB of it from mods and scripts; textures 1795 MB of 4004 MB video memory.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Timing: game memory 5056 MB of 65311 MB, 129 MB of it from mods and scripts; textures 806 MB of 4004 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning: Unity Log] Received RPC "ChargingStationSegmentChangedRPC" for viewID 480 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] Failed to create agent because it is not close enough to the NavMesh
+   (seen 4 times in total)
+[Error  : Unity Log] Failed to find a PhotonView with ID=501 for incoming OwnershipUpdate event (newOwnerActorNumber=1), sender=1. If you load scenes, make sure to pause the message queue.
+   (seen 131 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Warning: Unity Log] Received RPC "OpenImpulseRPC" for viewID 595 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "HaulGoalSetRPC" for viewID 517 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Warning: Unity Log] Received RPC "BatteryToggleRPC" for viewID 535 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Warning: Unity Log] Received RPC "BatteryFullPercentChangeRPC" for viewID 535 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "JumpingSetRPC" for viewID 643 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "DollarValueSetRPC" for viewID 641 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 5 times in total)
+[Warning: Unity Log] Received RPC "HingeBreakRPC" for viewID 601 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "SpawnRPC" for viewID 642 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "UpdateStateRPC" for viewID 644 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[Warning: Unity Log] Received RPC "IsSprintingRPC" for viewID 644 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[Warning: Unity Log] Received RPC "IsWalkingRPC" for viewID 644 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[Warning: Unity Log] Received RPC "IsTurningRPC" for viewID 644 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 7 times in total)
+[Warning: Unity Log] Received RPC "StartChargeRPC" for viewID 480 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "StopChargeRPC" for viewID 480 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 3' Maybe GO was destroyed but RPC not cleaned up.
+[Warning:LateJoinPlus] Joined mid-level: the host's late-join mod set up 3 level piece(s) that never reached this game (no floors or walls there). Nothing on this side can rebuild them; the next level loads fresh.
+   (seen 3 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 3 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 27 messages (about 85 bytes each).
