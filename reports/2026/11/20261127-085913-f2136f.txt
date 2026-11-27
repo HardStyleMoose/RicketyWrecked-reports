@@ -1,0 +1,459 @@
+LateJoinPlus bug report 20261127-085913-f2136f
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Shop Suburb"
+players: 17
+language: "en-US"
+test: false
+
+Mods (9):
+- "KitesRepoCosmetics" | "KiteSergal.KitesRepoCosmetics" | "1.1.0"
+- "EyesColorCustom" | "REPOJP.EyesColorCustom" | "1.3.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "SkinCopy" | "purtzel_hd.skincopy" | "1.3.1"
+- "TokenManager" | "purtzel_hd.tokenmanager" | "1.0.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 8
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26300)
+CPU: Intel(R) Core(TM) i5-14400 (16 threads)
+Memory: 32534 MB
+Graphics: NVIDIA GeForce RTX 4070 (12012 MB, Direct3D11)
+Screen: 2560x1440
+Slowest frame this game: 2363 ms
+Most memory this game: 5851 MB
+Most texture memory this game: 546 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Game methods several mods patch (22):
+  CursorManager.Unlock: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  InputManager.GetMouseX: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMouseY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMovement: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMovementX: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetMovementY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetRawMouseDelta: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.GetScrollY: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyDown: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyHold: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyPullAndPush: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyPullAndPushAnalog: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  InputManager.KeyUp: purtzel_hd.skincopy (prefix), purtzel_hd.tokenmanager (prefix)
+  NetworkConnect.OnJoinedRoom: purtzel_hd.skincopy (postfix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  SemiFunc.InputHold: REPOJP.EyesColorCustom (prefix), ricketywrecked.repo.latejoinplus (postfix)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 2):
+  10:42:43 an error from Unity Log
+  10:45:28 an error from Unity Log
+(end of settings)
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Error  : Unity Log] OperationException : Failed to initialize localization, could not preload string tables.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1769 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 895 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2363 ms, 2 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1667 MB of 32534 MB, 59 MB of it from mods and scripts; textures 88 MB of 12012 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 17 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1,4 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: Moderators.
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: History.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-27T08:43:45] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Warning: Unity Log] Received RPC "SetupRPC" for viewID 1240 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 46' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 46' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 3' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 27' (player #28, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #35, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #46, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 24' (player #48, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 43' (player #53, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 37' (player #55, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 9' (player #57, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 35' (player #59, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 51' (player #60, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 23' (player #61, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 31' (player #64, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 40' (player #66, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 25' (player #67, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 42' (player #68, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 39' (player #69, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 15' (player #72, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 7' (player #75, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0,1 s for Player 46's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 24's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 23's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 43's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 51's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 35's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 37's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 27's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-27T08:43:50] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 66008 found. Remote voice p#64 v#1 not linked.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] The host has not sent 13 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[Info   :LateJoinPlus] Host room connections received: 13 matched our estimate, 0 corrected to the host's.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 1 protected, 5 with LateJoinPlus.
+[Info   :LateJoinPlus] Timing: game memory 2856 MB of 32534 MB, 124 MB of it from mods and scripts; textures 440 MB of 12012 MB video memory.
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 1 moderator(s), 2 protected, 5 with LateJoinPlus.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 17' (player #77, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 17' (player #77, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 6 KB in 106 messages (about 59 bytes each).
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 2 moderator(s), 2 protected, 6 with LateJoinPlus.
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 1228 but this PhotonView does not exist! Was remote PV. Remote called. By: #66 'Player 40' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 1228 but this PhotonView does not exist! Was remote PV. Remote called. By: #66 'Player 40' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "FlashlightFlickerRPC" for viewID 1118 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 46' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 46's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 24's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 23's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 3's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 46' peaked at 1009 messages/s (flood limit 500); most data from one player 208 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 51's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 42's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 40's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 25's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 9's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 35's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 43's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 7's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 37's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 27's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 31's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 17's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 3434 MB of 32534 MB, 140 MB of it from mods and scripts; textures 546 MB of 12012 MB video memory.
+[Warning: Unity Log] [2026-11-27T08:49:28] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #2 of player 66 not found when trying to remove
+=== Previous game session ===
+[08:57:17.347] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 55 patches applied, 0 failed.
+[08:57:19.842] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[08:57:19.844] [Warning:HarmonyX] AccessTools.Method: type is null
+[08:57:20.495] [Error  :Unity Log] OperationException : Failed to initialize localization, could not preload string tables.
+[08:57:21.171] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[08:57:21.173] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[08:57:21.174] [Info   :LateJoinPlus] Timing: start-up took 1948 ms.
+[08:57:21.174] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[08:57:21.174] [Info   :LateJoinPlus] Timing: late patches took 894 ms.
+[08:57:21.211] [Warning:Unity Log] Unable to load font face for [] font asset.
+[08:57:21.432] [Info   :LateJoinPlus] Timing: slowest frame so far 2372 ms, 2 s after start.
+[08:57:21.433] [Info   :LateJoinPlus] Timing: game memory 1667 MB of 32534 MB, 72 MB of it from mods and scripts; textures 88 MB of 12012 MB video memory.
+[08:57:21.433] [Info   :LateJoinPlus] Timing: Chinese font set-up took 18 ms and 1 MB.
+[08:57:21.433] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1,3 ms (13 fonts).
+[08:57:32.824] [Info   :Unity Log] leaving photon
+[08:57:32.826] [Info   :Unity Log] Leave to Main Menu
+[08:57:48.321] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[08:58:04.416] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[08:58:04.433] [Warning:Unity Log] [2026-11-27T06:58:04] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[08:58:04.699] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 33' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.700] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 32' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.700] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 26' (player #21, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.700] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 45' (player #23, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.701] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #24, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.701] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 29' (player #34, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[08:58:04.775] [Warning:Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 24198 but this PhotonView does not exist! Was remote PV. Owner called. By: #24 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[08:58:04.776] [Warning:Unity Log] Received RPC "SetupColorsRPC" for viewID 24198 but this PhotonView does not exist! Was remote PV. Owner called. By: #24 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[08:58:04.776] [Warning:Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 1400 but this PhotonView does not exist! Was remote PV. Remote called. By: #24 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[08:58:04.776] [Warning:Unity Log] Received RPC "SetupColorsRPC" for viewID 1400 but this PhotonView does not exist! Was remote PV. Remote called. By: #24 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[08:58:07.574] [Info   :LateJoinPlus] Waited 0,1 s for Player 33's Steam ID before loading their upgrades and name tag.
+[08:58:07.907] [Info   :LateJoinPlus] Waited 0,1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[08:58:07.908] [Info   :LateJoinPlus] Waited 0,1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[08:58:07.908] [Info   :LateJoinPlus] Waited 0,1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[08:58:07.908] [Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[08:58:09.389] [Warning:Unity Log] [2026-11-27T06:58:09] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 34008 found. Remote voice p#34 v#5 not linked.
+[08:58:11.720] [Info   :LateJoinPlus] The host has not sent 20 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[08:58:12.144] [Info   :LateJoinPlus] Waited 0,1 s for Player 29's Steam ID before loading their upgrades and name tag.
+[08:58:12.339] [Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[08:58:12.339] [Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+[08:58:12.784] [Info   :LateJoinPlus] Host room connections received: 20 matched our estimate, 0 corrected to the host's.
+[08:58:12.784] [Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[08:58:20.101] [Info   :LateJoinPlus] Timing: game memory 2951 MB of 32534 MB, 102 MB of it from mods and scripts; textures 399 MB of 12012 MB video memory.
+[08:59:13.786] [Warning:Unity Log] BoxCollider does not support negative scale or size.
+   (seen 5 times in total)
+[08:59:17.094] [Error  :Unity Log] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+   (seen 4 times in total)
+[08:59:17.124] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+Cosmetic.CustomTypesLogic () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+Cosmetic.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+   (seen 8 times in total)
+[09:04:11.531] [Warning:Unity Log] [2026-11-27T07:04:11] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #5 of player 34 not found when trying to remove
+   (seen 3 times in total)
+[09:04:55.743] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 34' (player #38, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:05:05.438] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 8 times in total)
+[09:05:25.886] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 34' (player #38, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 163 bytes each).
+[09:07:07.353] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 30' (player #39, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:07:37.477] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 30' (player #39, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 26 messages (about 93 bytes each).
+[09:10:45.372] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 38' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:11:15.481] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 38' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 28 messages (about 163 bytes each).
+[09:11:35.019] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Calls.
+[09:13:33.124] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #41, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:14:03.221] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #41, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 159 bytes each).
+[09:14:24.584] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 2 times in total)
+[09:14:24.584] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[09:16:29.426] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[09:18:42.406] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 28' (player #42, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:19:12.511] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 28' (player #42, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 1 KB in 11 messages (about 102 bytes each).
+[09:24:55.063] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 33' peaked at 1177 messages/s (flood limit 500); most data from one player 241 KB/s (limit 100); 0 messages dropped.
+[09:24:55.210] [Info   :LateJoinPlus] Waited 0,1 s for Player 33's Steam ID before loading their upgrades and name tag.
+[09:24:55.221] [Info   :LateJoinPlus] Waited 0,1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[09:24:55.257] [Info   :LateJoinPlus] Waited 0,1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[09:24:55.275] [Info   :LateJoinPlus] Waited 0,1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[09:24:55.295] [Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[09:24:55.457] [Info   :LateJoinPlus] Waited 0,1 s for Player 28's Steam ID before loading their upgrades and name tag.
+[09:28:06.158] [Info   :LateJoinPlus] Waited 0,1 s for Player 33's Steam ID before loading their upgrades and name tag.
+[09:28:06.177] [Info   :LateJoinPlus] Waited 0,1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[09:28:06.198] [Info   :LateJoinPlus] Waited 0,1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[09:28:06.215] [Info   :LateJoinPlus] Waited 0,1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[09:28:06.237] [Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[09:28:06.817] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 33' peaked at 193 messages/s (flood limit 500); most data from one player 31 KB/s (limit 100); 0 messages dropped.
+[09:28:14.498] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 420 but this PhotonView does not exist! Was remote PV. Remote called. By: #21 'Player 26' Maybe GO was destroyed but RPC not cleaned up.
+[09:28:14.498] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 420 but this PhotonView does not exist! Was remote PV. Remote called. By: #21 'Player 26' Maybe GO was destroyed but RPC not cleaned up.
+[09:28:45.717] [Info   :LateJoinPlus] Waited 0,1 s for Player 33's Steam ID before loading their upgrades and name tag.
+[09:28:45.737] [Info   :LateJoinPlus] Waited 0,1 s for Player 26's Steam ID before loading their upgrades and name tag.
+[09:28:45.761] [Info   :LateJoinPlus] Waited 0,1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[09:28:45.777] [Info   :LateJoinPlus] Waited 0,1 s for Player 32's Steam ID before loading their upgrades and name tag.
+[09:28:45.800] [Info   :LateJoinPlus] Waited 0,1 s for Player 45's Steam ID before loading their upgrades and name tag.
+[09:28:45.936] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 33' peaked at 165 messages/s (flood limit 500); most data from one player 26 KB/s (limit 100); 0 messages dropped.
+[09:29:47.405] [Info   :Unity Log] leaving photon
+[09:29:47.498] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[09:29:47.501] [Info   :Unity Log] Leave to Main Menu
+[09:30:13.062] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[09:31:25.174] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[09:31:25.174] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[09:31:25.300] [Warning:Unity Log] [2026-11-27T07:31:25] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Микрофон (Realtek(R) Audio)
+[09:31:25.663] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] НЯШКИ ВКУСНЯШКИ 16=^.^='; as typed: 'няшки вкусняшки 16=^.^='.
+[09:31:33.426] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Overview (as host).
+   (seen 2 times in total)
+[09:31:35.890] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 7 times in total)
+[09:31:36.899] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[09:31:38.029] [Info   :LateJoinPlus] [Admin] Host upgradeall You: not done - Not now: wait until the level has loaded.
+   (seen 2 times in total)
+[09:31:45.066] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[09:31:50.077] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[09:31:51.072] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[09:31:51.640] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+   (seen 2 times in total)
+[09:31:59.925] [Info   :LateJoinPlus] Late joiner Player 48 connected (level Level - Manor). Catching them up.
+[09:32:00.370] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 48' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:32:01.760] [Info   :LateJoinPlus] [Admin] Health for You: 0 -> 5; max health on the host 100,00 -> 200,00 (expected 200,00)
+[09:32:01.760] [Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 5.
+[09:32:01.760] [Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 5.
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 5; grab strength on the host 1,00 -> 2,00 (expected 2,00)
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] Range for You: 0 -> 5; grab range on the host 2,50 -> 7,50 (expected 7,50)
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 5; throw strength on the host 0,00 -> 1,50 (expected 1,50)
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 5.
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 5.
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 5.
+[09:32:01.761] [Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 5.
+[09:32:01.762] [Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 5.
+[09:32:01.762] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 5.
+[09:32:01.762] [Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 5.
+[09:32:01.763] [Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 5.
+[09:32:01.953] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.953] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.953] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.953] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.954] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.954] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.954] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.954] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.954] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.955] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.955] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.955] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:01.955] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:32:03.461] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 48 (without LateJoinPlus).
+[09:32:07.953] [Info   :LateJoinPlus] Late joiner Player 48 finished loading in 8,0 s (without LateJoinPlus).
+[09:32:09.284] [Info   :LateJoinPlus] Uncovered 1 explored room(s) on Player 48's map (8 messages).
+[09:32:30.429] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 48' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 36 messages (about 148 bytes each).
+[09:33:24.458] [Info   :LateJoinPlus] Late joiner Player 41 connected (level Level - Manor). Catching them up.
+[09:33:24.579] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 41' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:33:24.828] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.829] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.829] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.829] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.830] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.830] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.830] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.830] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.831] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.831] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.831] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.831] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:24.831] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:26.574] [Info   :LateJoinPlus] Late joiner Player 19 connected (level Level - Manor). Catching them up.
+[09:33:26.587] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 19' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.145] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.147] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.147] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.147] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.147] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.148] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:33:27.467] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 41 (without LateJoinPlus).
+[09:33:29.583] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 19 (without LateJoinPlus).
+[09:33:31.974] [Info   :LateJoinPlus] Late joiner Player 41 finished loading in 7,5 s (without LateJoinPlus).
+[09:33:34.918] [Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 41's map (45 messages).
+[09:33:54.663] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 41' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 168 bytes each).
+[09:33:56.674] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 19' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 8 messages (about 82 bytes each).
+[09:34:24.680] [Info   :LateJoinPlus] Late joiner Player 49 connected (level Level - Manor). Catching them up.
+[09:34:24.773] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 49' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:34:25.308] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.309] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.310] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.310] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.310] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.310] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.310] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:25.311] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:34:27.699] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 49 (without LateJoinPlus).
+[09:34:28.014] [Info   :LateJoinPlus] [Admin] Throw for You: 5 -> 30; throw strength on the host 1,50 -> 9,00 (expected 9,00)
+[09:34:28.015] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 30.
+[09:34:32.302] [Info   :LateJoinPlus] Late joiner Player 49 finished loading in 7,6 s (without LateJoinPlus).
+[09:34:35.261] [Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 49's map (46 messages).
+[09:34:41.895] [Info   :LateJoinPlus] [Admin] Throw for You: 30 -> 5; throw strength on the host 9,00 -> 1,50 (expected 1,50)
+[09:34:41.896] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 5.
+[09:34:43.056] [Info   :LateJoinPlus] Late joiner Player 19 finished loading in 76,5 s (without LateJoinPlus).
+[09:34:44.136] [Info   :LateJoinPlus] [Admin] Strength for You: 5 -> 30; grab strength on the host 2,00 -> 7,00 (expected 7,00)
+[09:34:44.136] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 30.
+[09:34:45.929] [Info   :LateJoinPlus] Uncovered 6 explored room(s) on Player 19's map (43 messages).
+[09:34:54.876] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 49' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 164 bytes each).
+[09:35:46.979] [Info   :LateJoinPlus] Late joiner Player 47 connected (level Level - Manor). Catching them up.
+[09:35:47.053] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 47' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:35:47.246] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Health team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.247] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Stamina team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.247] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Speed team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.247] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Strength team level 30 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.247] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Range team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.248] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Throw team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.248] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: ExtraJump team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.248] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: Launch team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.248] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleWings team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.249] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: TumbleClimb team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.249] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: CrouchRest team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.249] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: DeathHeadBattery team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.249] [Info   :LateJoinPlus] [Admin] SharedUpgradesPlus join sync for [steamid]: MapPlayerCount team level 5 -> 0 (levels given in the Admin panel stay with that player).
+[09:35:47.807] [Info   :LateJoinPlus] [Menu] LATE JOIN menu: Players (as host).
+   (seen 2 times in total)
+[09:35:49.989] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 47 (without LateJoinPlus).
+[09:35:52.318] [Warning:Lobby Guard] [Lobby Guard] You banned 'Player 19' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:35:55.574] [Info   :LateJoinPlus] Late joiner Player 47 finished loading in 8,6 s (without LateJoinPlus).
+[09:35:58.748] [Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 47's map (50 messages).
+[09:36:05.453] [Info   :LateJoinPlus] [Admin] Strength for You: 30 -> 5; grab strength on the host 7,00 -> 2,00 (expected 2,00)
+[09:36:05.453] [Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 5.
+[09:36:17.135] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 47' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 32 messages (about 160 bytes each).
+[09:37:13.554] [Warning:Lobby Guard] [Lobby Guard] You banned 'Player 41' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[09:37:28.277] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[09:37:28.772] [Warning:Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_27_09_31_20
