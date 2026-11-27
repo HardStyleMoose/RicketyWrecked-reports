@@ -1,0 +1,1612 @@
+LateJoinPlus bug report 20261127-172716-d9433f
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "host"
+level: "Level - Arctic"
+players: 11
+language: "en-US"
+test: false
+
+Mods (13):
+- "MoonApproved" | "Enderly_Mods.MoonApproved" | "1.0"
+- "MoreValue" | "Patt.MoreValue" | "1.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Shop Items spawn in Level" | "REPO_Shop_Items_in_Level" | "1.7.21"
+- "StorableValuables" | "Tolga.StoreValuables" | "1.0.4"
+- "KeybindLib" | "bulletbot.keybindlib" | "1.0.6"
+- "R.E.P.O. Admin Menu" | "com.aziz.repomenu" | "1.8.5"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "EnemyDrops" | "osmarbriones.EnemyDrops" | "2.2.1"
+- "Hauler Unlimited Storage" | "repo.hauler.unlimited" | "1.0.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 120
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = true
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26100)
+CPU: 12th Gen Intel(R) Core(TM) i5-12450H (12 threads)
+Memory: 32436 MB
+Graphics: NVIDIA GeForce GTX 1650 (3935 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 4892 ms
+Most memory this game: 5246 MB
+Most texture memory this game: 428 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility
+Patches that failed: InputManager.InitializeInputs
+Who patches the methods in this log's errors:
+  InputManager.InitializeInputs: bulletbot.keybindlib (transpiler)
+  ILHook+Context.Refresh: no patch on it now
+Game methods several mods patch (10):
+  EnemyDirector.Start: osmarbriones.EnemyDrops (postfix), ricketywrecked.repo.fixes (finalizer)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ItemValuableBox.OnObjectsFound: repo.hauler.unlimited (prefix), ricketywrecked.repo.fixes (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.SetItemNameLOGIC: osmarbriones.EnemyDrops (postfix), ricketywrecked.repo.fixes (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  StatsManager.RunStartStats: osmarbriones.EnemyDrops (postfix), REPOLib (postfix)
+Timeline (last 42):
+  11:00:39 an error from HarmonyX
+  11:00:39 an error from Unity Log
+  11:00:44 an error from HarmonyX
+  11:00:44 an error from Unity Log
+  11:00:50 an error from HarmonyX
+  11:00:50 an error from Unity Log
+  11:01:11 an error from HarmonyX
+  11:01:11 an error from Unity Log
+  11:01:17 an error from HarmonyX
+  11:01:17 an error from Unity Log
+  11:02:58 an error from HarmonyX
+  11:02:58 an error from Unity Log
+  11:02:58 an error from HarmonyX
+  11:02:58 an error from Unity Log
+  11:02:58 Level 'Level - Lobby Menu'
+  11:06:30 Level change waited 8 s for everyone's results screen; the last to finish: Player 118 (4 s after the others).
+  11:06:30 an error from HarmonyX
+  11:06:30 an error from Unity Log
+  11:06:31 an error from HarmonyX
+  11:06:31 an error from Unity Log
+  11:06:31 Level 'Level - Arctic'
+  11:06:41 Level built in 10 s. Slowest step: valuables, 3 s from the first player to the last, Player 67.
+  11:10:12 an error from HarmonyX
+  11:10:12 an error from Unity Log
+  11:10:12 an error from HarmonyX
+  11:10:12 an error from Unity Log
+  11:10:51 an error from HarmonyX
+  11:10:51 an error from Unity Log
+  11:10:52 an error from HarmonyX
+  11:10:52 an error from Unity Log
+  11:11:40 Level built in 48 s. Slowest step: rooms, 16.1 s from the first player to the last, Player 67.
+  11:21:05 an error from Unity Log
+  11:24:40 an error from Unity Log
+  11:25:46 an error from Unity Log
+  11:25:58 Level change waited 17 s for everyone's results screen; the last to finish: Player 67 (0 s after the others).
+  11:25:58 an error from HarmonyX
+  11:25:58 an error from Unity Log
+  11:25:59 an error from HarmonyX
+  11:25:59 an error from Unity Log
+  11:25:59 Level 'Level - Arctic'
+  11:26:42 Level built in 42 s. Slowest step: rooms, 10.2 s from the first player to the last, Player 67.
+  11:26:52 an error from Unity Log
+(end of settings)
+[Info   :R.E.P.O Fixes+] [Mod guards] Hauler Unlimited Storage found; the hauler only takes valuables again (non-valuables were being destroyed for $0).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Warning:  HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 120 times in total)
+[Error  :  HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 15 times in total)
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?398669002(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 5 times in total)
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[Warning:  HarmonyX] AccessTools.Method: type is null
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 4879 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1555 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 4892 ms, 5 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1538 MB of 32436 MB, 86 MB of it from mods and scripts; textures 88 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 17 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1.9 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-27T17:01:17] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] FREE COSMETICS AND WERE RICH AND PLEASE JOIN :D GREEN ARMY'; as typed: 'free cosmetics and were RICH and please join :D GREEN ARMY'.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 118' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 118' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 39 messages (about 103 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 97' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (3 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Error  : Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?398669002(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+   (seen 10 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Lobby Menu': OK | joins 0 (0 with LateJoinPlus), loaded 0 (-), left while loading 0, still loading at level end 0, stuck 0 | map reveal 0 (0 rooms) | extraction: opened for joiner 0, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 0
+[Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 97's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 118's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 118' peaked at 38 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] [Menu] Volume for Player 97 set to 125%.
+   (seen 4 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 97' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 30 messages (about 122 bytes each).
+[Info   :LateJoinPlus] Timing: game memory 2114 MB of 32436 MB, 89 MB of it from mods and scripts; textures 244 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 47 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Warning: Unity Log] [2026-11-27T17:03:26] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #7 of player 3 not found when trying to remove
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 30; grab strength on the host 5.00 -> 11.00 (expected 11.00)
+[Info   :LateJoinPlus] [Admin] Range for You: 0 -> 30; grab range on the host 18.00 -> 48.00 (expected 48.00)
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Health for Player 118: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 118: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 118: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 118: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 118: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 11 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] Late joiner Player 10 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 10' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 10 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 10 finished loading in 8.0 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 10's map (19 messages).
+[Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Health for Player 10: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 10: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 10: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 10: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 10: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 10' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 40 messages (about 97 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host power You: done - Enemies ignore them for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[Info   :LateJoinPlus] [Admin] Host power You: done - No tumbling for You: on.
+[Info   :LateJoinPlus] Late joiner Player 67 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 67' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 67 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Arctic Coffee Cup ×1.
+[Info   :LateJoinPlus] Late joiner Player 2 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 2' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Late joiner Player 67 finished loading in 14.8 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 67's map (19 messages).
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 2 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 2 finished loading in 10.4 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Health for Player 67: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 67: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 67: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 67: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 67: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Health for Player 2: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 2: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 2: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 2: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 2: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 2's map (18 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 67' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 13 messages (about 158 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 2' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 19 messages (about 168 bytes each).
+[Info   :LateJoinPlus] Late joiner Player 128 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 128' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 128 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 128 finished loading in 9.2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] Uncovered 3 explored room(s) on Player 128's map (19 messages).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (2 on the results screen, 0 loading, 4 ready); the players panel is up.
+[Info   :LateJoinPlus] [Run] Level change waited 8 s for everyone's results screen; the last to finish: Player 118 (4 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 4 (0 with LateJoinPlus), loaded 4 (avg 10.6 s, slowest 14.8 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 4 (12 rooms) | extraction: opened for joiner 3, already had it 1, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 3 | slow catch-up steps 3 (slowest 23 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 118's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 10' peaked at 70 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 128's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Menu] Volume for Player 67 set to 125%.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] Waited 0.1 s for Player 67's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Menu] Volume for Player 2 set to 125%.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Menu] Volume for Player 128 set to 125%.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] [Menu] Volume for Player 10 set to 125%.
+   (seen 4 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 128' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 7 KB in 28 messages (about 279 bytes each).
+[Info   :LateJoinPlus] [Run] Level built in 10 s. Slowest step: valuables, 3 s from the first player to the last, Player 67.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 10: not done - Player 10 is already on the floor.
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused the shop checkout by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Health for Player 128: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 128: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 128: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 128: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 128: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 10: done - Knocked Player 10 over.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] Timing: game memory 2631 MB of 32436 MB, 105 MB of it from mods and scripts; textures 368 MB of 3935 MB video memory.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "LandRPC" for viewID 5010 but this PhotonView does not exist! Was remote PV. Owner called. By: #05 'Player 67' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 128' peaked at 67 messages/s (flood limit 500); most data from one player 9 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 118's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 128's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 67's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 148 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 118' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 148 but this PhotonView does not exist! Was remote PV. Remote called. By: #02 'Player 118' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Admin] Range for Player 118: 31 -> 30; grab range on the host 33.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 118: 31 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 118: 31 -> 30.
+[Info   :LateJoinPlus] [Admin] Stamina for Player 128: 31 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 128: 32 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 67 (#5): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Warning: Unity Log] Received RPC "GrabLinkRPC" for viewID 154 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "GrabPointSyncRPC" for viewID 154 but this PhotonView does not exist! Was remote PV. Remote called. By: #06 'Player 2' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] [Admin] Host world: done - Endless batteries: on.
+[Info   :LateJoinPlus] [Admin] Host world: done - Enemies die in one hit: on.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 2 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 118 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Host world: done - Enemies die in one hit: off.
+[Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[Info   :LateJoinPlus] [Admin] Host world: done - No traps: on.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 2 (#6): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Host world: done - Free shopping: on.
+[Info   :LateJoinPlus] [Admin] Host world: done - The shopkeeper sleeps: on.
+[Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 128 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[Info   :LateJoinPlus] [Admin] Host levelnum: done - Level number set to 99, from the next level.
+[Info   :LateJoinPlus] [Admin] Host level: done - Going to McJannek Station.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (6 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 0 loading, 6 ready); the players panel is up.
+[Warning: Unity Log] Received RPC "TumbleRequestRPC" for viewID 1086 but this PhotonView does not exist! View was/is ours. Remote called. By: #05 'Player 67'
+   (seen 17 times in total)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 6 player(s) (0 on the results screen, 5 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 118's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 128's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 118' peaked at 62 messages/s (flood limit 500); most data from one player 7 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 67's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] [Run] Level built in 48 s. Slowest step: rooms, 16.1 s from the first player to the last, Player 67.
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Death drop] Player 67 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: not done - Player 118 isn't dead.
+[Info   :LateJoinPlus] Late joiner Player 33 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 33' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 33 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Stamina for Player 2: 32 -> 30.
+[Info   :LateJoinPlus] [Admin] Health for Player 128: 31 -> 30; max health on the host 720.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Health for Player 33: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 33: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 33: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 33: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 33: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 3 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[Info   :LateJoinPlus] Late joiner Player 33 finished loading in 9.0 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[Info   :LateJoinPlus] Uncovered 4 explored room(s) on Player 33's map (23 messages).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[Info   :LateJoinPlus] [Death drop] Player 67 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 33' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 7 KB in 48 messages (about 160 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 33 died; the host shows them holding 1 item(s).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 33 when they died: Player Death Head(Clone) #1101 2.9 m away, floor 0.45 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +0.5 s, held by Player 33 when they died: Player Death Head(Clone) #1101 2.8 m away, floor 0.11 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Death drop] +3 s, held by Player 33 when they died: Player Death Head(Clone) #1101 2.9 m away, floor 0.06 m | state - | held by nobody | kinematic False collisions True colliders on 3/3 | active True deactivate -123 pin 0 | view owner 1
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 33 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 33' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 3 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 33 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Late joiner Player 33 finished loading in 8.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 33's map (46 messages).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Admin] Host bring Player 118: done - Moved Player 118 to You.
+[Info   :LateJoinPlus] [Admin] Host heal Player 118: done - Healed Player 118.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 33' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Death drop] Player 67 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Player 33 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[Info   :LateJoinPlus] [Slots] Player 33 tried to put Item WalkieTalkie/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Slots] Player 33 tried to put Item WalkieTalkie/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Slots] Player 33 tried to put Item WalkieTalkie/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 7 player(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] Late joiner Player 47 connected (level Level - Arctic). Catching them up.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 47' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 47 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 47 finished loading in 10.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Uncovered 10 explored room(s) on Player 47's map (56 messages).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 47' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 168 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host bring Player 118: done - Moved Player 118 to You.
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host heal Player 118: done - Healed Player 118.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Health for Player 47: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 47: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 47: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 47: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 47: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Death drop] Player 33 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 79 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 79' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 79 (without LateJoinPlus).
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 9 times in total)
+[Info   :LateJoinPlus] Late joiner Player 79 finished loading in 26.2 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Health for Player 79: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 79: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 79: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 79: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 79: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 79' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 155 bytes each).
+[Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 79's map (112 messages).
+[Info   :LateJoinPlus] [Death drop] Player 128 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 79 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[Info   :LateJoinPlus] [Slots] Player 67 put Item Staff Torque/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] Player 67 took Item Staff Torque/1 out of slot 1 (0.9 m away, 0.7 m above their feet).
+[Info   :LateJoinPlus] [Death drop] Player 79 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 67 put Item Staff Torque/1 in slot 1.
+[Info   :LateJoinPlus] [Death drop] Player 128 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 3 player(s).
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 79 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Death drop] Player 67 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Slots] Player 67's Item Staff Torque/1 was forced out of slot 1, as happens when someone dies (1.4 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Staff Torque(Clone) #437 0.0 m away, floor 0.07 m | state Idle owner 5024 | held by nobody | kinematic True collisions False colliders on 2/2 | active False deactivate 0.04 pin -0.06 | view owner 1
+[Info   :LateJoinPlus] Late joiner Player 4 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 4' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Staff Torque(Clone) #437 1.5 m away, floor 7.29 m | state Idle owner 5024 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.06 | view owner 1
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 3 player(s).
+[Info   :LateJoinPlus] [Death drop] An item dropped from a dead player's slot is gone (destroyed or picked up into a slot).
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 4 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[Info   :LateJoinPlus] Late joiner Player 4 finished loading in 8.0 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: not done - Player 118 isn't dead.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 4's map (107 messages).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: done - Knocked Player 118 over.
+[Info   :LateJoinPlus] [Death drop] Player 4 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host tumble Player 118: not done - Player 118 is already on the floor.
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 4' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 35 messages (about 164 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host revive Player 118: done - Revived Player 118.
+[Info   :LateJoinPlus] [Admin] Host heal Player 118: done - Healed Player 118.
+[Info   :LateJoinPlus] [Admin] Health for Player 4: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 4: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 4: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 4: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 4: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[Info   :LateJoinPlus] [Death drop] Player 10 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Late joiner Player 15 connected (level Level - Arctic). Catching them up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 15' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 15 (without LateJoinPlus).
+[Info   :LateJoinPlus] Late joiner Player 15 finished loading in 19.5 s (without LateJoinPlus).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[Info   :LateJoinPlus] [Admin] Health for Player 15: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Stamina for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Speed for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Strength for Player 15: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Range for Player 15: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Throw for Player 15: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Launch for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 15: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Death drop] Player 79 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 15's map (104 messages).
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 15' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 163 bytes each).
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[Info   :LateJoinPlus] [Admin] Host bring Player 15: done - Moved Player 15 to You.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 10 player(s).
+[Info   :LateJoinPlus] Late joiner Player 133 connected (level Level - Arctic). Catching them up.
+[Info   :LateJoinPlus] [Death drop] Player 79 died; the host shows them holding 0 item(s).
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 133' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Sent the setup of 21 level piece(s) once to Player 133 (without LateJoinPlus).
+[Info   :LateJoinPlus] [Admin] Host next: done - Going to the next level.
+[Info   :LateJoinPlus] Not waiting for Player 133 at the end of the level: they are still on the loading screen. The next level loads for them as well.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (6 on the results screen, 0 loading, 5 ready); the players panel is up.
+[Info   :LateJoinPlus] [Menu] Volume for Player 47 set to 125%.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Menu] Volume for Player 4 set to 125%.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Menu] Volume for Player 79 set to 125%.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] Ignored a request to start extraction point 157 (requested by a player): it is Complete, not ready. Starting it would have locked every other extraction point for the rest of the level (prevented).
+[Info   :LateJoinPlus] [Menu] Volume for Player 15 set to 125%.
+   (seen 5 times in total)
+[Info   :LateJoinPlus] [Menu] Volume for Player 133 set to 125%.
+   (seen 6 times in total)
+[Info   :LateJoinPlus] [Run] Level change waited 17 s for everyone's results screen; the last to finish: Player 67 (0 s after the others).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (0 on the results screen, 0 loading, 11 ready); the players panel is up.
+[Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 7 (0 with LateJoinPlus), loaded 6 (avg 13.6 s, slowest 26.2 s), left while loading 0, still loading at level end 1, stuck 0 | map reveal 6 (83 rooms) | extraction: opened for joiner 4, already had it 0, softlocks prevented 1, auto-presses ignored 2 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 7 | slow catch-up steps 19 (slowest 87 ms)
+[Info   :LateJoinPlus] [Moderators] Loading screen: 11 player(s) (0 on the results screen, 10 loading, 1 ready); the players panel is up.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 4's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 47's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 118's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 10's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 133's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 79's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 2's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 128's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 4' peaked at 52 messages/s (flood limit 500); most data from one player 8 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 67's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 133' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 29 messages (about 85 bytes each).
+[Info   :LateJoinPlus] [Run] Level built in 42 s. Slowest step: rooms, 10.2 s from the first player to the last, Player 67.
+[Warning:LateJoinPlus] Making a new Steam lobby so everyone can invite friends: 'Player 133' couldn't get into it (their game already holds this lobby's ID).
+[Info   :LateJoinPlus] New Steam lobby ready (109775241484102074); sent it to 10 player(s).
+=== Previous game session ===
+[17:51:56.186] [Info   :R.E.P.O Fixes+] [Mod guards] Hauler Unlimited Storage found; the hauler only takes valuables again (non-valuables were being destroyed for $0).
+[17:51:58.236] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[17:51:59.859] [Warning:HarmonyX] AccessTools.Field: Could not find field for type InputManager and name inputToggle
+   (seen 66 times in total)
+[17:51:59.865] [Error  :HarmonyX] Failed to patch void InputManager::InitializeInputs(): System.ArgumentNullException: Invalid argument for ldflda NULL
+   (seen 11 times in total)
+[17:51:59.869] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-487189302(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+   (seen 7 times in total)
+[17:52:02.223] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[17:52:02.634] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[17:52:03.169] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named BigFriendlyButton.Services.ExtractionButton
+[17:52:03.169] [Warning:HarmonyX] AccessTools.Method: type is null
+[17:52:04.853] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[17:52:04.853] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[17:52:04.853] [Info   :LateJoinPlus] Timing: start-up took 6582 ms.
+[17:52:04.853] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 1 Steam IDs, on).
+[17:52:04.853] [Info   :LateJoinPlus] Timing: late patches took 1285 ms.
+[17:52:04.894] [Warning:Unity Log] Unable to load font face for [] font asset.
+[17:52:05.290] [Info   :LateJoinPlus] Timing: slowest frame so far 3718 ms, 4 s after start.
+[17:52:05.290] [Info   :LateJoinPlus] Timing: game memory 1538 MB of 32436 MB, 58 MB of it from mods and scripts; textures 88 MB of 3935 MB video memory.
+[17:52:05.290] [Info   :LateJoinPlus] Timing: Chinese font set-up took 16 ms and 1 MB.
+[17:52:05.290] [Info   :LateJoinPlus] Timing: the 3-second font scan took 1.7 ms (13 fonts).
+[17:52:10.203] [Info   :Unity Log] leaving photon
+[17:52:10.212] [Info   :Unity Log] Leave to Main Menu
+[17:52:19.840] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 3 times in total)
+[17:52:30.085] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[17:52:30.085] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[17:52:30.433] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[17:52:30.466] [Warning:Unity Log] [2026-11-26T23:52:30] [Warning] [Recorder] [Voice(Clone)] Refreshing recording for Microphone Array (2- Intel® Smart Sound Technology for Digital Microphones)
+[17:52:31.674] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] FREE COSMETICS AND WERE RICH AND PLEASE JOIN :D INF HAULER'; as typed: 'free cosmetics and were RICH and please join :D INF HAULER'.
+[17:52:33.632] [Info   :LateJoinPlus] Timing: game memory 2060 MB of 32436 MB, 63 MB of it from mods and scripts; textures 116 MB of 3935 MB video memory.
+[17:52:51.656] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 15' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[17:53:01.436] [Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[17:53:06.490] [Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[17:53:07.461] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (2 on the results screen, 0 loading, 0 ready); the players panel is up.
+[17:53:08.222] [Error  :Unity Log] ArgumentNullException: Invalid argument for ldflda NULL
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) (at <6733e342b5b549bba815373898724469>:0)
+MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+(wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?-487189302(object)
+HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+MonoMod.RuntimeDetour.ILHook.Apply () (at <4e2760c7517c4ea79c633d67e84b319f>:0)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+KeybindLib.Plugin.<Awake>b__8_0 (UnityEngine.SceneManagement.Scene <p0>, UnityEngine.SceneManagement.Scene <p1>) (at <60cb781ccc98403f990dbed9a796f812>:0)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.SceneManagement.SceneManager:SetActiveScene(Scene)
+Photon.Pun.PhotonNetwork:SceneLoadScopedComplete(Scene, LoadSceneMode)
+Photon.Pun.PhotonNetwork:NewSceneLoaded(Scene, LoadSceneMode)
+Photon.Pun.<>c:<Start>b__13_0(Scene, LoadSceneMode)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode)
+   (seen 4 times in total)
+[17:53:08.236] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 0 loading, 2 ready); the players panel is up.
+[17:53:08.559] [Info   :LateJoinPlus] [Moderators] Loading screen: 2 player(s) (0 on the results screen, 1 loading, 1 ready); the players panel is up.
+[17:53:08.712] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 15' peaked at 34 messages/s (flood limit 500); most data from one player 3 KB/s (limit 100); 0 messages dropped.
+[17:53:08.719] [Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[17:53:11.662] [Info   :LateJoinPlus] [Menu] Volume for Player 15 set to 125%.
+   (seen 6 times in total)
+[17:53:21.797] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 15' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 29 messages (about 146 bytes each).
+[17:53:33.653] [Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 58 times in total)
+[17:53:33.653] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 30; grab strength on the host 5.00 -> 11.00 (expected 11.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Range for You: 0 -> 30; grab range on the host 18.00 -> 48.00 (expected 48.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Health for Player 15: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Stamina for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Speed for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Strength for Player 15: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Range for Player 15: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Throw for Player 15: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Launch for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 15: 0 -> 30.
+[17:53:36.602] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[17:53:41.411] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:53:42.049] [Info   :LateJoinPlus] Late joiner Player 92 connected (level Level - Museum). Catching them up.
+[17:53:43.002] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 92' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[17:53:45.069] [Info   :LateJoinPlus] Sent the setup of 6 level piece(s) once to Player 92 (without LateJoinPlus).
+[17:53:48.478] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Health for Player 92: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Stamina for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Speed for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Strength for Player 92: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Range for Player 92: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Throw for Player 92: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] Launch for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 92: 0 -> 30.
+[17:53:49.725] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 92: 0 -> 30.
+[17:53:49.726] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[17:53:53.587] [Info   :LateJoinPlus] Late joiner Player 92 finished loading in 11.5 s (without LateJoinPlus).
+[17:53:55.074] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:53:55.291] [Info   :LateJoinPlus] Uncovered 2 explored room(s) on Player 92's map (14 messages).
+[17:53:58.952] [Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 16 times in total)
+[17:54:05.543] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[17:54:10.934] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[17:54:12.296] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 92' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 32 messages (about 155 bytes each).
+[17:54:30.714] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:54:35.800] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+   (seen 2 times in total)
+[17:54:44.112] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:54:45.200] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 6 times in total)
+[17:54:57.019] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:55:01.035] [Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[17:55:01.350] [Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: off.
+[17:55:01.834] [Info   :LateJoinPlus] [Admin] Host world: done - Valuables don't break: on.
+[17:55:02.476] [Info   :LateJoinPlus] [Admin] Host world: done - Endless batteries: on.
+[17:55:03.403] [Info   :LateJoinPlus] [Admin] Host world: done - Enemies die in one hit: on.
+[17:55:12.371] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:55:15.484] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode.
+[17:55:15.484] [Info   :LateJoinPlus] [Admin] Host power You: done - God mode for You: on.
+[17:55:15.946] [Info   :LateJoinPlus] [Admin] Host power You: done - Enemies ignore them for You: on.
+[17:55:16.463] [Info   :LateJoinPlus] [Admin] Our powers from the host: God mode, Endless stamina.
+[17:55:16.463] [Info   :LateJoinPlus] [Admin] Host power You: done - Endless stamina for You: on.
+[17:55:16.887] [Info   :LateJoinPlus] [Admin] Host power You: done - No tumbling for You: on.
+[17:55:22.679] [Info   :LateJoinPlus] [Admin] Host world: done - Enemies die in one hit: off.
+[17:55:23.572] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:23.898] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:23.898] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:23.898] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:23.898] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: off.
+[17:55:24.568] [Info   :LateJoinPlus] [Admin] Host world: done - The duck stays friendly: on.
+[17:55:39.292] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:55:42.133] [Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 30, Stamina 30, Speed 30, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[17:55:46.620] [Info   :LateJoinPlus] [Admin] Host heal Player 15: done - Healed Player 15.
+[17:55:58.697] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:56:00.667] [Info   :LateJoinPlus] [Admin] Upgrades page for Player 15 (game id ok): Health 30, Stamina 30, Speed 30, Strength 30, Range 30, Throw 30, ExtraJump 30, Launch 30, TumbleWings 30, TumbleClimb 30, CrouchRest 30, DeathHeadBattery 30, MapPlayerCount 30.
+[17:56:03.233] [Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[17:56:03.233] [Info   :LateJoinPlus] [Admin] Host kill Player 15: done - Player 15 was killed.
+[17:56:09.081] [Info   :LateJoinPlus] [Admin] Host revive Player 15: done - Revived Player 15.
+[17:56:09.701] [Info   :LateJoinPlus] [Admin] Host heal Player 15: done - Healed Player 15.
+   (seen 4 times in total)
+[17:56:19.627] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[17:57:03.070] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:57:04.184] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Gun ×1.
+[17:57:05.434] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/2 in slot 1.
+[17:57:19.995] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/2 out of slot 1 (1.5 m away, 1.2 m above their feet).
+[17:57:21.839] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/2 in slot 1.
+[17:57:26.599] [Info   :LateJoinPlus] [Death drop] Player 92 died; the host shows them holding 0 item(s).
+[17:57:27.215] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:57:29.679] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[17:57:29.947] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[17:57:29.984] [Warning:Unity Log] Received RPC "ExtractRPC" for viewID 50 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'You' Maybe GO was destroyed but RPC not cleaned up.
+[17:57:30.176] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+   (seen 4 times in total)
+[17:57:31.270] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 3 player(s).
+   (seen 4 times in total)
+[17:57:36.184] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[17:57:37.162] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:57:49.729] [Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 15 (#2): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[17:57:49.946] [Info   :LateJoinPlus] [Admin] Host levelnum: done - Level number set to 99, from the next level.
+[17:58:05.995] [Info   :LateJoinPlus] [Admin] Host level: done - Going to McJannek Station.
+[17:58:10.569] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (2 on the results screen, 0 loading, 1 ready); the players panel is up.
+[17:58:13.854] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 0 loading, 3 ready); the players panel is up.
+[17:58:14.183] [Info   :LateJoinPlus] [Report] Level 'Level - Museum': OK | joins 1 (0 with LateJoinPlus), loaded 1 (avg 11.5 s, slowest 11.5 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 1 (2 rooms) | extraction: opened for joiner 1, already had it 0, softlocks prevented 0, auto-presses ignored 0 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 1 | slow catch-up steps 1 (slowest 27 ms)
+[17:58:14.207] [Info   :LateJoinPlus] [Moderators] Loading screen: 3 player(s) (0 on the results screen, 2 loading, 1 ready); the players panel is up.
+[17:58:14.344] [Info   :LateJoinPlus] Waited 0.1 s for Player 15's Steam ID before loading their upgrades and name tag.
+[17:58:14.358] [Info   :LateJoinPlus] Waited 0.1 s for Player 92's Steam ID before loading their upgrades and name tag.
+[17:58:14.581] [Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 92' peaked at 45 messages/s (flood limit 500); most data from one player 5 KB/s (limit 100); 0 messages dropped.
+[17:58:21.641] [Info   :LateJoinPlus] [Menu] Volume for Player 92 set to 125%.
+   (seen 5 times in total)
+[17:58:23.101] [Info   :LateJoinPlus] [Run] Level built in 8 s. Slowest step: rooms, 1 s from the first player to the last, Player 92.
+[17:58:23.129] [Info   :LateJoinPlus] [Slots] You's Item Gun Handgun/1 is back in slot 2 (the game restoring slots).
+[17:58:33.812] [Info   :LateJoinPlus] Timing: game memory 2683 MB of 32436 MB, 88 MB of it from mods and scripts; textures 393 MB of 3935 MB video memory.
+[17:58:43.750] [Info   :LateJoinPlus] [Slots] You's slot 1 should hold an item from before, but there's no such item on this level.
+[17:58:43.750] [Info   :LateJoinPlus] [Slots] 1 remembered item(s) are in their slots, 20 s into this level.
+[17:59:13.303] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[17:59:15.790] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 6 times in total)
+[17:59:22.884] [Info   :LateJoinPlus] [Death drop] Player 92 died; the host shows them holding 0 item(s).
+[18:00:04.525] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:00:07.530] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[18:00:28.809] [Info   :LateJoinPlus] Late joiner Player 132 connected (level Level - Arctic). Catching them up.
+[18:00:29.669] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 132' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:00:31.938] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 132 (without LateJoinPlus).
+[18:00:32.191] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Health for Player 132: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Stamina for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Speed for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Strength for Player 132: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Range for Player 132: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Throw for Player 132: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Launch for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 132: 0 -> 30.
+[18:00:35.771] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:00:36.046] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[18:00:41.726] [Info   :LateJoinPlus] Late joiner Player 132 finished loading in 12.9 s (without LateJoinPlus).
+[18:00:44.104] [Info   :LateJoinPlus] Uncovered 4 explored room(s) on Player 132's map (19 messages).
+[18:00:45.206] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:00:59.656] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 132' (player #4, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 31 messages (about 168 bytes each).
+[18:01:15.216] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:01:22.446] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 2 player(s) to you.
+[18:01:23.194] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[18:01:26.464] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 2 (1.4 m away, 1.0 m above their feet).
+[18:01:28.942] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[18:01:31.068] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[18:01:34.434] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[18:02:21.077] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:02:22.699] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 21 times in total)
+[18:03:00.902] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 2 (1.8 m away, 1.6 m above their feet).
+[18:03:03.357] [Info   :LateJoinPlus] [Slots] You put Item Gun Handgun/1 in slot 2.
+[18:03:04.558] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:03:10.701] [Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[18:03:10.701] [Info   :LateJoinPlus] [Admin] Host kill Player 15: done - Player 15 was killed.
+[18:04:43.504] [Warning:Unity Log] Received RPC "GrabLinkRPC" for viewID 334 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 132' Maybe GO was destroyed but RPC not cleaned up.
+[18:04:43.504] [Warning:Unity Log] Received RPC "GrabPointSyncRPC" for viewID 334 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 132' Maybe GO was destroyed but RPC not cleaned up.
+[18:04:43.504] [Warning:Unity Log] Received RPC "GrabStartedRPC" for viewID 334 but this PhotonView does not exist! Was remote PV. Remote called. By: #04 'Player 132' Maybe GO was destroyed but RPC not cleaned up.
+[18:04:53.778] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:04:55.376] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 41 times in total)
+[18:05:22.750] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:05:25.345] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 2 player(s).
+[18:05:26.488] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[18:05:28.182] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 3 player(s).
+   (seen 2 times in total)
+[18:05:32.971] [Info   :LateJoinPlus] [Slots] You took Item Gun Handgun/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[18:07:27.483] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:07:28.985] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 3 player(s).
+[18:07:49.357] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:08:33.924] [Info   :LateJoinPlus] Late joiner Player 118 connected (level Level - Arctic). Catching them up.
+[18:08:34.876] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 118' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:08:37.046] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 118 (without LateJoinPlus).
+[18:08:44.120] [Error  :Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 8 times in total)
+[18:08:49.166] [Info   :LateJoinPlus] Late joiner Player 118 finished loading in 15.3 s (without LateJoinPlus).
+[18:08:49.927] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Health for Player 118: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Stamina for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Speed for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Strength for Player 118: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Range for Player 118: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Throw for Player 118: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Launch for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 118: 0 -> 30.
+[18:08:51.403] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:08:52.645] [Info   :LateJoinPlus] Uncovered 7 explored room(s) on Player 118's map (37 messages).
+[18:09:04.662] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 118' (player #5, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 168 bytes each).
+[18:09:15.332] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:09:22.377] [Info   :LateJoinPlus] [Admin] Host bring Player 118: done - Moved Player 118 to You.
+[18:09:25.982] [Info   :LateJoinPlus] Late joiner Player 116 connected (level Level - Arctic). Catching them up.
+[18:09:26.502] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 116' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:09:28.546] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:09:29.023] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 116 (without LateJoinPlus).
+[18:09:30.380] [Info   :LateJoinPlus] [Slots] Player 15 put Item Gun Shockwave/1 in slot 1.
+[18:09:31.615] [Info   :LateJoinPlus] [Admin] Host heal Player 118: done - Healed Player 118.
+[18:09:33.276] [Info   :LateJoinPlus] [Admin] Host revive Player 118: not done - Player 118 isn't dead.
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Health for Player 116: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Stamina for Player 116: 0 -> 30.
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Speed for Player 116: 0 -> 30.
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Strength for Player 116: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Range for Player 116: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:09:37.083] [Info   :LateJoinPlus] [Admin] Throw for Player 116: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] Launch for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 116: 0 -> 30.
+[18:09:37.084] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:09:39.238] [Info   :LateJoinPlus] Late joiner Player 116 finished loading in 13.3 s (without LateJoinPlus).
+[18:09:43.226] [Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 116's map (42 messages).
+[18:09:56.506] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 116' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 31 messages (about 163 bytes each).
+[18:10:04.402] [Info   :LateJoinPlus] Late joiner Player 141 connected (level Level - Arctic). Catching them up.
+[18:10:05.296] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 141' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:10:07.398] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 141 (without LateJoinPlus).
+[18:10:13.054] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Health for Player 141: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Stamina for Player 141: 0 -> 30.
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Speed for Player 141: 0 -> 30.
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Strength for Player 141: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Range for Player 141: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Throw for Player 141: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 141: 0 -> 30.
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] Launch for Player 141: 0 -> 30.
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 141: 0 -> 30.
+[18:10:15.017] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 141: 0 -> 30.
+[18:10:15.018] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 141: 0 -> 30.
+[18:10:15.018] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 141: 0 -> 30.
+[18:10:15.018] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 141: 0 -> 30.
+[18:10:15.018] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:10:27.779] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:10:34.232] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 141' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 0 KB in 11 messages (about 86 bytes each).
+[18:10:35.534] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 5 player(s) to you.
+[18:10:45.083] [Info   :LateJoinPlus] Late joiner Player 99 connected (level Level - Arctic). Catching them up.
+[18:10:45.684] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 99' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:10:48.274] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 99 (without LateJoinPlus).
+[18:10:53.423] [Info   :LateJoinPlus] Late joiner Player 99 finished loading in 8.3 s (without LateJoinPlus).
+[18:10:58.208] [Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 99's map (38 messages).
+[18:11:00.450] [Info   :LateJoinPlus] Late joiner Player 123 connected (level Level - Arctic). Catching them up.
+[18:11:01.438] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 123' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:11:03.689] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 123 (without LateJoinPlus).
+[18:11:05.762] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Health for Player 99: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Stamina for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Speed for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Strength for Player 99: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Range for Player 99: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Throw for Player 99: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Launch for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 99: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Health for Player 123: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Stamina for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Speed for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Strength for Player 123: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Range for Player 123: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Throw for Player 123: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Launch for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 123: 0 -> 30.
+[18:11:08.439] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[18:11:08.560] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+   (seen 5 times in total)
+[18:11:09.445] [Info   :LateJoinPlus] Late joiner Player 123 finished loading in 9.1 s (without LateJoinPlus).
+[18:11:10.641] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+[18:11:13.469] [Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 123's map (47 messages).
+[18:11:15.953] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 99' (player #8, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 32 messages (about 164 bytes each).
+[18:11:16.958] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 7 player(s) to you.
+[18:11:29.230] [Info   :LateJoinPlus] Late joiner Player 141 finished loading in 85.0 s (without LateJoinPlus).
+[18:11:30.424] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 123' (player #9, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 62 messages (about 81 bytes each).
+[18:11:33.256] [Info   :LateJoinPlus] Uncovered 9 explored room(s) on Player 141's map (46 messages).
+[18:11:56.263] [Info   :LateJoinPlus] Player 141 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:11:56.263] [Info   :LateJoinPlus] [Slots] Player 141 tried to put Item Drone Battery/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 3 times in total)
+[18:12:07.016] [Info   :LateJoinPlus] Player 99 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:12:07.016] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Grenade Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 7 times in total)
+[18:12:38.844] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:12:40.612] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[18:12:43.736] [Info   :LateJoinPlus] Late joiner Player 73 connected (level Level - Arctic). Catching them up.
+[18:12:44.477] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 73' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:12:46.809] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 73 (without LateJoinPlus).
+[18:12:47.930] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:12:49.663] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Ultra rare box ×1.
+[18:12:50.428] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Grenade Human/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 3 times in total)
+[18:12:54.160] [Info   :LateJoinPlus] Late joiner Player 73 finished loading in 10.4 s (without LateJoinPlus).
+[18:12:56.726] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:12:58.888] [Info   :LateJoinPlus] Uncovered 11 explored room(s) on Player 73's map (53 messages).
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Health for Player 73: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Stamina for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Speed for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Strength for Player 73: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Range for Player 73: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Throw for Player 73: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Launch for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 73: 0 -> 30.
+[18:13:00.488] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:13:08.426] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:13:08.426] [Info   :LateJoinPlus] [Death drop] Player 99 died; the host shows them holding 0 item(s).
+[18:13:11.591] [Info   :LateJoinPlus] [Death drop] Player 132 died; the host shows them holding 0 item(s).
+[18:13:14.438] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 73' (player #10, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 44 messages (about 120 bytes each).
+[18:13:16.289] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:13:17.706] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[18:13:18.754] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 8 player(s).
+[18:13:28.604] [Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[18:13:28.604] [Info   :LateJoinPlus] [Admin] Host kill Player 15: done - Player 15 was killed.
+[18:13:29.234] [Info   :LateJoinPlus] [Slots] Player 15's Item Gun Shockwave/1 was forced out of slot 1, as happens when someone dies (1.5 m away, 1.5 m above their feet).
+[18:13:29.360] [Info   :LateJoinPlus] [Death drop] +0.15 s, dropped from a dead player's slot: Item Gun Shockwave(Clone) #405 0.0 m away, floor 1.51 m | state Idle owner 2017 | held by nobody | kinematic True collisions False colliders on 4/4 | active False deactivate 0.04 pin -0.09 | view owner 1
+[18:13:29.771] [Info   :LateJoinPlus] [Death drop] +0.5 s, dropped from a dead player's slot: Item Gun Shockwave(Clone) #405 0.0 m away, floor 0.09 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.09 | view owner 1
+[18:13:32.462] [Info   :LateJoinPlus] [Death drop] +3 s, dropped from a dead player's slot: Item Gun Shockwave(Clone) #405 1.3 m away, floor 0.06 m | state Idle owner 2017 | held by nobody | kinematic False collisions True colliders on 4/4 | active True deactivate -123 pin -0.09 | view owner 1
+[18:13:48.384] [Info   :LateJoinPlus] Late joiner Player 135 connected (level Level - Arctic). Catching them up.
+[18:13:49.226] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 135' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:13:51.691] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 135 (without LateJoinPlus).
+[18:13:57.082] [Info   :LateJoinPlus] Late joiner Player 43 connected (level Level - Arctic). Catching them up.
+[18:13:57.499] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 43' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:14:00.267] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 43 (without LateJoinPlus).
+[18:14:08.575] [Info   :LateJoinPlus] Late joiner Player 43 finished loading in 11.5 s (without LateJoinPlus).
+[18:14:13.425] [Info   :LateJoinPlus] Uncovered 11 explored room(s) on Player 43's map (55 messages).
+[18:14:17.222] [Info   :LateJoinPlus] Player 73 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:14:17.222] [Info   :LateJoinPlus] [Slots] Player 73 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[18:14:19.113] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 135' (player #11, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 2 KB in 29 messages (about 76 bytes each).
+[18:14:20.645] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:14:21.113] [Info   :LateJoinPlus] Late joiner Player 135 finished loading in 33.1 s (without LateJoinPlus).
+[18:14:21.896] [Info   :LateJoinPlus] Late joiner Player 76 connected (level Level - Arctic). Catching them up.
+[18:14:22.229] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 76' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:14:24.728] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[18:14:25.176] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 76 (without LateJoinPlus).
+[18:14:25.922] [Info   :LateJoinPlus] Uncovered 11 explored room(s) on Player 135's map (45 messages).
+[18:14:27.585] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 43' (player #12, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 33 messages (about 149 bytes each).
+[18:14:27.585] [Info   :LateJoinPlus] [Admin] Health for Player 135: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:14:27.585] [Info   :LateJoinPlus] [Admin] Stamina for Player 135: 0 -> 30.
+[18:14:27.585] [Info   :LateJoinPlus] [Admin] Speed for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Strength for Player 135: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Range for Player 135: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Throw for Player 135: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Launch for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 135: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Health for Player 43: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Stamina for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Speed for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Strength for Player 43: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Range for Player 43: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Throw for Player 43: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Launch for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 43: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Health for Player 76: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Stamina for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Speed for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Strength for Player 76: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Range for Player 76: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Throw for Player 76: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Launch for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 76: 0 -> 30.
+[18:14:27.586] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 3 players to level 30.
+[18:14:29.665] [Info   :LateJoinPlus] [Slots] Player 141 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:14:31.167] [Info   :LateJoinPlus] Late joiner Player 76 finished loading in 9.1 s (without LateJoinPlus).
+[18:14:31.576] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 6 times in total)
+[18:14:33.442] [Info   :LateJoinPlus] Player 116 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:14:33.442] [Info   :LateJoinPlus] [Slots] Player 116 tried to put Item Drone Battery/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:14:33.718] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[18:14:33.718] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Drone Battery/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:14:33.883] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 2 times in total)
+[18:14:34.101] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Drone Battery/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:14:34.235] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[18:14:34.806] [Info   :LateJoinPlus] [Slots] Player 116 tried to put Item Drone Battery/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:14:35.646] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[18:14:36.718] [Info   :LateJoinPlus] Uncovered 12 explored room(s) on Player 76's map (40 messages).
+[18:14:43.414] [Info   :LateJoinPlus] Late joiner Player 94 connected (level Level - Arctic). Catching them up.
+[18:14:44.399] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 94' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:14:46.487] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 94 (without LateJoinPlus).
+[18:14:52.629] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 76' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 31 messages (about 168 bytes each).
+[18:14:55.752] [Info   :LateJoinPlus] Late joiner Player 94 finished loading in 12.4 s (without LateJoinPlus).
+[18:14:56.650] [Info   :LateJoinPlus] Player 43 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:14:56.650] [Info   :LateJoinPlus] [Slots] Player 43 tried to put Item Gun Shockwave/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[18:14:57.617] [Info   :LateJoinPlus] [Slots] Player 43 tried to put Item Gun Shockwave/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[18:15:00.933] [Info   :LateJoinPlus] Uncovered 12 explored room(s) on Player 94's map (47 messages).
+[18:15:04.852] [Info   :LateJoinPlus] [Death drop] Player 141 died; the host shows them holding 0 item(s).
+[18:15:13.488] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 94' (player #14, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 33 messages (about 156 bytes each).
+[18:15:15.371] [Info   :LateJoinPlus] [Slots] Player 73 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:15:52.744] [Warning:Unity Log] Physics.ClosestPoint can only be used with a BoxCollider, SphereCollider, CapsuleCollider and a convex MeshCollider.
+   (seen 2 times in total)
+[18:16:47.590] [Info   :LateJoinPlus] Late joiner Player 134 connected (level Level - Arctic). Catching them up.
+[18:16:49.175] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 134' (player #15, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:16:55.141] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 134 (without LateJoinPlus).
+[18:17:00.470] [Info   :LateJoinPlus] Late joiner Player 134 finished loading in 14.5 s (without LateJoinPlus).
+[18:17:03.987] [Info   :LateJoinPlus] [Death drop] Player 94 died; the host shows them holding 0 item(s).
+[18:17:05.291] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:17:05.425] [Info   :LateJoinPlus] Uncovered 12 explored room(s) on Player 134's map (64 messages).
+[18:17:08.704] [Info   :LateJoinPlus] [Admin] Health for Player 94: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Stamina for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Speed for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Strength for Player 94: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Range for Player 94: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Throw for Player 94: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Launch for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 94: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Health for Player 134: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Stamina for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Speed for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Strength for Player 134: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Range for Player 134: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Throw for Player 134: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Launch for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 134: 0 -> 30.
+[18:17:08.705] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 2 players to level 30.
+[18:17:16.478] [Info   :Lobby Guard] [Lobby Guard] Joiner 'player #15' (player #15, Steam ID unknown), first 30 s: busiest second 5 KB in 58 messages (about 93 bytes each).
+[18:17:19.569] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:17:27.272] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:17:40.815] [Info   :LateJoinPlus] Player 132 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:17:40.815] [Info   :LateJoinPlus] [Slots] Player 132 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:17:53.228] [Info   :LateJoinPlus] [Slots] Player 132 tried to put Item Gun Shockwave/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[18:18:32.984] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:18:35.870] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[18:18:36.858] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 10 player(s).
+   (seen 2 times in total)
+[18:18:38.348] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[18:18:54.200] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:18:57.865] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+[18:18:59.728] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Hauler ×1.
+[18:19:20.832] [Warning:Unity Log] Item Item Grenade Human/1 already exists in the dictionary
+   (seen 2 times in total)
+[18:19:26.660] [Info   :LateJoinPlus] Player 76 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:19:26.660] [Info   :LateJoinPlus] [Slots] Player 76 tried to put Item Grenade Human/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:19:29.363] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:19:29.363] [Info   :LateJoinPlus] [Slots] Player 76 tried to put Item Grenade Human/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:19:30.816] [Info   :LateJoinPlus] [Slots] Player 76 tried to put Item Grenade Human/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[18:19:31.088] [Info   :LateJoinPlus] [Slots] Player 76 tried to put Item Grenade Human/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+[18:19:31.696] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Wizard Troll Finger ×1.
+   (seen 9 times in total)
+[18:19:44.989] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Health Pack Large/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[18:19:50.770] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 3 times in total)
+[18:19:51.891] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+[18:19:52.091] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[18:19:52.300] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 2: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[18:19:52.836] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 3: it stays in their hand, as their slots aren't working yet.
+   (seen 2 times in total)
+[18:20:02.992] [Info   :LateJoinPlus] [Death drop] Player 132 died; the host shows them holding 0 item(s).
+[18:20:02.992] [Info   :LateJoinPlus] [Slots] Player 99 tried to put Item Gun Shockwave/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:20:07.494] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:20:11.770] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:20:17.838] [Info   :LateJoinPlus] [Death drop] Player 141 died; the host shows them holding 0 item(s).
+[18:20:17.838] [Info   :LateJoinPlus] [Admin] Host kill Player 141: done - Player 141 was killed.
+[18:20:24.527] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:20:33.534] [Info   :LateJoinPlus] [Death drop] Player 15 died; the host shows them holding 0 item(s).
+[18:20:33.534] [Info   :LateJoinPlus] [Admin] Host kill Player 15: done - Player 15 was killed.
+[18:20:34.473] [Info   :LateJoinPlus] [Death drop] Player 43 died; the host shows them holding 1 item(s).
+[18:20:34.661] [Info   :LateJoinPlus] [Death drop] +0.15 s, held by Player 43 when they died: Item Gun Handgun(Clone) #227 2.4 m away, floor 5.89 m | state Idle owner 1026 | held by nobody | kinematic False collisions True colliders on 2/2 | active True deactivate -123 pin -0.01 | view owner 1
+[18:20:35.030] [Info   :LateJoinPlus] [Death drop] An item held by Player 43 when they died is gone (destroyed or picked up into a slot).
+[18:21:01.309] [Info   :LateJoinPlus] Late joiner Player 50 connected (level Level - Arctic). Catching them up.
+[18:21:01.729] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 50' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:21:04.425] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 50 (without LateJoinPlus).
+[18:21:16.130] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Health for Player 50: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Stamina for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Speed for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Strength for Player 50: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Range for Player 50: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Throw for Player 50: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Launch for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 50: 0 -> 30.
+[18:21:19.153] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:21:27.612] [Info   :LateJoinPlus] Late joiner Player 50 finished loading in 26.3 s (without LateJoinPlus).
+[18:21:31.814] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 50' (player #16, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 36 messages (about 91 bytes each).
+[18:21:35.630] [Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 50's map (90 messages).
+[18:21:37.396] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:21:38.883] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 4 player(s).
+[18:21:40.078] [Info   :LateJoinPlus] [Death drop] Player 132 died; the host shows them holding 0 item(s).
+[18:21:51.338] [Info   :LateJoinPlus] [Death drop] Player 43 died; the host shows them holding 0 item(s).
+[18:22:01.824] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:22:07.228] [Info   :LateJoinPlus] Late joiner Player 86 connected (level Level - Arctic). Catching them up.
+[18:22:08.079] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 86' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:22:08.290] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:22:10.762] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 86 (without LateJoinPlus).
+[18:22:11.611] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:22:12.360] [Info   :LateJoinPlus] Player 50 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:22:12.360] [Info   :LateJoinPlus] [Slots] Player 50 tried to put Item Grenade Human/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+   (seen 3 times in total)
+[18:22:16.009] [Info   :LateJoinPlus] Late joiner Player 86 finished loading in 8.7 s (without LateJoinPlus).
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Health for Player 86: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Stamina for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Speed for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Strength for Player 86: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Range for Player 86: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Throw for Player 86: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Launch for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 86: 0 -> 30.
+[18:22:18.034] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:22:20.000] [Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 141 (#7): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[18:22:23.752] [Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 86's map (103 messages).
+[18:22:37.342] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 86' (player #17, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 39 messages (about 144 bytes each).
+[18:23:04.509] [Info   :LateJoinPlus] Late joiner Player 118 connected (level Level - Arctic). Catching them up.
+[18:23:04.564] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 118' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:23:07.668] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 118 (without LateJoinPlus).
+[18:23:16.980] [Info   :LateJoinPlus] Late joiner Player 118 finished loading in 12.4 s (without LateJoinPlus).
+[18:23:24.667] [Info   :LateJoinPlus] Uncovered 20 explored room(s) on Player 118's map (99 messages).
+[18:23:25.715] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:23:27.122] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[18:23:28.422] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 2 player(s).
+[18:23:30.004] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+   (seen 2 times in total)
+[18:23:32.157] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 13 player(s).
+   (seen 5 times in total)
+[18:23:35.394] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 118' (player #18, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 3 KB in 25 messages (about 126 bytes each).
+[18:23:37.128] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 13 player(s).
+[18:23:42.447] [Info   :LateJoinPlus] Late joiner Player 82 connected (level Level - Arctic). Catching them up.
+[18:23:42.911] [Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 82' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[18:23:45.676] [Info   :LateJoinPlus] Sent the setup of 20 level piece(s) once to Player 82 (without LateJoinPlus).
+[18:23:48.810] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 13 player(s) to you.
+[18:23:51.999] [Info   :LateJoinPlus] Late joiner Player 82 finished loading in 9.4 s (without LateJoinPlus).
+[18:23:56.560] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:24:00.485] [Info   :LateJoinPlus] Uncovered 21 explored room(s) on Player 82's map (85 messages).
+[18:24:00.963] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+   (seen 2 times in total)
+[18:24:02.562] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 14 player(s).
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Health for Player 82: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Stamina for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Speed for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Strength for Player 82: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Range for Player 82: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Throw for Player 82: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] ExtraJump for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] Launch for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] TumbleWings for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] TumbleClimb for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] CrouchRest for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] DeathHeadBattery for Player 82: 0 -> 30.
+[18:24:03.632] [Info   :LateJoinPlus] [Admin] MapPlayerCount for Player 82: 0 -> 30.
+[18:24:03.633] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: done - Upgraded 1 players to level 30.
+[18:24:03.857] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+   (seen 4 times in total)
+[18:24:08.666] [Info   :LateJoinPlus] [Death drop] Player 99 died; the host shows them holding 0 item(s).
+[18:24:12.954] [Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 82' (player #19, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 34 messages (about 157 bytes each).
+[18:24:34.768] [Info   :LateJoinPlus] [Death drop] Player 116 died; the host shows them holding 0 item(s).
+[18:24:38.371] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:24:43.826] [Info   :LateJoinPlus] [Admin] Host extract.open: done - Opened the next extraction point.
+[18:24:56.868] [Info   :LateJoinPlus] Player 82 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:24:56.868] [Info   :LateJoinPlus] [Slots] Player 82 tried to put Item Grenade Human/2 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:25:12.304] [Info   :LateJoinPlus] [Slots] Player 73 tried to put Item Health Pack Medium/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:25:14.107] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:25:17.328] [Info   :LateJoinPlus] [Admin] Host upgradeeveryone: not done - Upgraded 0 players to level 30.
+[18:25:19.704] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:25:27.062] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 13 player(s) to you.
+[18:25:48.650] [Error  :Unity Log] Coroutine couldn't be started because the the game object 'Controller' is inactive!
+   (seen 2 times in total)
+[18:25:48.673] [Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[18:25:48.673] [Info   :LateJoinPlus] [Death drop] Player 43 died; the host shows them holding 0 item(s).
+[18:25:55.960] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:26:04.235] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 14 player(s) to the truck.
+[18:26:05.526] [Info   :LateJoinPlus] [Admin] Host reviveall: not done - Nobody is dead.
+   (seen 3 times in total)
+[18:26:06.400] [Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 86 (#17): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[18:26:06.516] [Info   :Lobby Guard] [Lobby Guard] Refused starting the truck by Player 76 (#13): only you and moderators with Truck & extract can (Lobby Guard > OnlyStaffStart).
+[18:26:06.818] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 14 player(s).
+   (seen 3 times in total)
+[18:26:12.332] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:26:17.180] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 14 player(s) to the truck.
+   (seen 8 times in total)
+[18:26:19.904] [Info   :LateJoinPlus] [Admin] Host bringall: done - Brought 13 player(s) to you.
+   (seen 3 times in total)
+[18:26:24.382] [Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Small Health Pack (25) ×1.
+   (seen 4 times in total)
+[18:26:40.016] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:26:41.532] [Info   :LateJoinPlus] [Death drop] Player 118 died; the host shows them holding 0 item(s).
+[18:26:43.709] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 14 player(s) to the truck.
+   (seen 9 times in total)
+[18:26:48.718] [Info   :LateJoinPlus] [Admin] Host reviveall: done - Revived 1 player(s).
+[18:26:50.203] [Info   :LateJoinPlus] [Admin] Host healall: done - Sent a heal to 14 player(s).
+[18:26:52.686] [Info   :LateJoinPlus] [Admin] Host truckall: done - Sent 14 player(s) to the truck.
+[18:27:04.187] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:27:11.029] [Info   :LateJoinPlus] [Admin] Host bring Player 15: done - Moved Player 15 to You.
+   (seen 6 times in total)
+[18:27:15.793] [Info   :LateJoinPlus] [Admin] Host goto Player 15: done - Moved You to Player 15.
+[18:27:20.338] [Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[18:27:22.190] [Info   :LateJoinPlus] [Admin] Host goto Player 15: done - Moved You to Player 15.
+[18:27:23.374] [Info   :LateJoinPlus] [Slots] Player 50 tried to put Item Staff Zero Gravity/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:27:25.503] [Info   :LateJoinPlus] Player 86 (without LateJoinPlus) tried an inventory slot, but a joiner's game usually skips its slots until the next level (Try Slots For Joiners Without Mod is off). The item stays in their hand instead of disappearing.
+[18:27:25.503] [Info   :LateJoinPlus] [Slots] Player 86 tried to put Item Staff Zero Gravity/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[18:27:30.899] [Info   :LateJoinPlus] [Slots] Player 86 tried to put Item Staff Zero Gravity/1 in slot 1: it stays in their hand, as their slots aren't working yet.
+[23:32:50.309] [Error  :Unity Log] Connection lost. OnStatusChanged to SendError. Client state was: Joined. SCS v0 UDP SocketError: 10051 [WSAENETUNREACH - network unreachable (fatal)] AppOutOfFocus 
+[23:32:50.350] [Info   :Unity Log] Disconnected from server for reason Exception
+[23:32:50.352] [Error  :Unity Log] network disconnect report: cause=Exception, summary=SCS v0 UDP SocketError: 10051 [WSAENETUNREACH - network unreachable (fatal)] AppOutOfFocus  (2041667), build=0.5.4, scene=Main, game=Main, loading=0.0s, receiveGap=18323375ms, rtt=53ms, rttVariance=3ms, resends=629
+[23:32:50.352] [Info   :Unity Log] leaving photon
+[23:32:56.526] [Info   :Unity Log] Leave to Main Menu
+[23:32:56.865] [Error  :Unity Log] Connection lost. OnStatusChanged to SendError. Client state was: Disconnecting. SCS v0 UDP SocketError: 10022 [WSAEINVAL - socket not bound or invalid argument (fatal)] AppOutOfFocus 
+[23:32:56.880] [Info   :LateJoinPlus] Timing: slowest frame so far 18323388 ms, 20455 s after start.
+[23:32:56.880] [Info   :LateJoinPlus] [Admin] Our powers from the host: none.
+[23:33:07.297] [Info   :LateJoinPlus] [Report] Level 'Level - Arctic': OK | joins 16 (0 with LateJoinPlus), loaded 16 (avg 18.2 s, slowest 85.0 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 16 (197 rooms) | extraction: opened for joiner 15, already had it 1, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 14 | slow catch-up steps 47 (slowest 84 ms)
+[23:33:07.297] [Info   :LateJoinPlus] [Report] Session (2 level(s) with activity): OK | joins 17 (0 with LateJoinPlus), loaded 17 (avg 17.8 s, slowest 85.0 s), left while loading 0, still loading at level end 0, stuck 0 | map reveal 17 (199 rooms) | extraction: opened for joiner 16, already had it 1, softlocks prevented 0, auto-presses ignored 1 | Lobby Guard: blocked 0, banned 0, cheats ignored 0 | Steam lobby: rebuilt 0, re-sent to players 15 | slow catch-up steps 48 (slowest 84 ms)
+[10:11:36.025] [Info   :LateJoinPlus] Timing: slowest frame so far 38273656 ms, 58785 s after start.
