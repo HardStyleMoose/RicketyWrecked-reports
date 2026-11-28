@@ -1,0 +1,393 @@
+LateJoinPlus bug report 20261128-192942-eba55b
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "admin"
+description: ""
+role: "client"
+level: "Level - Shop Forest"
+players: 11
+language: "en-US"
+test: false
+
+Mods (19):
+- "DisableClientsideTimeout" | "DisableClientsideTimeout" | "1.1.0"
+- "PunFixedRegion" | "PunFixedRegion" | "1.1.2"
+- "EnemyOrbMerge" | "REPOJP.EnemyOrbMerge" | "4.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Remove Monster Orb Cap" | "RavenMother.OrbCap" | "1.0.2"
+- "Crouch And Crawl Sprint" | "TechedCrayon413.CrouchAndCrawlSprint" | "1.0.1"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "REPO Command Console" | "com.jameskieley.repo.commandconsole" | "2.3.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "Always Visible Nametags" | "nilaier.alwaysvisiblenametags" | "1.1.0"
+- "Hauler Unlimited Storage" | "repo.hauler.unlimited" | "1.0.0"
+- "ExtraSlots" | "rev.extraslots" | "2.0.0"
+- "Admin Menu Button Position Fix" | "ricketywrecked.repo.adminmenubuttonfix" | "1.5.4"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "Hover Hauler" | "ricketywrecked.repo.hoverhauler" | "1.0.3"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "No Swap Drop" | "tomo.repo.noswapdrop" | "1.0.0"
+- "CarryFriend" | "zichen.carryfriend" | "1.0.5"
+
+Log:
+Player picked: Admin
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 4
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 20
+Players/MaxPlayersEnabled = true
+PC: Windows 10  (10.0.19045) 64bit
+CPU: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz (8 threads)
+Memory: 8151 MB
+Graphics: NVIDIA GeForce GT 730 (2000 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 10259 ms
+Most memory this game: 6635 MB
+Most texture memory this game: 418 MB
+BepInEx: [ip]
+Patchers: FixPluginTypesSerialization, LateJoinPlus.MenuLibCompatibility
+Who patches the methods in this log's errors:
+  LoadBalancingClient.OnEvent: ricketywrecked.repo.latejoinplus (prefix)
+  PhysGrabObject.GrabLinkRPC: ricketywrecked.repo.fixes (finalizer)
+Game methods several mods patch (14):
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ExtractionPoint.OnShopClick: Vippy.BigFriendlyButton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ItemValuableBox.OnObjectsFound: repo.hauler.unlimited (prefix), ricketywrecked.repo.fixes (postfix)
+  MenuAPI.CreateREPOButton: ricketywrecked.repo.adminmenubuttonfix (prefix), zichen.carryfriend (postfix)
+  MenuPageEsc.Start: ricketywrecked.repo.adminmenubuttonfix (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PhysGrabObjectImpactDetector.OnCollisionStay: REPOJP.EnemyOrbMerge (prefix), zichen.carryfriend (prefix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerAvatar.ReviveRPC: ricketywrecked.repo.latejoinplus (prefix), zichen.carryfriend (postfix)
+  PlayerAvatar.Start: ricketywrecked.repo.latejoinplus (postfix), zichen.carryfriend (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  WorldSpaceUIPlayerName.Update: nilaier.alwaysvisiblenametags (postfix), ricketywrecked.repo.latejoinplus (postfix)
+Timeline (last 4):
+  21:59:56 an error from Unity Log
+  22:00:07 an error from Unity Log
+  22:00:49 an error from Unity Log
+  22:00:50 an error from Unity Log
+(end of settings)
+[Warning:  HarmonyX] AccessTools.DeclaredMethod: Could not find method for type SteamManager and name HostLobby and parameters 
+[Error  : Unity Log] ArgumentException: Undefined target method for patch method static bool PunFixedRegion.Patches.SteamManagerPatch::Prefix()
+Stack trace:
+HarmonyLib.PatchClassProcessor.PatchWithAttributes (System.Reflection.MethodBase& lastOriginal) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+Rethrow as HarmonyException: Patching exception in method null
+HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor.Patch () (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+PunFixedRegion.PunFixedRegionPlugin.Awake () (at <0033553c99714ae4a8bcc1f2e14e6b38>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[Warning:Admin Menu Button Position Fix] RepoAdminMenu isn't installed, so there's no Admin Menu button.
+[Info   :R.E.P.O Fixes+] [Mod guards] CrouchAndCrawlSprint found; its crawl is held while the level is loading.
+[Info   :R.E.P.O Fixes+] [Mod guards] Hauler Unlimited Storage found; the hauler only takes valuables again (non-valuables were being destroyed for $0).
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 57 patches applied, 0 failed.
+[Info   :R.E.P.O Fixes+] Extra slot labels: kept the number on inventory slot 4 and any others a mod added.
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[Warning:  HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1558 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1475 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 3392 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 1460 MB of 8151 MB, 75 MB of it from mods and scripts; textures 88 MB of 2000 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 14 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 1,7 ms (13 fonts).
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 60s, resends to 10; voice chat 60s.
+[Warning: Unity Log] [2026-11-28T18:53:46] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] КРЕВЕТКИ 18+ФАРМ КОСМЕТИКИ'; as typed: 'креветки 18+фарм косметики'.
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] Waited 0,1 s for Player 211's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 90's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 252's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 351's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: slowest frame so far 6152 ms, 332 s after start.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 211' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 175' (player #3, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 252' (player #6, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 103' (player #13, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 71' (player #40, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 351' (player #48, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 125' (player #51, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 90' (player #53, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 210' (player #60, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 206' (player #62, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0,1 s for Player 125's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 103's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-28T18:59:00] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] No PhotonView with ID 62008 found. Remote voice p#60 v#7 not linked.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] The host has not sent 24 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Player - break medium01" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "footstep snow medium02" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Player - break heavy02" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "material impact wood heavy03" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player land03" will not be played.
+   (seen 33 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "footstep stone medium04" will not be played.
+   (seen 17 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player jump03" will not be played.
+   (seen 43 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "footstep stone light01" will not be played.
+   (seen 17 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "safe hinge break02" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "phys grabber on01" will not be played.
+   (seen 15 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Player - impact medium02" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Metal hollow Big - Impact - Light03" will not be played.
+   (seen 4 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Ice Block -Impact - Light02" will not be played.
+   (seen 13 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Ice Block -Impact - Medium03" will not be played.
+   (seen 4 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Metal hollow Big - Impact - Heavy03" will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Metal hollow Big - Impact - Medium02" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player slide" will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "material slide stone03" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Player - impact heavy03" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Player - impact small01" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Flamethrower - Flamethrower - Impact - Light03_2" will not be played.
+   (seen 8 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "footstep catwalk light03" will not be played.
+   (seen 26 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "footstep catwalk heavy03" will not be played.
+   (seen 16 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Phase Bridge ON - Impact - Heavy02" will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Phys Vehicle - Impact - Medium03" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "phys grabber off01" will not be played.
+   (seen 14 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "upgrade extra jump01" will not be played.
+   (seen 15 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Phys Vehicle - Impact - Light01" will not be played.
+[Warning:R.E.P.O Fixes+] Suppressed exception in PhysGrabber.PhysGrabBeamDeactivateRPC (sender already left) (1 so far): NullReferenceException: Object reference not set to an instance of an object
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player tumble stop" will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "upgrade tumble launch03" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player tumble start" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "material slide rug01" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Drone Close" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "player upgrade" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "enemy thin man teleport in" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "enemy thin man teleport out" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Flamethrower - Flamethrower - Impact - Medium01_2" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Ice Block -Impact - Heavy02" will not be played.
+   (seen 5 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "arctic door close03" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "arctic door open01" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Drone Deploy" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "car door - car door open02" will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "car door - car door close03" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "material impact wood medium01" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Plastic Big - Impact - Light02" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "item tranq gun shootl03" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "item tranq gun cloud03" will not be played.
+   (seen 2 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "untitled - Flesh Medium - Impact - Light03" will not be played.
+   (seen 2 times in total)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+(wrapper dynamic-method) PhysGrabObject.DMD<PhysGrabObject::GrabLinkRPC>(PhysGrabObject,int,int,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,int,Photon.Pun.PhotonMessageInfo)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonNetwork.OnEvent (ExitGames.Client.Photon.EventData photonEvent) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Realtime.LoadBalancingClient.DMD<Photon.Realtime.LoadBalancingClient::OnEvent>(Photon.Realtime.LoadBalancingClient,ExitGames.Client.Photon.EventData)
+ExitGames.Client.Photon.PeerBase.DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer stream) (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.EnetPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Rethrow as AggregateException: Caught 8 exception(s) in methods called by DispatchIncomingCommands(). Rethrowing first only (see above). (Exception has been thrown by the target of an invocation.)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonHandler.FixedUpdate () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "trap ice saw stop" will not be played.
+   (seen 4 times in total)
+[Warning: Unity Log] Ran out of virtual channels when playing audio clip "prop loop lab vat". Sound will not be played.
+   (seen 3 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "UnityAudioOut" will not be played.
+   (seen 4 times in total)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join on: the host catches us up on the run in progress.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 6 times in total)
+[Info   :LateJoinPlus] Host room connections received: 24 matched our estimate, 0 corrected to the host's.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "enemy robe cracking fingers slow" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "death pit save loop" will not be played.
+   (seen 8 times in total)
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "uranium toxic cloud big" will not be played.
+[Warning: Unity Log] Ran out of virtual channels. Audio clip "Ambience Loop Arctic Default" will not be played.
+[Info   :LateJoinPlus] Timing: slowest frame so far 10259 ms, 402 s after start.
+[Info   :LateJoinPlus] Timing: game memory 2561 MB of 8151 MB, 121 MB of it from mods and scripts; textures 312 MB of 2000 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 223' (player #64, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 297' (player #65, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 344' (player #66, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 4 with LateJoinPlus.
+[Info   :R.E.P.O Fixes+] [Voice fix] Player 90's voice was arriving but not playing; restarted their voice playback.
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'player #64' (player #64, Steam ID unknown), first 30 s: busiest second 183 KB in 1383 messages (about 136 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 297' (player #65, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 166 KB in 1294 messages (about 131 bytes each).
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 344' (player #66, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 32 KB in 348 messages (about 96 bytes each).
+[Info   :R.E.P.O Fixes+] [Voice fix] Player 71's voice was arriving but not playing; restarted their voice playback.
+[Info   :R.E.P.O Fixes+] [Voice fix] Player 103's voice was arriving but not playing; restarted their voice playback.
+[Error  : Unity Log] [2026-11-28T19:00:49] [Error] [Recorder] [Voice(Clone)] [PV] MicWrapper: Microphone is no longer recording
+   (seen 2 times in total)
+[Warning: Unity Log] [2026-11-28T19:01:09] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Remote voice #1 of player 64 not found when trying to remove
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 256' (player #67, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 256' (player #67, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 4 KB in 30 messages (about 165 bytes each).
+[Warning: Unity Log] Received RPC "UpgradeTumbleWingsVisualsActiveRPC" for viewID 65002 but this PhotonView does not exist! Was remote PV. Remote called. By: #01 'Player 211' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 9 times in total)
+[Warning: Unity Log] Received RPC "DiscoverRPC" for viewID 720 but this PhotonView does not exist! Was remote PV. Remote called. By: #03 'Player 175' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+[Warning: Unity Log] Received RPC "DiscoverRPC" for viewID 731 but this PhotonView does not exist! Was remote PV. Remote called. By: #62 'Player 206' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 149' (player #68, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joiner 'Player 149' (player #68, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]), first 30 s: busiest second 5 KB in 34 messages (about 155 bytes each).
+[Info   :LateJoinPlus] Cosmetic boxes: 3 token(s) for this level, which you joined mid-level.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 211's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 90's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 149's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 252's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 256's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 175's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 351's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 71's Steam ID before loading their upgrades and name tag.
+[Info   :Lobby Guard] [Lobby Guard] Last level: busiest player 'Player 211' peaked at 1017 messages/s (flood limit 500); most data from one player 199 KB/s (limit 100); 0 messages dropped.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 206's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0,1 s for Player 125's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Timing: game memory 3079 MB of 8151 MB, 150 MB of it from mods and scripts; textures 416 MB of 2000 MB video memory.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 162' (player #69, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Warning:Lobby Guard] [Lobby Guard] Suspicious name: 'player #69', player #69 (name shortened: 1 odd characters).
+[Info   :LateJoinPlus] [Menu] LATE JOIN menu: REPORT.
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 217' (player #70, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+=== Previous game session: closed unexpectedly ===
+(earlier lines left out)
+[21:51:22.141] [Info   :R.E.P.O Fixes+] [Mod guards] Hauler Unlimited Storage found; the hauler only takes valuables again (non-valuables were being destroyed for $0).
+[21:51:22.528] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 57 patches applied, 0 failed.
+[21:51:26.270] [Info   :R.E.P.O Fixes+] Extra slot labels: kept the number on inventory slot 4 and any others a mod added.
+[21:51:27.205] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.DistributionService
+[21:51:27.574] [Warning:HarmonyX] AccessTools.TypeByName: Could not find type named SharedUpgradesPlus.Services.SyncService
+[21:51:29.453] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[21:51:29.463] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[21:51:29.465] [Info   :LateJoinPlus] Timing: start-up took 1773 ms.
+[21:51:29.465] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[21:51:29.466] [Info   :LateJoinPlus] Timing: late patches took 1471 ms.
+[21:51:29.501] [Warning:Unity Log] Unable to load font face for [] font asset.
+[21:51:29.972] [Info   :LateJoinPlus] Timing: slowest frame so far 4979 ms, 5 s after start.
+[21:51:29.973] [Info   :LateJoinPlus] Timing: game memory 1460 MB of 8151 MB, 75 MB of it from mods and scripts; textures 88 MB of 2000 MB video memory.
+[21:51:29.973] [Info   :LateJoinPlus] Timing: Chinese font set-up took 14 ms and 1 MB.
+[21:51:29.974] [Info   :LateJoinPlus] Timing: the 3-second font scan took 2,0 ms (13 fonts).
+[21:51:41.500] [Info   :Unity Log] leaving photon
+[21:51:41.504] [Info   :Unity Log] Leave to Main Menu
+[21:51:50.117] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[21:51:57.802] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[21:51:57.803] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[21:51:58.159] [Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 60s, resends to 10; voice chat 60s.
+[21:51:58.177] [Warning:Unity Log] [2026-11-28T18:51:58] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+[21:51:58.700] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] КРЕВЕТКИ 18+ФАРМ КОСМЕТИКИ'; as typed: 'креветки 18+фарм косметики'.
+[21:52:05.526] [Info   :Unity Log] Disconnected from server for reason None
+[21:52:05.528] [Error  :Unity Log] network disconnect report: cause=None, summary=none, build=0.5.4, scene=Main, game=Main, loading=0,0s, receiveGap=7074ms, rtt=61ms, rttVariance=11ms, resends=229
+[21:52:05.529] [Info   :Unity Log] leaving photon
+[21:52:05.532] [Info   :Unity Log] Leave to Main Menu
+[21:52:05.532] [Warning:Unity Log] Save folder not found: C:\Users\[user]/AppData/LocalLow/semiwork/REPO/saves/REPO_SAVE_2026_11_28_21_51_51
+[21:52:12.253] [Info   :Unity Log] Disconnected from server for reason DisconnectByClientLogic
+   (seen 2 times in total)
+[21:52:19.608] [Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[21:52:19.609] [Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[21:52:19.764] [Info   :R.E.P.O Fixes+] [Voice fix] Your voice from before you rejoined was still loaded (voice 1008, tied to your old connection, so nobody could hear you). Threw it away so a fresh one is used.
+[21:52:20.881] [Info   :LateJoinPlus] Server name on the list: '[LATEJOINPLUS] КРЕВЕТКИ 18+ФАРМ КОСМЕТИКИ'; as typed: 'креветки 18+фарм косметики'.
+[21:52:41.461] [Error  :Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+PlayerAvatar.SetDisabled () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+GameDirector.gameStateEnd () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+GameDirector.Update () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+[Info   :Player.log] GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
