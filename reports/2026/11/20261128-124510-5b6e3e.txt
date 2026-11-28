@@ -1,0 +1,459 @@
+LateJoinPlus bug report 20261128-124510-5b6e3e
+v: 1
+mod: "LateJoinPlus"
+modVersion: "1.2.2"
+gameVersion: "0.5.4"
+category: "join"
+description: "Stuck on the loading screen."
+role: "client"
+level: "Level - Lobby"
+players: 4
+language: "en-US"
+test: false
+
+Mods (19):
+- "EnemyHealthBar" | "DarkSpider90.EnemyHealthBar" | "1.2.0"
+- "NoItemSpawnLimit" | "HeroHanex.NoItemSpawnLimit" | "1.0.9"
+- "More Shop Items" | "Jettcodey.MoreShopItems" | "4.3.2"
+- "Stable Flashlight" | "Linkoid.Repo.StableFlashlight" | "1.0"
+- "Minimap" | "Minimap" | "1.1.3"
+- "EnemyOrbMerge" | "REPOJP.EnemyOrbMerge" | "4.0.0"
+- "REPOLib" | "REPOLib" | "4.5.1"
+- "Remove Monster Orb Cap" | "RavenMother.OrbCap" | "1.0.2"
+- "BigFriendlyButton" | "Vippy.BigFriendlyButton" | "1.0.2"
+- "SharedUpgradesPlus" | "Vippy.SharedUpgradesPlus" | "1.6.2"
+- "Player Health Regen" | "com.bridgegpt.repo.playerhealthregen" | "1.0.1"
+- "REPO Compatibility Patch" | "com.pbdde.repocompatibilitypatch" | "1.1.2"
+- "InfiniteItemBatteryMod" | "com.yourname.infiniteitembatterymod" | "1.0.0"
+- "minimap ext" | "com.zhuanban.repo.minimapentityextension" | "0.1.0"
+- "Menu Lib" | "nickklmao.menulib" | "2.6.3"
+- "REPOConfig" | "nickklmao.repoconfig" | "1.3.0"
+- "R.E.P.O Fixes+" | "ricketywrecked.repo.fixes" | "1.3.10"
+- "LateJoinPlus" | "ricketywrecked.repo.latejoinplus" | "1.2.2"
+- "SaveGuardianMod" | "sticot19.SaveGuardianMod" | "1.0.0"
+
+Log:
+Player picked: Stuck on a loading screen
+LateJoinPlus settings:
+Admin/ModeratorSpawnMax = 5
+Admin/ModeratorsMayChangeLevel = true
+Bug reports/Enabled = true
+Bug reports/OfferAfterError = true
+Calls/AllowCallRequests = true
+Calls/AllowTexts = true
+Calls/CallMicBoost = 100
+Calls/CallPanelCorner = TopRight
+Calls/CallVolumePercent = 100
+Calls/KeepTexts = false
+Calls/MaxCallMinutes = 0
+Calls/MinutesBetweenCalls = 0
+Calls/NotificationTime = 5
+Calls/OutsideCallVolume = 15
+Calls/PhoneClock24Hour = false
+Calls/PhoneComesUpWhenRung = true
+Calls/PhoneControls = Arrows
+Calls/PhonePosition = BottomMiddle
+Calls/PhoneSize = Normal
+Calls/PhoneUsesMouse = true
+Calls/PhoneWallpaper = Dusk
+Calls/RingSound = true
+Calls/SendReadReceipts = true
+Calls/ShowCallPanel = true
+Debug/DebugLogging = false
+Display/InviteButton = true
+Display/LoadingScreenPlayers = true
+Display/MissingRoomWarning = true
+Display/ShowJoinStatus = true
+Display/ShowModeratorActions = true
+Display/ShowStatus = true
+Late Join/Enabled = true
+Late Join/JoinSpawn = Truck
+Late Join/Level = true
+Late Join/OtherLateJoinMods = true
+Late Join/RevealMapForJoiners = true
+Late Join/Shop = true
+Late Join/Truck = true
+Late Join/TruckHealBackup = true
+Late Join/TrySlotsForJoinersWithoutMod = false
+Lobby/ContinueStuckLevelChangeSeconds = 120
+Lobby/HighlightLateJoinPlusLobbies = true
+Lobby/StartCountdownSeconds = 5
+Lobby/WarnSlowPlayersSeconds = 45
+Lobby Guard/AutoBan = true
+Lobby Guard/BlockHostHijack = true
+Lobby Guard/ChatSpamGuard = true
+Lobby Guard/Enabled = true
+Lobby Guard/EnforceHeuristics = false
+Lobby Guard/FloodKilobytesPerSecond = 100
+Lobby Guard/FloodMessagesPerSecond = 500
+Lobby Guard/GhostSeconds = 90
+Lobby Guard/HoldBackModOnlyObjects = true
+Lobby Guard/LockGameTools = false
+Lobby Guard/OnlyStaffStart = false
+Lobby Guard/OutgoingQueueCommands = 1024
+Lobby Guard/RpcMessagesPerSecond = 250
+Lobby Guard/VoiceGuard = true
+Map Sync/Enabled = true
+Map Sync/RevealAllRoomsWhenHostHasNoMod = false
+Players/MaxPlayers = 10
+Players/MaxPlayersEnabled = true
+PC: Windows 11  (10.0.26200)
+CPU: AMD Ryzen 7 7435HS  (16 threads)
+Memory: 8008 MB
+Graphics: NVIDIA GeForce RTX 2050 (3964 MB, Direct3D11)
+Screen: 1920x1080
+Slowest frame this game: 9622 ms
+Most memory this game: 5949 MB
+Most texture memory this game: 453 MB
+BepInEx: [ip]
+Patchers: LateJoinPlus.MenuLibCompatibility, REPOCompatibilityPatcher
+Who patches the methods in this log's errors:
+  LoadBalancingClient.OnEvent: ricketywrecked.repo.latejoinplus (prefix)
+  PhysGrabObject.GrabLinkRPC: ricketywrecked.repo.fixes (finalizer)
+Game methods several mods patch (19):
+  PlayerNameChecker.Update: Minimap (transpiler), ricketywrecked.repo.fixes (finalizer)
+  EnemyHealth.Awake: DarkSpider90.EnemyHealthBar (postfix), RavenMother.OrbCap (postfix)
+  EnemyTumbler.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (prefix)
+  ExtractionPoint.OnShopClick: Vippy.BigFriendlyButton (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ItemBattery.Update: com.yourname.infiniteitembatterymod (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  LevelGenerator.GenerateDone: HeroHanex.NoItemSpawnLimit (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  MenuPageMain.Start: com.pbdde.repocompatibilitypatch (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  NetworkConnect.OnJoinedRoom: ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PlayerAvatar.Awake: ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Start: ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.fixes (postfix)
+  PlayerVoiceChat.Update: ricketywrecked.repo.latejoinplus (prefix), ricketywrecked.repo.fixes (postfix), ricketywrecked.repo.latejoinplus (postfix)
+  PunManager.TesterUpgradeCommandRPC: ricketywrecked.repo.latejoinplus (prefix), Vippy.SharedUpgradesPlus (postfix), ricketywrecked.repo.latejoinplus (postfix), ricketywrecked.repo.latejoinplus (finalizer)
+  PunManager.TruckPopulateItemVolumes: HeroHanex.NoItemSpawnLimit (prefix), Jettcodey.MoreShopItems (prefix), ricketywrecked.repo.fixes (prefix), ricketywrecked.repo.fixes (postfix)
+  RunManager.Awake: REPOLib (postfix), Jettcodey.MoreShopItems (postfix)
+  RunManager.ChangeLevel: ricketywrecked.repo.latejoinplus (prefix), sticot19.SaveGuardianMod (prefix)
+  SemiFunc.EnemySpawn: REPOLib (prefix), ricketywrecked.repo.latejoinplus (prefix)
+  ShopManager.ShopInitialize: Vippy.SharedUpgradesPlus (prefix), Jettcodey.MoreShopItems (prefix)
+  StatsManager.LoadGame: com.pbdde.repocompatibilitypatch (prefix), Vippy.SharedUpgradesPlus (postfix), com.pbdde.repocompatibilitypatch (finalizer)
+  StatsManager.RunStartStats: REPOLib (postfix), Vippy.SharedUpgradesPlus (postfix)
+Timeline (last 29):
+  20:43:24 an error from Unity Log
+  20:43:27 an error from Unity Log
+  20:43:27 an error from Unity Log
+  20:43:27 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:28 an error from Unity Log
+  20:43:29 an error from Unity Log
+  20:43:29 an error from Unity Log
+  20:43:39 an error from Unity Log
+(end of settings)
+[Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[Info   :LateJoinPlus] Timing: start-up took 1995 ms.
+[Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[Info   :LateJoinPlus] Timing: late patches took 1082 ms.
+[Warning: Unity Log] Unable to load font face for [] font asset.
+[Info   :LateJoinPlus] Timing: slowest frame so far 2773 ms, 3 s after start.
+[Info   :LateJoinPlus] Timing: game memory 2173 MB of 8008 MB, 70 MB of it from mods and scripts; textures 403 MB of 3964 MB video memory.
+[Info   :LateJoinPlus] Timing: Chinese font set-up took 19 ms and 1 MB.
+[Info   :LateJoinPlus] Timing: the 3-second font scan took 9.1 ms (13 fonts).
+[Info   :LateJoinPlus] Timing: slowest frame so far 9622 ms, 12 s after start.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Leave to Main Menu
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   :LateJoinPlus] [Moderators] Room publishes user IDs: yes.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   :R.E.P.O Fixes+] [Connection timeout] Photon disconnect timeout set to 30s, resends to 10; voice chat 30s.
+[Warning: Unity Log] [2026-11-28T12:11:29] [Warning] [PhotonVoiceView] [Voice(Clone)] PhotonVoiceView.RecorderInUse.TransmitEnabled is false, don't forget to set it to true to enable transmission.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Run] Run starts in 5 s (You). Click Start again to call it off, Shift-click to start now.
+[Info   :LateJoinPlus] [Run] Run starting (countdown ended).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Menu] Admin panel opened (as host).
+   (seen 8 times in total)
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $10K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $0K.
+[Info   :LateJoinPlus] [Admin] Upgrades page for you (game id ok): Health 0, Stamina 0, Speed 0, Strength 0, Range 0, Throw 0, ExtraJump 0, Launch 0, TumbleWings 0, TumbleClimb 0, CrouchRest 0, DeathHeadBattery 0, MapPlayerCount 0.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: MapPlayerCount set to 30.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 30 -> 0.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: MapPlayerCount set to 0.
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 30; max health on the host 100.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 30.
+[Info   :LateJoinPlus] [Admin] Health for You: 30 -> 0; max health on the host 700.00 -> 100.00 (expected 100.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 0.
+[Info   :LateJoinPlus] [Death drop] You died; the host shows them holding 0 item(s).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Menu] Call phone opened.
+   (seen 3 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: ExtraJump set to 30.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: TumbleWings set to 30.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: CrouchRest set to 30.
+[Info   :LateJoinPlus] [Admin] Health for You: 0 -> 16; max health on the host 100.00 -> 420.00 (expected 420.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 16.
+[Info   :LateJoinPlus] [Admin] Health for You: 16 -> 5; max health on the host 420.00 -> 200.00 (expected 200.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 5.
+[Info   :LateJoinPlus] [Admin] Health for You: 5 -> 30; max health on the host 200.00 -> 700.00 (expected 700.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Health set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 30.
+[Info   :LateJoinPlus] [Admin] Speed for You: 30 -> 8.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 8.
+[Info   :LateJoinPlus] [Admin] Speed for You: 8 -> 7.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 7.
+[Info   :LateJoinPlus] [Admin] Speed for You: 7 -> 6.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 6.
+[Info   :LateJoinPlus] [Admin] Range for You: 0 -> 30; grab range on the host 2.50 -> 32.50 (expected 32.50)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Range set to 30.
+[Info   :LateJoinPlus] [Admin] Stamina for You: 0 -> 30.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Stamina set to 30.
+[Info   :LateJoinPlus] [Admin] Strength for You: 0 -> 30; grab strength on the host 1.00 -> 7.00 (expected 7.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Strength set to 30.
+[Info   :LateJoinPlus] [Admin] Throw for You: 0 -> 30; throw strength on the host 0.00 -> 9.00 (expected 9.00)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 30.
+[Info   :LateJoinPlus] [Admin] Health for You: 30 -> 10; max health on the host 700.00 -> 300.00 (expected 300.00)
+[Info   :LateJoinPlus] [Admin] Stamina for You: 30 -> 10.
+[Info   :LateJoinPlus] [Admin] Speed for You: 6 -> 10.
+[Info   :LateJoinPlus] [Admin] Strength for You: 30 -> 10; grab strength on the host 7.00 -> 3.00 (expected 3.00)
+[Info   :LateJoinPlus] [Admin] Range for You: 30 -> 10; grab range on the host 32.50 -> 12.50 (expected 12.50)
+[Info   :LateJoinPlus] [Admin] Throw for You: 30 -> 10; throw strength on the host 9.00 -> 3.00 (expected 3.00)
+[Info   :LateJoinPlus] [Admin] ExtraJump for You: 30 -> 10.
+[Info   :LateJoinPlus] [Admin] Launch for You: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] TumbleWings for You: 30 -> 10.
+[Info   :LateJoinPlus] [Admin] TumbleClimb for You: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] CrouchRest for You: 30 -> 10.
+[Info   :LateJoinPlus] [Admin] DeathHeadBattery for You: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] MapPlayerCount for You: 0 -> 10.
+[Info   :LateJoinPlus] [Admin] Host upgradeall You: done - You: every upgrade set to 10.
+[Info   :LateJoinPlus] [Admin] Speed for You: 10 -> 6.
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Speed set to 6.
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Human Gun ×1.
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Indestructible Drone ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Admin] Throw for You: 10 -> 6; throw strength on the host 3.00 -> 1.80 (expected 1.80)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 6.
+[Info   :LateJoinPlus] [Admin] Throw for You: 6 -> 5; throw strength on the host 1.80 -> 1.50 (expected 1.50)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 5.
+[Info   :LateJoinPlus] [Admin] Throw for You: 5 -> 6; throw strength on the host 1.50 -> 1.80 (expected 1.80)
+[Info   :LateJoinPlus] [Admin] Host upgrade You: done - You: Throw set to 6.
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.6 m away, 1.3 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.8 m away, 1.5 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.5 m away, 1.2 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/1 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/1 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] Timing: game memory 2808 MB of 8008 MB, 87 MB of it from mods and scripts; textures 366 MB of 3964 MB video memory.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $46K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $56K.
+[Info   :LateJoinPlus] [Admin] Host money: done - Money set to $156K.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Admin] You's Strength went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's Health went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's CrouchRest went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's Health went from 11 to 12: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's Range went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's Health went from 12 to 13: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's CrouchRest went from 11 to 12: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's Stamina went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] You's TumbleWings went from 10 to 11: they used an upgrade.
+[Info   :LateJoinPlus] [Admin] Host levelnum: done - Level number set to 19, from the next level.
+[Info   :LateJoinPlus] [Admin] Host levelnum: done - Level number set to 10, from the next level.
+[Info   :LateJoinPlus] [Admin] Host levelnum: done - Level number set to 9, from the next level.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (1 on the results screen, 0 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 1 loading, 0 ready); the players panel is up.
+[Info   :LateJoinPlus] [Slots] You's Item Gun Revolver/1 is back in slot 1 (the game restoring slots).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Zero Gravity/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/2 in slot 2.
+[Info   :LateJoinPlus] [Slots] 3 remembered item(s) are in their slots, 20 s into this level.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/2 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/2 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.7 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/2 out of slot 2 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/2 in slot 2.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (2.2 m away, 2.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.8 m away, 1.4 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.5 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Revolver/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Gun Revolver/1 out of slot 1 (1.0 m away, 0.1 m above their feet).
+[Info   :LateJoinPlus] [Admin] Host spawn: done - Spawned Shotgun ×1.
+[Info   :LateJoinPlus] [Slots] You put Item Gun Shotgun/1 in slot 1.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Zero Gravity/1 out of slot 3 (1.4 m away, 1.1 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Gun Tranq/1 in slot 3.
+[Info   :LateJoinPlus] [Slots] You took Item Drone Indestructible/2 out of slot 2 (1.3 m away, 1.0 m above their feet).
+[Info   :LateJoinPlus] [Slots] You put Item Drone Indestructible/2 in slot 2.
+[Info   :LateJoinPlus] [Moderators] Loading screen: 1 player(s) (0 on the results screen, 0 loading, 1 ready); the players panel is up.
+[Info   : Unity Log] leaving photon
+[Info   : Unity Log] Disconnected from server for reason DisconnectByClientLogic
+[Info   : Unity Log] Leave to Main Menu
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 6' (player #1, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 12' (player #2, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :Lobby Guard] [Lobby Guard] Joined: 'Player 5' (player #7, Steam [steamid] https:​//steamcommunity.​com/profiles/[steamid]).​
+[Info   :LateJoinPlus] Waited 0.1 s for Player 6's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 5's Steam ID before loading their upgrades and name tag.
+[Info   :LateJoinPlus] Waited 0.1 s for Player 12's Steam ID before loading their upgrades and name tag.
+[Warning: Unity Log] [2026-11-28T12:43:23] [Warning] [Recorder] [Voice(Clone)] [PV] MicWrapper: microphone does not support suggested frequency 48000 (min: 44100, max: 44100). Setting to 44100
+   (seen 2 times in total)
+[Warning: Unity Log] [2026-11-28T12:43:24] [Warning] [PunVoiceClient] [PunVoiceClient(Clone)] [PV] Local voice #1 audio source frequency 44100 and encoder sampling rate 48000 do not match. Resampling will occur before encoding (FramerResampler, interp).
+   (seen 2 times in total)
+[Error  : Unity Log] [2026-11-28T12:43:24] [Error] [Recorder] [Voice(Clone)] [PV] MicWrapper: Microphone is no longer recording
+[Warning: Unity Log] Received RPC "AddToStatsManagerRPC" for viewID 7031 but this PhotonView does not exist! Was remote PV. Owner called. By: #07 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "AddToStatsManagerRPC" for viewID 2059 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "AddToStatsManagerRPC" for viewID 1206 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[Info   :LateJoinPlus] The host has not sent 24 room connection(s) yet; rebuilt them from the level layout. The host's data replaces them if it arrives and differs.
+[Error  : Unity Log] PhotonView ID duplicate found: 480. New: View 480 on Item Upgrade Player Grab Range(Clone) (scene) old: View 480 on Start Room - Arctic - Base Entrance(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 496. New: View 496 on Item Upgrade Player Grab Strength(Clone) (scene) old: View 496 on Module - Arctic - DE - 3 - Outside Overlook 2(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 497. New: View 497 on Item Grenade Explosive(Clone) (scene) old: View 497 on Module - Arctic - E - 3 - Coolant Leak(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 502. New: View 502 on Item Upgrade Player Energy(Clone) (scene) old: View 502 on Module - Arctic - N - 3 - Botanical Sector(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 505. New: View 505 on Item Orb Battery(Clone) (scene) old: View 505 on Module - Arctic - N - 2 - Triple Portapotty(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 509. New: View 509 on Item Gun Tranq(Clone) (scene) old: View 509 on Module - Arctic - P - 3 - Catwalks(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 516. New: View 516 on Item Gun Shockwave(Clone) (scene) old: View 516 on Module - Arctic - P - 3 - Maintenance(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 517. New: View 517 on Item Gun Laser(Clone) (scene) old: View 517 on Module - Arctic - N - 1 - Lounge(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 524. New: View 524 on Item Grenade Shockwave(Clone) (scene) old: View 524 on Module - Arctic - N - 2 - Storage Room(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 533. New: View 533 on Item Orb Battery(Clone) (scene) old: View 533 on Module - Arctic - N - 3 - Vents(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 538. New: View 538 on Item Mine Stun(Clone) (scene) old: View 538 on Module - Arctic - P - 3 - Maintenance 2(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 1205 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 1205 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 7030 but this PhotonView does not exist! Was remote PV. Owner called. By: #07 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 7030 but this PhotonView does not exist! Was remote PV. Owner called. By: #07 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupCosmeticsRPC" for viewID 2058 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "SetupColorsRPC" for viewID 2058 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "UpdateMyPlayerVoiceChat" for viewID 1206 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "UpdateMyPlayerVoiceChat" for viewID 7031 but this PhotonView does not exist! Was remote PV. Owner called. By: #07 'Player 5' Maybe GO was destroyed but RPC not cleaned up.
+[Warning: Unity Log] Received RPC "UpdateMyPlayerVoiceChat" for viewID 2059 but this PhotonView does not exist! Was remote PV. Owner called. By: #02 'Player 12' Maybe GO was destroyed but RPC not cleaned up.
+[Error  : Unity Log] PhotonView ID duplicate found: 539. New: View 539 on Start Room - Lobby(Clone) (scene) old: View 539 on Module - Arctic - N - 3 - Storage Sideroom 2(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 545. New: View 545 on Item Drone Indestructible(Clone) (scene) old: View 545 on Module - Arctic - N - 3 - Storage Sideroom(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 553. New: View 553 on Item Drone Feather(Clone) (scene) old: View 553 on Module - Arctic - P - 3 - Catwalks Wide(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 554. New: View 554 on Item Drone Feather(Clone) (scene) old: View 554 on Module - Arctic - N - 3 - Cooling Center(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 557. New: View 557 on Item Gun Stun(Clone) (scene) old: View 557 on Module - Arctic - DE - 3 - Outside Overlook(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 558. New: View 558 on Item Rubber Duck(Clone) (scene) old: View 558 on Module - Arctic - DE - 3 - Outside Overlook 3(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 560. New: View 560 on Item Staff Void(Clone) (scene) old: View 560 on Module - Arctic - E - 3 - Pools(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 565. New: View 565 on Item ReviveItem(Clone) (scene) old: View 565 on Module - Arctic - DE - 3 - Outside Loading Dock 2(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 568. New: View 568 on Item Gun Revolver(Clone) (scene) old: View 568 on Module - Arctic - P - 1 - The C(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 569. New: View 569 on Item Gun Revolver(Clone) (scene) old: View 569 on Module - Arctic - N - 2 - Snow Dump(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 575. New: View 575 on Item Grenade Shockwave(Clone) (scene) old: View 575 on Module - Arctic - DE - 3 - Stairway & Deathpit(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 580. New: View 580 on Item WalkieTalkie(Clone) (scene) old: View 580 on Module - Arctic - N - 2 - Center Specimen(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Error  : Unity Log] PhotonView ID duplicate found: 581. New: View 581 on Item Drone Zero Gravity(Clone) (scene) old: View 581 on Module - Arctic - E - 2 - Runway Lights(Clone) (scene). Maybe one wasn't destroyed on scene load?! Check for 'DontDestroyOnLoad'. Destroying old entry, adding new.
+[Warning:R.E.P.O Fixes+] Suppressed exception in PhysGrabber.PhysGrabBeamDeactivateRPC (sender already left) (1 so far): NullReferenceException: Object reference not set to an instance of an object
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object
+Stack trace:
+(wrapper dynamic-method) PhysGrabObject.DMD<PhysGrabObject::GrabLinkRPC>(PhysGrabObject,int,int,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,int,Photon.Pun.PhotonMessageInfo)
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+Photon.Pun.PhotonNetwork.ExecuteRpc (ExitGames.Client.Photon.Hashtable rpcData, Photon.Realtime.Player sender) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonNetwork.OnEvent (ExitGames.Client.Photon.EventData photonEvent) (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+(wrapper dynamic-method) Photon.Realtime.LoadBalancingClient.DMD<Photon.Realtime.LoadBalancingClient::OnEvent>(Photon.Realtime.LoadBalancingClient,ExitGames.Client.Photon.EventData)
+ExitGames.Client.Photon.PeerBase.DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer stream) (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.EnetPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+ExitGames.Client.Photon.PhotonPeer.DispatchIncomingCommands () (at <7ad2e4f1c831437d95834db428ad5455>:0)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Rethrow as AggregateException: Caught 4 exception(s) in methods called by DispatchIncomingCommands(). Rethrowing first only (see above). (Exception has been thrown by the target of an invocation.)
+Photon.Pun.PhotonHandler.Dispatch () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+Photon.Pun.PhotonHandler.FixedUpdate () (at <80c2d2b358a24fef9466c5da0999ef7b>:0)
+[Info   :LateJoinPlus] The host is running a compatible late-join mod (LJ+ 1.2.2), late join off.
+[Info   :LateJoinPlus] [Moderators] The host asked for our moderator key; answered with 0 key proof(s).
+   (seen 2 times in total)
+[Error  : Unity Log] PlayerDeathHead: PlayerAvatar not found
+   (seen 3 times in total)
+[Warning: Unity Log] Failed to create agent because it is not close enough to the NavMesh
+   (seen 14 times in total)
+[Error  : Unity Log] NullReferenceException: Object reference not set to an instance of an object.
+Stack trace:
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <398789c008484afa80c3315b7c00257b>:0)
+UnityEngine.GameObject.get_transform () (at <398789c008484afa80c3315b7c00257b>:0)
+SemiFunc.ExtractionPointGetNearest (UnityEngine.Vector3 position) (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+TruckDoor+<DelayedStart>d__17.MoveNext () (at <96f57d40dcbf47f69f2dc2b21df972b3>:0)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <398789c008484afa80c3315b7c00257b>:0)
+[Info   :LateJoinPlus] [Moderators] Roles from the host: 0 moderator(s), 0 protected, 2 with LateJoinPlus.
+[Warning: Unity Log] Received RPC "OverridePupilSizeActivateRPC" for viewID 1222 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 4 times in total)
+[Error  : Unity Log] PlayerCosmetics: No colors equipped after 10 seconds, equipping default colors.
+   (seen 2 times in total)
+[Info   :LateJoinPlus] [Phone] Key P: opened (room=True, moderation=True, admin=False, menu=False, level menu=False, typing=False).
+[Info   :LateJoinPlus] Timing: game memory 3382 MB of 8008 MB, 103 MB of it from mods and scripts; textures 453 MB of 3964 MB video memory.
+[Warning: Unity Log] Received RPC "PhysGrabBeamDeactivateRPC" for viewID 1222 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 3 times in total)
+[Warning: Unity Log] Received RPC "PhysGrabBeamActivateRPC" for viewID 1222 but this PhotonView does not exist! Was remote PV. Owner called. By: #01 'Player 6' Maybe GO was destroyed but RPC not cleaned up.
+   (seen 2 times in total)
+=== Previous game session ===
+[Error  : Unity Log] TypeLoadException: Could not load type MenuPageServerListCreateNew, Assembly-CSharp, Version=[ip], Culture=neutral, PublicKeyToken=null while decoding custom attribute: (null)
+Stack trace:
+System.MonoCustomAttrs.GetCustomAttributesBase (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inheritedOnly) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.MonoCustomAttrs.GetCustomAttributes (System.Reflection.ICustomAttributeProvider obj, System.Type attributeType, System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+System.RuntimeType.GetCustomAttributes (System.Boolean inherit) (at <b2ed3aa968d84284a17b07ec9195055c>:0)
+HarmonyLib.HarmonyMethodExtensions.GetFromType (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type, System.Boolean allowUnannotatedType) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.PatchClassProcessor..ctor (HarmonyLib.Harmony instance, System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.CreateClassProcessor (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) (at <474744d65d8e460fa08cd5fd82b5d65f>:0)
+PublicGameSaves.PublicGameSavesPlugin.Awake () (at <9f00d8a7dc4b4a6c80cc02eaf2c2d55b>:0)
+UnityEngine.GameObject:AddComponent(Type)
+BepInEx.Bootstrap.Chainloader:Start()
+UnityEngine.Application:.cctor()
+Unity.VisualScripting.Ensure:ResetStaticsOnLoad()
+[20:07:58.882] [Info   :R.E.P.O Fixes+] [Truck items] NoItemSpawnLimit found; bought items that don't fit the truck's spots are put on top of spots in the truck.
+[20:07:58.882] [Info   :R.E.P.O Fixes+] R.E.P.O Fixes+ loaded: 56 patches applied, 0 failed.
+[20:08:15.512] [Info   :LateJoinPlus] [Admin] Freeze covers 76 enemy scripts (87 methods)
+[20:08:15.515] [Info   :LateJoinPlus] LateJoinPlus 1.2.2 loaded. Late join on, debug logging off.
+[20:08:15.516] [Info   :LateJoinPlus] Timing: start-up took 2212 ms.
+[20:08:15.516] [Info   :Lobby Guard] Lobby Guard part loaded (block list: 0 Steam IDs, on).
+[20:08:15.516] [Info   :LateJoinPlus] Timing: late patches took 1117 ms.
+[20:08:15.552] [Warning:Unity Log] Unable to load font face for [] font asset.
+[20:08:15.873] [Info   :LateJoinPlus] Timing: slowest frame so far 3156 ms, 3 s after start.
+[20:08:15.873] [Info   :LateJoinPlus] Timing: game memory 2182 MB of 8008 MB, 81 MB of it from mods and scripts; textures 403 MB of 3964 MB video memory.
+[20:08:15.873] [Info   :LateJoinPlus] Timing: Chinese font set-up took 22 ms and 1 MB.
+[20:08:15.873] [Info   :LateJoinPlus] Timing: the 3-second font scan took 10.0 ms (13 fonts).
+[20:08:15.991] [Info   :LateJoinPlus] Timing: slowest frame so far 13477 ms, 17 s after start.
+[20:08:26.520] [Info   :Unity Log] leaving photon
+[20:08:26.527] [Info   :Unity Log] Leave to Main Menu
